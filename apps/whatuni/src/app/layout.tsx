@@ -91,7 +91,7 @@ export default async function RootLayout({
         />
         <HeaderWrapper />
         {children}
-        
+        <Subscribecomponents />
         <Footer />
       </body>
     </html>
