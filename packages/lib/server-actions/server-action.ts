@@ -1,14 +1,16 @@
 "use server";
-export async function graphQlFetchFunction(payload: string) {
+export async function graphQlFetchFunction(
+  payload: string,
+  isContentPreview?: boolean
+) {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_GRAPHQL_API}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_GRAPHQL_AUTH}`,
+        Authorization: `Bearer ${isContentPreview ? "dPYwKtJ4UdtMv4mHmwQ1LmZ9tkdcM4YfPBq1UYboQWI" : process.env.NEXT_PUBLIC_GRAPHQL_AUTH}`,
       },
       body: JSON.stringify({ query: payload }),
-      cache: "no-store",
     });
     const data = await res.json();
     return data;

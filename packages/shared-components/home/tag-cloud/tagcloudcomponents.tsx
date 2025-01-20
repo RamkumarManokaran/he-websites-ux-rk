@@ -31,7 +31,6 @@ const Tagcloudcomponents: React.FC<headingProps> = async ({
   const tagCloudArray =
     tagCloudData?.data?.contentData.items?.[0]?.bodyContentCollection.items[0]
       .mediaCardsCollection.items;
-  console.log(tagCloudArray);
   return (
     <Suspense>
       <div className="tag-cloud-container">

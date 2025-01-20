@@ -11,23 +11,26 @@ const Articlelinkcomponents = async ({
   internalName,
   routename,
   contentModelName,
+  iscontentPreview,
 }: any) => {
   const query = homePageComponentQueryFormation(
     internalName,
     LinksQuery,
     routename,
-    contentModelName
+    contentModelName,
+    iscontentPreview
   );
-  const data = (await graphQlFetchFunction(query))?.data?.contentData?.items[0]
-    ?.bodyContentCollection?.items[0]?.mediaCardsCollection?.items;
+  const data = (await graphQlFetchFunction(query, iscontentPreview))?.data
+    ?.contentData?.items[0]?.bodyContentCollection?.items[0]
+    ?.mediaCardsCollection?.items;
   return (
     <div className="articlelink-container bg-grey-50">
       <div className="max-w-container mx-auto">
         <div className="articlelink-card-container flex flex-col gap-[32px] px-[16px] md:px-[20px] xl:px-[0] py-[40px] md:py-[64px]">
-          <div className="articlelink-header">
+          <div className="articlelink-header flex flex-col gap-[4px]">
             {heading && <div className="h2 font-bold">{heading}</div>}
             {subheading && (
-              <p className="font-normal small mt-[8px]">{subheading}</p>
+              <p className="font-normal small">{subheading}</p>
             )}
           </div>
           <div className="articlelink-course-container ">

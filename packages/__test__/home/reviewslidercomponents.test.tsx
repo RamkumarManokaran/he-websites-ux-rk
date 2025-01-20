@@ -64,7 +64,7 @@ describe('Reviewslidercomponents', () => {
   });
 
   test('correctly renders a review', () => {
-    render(<Reviewslidercomponents reviewData={mockReviews.slice(0, 1)} />);
+    render(<Reviewslidercomponents reviewData={mockReviews?.slice(0, 1)} />);
     
     const reviewCard = screen.getByText(mockReviews[0].collegeName);
     expect(reviewCard).toBeInTheDocument();

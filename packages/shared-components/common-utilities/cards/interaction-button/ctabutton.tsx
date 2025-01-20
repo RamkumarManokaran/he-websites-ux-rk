@@ -1,13 +1,27 @@
 import React from "react";
-import Link from "next/link";
-const Ctabutton = ({ cta }: any) => {
+import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
+const Ctabutton = ({ index, cta, sysId, iscontentPreview }: any) => {
   return (
-    <button
-      type="button"
-      className="btn btn-primary flex items-center justify-center min-w-[117px] w-fit gap-[8px] p-[10px_20px] group-hover:bg-primary-500"
-    >
-      {cta?.primaryCtaLabel}
-    </button>
+    <>
+      {iscontentPreview && (
+        <ContentfulInspectorManager
+          fields={[
+            {
+              entryId: sysId,
+              fieldId: "cta",
+              targetSelector: `#eligibility_cta_btn${index}`,
+            },
+          ]}
+        />
+      )}
+      <button
+        type="button"
+        id={`eligibility_cta_btn${index}`}
+        className="btn btn-primary flex items-center justify-center min-w-[117px] w-fit gap-[8px] p-[10px_20px] group-hover:bg-primary-500"
+      >
+        {cta?.primaryCtaLabel}
+      </button>
+    </>
   );
 };
 

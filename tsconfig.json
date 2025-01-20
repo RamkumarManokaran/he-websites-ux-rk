@@ -40,7 +40,8 @@
     "packages/__test__/hero.test.jsx",
     "src/**/*",
     "packages/**/*",
-    "apps/whatuni/src/app/new/mf/page.jsx"
+    "apps/whatuni/src/app/new/mf/page.jsx",
+    "apps/whatuni/src/app/new/micro-frontend/micro-frontend.jsx"
   ],
   "exclude": ["node_modules"]
 }

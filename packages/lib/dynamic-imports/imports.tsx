@@ -37,7 +37,6 @@ const dynamicComponentImports = (input: string | null | undefined) => {
         { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
     case "PageMultimediaTestimonials":
-      // {/* @ts-ignore Server Component */}
       return dynamic(
         () =>
           import(
@@ -59,13 +58,6 @@ const dynamicComponentImports = (input: string | null | undefined) => {
             "@packages/shared-components/article-landing/eligibility-criteria/eligibilitycriteriacomponents"
           )
       );
-    case "HeroBanner":
-      return dynamic(
-        () =>
-          import(
-            "@packages/shared-components/common-utilities/colc-banner/colc-banner"
-          )
-      );
     case "TextSnippet":
       return dynamic(
         () =>
@@ -74,12 +66,7 @@ const dynamicComponentImports = (input: string | null | undefined) => {
           )
       );
     case "Links":
-      return dynamic(
-        () =>
-          import(
-            "@packages/shared-components/common-utilities/article-link/articlelinkcomponents"
-          )
-      );
+      return null;
     case "Faqs":
       return dynamic(
         () =>

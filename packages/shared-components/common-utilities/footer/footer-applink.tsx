@@ -21,7 +21,6 @@ const FooterAppLinks = ({ data }: PropsInterface) => {
       window.removeEventListener("resize", checkMobile);
     };
   }, []);
-
   return (
     <ul
       className="flex flex-row md:flex-col gap-[16px]"
