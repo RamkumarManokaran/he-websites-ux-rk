@@ -7,11 +7,11 @@ import dynamic from "next/dynamic";
 const PageViewLogging = dynamic(
   () => import("@packages/lib/utlils/pageviewlogging")
 );
-
 import {
   MultipleCardContainer,
   SliderBannerCollection,
 } from "@packages/lib/types/interfaces";
+import Subscribecomponents from "@packages/shared-components/article-landing/subscribe-newsletter/subscribecomponents";
 const Page = async () => {
   const jsonData = await graphQlFetchFunction(homePageQuery);
   const componentList =
@@ -54,6 +54,7 @@ const Page = async () => {
           }
         )}
       </div>
+      <Subscribecomponents iscontentPreview={false} />
     </>
   );
 };

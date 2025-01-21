@@ -34,7 +34,8 @@
     "public/main.js",
     "configs/amplifyconfiguration.ts",
     "../../packages/lib/types/onetrust.d.ts",
-    "../../packages/lib/types/global.d.ts"
+    "../../packages/lib/types/global.d.ts",
+    "../../packages/lib/contentful-preview/ContentfulInspector.tsx"
   ],
   "exclude": ["node_modules"]
 }

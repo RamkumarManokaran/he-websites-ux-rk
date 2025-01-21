@@ -10,12 +10,14 @@ function getCookie(name: string): string | null {
   }
   return null;
 }
-function replaceSpaceWithUnderscore(value: any){
-	return(value && value != "NA") ? value.toString().trim().toLowerCase().replaceAll(" ", "_") : value;
+function replaceSpaceWithUnderscore(value: any) {
+  return value && value != "NA"
+    ? value.toString().trim().toLowerCase().replaceAll(" ", "_")
+    : value;
 }
 
 function replaceWithNA(value: any) {
-  return (!value) ? "NA" : replaceSpaceWithUnderscore(value);
+  return !value ? "NA" : replaceSpaceWithUnderscore(value);
 }
 
 async function currentAuthenticatedUser() {
@@ -178,10 +180,10 @@ function getInitialsFromJWT(token: any) {
   }
   const namePart = email.split("@")[0];
   const initials = namePart
-    .split(".")
-    .map((part: any) => part.charAt(0).toUpperCase())
-    .join("")
-    .slice(0, 2);
+    ?.split(".")
+    ?.map((part: any) => part.charAt(0).toUpperCase())
+    ?.join("")
+    ?.slice(0, 2);
   return initials;
 }
 export {

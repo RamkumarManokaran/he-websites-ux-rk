@@ -266,6 +266,9 @@ export const footerQuery = `{
 }`;
 export const statsPodQuery = `
 ... on PageStatPodContainer {
+sys{
+id
+}
   bgColor
   marginPadding
   statPodContainerName
@@ -283,6 +286,7 @@ export const statsPodQuery = `
     }
   }
   image {
+  sys{id}
     url
     width
     height
@@ -402,6 +406,9 @@ export const partnerLogo = `
 
 export const discoverpodQuery = `
 ... on DynamicMediaComponent {
+sys{
+   id
+   }
   internalName
   title
   subTitle
@@ -411,6 +418,9 @@ export const discoverpodQuery = `
     json
   }
   image {
+  sys{
+  id
+  }
     imageTitle
     imgIntName
     imgUpload {
@@ -454,9 +464,15 @@ export const discoverpodQuery = `
 
 export const testimonial = `
  ... on PageMultimediaTestimonials {
+  sys{
+     id
+     }
   sectionTitle
   multimediaBlockLeft {
     ... on PageVideo {
+    sys{
+       id
+       }
       videoIntName
       videoAltText
       thumbnail{
@@ -473,6 +489,9 @@ export const testimonial = `
       }
     }
     ... on PageImage {
+    sys{
+    id
+    }
       imgIntName
       imgAltText
       imgUpload {
@@ -486,6 +505,9 @@ export const testimonial = `
   testimonialBlockRight {
     internalName
     ... on PageTestimonial {
+    sys{
+    id
+    }
       testimonialText
       author {
         firstName

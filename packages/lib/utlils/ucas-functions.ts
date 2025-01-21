@@ -167,7 +167,7 @@ export const formatQualificationLabel = (input: string): string => {
   return input
     .toLowerCase()
     .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => word.charAt(0).toUpperCase() + word?.slice(1))
     .join(" ");
 };
 
@@ -184,7 +184,7 @@ export function extractValue(input: any, key: any) {
 
   for (const part of parts) {
     if (part.endsWith(key)) {
-      return parseInt(part.slice(0, -1)) || 0;
+      return parseInt(part?.slice(0, -1)) || 0;
     }
   }
 
