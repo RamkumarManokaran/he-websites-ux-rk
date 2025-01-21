@@ -383,10 +383,10 @@ const Header = ({ topnav_data, course_data, uni_data }: props) => {
               </li>
               <li className="relative">
                 <a
-                  href="/degrees/comparison"
+                  href={`${process.env.PROJECT === "Whatuni" ? "/degrees/comparison" : "/pgs/mypgs_compare_pkg.customise_basket_prc"}`}
                   title="Shortlist"
                   className="cursor-pointer"
-                  onClick={() => rightMenuAction("SHORTLIST")}
+                  // onClick={() => rightMenuAction("SHORTLIST")}
                 >
                   <span
                     ref={shortlistref}
