@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
+import { AnimatePresence, motion } from "motion/react";
 const FaqClient = ({ jsondata, iscontentPreview }: any) => {
   let data = useContentfulLiveUpdates(jsondata);
   if (!iscontentPreview) {
@@ -12,16 +13,16 @@ const FaqClient = ({ jsondata, iscontentPreview }: any) => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
   const dt: any = [];
-  data?.faqEntriesCollection?.items?.forEach((item: any) => {
+  data?.faqEntriesCollection?.items?.forEach((item: any, index: number) => {
     const question = {
       entryId: item?.sys?.id,
       fieldId: "question",
-      targetSelector: "#faq_question",
+      targetSelector: `#faq_question${index}`,
     };
     const answer = {
       entryId: item?.sys?.id,
       fieldId: "answer",
-      targetSelector: "#faq_answer",
+      targetSelector: `#faq_answer${index}`,
     };
     dt.push(question, answer);
   });
@@ -36,52 +37,45 @@ const FaqClient = ({ jsondata, iscontentPreview }: any) => {
           >
             <div
               className="accordion-header flex items-center justify-between gap-[48px] para font-semibold text-grey300"
-              id="faq_question"
+              id={`faq_question${index}`}
               onClick={() => toggleAccordion(index)}
             >
               {item.question}
-              <span>
-                {openIndex === index ? (
-                  <svg
-                    width="12"
-                    height="7"
-                    viewBox="0 0 12 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11 6L6 1L1 6"
-                      stroke="#82898F"
-                      strokeWidth="1.67"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    width="12"
-                    height="7"
-                    viewBox="0 0 12 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11 1L6 6L1 1"
-                      stroke="#82898F"
-                      strokeWidth="1.67"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                )}
-              </span>
+              <motion.span animate={{ rotate: openIndex === index ? 180 : 0 }}>
+                <svg
+                  width="12"
+                  height="7"
+                  viewBox="0 0 12 7"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 1L6 6L1 1"
+                    stroke="#82898F"
+                    strokeWidth="1.67"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </motion.span>
             </div>
-            <div
-              className={`accordion-body mt-[16px] ${openIndex === index ? "expanded flex" : "collapsed hidden"}`}
-              id="faq_answer"
-            >
-              {item.answer}
-            </div>
+            <AnimatePresence>
+              {openIndex === index && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{
+                    height: 0,
+                    opacity: 0,
+                    transition: { duration: 0.25, ease: "easeInOut" },
+                  }}
+                  className={`accordion-body ${openIndex === index ? "expanded flex" : "collapsed hidden"}`}
+                  id={`faq_answer${index}`}
+                >
+                  <div className="mt-[16px]">{item.answer}</div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         ))}
       </div>

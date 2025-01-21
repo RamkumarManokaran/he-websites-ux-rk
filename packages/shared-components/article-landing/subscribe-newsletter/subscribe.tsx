@@ -9,6 +9,7 @@ const Subscribe = ({ data, isPreviewTrue }: any) => {
   if (!isPreviewTrue) {
     jsondata = data;
   }
+  const [isChecked, setIsChecked] = useState(false);
   const [success, setSuccess] = useState(false);
   const [email, setEmail] = useState("");
   const [errorstate, SetErrorState] = useState({
@@ -21,8 +22,12 @@ const Subscribe = ({ data, isPreviewTrue }: any) => {
     const isEmailValid = emailRegex.test(event.target.value.trim());
     SetErrorState((prev) => ({ ...prev, emailError: !isEmailValid }));
   };
+  const handleCheckboxChange = (e: any) => {
+    setIsChecked(!isChecked);
+    SetErrorState((prev) => ({ ...prev, checkboxError: !!isChecked }));
+  };
   const submitNewsletter = async () => {
-    if (!errorstate.emailError && !errorstate.checkboxError) {
+    if (!errorstate.emailError && isChecked && email) {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BFF_API_DOMAIN}/hewebsites/v1/guest/users/registration`,
         {
@@ -53,7 +58,22 @@ const Subscribe = ({ data, isPreviewTrue }: any) => {
         console.log("error");
       }
     } else {
-      alert(`failed-email: ${email}`);
+      if (email && !isChecked) {
+        SetErrorState((prev) => ({
+          ...prev,
+          checkboxError: true,
+        }));
+      } else if (!email && isChecked) {
+        SetErrorState((prev) => ({
+          ...prev,
+          emailError: true,
+        }));
+      } else if (!email && !isChecked) {
+        SetErrorState(() => ({
+          checkboxError: true,
+          emailError: true,
+        }));
+      }
     }
   };
 
@@ -139,13 +159,15 @@ const Subscribe = ({ data, isPreviewTrue }: any) => {
                     </div>
                   )}
                 </div>
-                <div className="col form_check relative">
-                  <div className="flex items-start gap-[12px]">
+                <div className="col form_check relative w-full lg:w-[714px]">
+                  <div className="flex items-start justify-center gap-[8px]">
                     <div className="checkbox_card">
                       <input
                         type="checkbox"
                         className="form-checkbox hidden"
                         id="newsletters"
+                        checked={isChecked}
+                        onChange={handleCheckboxChange}
                       />
                       <label
                         htmlFor="newsletters"

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
-import { HeroLandingSeoQuery } from "@packages/lib/graphQL/article-landing";
+import { ThemeLandingSeoQuery } from "@packages/lib/graphQL/theme-landing";
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const Params = await params;
-  const slugurl = `/${Params?.slug1}/${Params?.slug2}/${Params?.hero}/${Params?.theme}`;
+  const slugurl = `/${Params?.herohub}/${Params?.money}/${Params?.budgeting}`;
   try {
-    const query = HeroLandingSeoQuery(slugurl);
+    const query = ThemeLandingSeoQuery(slugurl);
     const metadata = await graphQlFetchFunction(query);
+
     return {
       alternates: {
         canonical:

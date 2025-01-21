@@ -87,10 +87,10 @@ describe("Footer Component : Positive scenario", () => {
       },
     ];
     render(<FooterNavCollection data={mockData} />);
-    mockData.map((childItems) => {
+    mockData?.map((childItems) => {
       expect(screen.getByText(childItems.navTitle)).toBeInTheDocument();
       {
-        childItems?.navChildC1Collection?.items.map((items, index) => {
+        childItems?.navChildC1Collection?.items?.map((items, index) => {
           const linkTag = expect(
             screen.getByTestId(`${items.navTitle}${index + 1}`)
           );

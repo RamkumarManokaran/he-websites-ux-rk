@@ -346,7 +346,7 @@ export default function PgsSearch({ pgs_search_data }: any) {
                         COURSES
                       </div>
                       <ul>
-                        {filteredsubjectlist.map((item: any, index) => (
+                        {filteredsubjectlist?.map((item: any, index) => (
                           <div
                             key={index}
                             onClick={async () => {
@@ -402,7 +402,7 @@ export default function PgsSearch({ pgs_search_data }: any) {
                         INSTITUTIONS
                       </div>
                       <ul>
-                        {filteredUniversity.map((item: any, index) => (
+                        {filteredUniversity?.map((item: any, index) => (
                           <a
                             href={`/universities/${item.collegeNameDisplay
                               .trim()

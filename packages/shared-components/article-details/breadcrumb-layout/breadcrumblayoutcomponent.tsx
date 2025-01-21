@@ -6,7 +6,7 @@ const Breadcrumblayoutcomponent = ({ propsdata, preview }: any) => {
   return (
     <nav aria-label="breadcrumb">
       <ul className="flex flex-wrap gap-[20px]">
-        {propsdata.map((breadcrumbData: any) => (
+        {propsdata?.map((breadcrumbData: any) => (
           <li className="inter small" key={breadcrumbData.label}>
             {breadcrumbData.url && !breadcrumbData.Imgurl ? (
               <Link

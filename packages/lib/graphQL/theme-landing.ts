@@ -26,15 +26,12 @@ export const ThemeLandingPageQuery = (preview: boolean, slug: string) => {
             }
           }
         }
-        bodyContentCollection(limit: 1
-        where: {internalName: "Article landing page - Level 1 heading - Whatuni"}
-        ) {
+        bodyContentCollection(limit: 10) {
           items {
             sys {
               id
             }
           __typename
-
             internalName
             cardSectionTitle
             flagComponentStyle
@@ -140,9 +137,14 @@ export const ArtcileSliderQuery = (preview: boolean, articleArray: string) => {
        ${preview ? `preview : ${preview}` : ""} 
   ) {
     items {
+    sys{id}
       pageTitle
+      urlSlug
       bannerImageCollection {
         items {
+        sys{
+        id
+        }
           imgAltText
           imgUpload {
             url

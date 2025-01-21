@@ -436,6 +436,11 @@ p,
   font-size: 14px;
 }
 /* RTF END */
+.form_radio .form-check-input:checked + label,.form_radio .form-check-input:hover + label{@apply text-white bg-primary-500 border-primary-500 cursor-pointer}
+.form_check .form-checkbox:checked + label, .form_radio .form-radio:checked + label{@apply text-white bg-primary-400 border-primary-400 cursor-pointer}
+/* Course Details */
+.year-of-entry .form-check-input:checked + label,.year-of-entry .form-check-input:hover + label{@apply text-grey300 bg-white border-white}
+/* Course Details */
 .partner {
   @apply !pb-[30px];
 }

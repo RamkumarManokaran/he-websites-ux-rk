@@ -14,13 +14,12 @@ const Ctabutton = ({ index, cta, sysId, iscontentPreview }: any) => {
           ]}
         />
       )}
-      <button
-        type="button"
+      <a href="#"
         id={`eligibility_cta_btn${index}`}
         className="btn btn-primary flex items-center justify-center min-w-[117px] w-fit gap-[8px] p-[10px_20px] group-hover:bg-primary-500"
       >
         {cta?.primaryCtaLabel}
-      </button>
+      </a>
     </>
   );
 };

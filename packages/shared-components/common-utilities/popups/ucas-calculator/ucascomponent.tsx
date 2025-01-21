@@ -99,7 +99,7 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
           setLoading(false);
           if (jsonData?.userGradeDetails?.userStudyLevelEntry?.length > 0) {
             const mappedQuals =
-              jsonData?.userGradeDetails?.userStudyLevelEntry.map(
+              jsonData?.userGradeDetails?.userStudyLevelEntry?.map(
                 (entry: UserStudyLevelEntryObject) => ({
                   ...initialvalue,
                   SelectedLevel: jsonData?.gradeFilterList?.filter(
@@ -310,7 +310,7 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
       const updatedQualifications = prevQualifications?.filter(
         (item: QualInterface) => item?.id !== idToRemove
       );
-      return updatedQualifications.map(
+      return updatedQualifications?.map(
         (qual: QualInterface, index: number) => ({
           ...qual,
           name: getOrdinalName(index),
@@ -382,7 +382,7 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
     } else {
       // qual
       //   .filter((item: any) => item.userEntryPoint !== "")
-      //   .map((items: any) => {
+      //   ?.map((items: any) => {
       //     const obj = {
       //       qualId: Number(items.qualId),
       //       SelectedLevel: ucasGradeData?.filter(
@@ -405,7 +405,7 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
             });
           return !allGradesZero;
         })
-        .map((items: Initialvalue) => {
+        ?.map((items: Initialvalue) => {
           const obj = {
             qualId: Number(items?.qualId),
             SelectedLevel: ucasGradeData?.filter(

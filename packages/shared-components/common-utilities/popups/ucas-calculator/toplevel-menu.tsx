@@ -93,7 +93,7 @@ const TopLevelMenu = ({
         {isDropDownOpen && ucasGradeData?.length > 1 && (
           <div className="absolute top-[46px] left-0 max-h-[343px] overflow-y-auto w-full bg-white border border-neutral-300 rounded-[8px] small shadow-custom-9 custom-scrollbar-2 z-10">
             <ul>
-              {ucasGradeData.map((childItems: any, index: number) => (
+              {ucasGradeData?.map((childItems: any, index: number) => (
                 <li
                   key={index + 1}
                   className={

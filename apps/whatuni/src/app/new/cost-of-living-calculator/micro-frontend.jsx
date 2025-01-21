@@ -9,7 +9,6 @@ export default function MicroFrontend() {
         ? "https://mtest.test.aws."
         : "https://www."
   }`;
-  console.log(domain);
   useEffect(() => {
     const link = document.createElement("link");
     link.rel = "stylesheet";

@@ -89,7 +89,7 @@ const OurPartnerComponent = ({
                 speed={3000}
                 loop={true}
               >
-                {partners.map((partner, index) => (
+                {partners?.map((partner, index) => (
                   <SwiperSlide key={index}>
                     <div className="bg-white p-[4px] rounded-[8px] shadow-custom-8 w-[64px] h-[64px]">
                       <Image

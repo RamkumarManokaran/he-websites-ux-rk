@@ -177,7 +177,7 @@ describe("Test the Discoverslidercomponents1", () => {
                 mediaCardsCollectionItems.mediaCardsCollection.items[index] !=
                   null
               ) {
-                return mediaCardsCollectionItems?.mediaCardsCollection?.items.map(
+                return mediaCardsCollectionItems?.mediaCardsCollection?.items?.map(
                   async (discoverItems, index) => {
                     if (
                       discoverItems?.title != null &&
@@ -219,7 +219,7 @@ describe("Test the Discoverslidercomponents1", () => {
     );
     let cardCount: number = 0;
     {
-      discoverPodList.map(async (discoverItems: any, index: number) => {
+      discoverPodList?.map(async (discoverItems: any, index: number) => {
         const discoverImageElement =
           await screen.findAllByTestId("discoverImageId");
         const cardTitleElement = await screen.findAllByTestId("cardTitle");
@@ -246,7 +246,7 @@ describe("Test the Discoverslidercomponents1", () => {
     );
 
 
-        {discoverPodList.map(async (discoverItems: any, index: number) => {
+        {discoverPodList?.map(async (discoverItems: any, index: number) => {
                         cardCount = cardCount + 1;
                         const discoverImageElement = await screen.findAllByTestId("discoverImageId");
                         const cardTitleElement = await screen.findAllByTestId("cardTitle");

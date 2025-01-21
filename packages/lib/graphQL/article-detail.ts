@@ -1,14 +1,14 @@
 export function articleDetailQuery(
-  category: any,
-  title: any,
-  id: any,
+  // category: any,
+  urlSlug: any,
+  // id: any,
   preview: any
 ) {
   const query = `{
   contentData: articleCollection(
     limit: 1
+    where: {urlSlug: "${urlSlug}", website: {websiteName: "${process.env.PROJECT}"}}
     ${preview ? `preview : ${preview}` : ""}
-    where: {urlSlug: "${title}", website: {websiteName: "${process.env.PROJECT}"}}
   ) {
     items {
      sys{
@@ -186,3 +186,23 @@ export function articleDetailQuery(
 
   return query;
 }
+
+export const ArticleDetailSeoQuery = (slug: string) => {
+  return `{contentData:pageTemplateThemedLandingPageCollection(
+    limit: 1
+     where: {urlSlug: "${slug}", website: {websiteName: "${process.env.PROJECT}"}}
+  ) {
+    items {
+      seoFields {
+        metaTite
+        metaDescription
+         metaKeywords
+        canonical
+      }
+        robots {
+        title
+      }
+    }
+  }
+}`;
+};

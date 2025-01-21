@@ -28,7 +28,7 @@ export default function User({ topnav_data }: any) {
           .reduce((acc: any, cookie: any) => {
             const [key, value] = cookie
               .split("=")
-              .map((part: any) => part.trim());
+              ?.map((part: any) => part.trim());
             acc[key] = value;
             return acc;
           }, {});

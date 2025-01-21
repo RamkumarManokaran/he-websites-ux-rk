@@ -12,7 +12,7 @@ const page = async () => {
       {componentList?.map(
         (childItems: MultipleCardContainer, index: number) => {
           const Component: any = dynamicComponentImports(
-            childItems.flagComponentStyle
+            childItems?.flagComponentStyle
           );
           if (!Component) {
             console.warn(

@@ -9,10 +9,10 @@ import HeroSliderCard from "@packages/shared-components/common-utilities/cards/h
 import { SliderBannerCollection } from "@packages/lib/types/interfaces";
 interface PropsInterface {
   data: SliderBannerCollection;
-  pageName?:any;
+  pageName?: any;
 }
 
-const HeroSlider = ({ data,pageName }: PropsInterface) => {
+const HeroSlider = ({ data, pageName }: PropsInterface) => {
   return (
     <Swiper
       slidesPerView={1}
@@ -25,7 +25,7 @@ const HeroSlider = ({ data,pageName }: PropsInterface) => {
     >
       {data?.items?.map((childItems, index: number) => (
         <SwiperSlide key={index + 1} data-testid={`slider${index + 1}`}>
-          <HeroSliderCard data={childItems} index={index} pageName={pageName}/>
+          <HeroSliderCard data={childItems} index={index} pageName={pageName} />
         </SwiperSlide>
       ))}
     </Swiper>

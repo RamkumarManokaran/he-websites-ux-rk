@@ -9,7 +9,7 @@ interface PropsInterface {
 const FooterNavCollection = ({ data }: PropsInterface) => {
   return (
     <>
-      {data.map((navItems, index) => (
+      {data?.map((navItems, index) => (
         <div
           className="flex flex-col gap-[16px]"
           key={index + 1}
@@ -33,7 +33,7 @@ const FooterNavCollection = ({ data }: PropsInterface) => {
                         ctaTitle: childItem.navTitle,
                         ctaUrl: childItem?.navUrl || "",
                         website: `${process.env.PROJECT}`,
-                        pageName:  "",
+                        pageName: "",
                         contentfulCategory1: navItems?.navTitle,
                       }}
                     >

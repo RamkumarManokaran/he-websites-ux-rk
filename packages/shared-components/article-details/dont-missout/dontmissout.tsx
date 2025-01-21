@@ -15,6 +15,11 @@ const Dontmissout = () => {
   const [yearerror, setYearerror] = useState(false);
   const [agreementerror, setAgreementerror] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
+  const validateEmail = (email: any) => {
+    // Simple email regex validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   function handleSubmit(e: any) {
     e.preventDefault();
@@ -33,6 +38,11 @@ const Dontmissout = () => {
     }
     if (!email) {
       setEmailerror(true);
+    }
+    if (email) {
+      if (!validateEmail(email)) {
+        setEmailerror(true);
+      }
     }
     if (!year) {
       setYearerror(true);

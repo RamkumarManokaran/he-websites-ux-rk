@@ -77,7 +77,7 @@ const Articletables = ({ propsdata, key, preview }: any) => {
     },
   ];
   // table for qualification with requirments
-  const tableQualification = tableQualificationData.map((items, index) => (
+  const tableQualification = tableQualificationData?.map((items, index) => (
     <div
       key={index}
       className="py-[12px] pl-[24px] pr-[20px] flex justify-between border-b-[1px] border-grey-200"
@@ -91,7 +91,7 @@ const Articletables = ({ propsdata, key, preview }: any) => {
     </div>
   ));
   // Table for ranking unversity guide
-  const tableuniversity = tableUniversityData.map((items, index) => (
+  const tableuniversity = tableUniversityData?.map((items, index) => (
     <div
       key={index}
       className="flex justify-between pl-[24px] pr-[20px] py-[5px] border-b-[1px] border-grey-200"

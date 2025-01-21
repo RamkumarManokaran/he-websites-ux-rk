@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Suspense } from "react";
 import Subscribecomponents from "@packages/shared-components/article-landing/subscribe-newsletter/subscribecomponents";
 import Script from "next/script";
 import { Seoquery } from "@packages/lib/graphQL/graphql-query";
@@ -83,12 +84,15 @@ export default async function RootLayout({
       <body
         className={`bg-grey-50 ${farroBold.variable} ${interBold.variable} antialiased`}
       >
+        <Suspense>
+          <OneTrustCookieScript
+            domianValue={process.env.NEXT_PUBLIC_WU_ONE_TRUST_DOMAIN || ""}
+          />
+        </Suspense>
         <GoogleOneTap />
         <SetCookiewuIdToken />
         <TrackSessionId />
-        <OneTrustCookieScript
-          domianValue={process.env.NEXT_PUBLIC_WU_ONE_TRUST_DOMAIN || ""}
-        />
+
         <HeaderWrapper />
         {children}
         <Footer />

@@ -80,7 +80,7 @@ const GradeDropdown = ({
     });
     setOpenDropdown(null);
     setQual((prev: any) =>
-      prev.map((item: any, index: any) =>
+      prev?.map((item: any, index: any) =>
         index === indexPosition
           ? {
               ...item,
@@ -135,7 +135,7 @@ const GradeDropdown = ({
                     .filter(
                       (item) => item <= remainingCredits + distinction.point
                     )
-                    .map((item, index) => (
+                    ?.map((item, index) => (
                       <li
                         key={index}
                         className="py-[10px] px-[16px] cursor-pointer hover:bg-secondary-50 hover:underline"

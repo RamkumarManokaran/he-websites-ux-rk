@@ -41,7 +41,8 @@
     "src/**/*",
     "packages/**/*",
     "apps/whatuni/src/app/new/mf/page.jsx",
-    "apps/whatuni/src/app/new/micro-frontend/micro-frontend.jsx"
+    "apps/whatuni/src/app/new/micro-frontend/micro-frontend.jsx",
+    "apps/whatuni/src/app/new/cost-of-living-calculator/micro-frontend.jsx"
   ],
   "exclude": ["node_modules"]
 }

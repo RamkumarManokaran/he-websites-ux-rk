@@ -2,6 +2,7 @@ export default function Shortlisted({ topnav_data }: any) {
   const data =
     topnav_data?.data?.contentData?.items[0]?.shortlistMenu
       ?.navigationElementsCollection?.items[0]?.navChildC1Collection?.items;
+  console.log("data shortlist icon", data);
   return (
     <>
       <div className="flex justify-between p-[16px] absolute z-10 top-[56px] right-[-5px] shadow-custom-5 bg-white min-w-[339px] rounded-[4px] md:top-[65px] lg:top-[62px]">

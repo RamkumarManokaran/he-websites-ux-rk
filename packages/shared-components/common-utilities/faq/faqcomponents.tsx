@@ -45,7 +45,7 @@ const Faqcomponents = async ({
       <Suspense fallback={<p>loading</p>}>
         <div className="faq-container bg-white">
           <div className="max-w-container mx-auto">
-            <div className="faq-card-container flex flex-col gap-[32px] px-[16px] py-[40px] md:py-[64px] lg:px-[20px] xl:px-[0]">
+            <div className="faq-card-container flex flex-col gap-[32px] px-[16px] py-[40px] md:py-[64px] md:px-[20px] xl:px-[0]">
               <div className="faq-header flex flex-col gap-[4px]">
                 <div className="h2 font-bold" id="fqa_heading">
                   {heading}

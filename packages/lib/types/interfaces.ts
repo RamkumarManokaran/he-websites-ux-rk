@@ -254,8 +254,17 @@ export interface MultipleCardContainer {
   longDescription: string | null;
   flagComponentStyle: string;
   callToAction: CallToAction | null;
+  mediaCardsCollection?: MediaCardsCollection;
 }
 
+export interface MediaCardsCollection {
+  items: MetaTag[];
+}
+
+export interface MetaTag {
+  title: string;
+  id: string;
+}
 export interface CallToAction {
   __typename: "CallToActionCta";
   internalName: string;

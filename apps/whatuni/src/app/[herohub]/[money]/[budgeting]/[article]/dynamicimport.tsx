@@ -37,11 +37,19 @@ const componentMap: any = {
           "@packages/shared-components/article-details/article-tables/article-tables"
         )
     ),
+  PageNewsletterSubscription: () =>
+    dynamic(
+      () =>
+        import(
+          "@packages/shared-components/article-details/dont-missout/dontmissout"
+        )
+    ),
 };
 
 const dynamicComponent = (input: string | null | undefined) => {
-  if (!input) return null;
+  if (!input) return null; // Handle null or undefined input
   const loadComponent = componentMap[input];
+  if (!loadComponent) return null; // Handle unmatched input
   return loadComponent();
 };
 

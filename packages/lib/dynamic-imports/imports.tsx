@@ -76,6 +76,10 @@ const dynamicComponentImports = (input: string | null | undefined) => {
       );
     case "pageviewlog":
       return dynamic(() => import("@packages/lib/utlils/pageviewlogging"));
+    case "ArticleCarousal":
+      return dynamic(
+        () => import("@packages/shared-components/home/advice/advicecomponents")
+      );
     default:
       return null;
   }
