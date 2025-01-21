@@ -17,22 +17,22 @@ const AdviceCourseCard = ({ jsondata, iscontentPreview, index }: any) => {
             {
               entryId: data?.sys?.id,
               fieldId: "imgUpload",
-              targetSelector: `#advice_carosoul_image${index}`,
+              targetSelector: `#advice_carosoul_image${index}${data?.sys?.id}`,
             },
             {
               entryId: data?.sys?.id,
               fieldId: "imgUpload",
-              targetSelector: `#advice_carosoul_pod_title${index}`,
+              targetSelector: `#advice_carosoul_pod_title${index}${data?.sys?.id}`,
             },
             {
               entryId: data?.sys?.id,
               fieldId: "imgUpload",
-              targetSelector: `#advice_carosoul_pod_description${index}`,
+              targetSelector: `#advice_carosoul_pod_description${index}${data?.sys?.id}`,
             },
             {
               entryId: data?.sys?.id,
               fieldId: "imgUpload",
-              targetSelector: `#advice_carosoul_pod_date${index}`,
+              targetSelector: `#advice_carosoul_pod_date${index}${data?.sys?.id}`,
             },
           ]}
         />
@@ -45,7 +45,7 @@ const AdviceCourseCard = ({ jsondata, iscontentPreview, index }: any) => {
           <div className="card-header">
             {data?.bannerImageCollection?.items[0]?.imgUpload?.url && (
               <Image
-                id={`advice_carosoul_image${index}`}
+                id={`advice_carosoul_image${index}${data?.sys?.id}`}
                 src={
                   data?.bannerImageCollection?.items[0]?.imgUpload?.url ||
                   `${process.env.SUBDOMAIN}/static/assets/images/article_image1.jpg`
@@ -60,19 +60,19 @@ const AdviceCourseCard = ({ jsondata, iscontentPreview, index }: any) => {
           <div className="card-body flex flex-col gap-[10px] p-[16px]">
             <h5
               className="card-title font-semibold text-para-lg text-grey300 line-clamp-2"
-              id={`advice_carosoul_pod_title${index}`}
+              id={`advice_carosoul_pod_title${index}${data?.sys?.id}`}
             >
               {data?.pageTitle}
             </h5>
             <p
               className="card-description font-normal small text-grey-700 line-clamp-2"
-              id={`advice_carosoul_pod_description${index}`}
+              id={`advice_carosoul_pod_description${index}${data?.sys?.id}`}
             >
               {data?.shortDescription}
             </p>
             <p
               className="card-date font-normal x-small text-grey300"
-              id={`advice_carosoul_pod_date${index}`}
+              id={`advice_carosoul_pod_date${index}${data?.sys?.id}`}
             >
               {formatDate(data?.modifiedDate)}
             </p>
