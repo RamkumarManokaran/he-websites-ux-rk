@@ -52,7 +52,7 @@ const GoogleOneTap = () => {
           } else {
             const res = await response.json();
             if (res.message.toLowerCase() === "user updated") {
-              console.log(res, "User updated successfully");
+              // console.log(res, "User updated successfully");
             } else {
               try {
                 const session: any = await fetchAuthSession();
