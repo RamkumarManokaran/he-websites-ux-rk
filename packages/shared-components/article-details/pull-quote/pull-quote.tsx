@@ -26,19 +26,13 @@ const Pullquote = ({ propsdata, key, preview }: any) => {
               fieldId: "pullQuote",
               targetSelector: "#artilce-page-pullQuote-isrichtext",
             },
-
-            {
-              entryId: data?.sys?.id,
-              fieldId: "modifiedDate",
-              targetSelector: "#artilce-page-modified-date",
-            },
           ]}
         />
       )}
       <div className="border-x-8 border-blue-200 p-[16px] bg-blue-50 text-grey300 flex flex-col gap-[8px]">
         <q
           id="artilce-page-pullQuote-isrichtext"
-          className="pull-quotes text-heading6 font-farro  font-noraml"
+          className="pull-quotes text-heading6 font-farro flex font-noraml"
         >
           {data?.pullQuote?.json &&
             documentToReactComponents(data?.pullQuote.json)}

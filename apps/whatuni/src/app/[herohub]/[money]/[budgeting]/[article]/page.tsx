@@ -4,10 +4,13 @@ import Articledescription from "@packages/shared-components/article-details/arti
 import Authorprofile from "@packages/shared-components/article-details/author-profile/author-profile";
 import Skiplink from "@packages/shared-components/article-details/skiplink/skiplink";
 import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
-import dynamicComponentImports from "./dynamicimport";
+import dynamicComponent from "./dynamicimport";
 import { articleDetailQuery } from "@packages/lib/graphQL/article-detail";
 import ContentfulPreviewProvider from "@packages/lib/contentful-preview/ContentfulLivePreviewProvider";
 import Dontmissout from "@packages/shared-components/article-details/dont-missout/dontmissout";
+import dynamicComponentImports from "@packages/lib/dynamic-imports/imports";
+import dynamic from "next/dynamic";
+
 const Page = async ({ params, searchParams }: any) => {
   const searchparams = await searchParams;
   const preview =
@@ -58,10 +61,10 @@ const Page = async ({ params, searchParams }: any) => {
         <div className="bg-white">
           <section className="pt-[16px] pb-[40px]">
             <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
-              <Breadcrumblayoutcomponent
+              {/* <Breadcrumblayoutcomponent
                 propsdata={breadcrumbData}
                 preview={preview}
-              />
+              /> */}
             </div>
           </section>
 
@@ -86,19 +89,44 @@ const Page = async ({ params, searchParams }: any) => {
                     <div className="rtf-innerstyle flex flex-col gap-[16px]">
                       {data?.bodyContentCollection?.items?.map(
                         (dt: any, index: any) => {
-                          const Component: any = dynamicComponentImports(
-                            dt?.__typename
-                          );
-                          if (!Component) {
-                            return null;
+                          if (dt?.__typename === "MultipleCardContainer") {
+                            const Component: any = dynamicComponentImports(
+                              dt?.flagComponentStyle
+                            );
+                            if (!Component) {
+                              return null;
+                            }
+                            return (
+                              <Component
+                                key={index}
+                                heading={dt?.cardSectionTitle}
+                                subheading={dt?.shortDescription}
+                                internalName={dt?.internalName}
+                                callAction={dt?.callToAction}
+                                parentSysId={dt?.sys?.id}
+                                routename={slugurl}
+                                articleKeyArray={
+                                  dt?.mediaCardsCollection?.items
+                                }
+                                contentModelName={"articleCollection"}
+                                iscontentPreview={preview}
+                              />
+                            );
+                          } else {
+                            const Component: any = dynamicComponent(
+                              dt?.__typename
+                            );
+                            if (!Component) {
+                              return null;
+                            }
+                            return (
+                              <Component
+                                key={index}
+                                propsdata={dt}
+                                preview={preview}
+                              />
+                            );
                           }
-                          return (
-                            <Component
-                              key={index}
-                              propsdata={dt}
-                              preview={preview}
-                            />
-                          );
                         }
                       )}
                     </div>

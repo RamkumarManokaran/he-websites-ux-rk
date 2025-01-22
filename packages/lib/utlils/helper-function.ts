@@ -197,10 +197,10 @@ export {
 
 export function formatDate(dateString: string) {
   const date = new Date(dateString);
-  const day = date.getDate().toString().padStart(2, "0"); // Ensure 2-digit day
-  const month = date.toLocaleString("en-GB", { month: "short" }); // Get short month name
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = date.toLocaleString("en-GB", { month: "short" });
   const year = date.getFullYear();
   return `${day} ${month} ${year}`;
 }
 
-console.log(formatDate("2025-01-20T14:00:00.000Z")); // Output: "20 Jan 2025"
+console.log(formatDate("2025-01-20T14:00:00.000Z"));

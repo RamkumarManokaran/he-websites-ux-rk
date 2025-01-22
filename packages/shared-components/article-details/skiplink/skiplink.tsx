@@ -9,6 +9,7 @@ const Skiplink = ({ propsdata, preview }: any) => {
   const toggleFunc = () => {
     setModalOpen(!modelOpen);
   };
+  const [currskiplink, setCurrskiplink] = useState("");
 
   // const skiplinkLabel = [
   //   "Heading skip link",
@@ -118,13 +119,16 @@ const Skiplink = ({ propsdata, preview }: any) => {
                 <li
                   id={`article-skip-link-urlLabel${index}`}
                   className={`border-s-[4px]  py-[10px] px-[16px] small font-inter font-normal hover:text-grey300 hover:underline hover:border-blue-400 ${
-                    index == 0
+                    items?.moreLinkUrl == currskiplink
                       ? "border-blue-400 text-blue-400"
                       : "border-grey-300 text-grey300"
                   }`}
                   key={`${index}`}
                 >
                   <Link
+                    onClick={(e) => {
+                      setCurrskiplink(items?.moreLinkUrl);
+                    }}
                     id={`article-skip-link-moreLinkUrl${index}`}
                     target={
                       items?.moreLinkTarget?.toLowerCase() === "same tab"

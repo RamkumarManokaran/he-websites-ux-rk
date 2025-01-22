@@ -77,6 +77,13 @@ const Header = ({ topnav_data, course_data, uni_data }: props) => {
         console.error("Error fetching user:", error);
       }
     };
+    const favouriteCountEmitter = () => {
+      const basket = getCookieValue("USER_FAV_BASKET_COUNT") || 0;
+      setBasketCount(basket);
+      fetchUser();
+      return emitter.removeAllListeners("colcEvents");
+    };
+    emitter.on("colcEvents", favouriteCountEmitter);
     // --------------close all popups on clicking outside-----------------------------
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -137,7 +144,7 @@ const Header = ({ topnav_data, course_data, uni_data }: props) => {
       emitter.off("rightMenuActionclose", handleRightMenuAction);
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [basketCount]);
 
   // ==========================================useEffect block the background while popups made=====================================================================
   useEffect(() => {

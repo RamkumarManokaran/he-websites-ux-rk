@@ -41,7 +41,14 @@ const componentMap: any = {
     dynamic(
       () =>
         import(
-          "@packages/shared-components/article-details/dont-missout/dontmissout"
+          "@packages/shared-components/article-details/dont-missout/dontmissoutwrapper"
+        )
+    ),
+  DynamicMediaComponent: () =>
+    dynamic(
+      () =>
+        import(
+          "@packages/shared-components/article-details/cta-banner/cta-banner"
         )
     ),
 };

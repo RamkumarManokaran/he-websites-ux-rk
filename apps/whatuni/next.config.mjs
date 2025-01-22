@@ -36,6 +36,7 @@ const nextConfig = {
     PROJECT: "Whatuni",
     DOMAIN: "whatuni.com",
     SUBDOMAIN: "https://mdev.dev.aws.whatuni.com",
+    AFFILATE_ID: "220703",
   },
   eslint: {
     ignoreDuringBuilds: true,

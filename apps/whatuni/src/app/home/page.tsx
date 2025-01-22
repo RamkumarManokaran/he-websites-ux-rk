@@ -7,6 +7,7 @@ import {
   MultipleCardContainer,
   SliderBannerCollection,
 } from "@packages/lib/types/interfaces";
+import Subscribecomponents from "@packages/shared-components/article-landing/subscribe-newsletter/subscribecomponents";
 import ContentfulPreviewProvider from "@packages/lib/contentful-preview/ContentfulLivePreviewProvider";
 import { Amplify } from "aws-amplify";
 import awsconfig from "../../../configs/amplifyconfiguration";
@@ -64,6 +65,7 @@ const Page = async ({ searchParams }: any) => {
             }
           )}
         </div>
+        <Subscribecomponents iscontentPreview={false} />
       </ContentfulPreviewProvider>
     </>
   );

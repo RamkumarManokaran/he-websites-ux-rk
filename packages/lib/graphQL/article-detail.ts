@@ -147,8 +147,8 @@ export function articleDetailQuery(
           __typename
           ... on PageComponentRichText {
            sys{
-    id
-    }
+                  id
+               }
             skipLinkId
             paragraphTitle
             media {
@@ -161,8 +161,8 @@ export function articleDetailQuery(
           }
           ... on PagePullQuotes {
            sys{
-    id
-    }
+                id
+              }
             pullQuote {
               json
             }
@@ -171,12 +171,60 @@ export function articleDetailQuery(
           }
           ... on PageImage {
            sys{
-    id
-    }
+                 id
+                    }
             imgAltText
             imgUpload {
               url
             }
+          }
+             ... on DynamicMediaComponent {  
+            title
+            internalName
+            backgroundColor
+            longDescription {
+              json
+            }
+            cta {
+              internalName
+              primaryCtaUrl
+              primaryCtaLabel
+              primaryCtaEventName
+              secondaryCtaUrl
+              secondaryCtaLabel
+              primaryCtaTarget
+              secondaryCtaTarget
+              flagStyle
+            }
+            image {
+              imageTitle
+              imgAltText
+              imgUpload {
+                url
+                height
+                width
+              }
+            }
+          }
+             ... on MultipleCardContainer {
+            cardSectionTitle
+            shortDescription
+            flagComponentStyle
+            mediaCardsCollection {
+              items {
+                ... on MetaTagTopic {
+                  title
+                }
+                ... on MetaTagSubTopic {
+                  title
+                }
+              }
+            }
+          }
+            ... on PageDataTableStatic {
+            lTname
+            lTtitle
+            apiUrl
           }
         }
       }

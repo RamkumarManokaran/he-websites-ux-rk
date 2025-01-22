@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
 import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
+import { formatDate } from "@packages/lib/utlils/helper-function";
 const Articledescription = ({ propsdata, preview }: any) => {
   const data = useContentfulLiveUpdates(propsdata);
   const [modalOpen, setModalOpen] = useState(false);
@@ -76,7 +77,7 @@ const Articledescription = ({ propsdata, preview }: any) => {
           id="artilce-page-modified-date"
           className="x-small text-grey300 text-inter"
         >
-          {` Updated:${data?.modifiedDate ?? ""}`}
+          {` Updated:${formatDate(data?.modifiedDate) ?? ""}`}
         </span>
         <button
           onClick={modalPopToggle}
