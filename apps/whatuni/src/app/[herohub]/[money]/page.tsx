@@ -51,6 +51,7 @@ const page = async ({ searchParams, params }: any) => {
               );
               return null;
             }
+
             return (
               <Component
                 key={index}

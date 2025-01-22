@@ -12,7 +12,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const Dontmissout = ({ key, data, preview }: any) => {
   const propsdata = useContentfulLiveUpdates(data);
-
+  const [yearofentry, setYearofentry] = useState([]);
   const [firstname, setFristname] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [lastname, setLastname] = useState("");
@@ -31,6 +31,8 @@ const Dontmissout = ({ key, data, preview }: any) => {
   const validateEmail = (email: any) => {
     // Simple email regex validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    console.log(emailRegex.test(email), "weewewewewewewewew");
     return emailRegex.test(email);
   };
 
@@ -54,8 +56,32 @@ const Dontmissout = ({ key, data, preview }: any) => {
       }
     };
     fetchUser();
+
+    const fetchYearofentry = async () => {
+      try {
+        const entrydata = await fetch(
+          `${process.env.NEXT_PUBLIC_BFF_API_DOMAIN}/hewebsites/v1/users/options?affiliateId=220703&actionType=YOE`,
+          {
+            method: "GET",
+            headers: {
+              "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const yeardata = await entrydata.json();
+        setYearofentry(yeardata);
+        console.log(yeardata, "yeardata");
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
+
+    fetchYearofentry();
   }, []);
-  async function handleSubmit(e: any) {
+
+  function handleSubmit(e: any) {
+    let isFormValid: any = true;
     setEmailprev(email);
     e.preventDefault();
     setFristnameerror(false);
@@ -68,21 +94,28 @@ const Dontmissout = ({ key, data, preview }: any) => {
     }
 
     if (!lastname) {
+      isFormValid = false;
       setLastnameerror(true);
     }
     if (!email) {
       setEmailerror(true);
+      isFormValid = false;
     }
     if (email) {
       if (!validateEmail(email)) {
+        console.log("aaaaaaaaaaaaaaaaaaaaaaainside the validate email");
         setValidemailerror(true);
+        isFormValid = false;
+        console.log(validemailerror);
       }
     }
     if (!year) {
       setYearerror(true);
+      isFormValid = false;
     }
     if (!agreement) {
       setAgreementerror(true);
+      isFormValid = false;
     }
 
     // If all fields are valid, show success message
@@ -118,6 +151,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
       );
 
     if (
+      isFormValid &&
       !firstnameerror &&
       !lastnameerror &&
       !emailerror &&
@@ -131,6 +165,21 @@ const Dontmissout = ({ key, data, preview }: any) => {
       agreement &&
       prevemail !== email
     ) {
+      // console.log(
+      //   !firstnameerror,
+      //   !lastnameerror,
+      //   !emailerror,
+      //   !yearerror,
+      //   !agreementerror,
+      //   !validemailerror,
+      //   firstname,
+      //   lastname,
+      //   email,
+      //   year,
+      //   agreement,
+      //   prevemail
+      // );
+      console.log(!validemailerror);
       res()
         .then((response) => {
           console.log();
@@ -150,41 +199,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
       setSuccessMessage(true);
       setAlreadyregisteruser(true);
     }
-    // setFristname("");
-    // setLastname("");
-    // setEmail("");
-    // setYear("");
-    // setAgreement(false);
   }
-  // useEffect(() => {
-  //   const res = async () =>
-  //     await fetch(
-  //       `${process.env.NEXT_PUBLIC_BFF_API_DOMAIN}/hewebsites/v1/guest/users/registration`,
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
-
-  //           ContentType: "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           userDetails: {
-  //             personalDetails: {
-  //               email: email,
-
-  //               firstName: firstname,
-  //               secondName: lastname,
-  //               yearOfEntry: year,
-  //               marketingSolusFlag: "Y",
-  //             },
-  //             userSourceType: "SPAMBOXREGISTERED",
-  //           },
-  //           affiliateId: 220703,
-  //           cognitoFlag: "N",
-  //         }),
-  //       }
-  //     );
-  // }, []);
 
   return (
     <>
@@ -259,7 +274,10 @@ const Dontmissout = ({ key, data, preview }: any) => {
                   </span>
                   Thanks, we’ll be in touch soon
                 </span>
-                <span className="cursor-pointer">
+                <span
+                  onClick={() => setSuccessMessage(false)}
+                  className="cursor-pointer"
+                >
                   <Image
                     alt="close icon"
                     width="20"
@@ -288,6 +306,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
                         setFristnameerror(false);
                         setSuccessMessage(false);
                         setAlreadyregisteruser(false);
+                        setValidemailerror(false);
                       }}
                       type="text"
                       placeholder={`${propsdata?.newsFirstName ?? "First name*"}`}
@@ -327,6 +346,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
                         setEmailerror(false);
                         setSuccessMessage(false);
                         setAlreadyregisteruser(false);
+                        setValidemailerror(false);
                       }}
                       value={email ?? ""}
                       type="email"
@@ -354,7 +374,34 @@ const Dontmissout = ({ key, data, preview }: any) => {
                     {`${propsdata?.newsEntryYear ?? "What year would you like to start your new course?"}`}
                   </label>
                   <div className="flex gap-[16px] md:gap-[24px]">
-                    <div className="flex gap-[4px] md:gap-[16px] items-center">
+                    {yearofentry?.map((item: any, index: any) => (
+                      <div
+                        key={index}
+                        className="flex gap-[4px] md:gap-[16px] items-center"
+                      >
+                        <input
+                          checked={year === item?.optionId}
+                          onChange={(e) => {
+                            setYear(e.target.value);
+                            setYearerror(false);
+                            setSuccessMessage(false);
+                            setAlreadyregisteruser(false);
+                          }}
+                          value={item?.optionValue}
+                          type="radio"
+                          className="w-[16px] h-[16px]"
+                          name="newsletter-starting"
+                          id={item?.optionId}
+                        />
+                        <label
+                          className="select-none cursor-pointer"
+                          htmlFor={item?.optionId}
+                        >
+                          {item?.optionId}
+                        </label>
+                      </div>
+                    ))}
+                    {/* <div className="flex gap-[4px] md:gap-[16px] items-center">
                       <input
                         checked={year === "2025"}
                         onChange={(e) => {
@@ -419,8 +466,8 @@ const Dontmissout = ({ key, data, preview }: any) => {
                       >
                         2027
                       </label>
-                    </div>
-                    <div className="flex gap-[4px] md:gap-[16px] items-center">
+                    </div> */}
+                    {/* <div className="flex gap-[4px] md:gap-[16px] items-center">
                       <input
                         checked={year === "2028"}
                         onChange={(e) => {
@@ -441,7 +488,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
                       >
                         2028
                       </label>
-                    </div>
+                    </div> */}
                   </div>
                   {yearerror && (
                     <span className="x-small font-normal text-negative-default">

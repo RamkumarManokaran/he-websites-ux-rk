@@ -35,6 +35,7 @@ export const HeroLandingPageQuery = (preview: boolean, slug: string) => {
         }
           internalName
           cardSectionTitle
+          shortDescription
           flagComponentStyle
           callToAction {
               ... on CallToActionCta {

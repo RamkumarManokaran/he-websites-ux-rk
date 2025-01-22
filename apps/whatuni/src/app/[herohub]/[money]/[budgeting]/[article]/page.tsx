@@ -89,7 +89,10 @@ const Page = async ({ params, searchParams }: any) => {
                     <div className="rtf-innerstyle flex flex-col gap-[16px]">
                       {data?.bodyContentCollection?.items?.map(
                         (dt: any, index: any) => {
-                          if (dt?.__typename === "MultipleCardContainer") {
+                          if (
+                            dt?.__typename === "MultipleCardContainer" &&
+                            dt?.flagComponentStyle !== "ArticleCarousal"
+                          ) {
                             const Component: any = dynamicComponentImports(
                               dt?.flagComponentStyle
                             );
@@ -142,7 +145,35 @@ const Page = async ({ params, searchParams }: any) => {
           {/* Slider section  */}
           <section className="bg-grey-50">
             <div className="max-w-container mx-auto">
-              {/* <Advicecourseslidercomponents categoryTag={false} adviceBgWhite={false} /> */}
+              {data?.bodyContentCollection?.items?.map(
+                (dt: any, index: any) => {
+                  if (
+                    dt?.__typename === "MultipleCardContainer" &&
+                    dt?.flagComponentStyle === "ArticleCarousal"
+                  ) {
+                    const Component: any = dynamicComponentImports(
+                      dt?.flagComponentStyle
+                    );
+                    if (!Component) {
+                      return null;
+                    }
+                    return (
+                      <Component
+                        key={index}
+                        heading={dt?.cardSectionTitle}
+                        subheading={dt?.shortDescription}
+                        internalName={dt?.internalName}
+                        callAction={dt?.callToAction}
+                        parentSysId={dt?.sys?.id}
+                        routename={slugurl}
+                        articleKeyArray={dt?.mediaCardsCollection?.items}
+                        contentModelName={"articleCollection"}
+                        iscontentPreview={preview}
+                      />
+                    );
+                  }
+                }
+              )}
             </div>
           </section>
           {/* Slider section END */}

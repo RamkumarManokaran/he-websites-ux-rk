@@ -18,6 +18,7 @@ const GoogleOneTap = () => {
     const cookie = cookieArray.find((c) => c.startsWith(`${name}=`));
     return cookie ? cookie.split("=")[1] : "";
   }
+
   function setCookie(name: string, value: string, days: number) {
     const d = new Date();
     d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
@@ -42,7 +43,9 @@ const GoogleOneTap = () => {
                 "x-correlation-id": randomid,
                 authorization: session?.tokens?.idToken?.toString(), // Ensure it's a string
               },
-              body: JSON.stringify({}),
+              body: JSON.stringify({
+                loginFlag: "Y",
+              }),
             }
           );
 
