@@ -1,6 +1,5 @@
 "use server";
 import dynamicComponentImports from "@packages/lib/dynamic-imports/imports";
-import Subscribecomponents from "@packages/shared-components/article-landing/subscribe-newsletter/subscribecomponents";
 import Heroslidercomponent from "@packages/shared-components/home/hero/heroslidercomponent";
 import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
 import { homePageQuery } from "@packages/lib/graphQL/graphql-query";
