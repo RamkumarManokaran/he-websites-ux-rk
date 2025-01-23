@@ -43,9 +43,5 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <>
-      <Suspense fallback={<Loading />}>{children}</Suspense>
-    </>
-  );
+  return <>{children}</>;
 }
