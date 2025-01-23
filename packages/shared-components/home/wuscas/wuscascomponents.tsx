@@ -39,11 +39,12 @@ const Wuscascomponents: React.FC<WuscascomponentsProps> = async ({
     query,
     iscontentPreview
   );
+  console.log(query);
+  console.log("resultData", resultData);
   const statsData =
     resultData?.data?.contentData?.items?.[0]?.bodyContentCollection.items?.[0]?.mediaCardsCollection.items?.find(
-      (item: any) => item.__typename === "PageStatPodContainer"
+      (item: any) => item?.__typename === "PageStatPodContainer"
     );
-  console.log("sub-heading", subheading);
   return (
     <>
       {iscontentPreview && (
@@ -78,7 +79,7 @@ const Wuscascomponents: React.FC<WuscascomponentsProps> = async ({
             <div className="max-w-container mx-auto">
               {/* container */}
               <div className="wusca-card-container grid  grid-rows-[2_minmax(0_auto)] md:grid-cols-[1fr_1fr)] px-[16px] py-[40px] md:px-[20px] md:pt-[0] md:pb-[64px] xl:p-[0] gap-[24px] md:gap-[20px] xl:gap-x-[20px] xl:gap-y-[24px]">
-              {/* <div className="wusca-card-container grid  grid-rows-[3_minmax(0_auto)] md:grid-cols-[auto_minmax(352px,_1fr)] xl:grid-cols-[auto_minmax(598px,_1fr)] px-[16px] py-[40px] md:px-[20px] md:pt-[0] md:pb-[64px] xl:p-[0] gap-[24px] md:gap-[20px] xl:gap-x-[20px] xl:gap-y-[24px]"> */}
+                {/* <div className="wusca-card-container grid  grid-rows-[3_minmax(0_auto)] md:grid-cols-[auto_minmax(352px,_1fr)] xl:grid-cols-[auto_minmax(598px,_1fr)] px-[16px] py-[40px] md:px-[20px] md:pt-[0] md:pb-[64px] xl:p-[0] gap-[24px] md:gap-[20px] xl:gap-x-[20px] xl:gap-y-[24px]"> */}
                 <div className="wusca-content flex flex-col justify-center xl:justify-end col-start-1 row-start-2 md:row-start-1 md:col-start-2 md:row-end-2 md:col-end-3 md:area gap-[16px] md:gap-[24px]">
                   <div className="flex flex-col gap-[8px]">
                     <h2 className="font-bold" id="wusca_heading">
@@ -153,7 +154,7 @@ const Wuscascomponents: React.FC<WuscascomponentsProps> = async ({
                   className="grid justify-center px-[20px] md:px-[16px] md:py-[36px] xl:px-[0] row-start-1 row-end-2 md:row-start-1 md:row-end-2 col-start-1 col-end-2"
                   id="image"
                 >
-                {/* <div
+                  {/* <div
                   className="grid justify-center px-[20px] md:px-[16px] md:py-[36px] xl:px-[0] row-start-1 row-end-2 xl:row-end-3 col-start-2 -col-end-1"
                   id="image"
                 > */}

@@ -17,6 +17,7 @@ interface props {
   uni_data: any;
 }
 const Header = ({ topnav_data, course_data, uni_data }: props) => {
+  const ref = useRef<any>(null);
   const router = useRouter();
   const [initial, setInitial] = useState<any>("");
 
@@ -77,15 +78,15 @@ const Header = ({ topnav_data, course_data, uni_data }: props) => {
         console.error("Error fetching user:", error);
       }
     };
-    const favouriteCountEmitter = (colcEvents: any) => {
-      console.log("Calling");
-      console.log(colcEvents);
-      const basket = getCookieValue("USER_FAV_BASKET_COUNT") || 0;
-      setBasketCount(basket);
-      fetchUser();
-      return emitter.off("colcEvents", favouriteCountEmitter);
-    };
-    emitter.on("colcEvents", favouriteCountEmitter);
+
+    if (ref.current) {
+      const onCustomEvent = (event: Event) => {
+        console.log("Calling");
+        const customEventDetail = (event as CustomEvent).detail as any;
+      };
+      ref.current.addEventListener("colcEvents", onCustomEvent);
+    }
+
     // --------------close all popups on clicking outside-----------------------------
     const handleClickOutside = (event: MouseEvent) => {
       if (
