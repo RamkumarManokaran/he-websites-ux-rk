@@ -78,15 +78,11 @@ const Header = ({ topnav_data, course_data, uni_data }: props) => {
         console.error("Error fetching user:", error);
       }
     };
-
-    if (ref.current) {
-      const onCustomEvent = (event: Event) => {
-        console.log("Calling");
-        const customEventDetail = (event as CustomEvent).detail as any;
-      };
-      ref.current.addEventListener("colcEvents", onCustomEvent);
-    }
-
+    const courseCountFunc = (customEventDetail: any) => {
+      fetchUser();
+      console.log(customEventDetail);
+    };
+    emitter.addListener("courseCount", courseCountFunc);
     // --------------close all popups on clicking outside-----------------------------
     const handleClickOutside = (event: MouseEvent) => {
       if (

@@ -1,7 +1,10 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import emitter from "@packages/lib/eventEmitter/eventEmitter";
 import Script from "next/script";
 export default function MicroFrontend() {
+  const [count, setCount] = useState();
+  const ref = useRef(null);
   const domain = `${
     process.env.NEXT_PUBLIC_ENVIRONMENT === "dev"
       ? "https://mdev.dev.aws."
@@ -15,11 +18,22 @@ export default function MicroFrontend() {
     link.href = `${domain}whatuni.com/colc/static/css/main.colc.0.1.3.css`;
     link.type = "text/css";
     document.head.appendChild(link);
-
+    if (ref.current) {
+      const onCustomEvent = (event) => {
+        const customEventDetail = event.detail;
+        setCount(customEventDetail);
+      };
+      ref.current.addEventListener("colcEvents", onCustomEvent);
+    }
     return () => {
       document.head.removeChild(link);
     };
   }, []);
+  console.log(count);
+  useEffect(() => {
+    emitter.emit("courseCount", count);
+    document.cookie = `USER_FAV_BASKET_COUNT=${count?.userData?.favouriteCount}`;
+  }, [count]);
 
   return (
     <>
@@ -27,7 +41,7 @@ export default function MicroFrontend() {
         <Script
           src={`${domain}whatuni.com/colc/static/js/main.colc.0.1.3.js`}
         ></Script>
-        <colc-calculator></colc-calculator>
+        <colc-calculator ref={ref}></colc-calculator>
       </div>
     </>
   );
