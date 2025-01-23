@@ -25,7 +25,8 @@ const page = async ({ searchParams, params }: any) => {
     notFound();
   }
   const bannerData = jsondata?.data?.contentData?.items[0]?.bannerImage;
-
+  console.log("theme page", jsondata);
+  console.log("query", ThemeLandingPageQuery(iscontentPreview, slugurl));
   return (
     <ContentfulPreviewProvider
       locale="en-GB"

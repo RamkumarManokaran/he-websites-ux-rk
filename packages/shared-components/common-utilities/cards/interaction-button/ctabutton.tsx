@@ -1,7 +1,6 @@
 import React from "react";
 import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
 const Ctabutton = ({ index, cta, sysId, iscontentPreview }: any) => {
-  console.log(cta);
   return (
     <>
       {iscontentPreview && (

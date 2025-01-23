@@ -19,9 +19,11 @@ const page = async ({ searchParams, params }: any) => {
     HeroLandingPageQuery(iscontentPreview, slugurl),
     iscontentPreview
   );
+
   if (jsondata?.data?.contentData?.items.length < 1) {
     notFound();
   }
+  console.log(HeroLandingPageQuery(iscontentPreview, slugurl));
   const componentList =
     jsondata?.data?.contentData?.items[0]?.bodyContentCollection?.items;
   const bannerData = jsondata?.data?.contentData?.items[0]?.bannerImage;

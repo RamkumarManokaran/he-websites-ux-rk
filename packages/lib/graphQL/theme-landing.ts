@@ -36,26 +36,12 @@ export const ThemeLandingPageQuery = (preview: boolean, slug: string) => {
             cardSectionTitle
             flagComponentStyle
             mediaCardsCollection {
-              items {
-                ... on DynamicMediaComponent {
-                  title
-                  longDescription {
-                    json
-                  }
-                }
-                ... on MetaTagTopic {
-                  title
-                  id
-                }
-                ... on MetaTagSubTopic {
-                  title
-                  subTopic
-                  parent {
-                    title
-                  }
-                }
+            items {
+              ... on MetaTagTheme {
+                title
               }
             }
+          }
           }
         }
       }
@@ -134,6 +120,7 @@ export const ArtcileSliderQuery = (preview: boolean, articleArray: string) => {
   contentData: articleCollection(
     limit: 10
     where: {OR: ${articleArray}, website: {websiteName: "${process.env.PROJECT}"}}
+      order: modifiedDate_DESC
        ${preview ? `preview : ${preview}` : ""} 
   ) {
     items {
