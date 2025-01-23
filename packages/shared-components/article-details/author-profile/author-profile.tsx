@@ -77,6 +77,7 @@ const Authorprofile = ({ propsdata, preview }: any) => {
           {propsdata?.bannerImageCollection?.items[0]?.imgUpload?.url && (
             <Image
               id="imgUpload"
+              priority={true}
               src={propsdata?.bannerImageCollection?.items[0]?.imgUpload?.url}
               width="907"
               height="511"

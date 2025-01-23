@@ -37,6 +37,13 @@ export const HeroLandingPageQuery = (preview: boolean, slug: string) => {
           cardSectionTitle
           shortDescription
           flagComponentStyle
+          mediaCardsCollection {
+            items {
+              ... on MetaTagTheme {
+                title
+              }
+            }
+          }
           callToAction {
               ... on CallToActionCta {
                 primaryCtaUrl
@@ -45,6 +52,7 @@ export const HeroLandingPageQuery = (preview: boolean, slug: string) => {
                 primaryCtaEventName
               }
             }
+              
         }
       }
     }

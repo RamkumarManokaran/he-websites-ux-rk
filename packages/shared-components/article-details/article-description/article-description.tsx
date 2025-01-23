@@ -1,6 +1,6 @@
 "use client"; // This marks the component as a Client Component
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
@@ -8,8 +8,10 @@ import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/Con
 import { formatDate } from "@packages/lib/utlils/helper-function";
 const Articledescription = ({ propsdata, preview }: any) => {
   const data = useContentfulLiveUpdates(propsdata);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const modalPopToggle = () => {
+    console.log("ASssssssssssssssssssssssssssss");
     setModalOpen(!modalOpen);
   };
 
@@ -17,14 +19,28 @@ const Articledescription = ({ propsdata, preview }: any) => {
     const link = window.location.href; // Get the current page's URL
     navigator.clipboard
       .writeText(link)
-      .then(() => {
-        alert("Link copied to clipboard!");
-      })
+
       .catch((err) => {
         console.error("Failed to copy: ", err);
       });
   };
-
+  // ==========================use effect for the handle click outside========================================================================
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        console.dir("insinde the handleclickoutside the function");
+        setModalOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+  // ================================================================================================================================================
   return (
     <>
       {preview && (
@@ -95,7 +111,10 @@ const Articledescription = ({ propsdata, preview }: any) => {
       {modalOpen && (
         <>
           <div className="modal modal-container flex  justify-center md:px-[0] px-[16px] items-center backdrop-shadow-black fixed top-0 right-0 left-0 bottom-0 bg-white">
-            <div className="modal-box shadow-custom-6 w-full md:w-[512px] p-[24px] bg-white rounded-[8px] overflow-hidden relative">
+            <div
+              ref={containerRef}
+              className="modal-box shadow-custom-6 w-full md:w-[512px] p-[24px] bg-white rounded-[8px] overflow-hidden relative"
+            >
               <div
                 onClick={() => setModalOpen(false)}
                 className="modal_close absolute top-[16px] p-[4px] right-[16px] z-[1] cursor-pointer"

@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // compiler: {
+  //   removeConsole: {
+  //     exclude: ["error"],
+  //   },
+  // },
   skipTrailingSlashRedirect: true,
   productionBrowserSourceMaps: true,
   async headers() {
@@ -15,21 +20,22 @@ const nextConfig = {
       },
     ];
   },
-  async redirects() {
-    return [
-      {
-        source: "/:path*/",
-        has: [
-          {
-            type: "query",
-            key: "someQueryParam",
-          },
-        ],
-        destination: "/:path*",
-        permanent: true,
-      },
-    ];
-  },
+  //trailingSlash: true,
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: "/:path*/",
+  //       has: [
+  //         {
+  //           type: "query",
+  //           key: "someQueryParam",
+  //         },
+  //       ],
+  //       destination: "/:path*",
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
   reactStrictMode: false,
 
   env: {

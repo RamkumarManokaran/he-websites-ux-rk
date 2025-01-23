@@ -77,11 +77,13 @@ const Header = ({ topnav_data, course_data, uni_data }: props) => {
         console.error("Error fetching user:", error);
       }
     };
-    const favouriteCountEmitter = () => {
+    const favouriteCountEmitter = (colcEvents: any) => {
+      console.log("Calling");
+      console.log(colcEvents);
       const basket = getCookieValue("USER_FAV_BASKET_COUNT") || 0;
       setBasketCount(basket);
       fetchUser();
-      return emitter.removeAllListeners("colcEvents");
+      return emitter.off("colcEvents", favouriteCountEmitter);
     };
     emitter.on("colcEvents", favouriteCountEmitter);
     // --------------close all popups on clicking outside-----------------------------
