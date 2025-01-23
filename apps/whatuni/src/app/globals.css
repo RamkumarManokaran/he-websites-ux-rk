@@ -209,7 +209,6 @@ p,
     transform: translateX(-50%);
   }
 }
-
 /* Skeleton styles */
 .skeleton {
   @apply w-full h-[10px] leading-[10px] rounded-[24px] my-[6px] bg-neutral-300;

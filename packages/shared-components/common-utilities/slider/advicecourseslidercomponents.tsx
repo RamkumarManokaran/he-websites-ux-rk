@@ -35,7 +35,7 @@ const Advicecourseslidercomponents = ({
             className="MultiSwiper"
           >
             {articledata?.map((items: any, index: number) => (
-              <SwiperSlide key={index + 1}>
+              <SwiperSlide className="!h-auto" key={index + 1}>
                 <AdviceCourseCard
                   jsondata={items}
                   index={index}
