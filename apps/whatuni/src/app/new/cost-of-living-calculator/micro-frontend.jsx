@@ -32,7 +32,7 @@ export default function MicroFrontend() {
   console.log(count);
   useEffect(() => {
     emitter.emit("courseCount", count);
-    document.cookie = `USER_FAV_BASKET_COUNT=${count?.userData?.favouriteCount}`;
+    document.cookie = `USER_FAV_BASKET_COUNT=${count?.userData?.favouriteCount ? count?.userData?.favouriteCount : 0}`;
   }, [count]);
 
   return (
