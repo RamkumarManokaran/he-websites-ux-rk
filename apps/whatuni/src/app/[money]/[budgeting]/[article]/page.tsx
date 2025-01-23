@@ -59,7 +59,7 @@ const Page = async ({ params, searchParams }: any) => {
   const preview =
     (await searchparams?.preview) === "MY_SECRET_TOKEN" ? true : false;
   const Params = await params;
-  const slugurl = `/${Params.herohub}/${Params.money}/${Params.budgeting}/${Params.article}`;
+  const slugurl = `/${Params.money}/${Params.budgeting}/${Params.article}`;
 
   console.log(articleDetailQuery(slugurl, preview));
   const articledetaildata = await graphQlFetchFunction(
