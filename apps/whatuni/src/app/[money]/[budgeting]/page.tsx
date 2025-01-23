@@ -10,7 +10,7 @@ import { ThemeLandingPageQuery } from "@packages/lib/graphQL/theme-landing";
 import { notFound } from "next/navigation";
 const page = async ({ searchParams, params }: any) => {
   const Params = await params;
-  const slugurl = `/${Params.herohub}/${Params.money}/${Params.budgeting}`;
+  const slugurl = `/${Params.money}/${Params.budgeting}`;
   const searchparams = await searchParams;
   const iscontentPreview =
     searchparams?.preview === "MY_SECRET_TOKEN" ? true : false;
@@ -18,6 +18,7 @@ const page = async ({ searchParams, params }: any) => {
     ThemeLandingPageQuery(iscontentPreview, slugurl),
     iscontentPreview
   );
+  console.log(ThemeLandingPageQuery(iscontentPreview, slugurl));
   const componentList =
     jsondata?.data?.contentData?.items[0]?.bodyContentCollection?.items;
 

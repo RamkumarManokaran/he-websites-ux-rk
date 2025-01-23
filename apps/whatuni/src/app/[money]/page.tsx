@@ -11,7 +11,7 @@ import { notFound } from "next/navigation";
 const page = async ({ searchParams, params }: any) => {
   const Params = await params;
 
-  const slugurl = `/${Params.herohub}/${Params.money}`;
+  const slugurl = `/${Params.money}`;
   const searchparams = await searchParams;
   const iscontentPreview =
     searchparams?.preview === "MY_SECRET_TOKEN" ? true : false;
@@ -19,7 +19,7 @@ const page = async ({ searchParams, params }: any) => {
     HeroLandingPageQuery(iscontentPreview, slugurl),
     iscontentPreview
   );
-
+  console.log(HeroLandingPageQuery(iscontentPreview, slugurl));
   if (jsondata?.data?.contentData?.items.length < 1) {
     notFound();
   }

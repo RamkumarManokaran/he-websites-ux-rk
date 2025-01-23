@@ -3,7 +3,7 @@ import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action
 import { ThemeLandingSeoQuery } from "@packages/lib/graphQL/theme-landing";
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const Params = await params;
-  const slugurl = `/${Params?.herohub}/${Params?.money}/${Params?.budgeting}`;
+  const slugurl = `/${Params?.money}/${Params?.budgeting}`;
   try {
     const query = ThemeLandingSeoQuery(slugurl);
     const metadata = await graphQlFetchFunction(query);
