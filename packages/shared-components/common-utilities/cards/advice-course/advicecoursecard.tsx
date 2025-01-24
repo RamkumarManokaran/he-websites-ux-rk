@@ -1,14 +1,40 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { currentAuthenticatedUser, formatDate, GA4DataLayerFn, GADataLayerFn } from "@packages/lib/utlils/helper-function";
+import { currentAuthenticatedUser, formatDate, GA4DataLayerFn, getArticleDetailUrlParamValues } from "@packages/lib/utlils/helper-function";
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
 import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
-const AdviceCourseCard = ({ jsondata, iscontentPreview, index ,heading,category}: any) => {
+import { DataLayerGA4AttrType } from "@packages/lib/types/datalayerGA";
+import { usePathname } from "next/navigation";
+const AdviceCourseCard = ({ jsondata, iscontentPreview, index ,heading, parentCategory}: any) => {
   let data = useContentfulLiveUpdates(jsondata);
   if (!iscontentPreview) {
     data = jsondata;
   }
+
+  const pathName = usePathname();
+  const{category, subCategory, articleTitle} = getArticleDetailUrlParamValues();
+  const currPageName = localStorage.getItem("gaPageName")?.toString() ?? "";
+
+  function handleGACTABannerCTAclick(urlSlug: string){
+    const GAlog = async() => {
+      let datalog: DataLayerGA4AttrType = {
+        event: "ga_contentful_events",
+        eventName: "article_clicks",
+        data_label: currPageName == "articleDetail" ? subCategory : data?.pageTitle,
+        data_label3: index + 1,
+        clearing: "in_year",
+        page_name: localStorage.getItem("gaPageName")?.toString(),
+        article_category: currPageName == "articleDetail" ? category : parentCategory,
+        cta_url: window.location.origin + urlSlug,
+        contentful_1: heading,
+  
+      };
+      GA4DataLayerFn(datalog);
+    }
+    GAlog();
+  }
+
   return (
     <>
       {iscontentPreview && (
@@ -39,7 +65,8 @@ const AdviceCourseCard = ({ jsondata, iscontentPreview, index ,heading,category}
       )}
       {data && (
         <a
-          href={data?.urlSlug || "/"} onClick={async () => GA4DataLayerFn({event:"ga_contentful_events", eventName: "article_clicks",data_label:data?.pageTitle,data_label3:`${index + 1}`,page_name : localStorage?.getItem("gaPageName") || "",contentful_1:heading,user_id:await currentAuthenticatedUser(),article_category:category})}
+          href={data?.urlSlug || "/"}
+          onClick={() => handleGACTABannerCTAclick(data?.urlSlug)}
           className="card h-full flex flex-col bg-white border border-grey-200 hover:border-primary-400 rounded-[8px] shadow-custom-2 overflow-hidden"
         >
           <div className="card-header">

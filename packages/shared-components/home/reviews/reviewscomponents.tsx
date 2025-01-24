@@ -49,8 +49,9 @@ const Reviewscomponents: React.FC<ReviewProps> = async ({
                     eventName: `${callAction?.primaryCtaEventName}`,
                     cta_name: `${callAction?.primaryCtaLabel}`,
                     cta_url: `${callAction?.primaryCtaUrl}`,
-                    website_name: `${process.env.PROJECT}`,
+                    article_category: "",
                     page_name: pageName,
+                    clearing: "in_year",
                   }}
                 >
                   <a

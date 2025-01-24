@@ -75,6 +75,7 @@ const page = async ({ searchParams, params }: any) => {
         )}
       </div>
       <PageViewLogging
+          pageNameLocal={jsondata?.data?.contentData?.items[0]?.gaPageName}
           gaData={{
             website_name: `${process.env.PROJECT}`,
             page_name: jsondata?.data?.contentData?.items[0]?.gaPageName,

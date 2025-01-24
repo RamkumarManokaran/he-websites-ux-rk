@@ -11,8 +11,10 @@ import dynamicComponentImports from "@packages/lib/dynamic-imports/imports";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { notFound } from "next/navigation";
+import PageViewLogging from "@packages/lib/utlils/pageviewlogging";
 
 const Page = async ({ params, searchParams }: any) => {
+  const pageNameforArtcileDetail = "articleDetail";
   const searchparams = await searchParams;
   const preview =
     (await searchparams?.preview) === "MY_SECRET_TOKEN" ? true : false;
@@ -56,6 +58,7 @@ const Page = async ({ params, searchParams }: any) => {
   return (
     <Suspense fallback={<Loading />}>
       <>
+      <PageViewLogging pageNameLocal={pageNameforArtcileDetail} gaData={{page_name: pageNameforArtcileDetail, article_category: Params.money}} csData={{eventType: "PageViewed", pageName: pageNameforArtcileDetail, articleTopic: Params.article}}/>
         <ContentfulPreviewProvider
           locale="en-GB"
           enableInspectorMode={preview}
@@ -130,6 +133,7 @@ const Page = async ({ params, searchParams }: any) => {
                                 <Component
                                   key={index}
                                   propsdata={dt}
+                                  urlParams={Params}
                                   preview={preview}
                                 />
                               );

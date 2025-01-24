@@ -31,6 +31,7 @@ const Page = async ({ searchParams }: any) => {
         debugMode={iscontentPreview}
       >
         <PageViewLogging
+          pageNameLocal="homepage"
           gaData={{
             website_name: `${process.env.PROJECT}`,
             page_name: "homepage",

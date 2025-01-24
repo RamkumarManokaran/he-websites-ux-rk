@@ -9,6 +9,10 @@ import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
 import { fetchAuthSession } from "aws-amplify/auth";
 
 import { v4 as uuidv4 } from "uuid";
+import { DataLayerGA4AttrType } from "@packages/lib/types/datalayerGA";
+import { currentAuthenticatedUser, GA4DataLayerFn, getArticleDetailUrlParamValues } from "@packages/lib/utlils/helper-function";
+import { logClickstreamEvent } from "@packages/lib/utlils/clickstream";
+import { usePathname } from "next/navigation";
 
 const Dontmissout = ({ key, data, preview }: any) => {
   const propsdata = useContentfulLiveUpdates(data);
@@ -35,6 +39,8 @@ const Dontmissout = ({ key, data, preview }: any) => {
     console.log(emailRegex.test(email), "weewewewewewewewew");
     return emailRegex.test(email);
   };
+
+  const{category, subCategory, articleTitle} = getArticleDetailUrlParamValues();
 
   useEffect(() => {
     // -------check the user authentication----------------------------
@@ -122,6 +128,35 @@ const Dontmissout = ({ key, data, preview }: any) => {
 
     console.log(firstname, lastname, email, year, agreement);
 
+    const handleSubscriptionGAlog = async() => {
+      let datalog: DataLayerGA4AttrType = {
+        event: "registration",
+        eventName: "registration",
+        data_label: "subscription_footer",
+        page_name: localStorage?.getItem('gaPageName')?.toString(),
+        target_year: year,
+        user_id: await currentAuthenticatedUser(),
+        article_category: category,
+        data_label2: subCategory,
+        clearing: "in_year",
+  
+      };
+      GA4DataLayerFn(datalog);
+    }
+
+    const handleSubscriptionCSlog = async(userId: any, signupFailureReason: any) => {
+      logClickstreamEvent({
+        pageName: "", 
+        sectionName: propsdata?.newsTitle ?? "",  
+        eventType: "SignedUp", 
+        CTATitle: `${propsdata?.ctaLabel ?? "Get free newsletters"}`, 
+        signupMethod: "Newsletter Subcription", 
+        signupFailureReason: signupFailureReason ?? "",
+        interestedIntakeYear: year,
+        userId: userId,
+      })
+    }
+
     const res = async () =>
       await fetch(
         `${process.env.NEXT_PUBLIC_BFF_API_DOMAIN}/hewebsites/v1/guest/users/registration`,
@@ -181,11 +216,14 @@ const Dontmissout = ({ key, data, preview }: any) => {
       // );
       console.log(!validemailerror);
       res()
-        .then((response) => {
+        .then(async(response) => {
           console.log();
           if (response.ok) {
             setSuccessMessage(true);
-            const resdata = response.json();
+            const resdata = await response.json();
+            //console.log("resdata: ", resdata);
+            handleSubscriptionGAlog();
+            handleSubscriptionCSlog(resdata?.user_uuid ?? "0", "");
           } else {
             throw new Error("Response not OK"); // Handle non-OK responses
           }
@@ -194,6 +232,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
         .catch((error) => {
           console.error("Error:", error); // Handle any errors
           setSuccessMessage(false); // Optionally set success to false on error
+          handleSubscriptionCSlog("0", error.toString());
         });
     } else if (prevemail === email) {
       setSuccessMessage(true);
