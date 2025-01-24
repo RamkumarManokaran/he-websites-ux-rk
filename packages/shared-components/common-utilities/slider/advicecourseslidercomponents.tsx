@@ -9,6 +9,8 @@ import { FreeMode, Navigation, Pagination } from "swiper/modules";
 const Advicecourseslidercomponents = ({
   articledata,
   iscontentPreview,
+  heading,
+  category,
 }: any) => {
   return (
     <>
@@ -40,6 +42,8 @@ const Advicecourseslidercomponents = ({
                   jsondata={items}
                   index={index}
                   iscontentPreview={iscontentPreview}
+                  heading={heading}
+                  category={category}
                 />
               </SwiperSlide>
             ))}

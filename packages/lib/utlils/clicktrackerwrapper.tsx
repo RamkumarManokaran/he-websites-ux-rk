@@ -1,72 +1,23 @@
 "use client";
 
 import React from "react";
-import { GADataLayerFn, currentAuthenticatedUser} from "@packages/lib/utlils/helper-function";
+import { GA4DataLayerFn, GADataLayerFn, currentAuthenticatedUser} from "@packages/lib/utlils/helper-function";
+import { DataLayerGA4AttrType } from "../types/datalayerGA";
 
 interface ClickTrackingWrapperProps {
   children: React.ReactNode;
-  gaData: {
-    event?: any;
-    eventName?: any;
-    ctaTitle?: any;
-    ctaUrl?: any;
-    website?: any;
-    pageName?:any;
-    contentfulCategory1?:any;
-    contentfulCategory2?:any;
-    collegeId?:any;
-    collegeName?:any;
-  };
+  gaData: DataLayerGA4AttrType;
 }
 
 const ClickTrackingWrapper: React.FC<ClickTrackingWrapperProps> = ({ children, gaData }) => {
   const handleClick = () => {
-    const {
-      event,
-      eventName,
-      ctaTitle,
-      ctaUrl,
-      pageName,
-      website,
-      contentfulCategory1,//added condition for optional field to pass from components
-      contentfulCategory2,
-      collegeId,
-      collegeName,
-    } = gaData;
-const GAData = async() => {
-    GADataLayerFn(
-      event,
-      eventName,
-      "NA",
-      "NA",
-      "NA",
-      "NA",
-      pageName === "" ?  localStorage?.getItem('gaPageName') : pageName,
-      "NA",
-      collegeName,
-      "NA",
-      "NA",
-      "NA",
-      collegeId,
-      "NA",
-      "NA",
-      "NA",
-      "in_year",
-      await currentAuthenticatedUser(),
-      "NA",
-      "NA",
-      "NA",
-      "NA",
-      "NA",
-      "NA",
-      website,
-      ctaTitle,
-      ctaUrl,
-      contentfulCategory1,
-      contentfulCategory2,
-    );
-  }
-  GAData();
+    if(!gaData.page_name || gaData.page_name === ""){
+      gaData.page_name = localStorage?.getItem('gaPageName')?.toString();
+    }
+    const GAData = async() => {
+      GA4DataLayerFn(gaData);
+    }
+    GAData();
   };
 
   return <div onClick={handleClick}>{children}</div>;

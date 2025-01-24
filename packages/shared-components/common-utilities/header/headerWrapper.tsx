@@ -47,11 +47,7 @@ export default async function HeaderWrapper() {
   }
   return (
     <>
-      <Header
-        topnav_data={topnav_data}
-        course_data={course_data}
-        uni_data={uni_data}
-      />
+      <Header topnav_data={topnav_data} />
     </>
   );
 }

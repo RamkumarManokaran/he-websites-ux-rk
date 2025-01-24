@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { formatDate } from "@packages/lib/utlils/helper-function";
+import { currentAuthenticatedUser, formatDate, GA4DataLayerFn, GADataLayerFn } from "@packages/lib/utlils/helper-function";
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
 import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
-const AdviceCourseCard = ({ jsondata, iscontentPreview, index }: any) => {
+const AdviceCourseCard = ({ jsondata, iscontentPreview, index ,heading,category}: any) => {
   let data = useContentfulLiveUpdates(jsondata);
   if (!iscontentPreview) {
     data = jsondata;
@@ -39,7 +39,7 @@ const AdviceCourseCard = ({ jsondata, iscontentPreview, index }: any) => {
       )}
       {data && (
         <a
-          href={data?.urlSlug || "/"}
+          href={data?.urlSlug || "/"} onClick={async () => GA4DataLayerFn({event:"ga_contentful_events", eventName: "article_clicks",data_label:data?.pageTitle,data_label3:`${index + 1}`,page_name : localStorage?.getItem("gaPageName") || "",contentful_1:heading,user_id:await currentAuthenticatedUser(),article_category:category})}
           className="card h-full flex flex-col bg-white border border-grey-200 hover:border-primary-400 rounded-[8px] shadow-custom-2 overflow-hidden"
         >
           <div className="card-header">
@@ -57,7 +57,7 @@ const AdviceCourseCard = ({ jsondata, iscontentPreview, index }: any) => {
               />
             )}
           </div>
-          <div className="card-body flex flex-col justify-between h-full gap-[10px] p-[16px]">
+          <div className="card-body flex flex-col justify-start h-full gap-[10px] p-[16px]">
             <h5
               className="card-title font-semibold text-para-lg text-grey300 line-clamp-2"
               id={`advice_carosoul_pod_title${index}${data?.sys?.id}`}

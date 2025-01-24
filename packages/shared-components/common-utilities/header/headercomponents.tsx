@@ -8,16 +8,13 @@ import emitter from "@packages/lib/eventEmitter/eventEmitter";
 import { fetchAuthSession } from "aws-amplify/auth";
 import { getCookie } from "@packages/lib/utlils/helper-function";
 // ==========================================don't want for the current sprint =======================================================
-// import Search from "@packages/shared-components/common-utilities/header/search-pod/header-search";
+import Search from "@packages/shared-components/common-utilities/header/search-pod/header-search";
 // import Shortlisted from "@packages/shared-components/common-utilities/header/shortlisted/shortlisted";
 
 interface props {
   topnav_data: any;
-  course_data: any;
-  uni_data: any;
 }
-const Header = ({ topnav_data, course_data, uni_data }: props) => {
-  const ref = useRef<any>(null);
+const Header = ({ topnav_data }: props) => {
   const router = useRouter();
   const [initial, setInitial] = useState<any>("");
 
@@ -35,6 +32,8 @@ const Header = ({ topnav_data, course_data, uni_data }: props) => {
   const userref = useRef<HTMLSpanElement | null>(null);
   const shortlistref = useRef<HTMLSpanElement | null>(null);
   const pathname = usePathname();
+  const [course_data, setCourseData] = useState({});
+  const [uni_data, setUniData] = useState({});
   const getUserInitials = (firstName: any, lastName: any) => {
     let initials = "";
 
@@ -49,6 +48,77 @@ const Header = ({ topnav_data, course_data, uni_data }: props) => {
     return initials;
   };
 
+  // =============================================================initial fetch===============================================================================
+  useEffect(() => {
+    const fetchData = async () => {
+      // Define payloads
+      const body: any = {
+        affiliateId: 220703,
+        actionType: "subject",
+        keyword: "",
+        qualCode: "",
+        networkId: 2,
+      };
+
+      const unibody: any = {
+        affiliateId: 220703,
+        actionType: "institution",
+        keyword: "",
+        qualCode: "",
+        networkId: 2,
+      };
+
+      // Construct query parameters for both payloads
+      const queryParamsBody = new URLSearchParams(body).toString();
+      const queryParamsUnibody = new URLSearchParams(unibody).toString();
+
+      // URLs for both requests
+      const urlBody = `${process.env.NEXT_PUBLIC_BFF_API_DOMAIN}/hewebsites/v1/homepage/sub-inst-ajax?${queryParamsBody}`;
+      const urlUnibody = `${process.env.NEXT_PUBLIC_BFF_API_DOMAIN}/hewebsites/v1/homepage/sub-inst-ajax?${queryParamsUnibody}`;
+
+      try {
+        // Fetch data in parallel
+        const [bodyResponse, unibodyResponse] = await Promise.all([
+          fetch(urlBody, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
+            },
+            cache: "force-cache",
+          }),
+          fetch(urlUnibody, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
+            },
+            cache: "force-cache",
+          }),
+        ]);
+
+        // Parse JSON responses
+        const bodyData = await bodyResponse.json();
+        const unibodyData = await unibodyResponse.json();
+        setCourseData(bodyData);
+
+        setUniData(unibodyData);
+
+        // Log results
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    if (
+      !(Object.keys(uni_data).length > 0) &&
+      !(Object.keys(course_data).length > 0) &&
+      process.env.PROJECT == "Whatuni" &&
+      pathname !== "/"
+    ) {
+      fetchData();
+    }
+  }, []);
   // =======================use effect for the adding eventlisterner and  fetching cookies and checking authentication=====================================================
   useEffect(() => {
     // -------check the user authentication----------------------------
@@ -194,7 +264,7 @@ const Header = ({ topnav_data, course_data, uni_data }: props) => {
   };
   return (
     <>
-      <header className="bg-white pl-[16px] pr-[21px]  md:px-[20px] xl2:px-0">
+      <header className="bg-white shadow-custom-3 pl-[16px] pr-[21px]  md:px-[20px] xl2:px-0 relative">
         <div className="max-w-container mx-auto flex items-center ">
           <div
             className={`order-2 md:grow lg:order-1 lg:grow-0 ${process.env.PROJECT === "PGS" ? "basis-[146px] md:basis-[187px]" : "lg:basis-[54px]"}   py-[4px] lg:py-[8px]`}
@@ -302,7 +372,7 @@ const Header = ({ topnav_data, course_data, uni_data }: props) => {
           <div className="order-3 basis-[100%] md:grow lg:grow-0 lg:basis-0">
             <ul className="flex items-center justify-end gap-[10px] rightmenu py-[4px] lg:py-[8px]">
               {/* // commented beacuse the scope out sprint */}
-              {/* {pathname !== "/" && (
+              {pathname !== "/" && (
                 <li>
                   <span
                     aria-label="Search"
@@ -336,7 +406,7 @@ const Header = ({ topnav_data, course_data, uni_data }: props) => {
                     </>
                   )}
                 </li>
-              )} */}
+              )}
               <li className="relative">
                 <span
                   title="User"

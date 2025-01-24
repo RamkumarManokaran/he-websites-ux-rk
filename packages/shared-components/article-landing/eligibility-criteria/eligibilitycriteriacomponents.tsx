@@ -13,6 +13,8 @@ interface PropsInterface {
   contentModelName: string;
   iscontentPreview: boolean;
   parentSysId: string;
+  category?:any;
+  subCategory?:any;
 }
 const Eligibilitycriteriacomponents = async ({
   heading,
@@ -22,6 +24,8 @@ const Eligibilitycriteriacomponents = async ({
   contentModelName,
   iscontentPreview,
   parentSysId,
+  category,
+  subCategory,
 }: PropsInterface) => {
   const query = homePageComponentQueryFormation(
     internalName,
@@ -30,7 +34,6 @@ const Eligibilitycriteriacomponents = async ({
     contentModelName,
     iscontentPreview
   );
-
   const data = (await graphQlFetchFunction(query, iscontentPreview))?.data
     ?.contentData?.items[0]?.bodyContentCollection?.items[0]
     ?.mediaCardsCollection?.items;
@@ -80,6 +83,8 @@ const Eligibilitycriteriacomponents = async ({
                       iscontentPreview={iscontentPreview}
                       sysId={items?.sys?.id}
                       index={index}
+                      category={category}
+                      subCategory={subCategory}
                     />
                   ))}
                 </div>

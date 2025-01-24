@@ -11,6 +11,7 @@ export const HeroLandingPageQuery = (preview: boolean, slug: string) => {
     sys {
          id
         }
+    gaPageName
      bannerImage {
         sys {
          id

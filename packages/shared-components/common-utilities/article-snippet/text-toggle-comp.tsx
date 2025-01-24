@@ -21,8 +21,8 @@ const TextToggleComponent = ({ text, iscontentPreview, sysId }: any) => {
           ]}
         />
       )}
-      <div className="flex flex-col gap-[8px] w-full lg:w-[calc(100%_-_289px)]">
-        <div className="flex flex-col gap-[24px]">
+      <div className="flex flex-col gap-[8px] w-full lg:w-[calc(100%_-_309px)]">
+        <div className="flex flex-col items-start gap-[16px] rtf-innerstyle">
           <p className="para font-normal" id="text_snippet_description"></p>
           {documentToReactComponents(text)}
         </div>
@@ -30,7 +30,7 @@ const TextToggleComponent = ({ text, iscontentPreview, sysId }: any) => {
           className="small font-semibold text-primary-400 hover:underline cursor-pointer"
           // onClick={toggleReadMore}
         >
-          +Read More
+          + Read More
         </div>
       </div>
     </>

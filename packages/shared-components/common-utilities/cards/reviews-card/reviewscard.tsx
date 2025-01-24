@@ -14,12 +14,12 @@ const Reviewscard: React.FC<ReviewCardProps> = ({ reviewData, pageName }) => {
       gaData={{
         event: "ga_contentful_events",
         eventName: "university_reviews",
-        ctaTitle: "NA",
-        ctaUrl: `/university-course-reviews/${reviewData?.collegetextkey}/${reviewData?.collegeId}`,
-        website: `${process.env.PROJECT}`,
-        pageName: pageName,
-        collegeId: reviewData?.collegeId,
-        collegeName: reviewData?.collegeName,
+        cta_name: "NA",
+        cta_url: `/university-course-reviews/${reviewData?.collegetextkey}/${reviewData?.collegeId}`,
+        website_name: `${process.env.PROJECT}`,
+        page_name: pageName,
+        college_id: reviewData?.collegeId,
+        college_name: reviewData?.collegeName,
       }}
     >
       <a

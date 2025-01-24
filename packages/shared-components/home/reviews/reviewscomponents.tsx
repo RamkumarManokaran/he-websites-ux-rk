@@ -47,10 +47,10 @@ const Reviewscomponents: React.FC<ReviewProps> = async ({
                   gaData={{
                     event: "ga_contentful_events",
                     eventName: `${callAction?.primaryCtaEventName}`,
-                    ctaTitle: `${callAction?.primaryCtaLabel}`,
-                    ctaUrl: `${callAction?.primaryCtaUrl}`,
-                    website: `${process.env.PROJECT}`,
-                    pageName: pageName,
+                    cta_name: `${callAction?.primaryCtaLabel}`,
+                    cta_url: `${callAction?.primaryCtaUrl}`,
+                    website_name: `${process.env.PROJECT}`,
+                    page_name: pageName,
                   }}
                 >
                   <a

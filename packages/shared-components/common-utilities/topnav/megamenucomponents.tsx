@@ -74,6 +74,7 @@ const Megamenucomponents = ({ data }: any) => {
           <ul className="flex flex-col lg:flex-row gap-[10px] lg:gap-[0] justify-center">
             {content?.map((menuItem: any, index: number) => (
               <li
+              className="cursor-pointer"
                 key={index}
                 onMouseEnter={
                   !isMobile ? () => setOpenMenu(`menu${index}`) : undefined
