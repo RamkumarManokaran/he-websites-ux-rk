@@ -481,6 +481,10 @@ p,
   }
 }
 /* Article details END  */
+/* Article landing START  */
+.checkbox_card .form-checkbox + label svg{@apply hidden}
+.checkbox_card .form-checkbox:checked + label svg{@apply block}
+/* Article landing END  */
 /* RTF  */
 /* .rtf-innerstyle { } */
 .rtf-innerstyle p {
@@ -546,4 +550,8 @@ h6 {
   list-style: inside disc;
   font-size: 14px;
 }
+.rtf-innerstyle > div:has([id]) > div:not([class]) :where(*),.rtf-innerstyle > div:has([id]) > * {
+  @apply m-[16px_0]
+}
+.rtf-innerstyle p:empty{@apply hidden} 
 /* RTF END */

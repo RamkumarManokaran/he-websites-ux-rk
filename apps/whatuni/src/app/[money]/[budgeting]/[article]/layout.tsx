@@ -7,7 +7,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   try {
     const query = ArticleDetailSeoQuery(slugurl);
     const metadata = await graphQlFetchFunction(query);
-
+    console.log(metadata, "metadataaaa");
     return {
       alternates: {
         canonical:

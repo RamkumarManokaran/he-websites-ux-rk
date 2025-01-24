@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
 import Subscribebtn from "@packages/shared-components/common-utilities/cards/interaction-button/subscribebtn";
 import { v4 as uuidv4 } from "uuid";
-import { getCookie } from "@packages/lib/utlils/helper-function";
+import { currentAuthenticatedUser, GA4DataLayerFn, getCookie } from "@packages/lib/utlils/helper-function";
 //import { getCookieValue } from "@packages/lib/utlils/commonFunction";
 import Link from "next/link";
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
-const Subscribe = ({ data, isPreviewTrue }: any) => {
+import { logClickstreamEvent } from "@packages/lib/utlils/clickstream";
+const Subscribe = ({ data, isPreviewTrue,category ,subCategory}: any) => {
   let jsondata = useContentfulLiveUpdates(data);
   if (!isPreviewTrue) {
     jsondata = data;
@@ -58,9 +59,14 @@ const Subscribe = ({ data, isPreviewTrue }: any) => {
       const isSuccess = await res.json();
       if (isSuccess?.message === "User Added") {
         setSuccess(true);
+        GA4DataLayerFn({event:"registration", eventName: "registration",data_label:"subscription_footer",data_label2:subCategory,page_name : localStorage?.getItem("gaPageName") || "",user_id:await currentAuthenticatedUser(),article_category:category})
+        logClickstreamEvent({pageName:localStorage?.getItem("gaPageName") || "",eventType:"SignedUp",signupMethod:"Newletter Subscription",CTATitle:jsondata?.ctaLabel})
       } else if (isSuccess?.message === "User Updated") {
         setSuccess(true);
+        GA4DataLayerFn({event:"registration", eventName: "registration",data_label:"subscription_footer",data_label2:subCategory,page_name : localStorage?.getItem("gaPageName") || "",user_id:await currentAuthenticatedUser(),article_category:category})
+        logClickstreamEvent({pageName:localStorage?.getItem("gaPageName") || "",eventType:"SignedUp",signupMethod:"Newletter Subscription",CTATitle:jsondata?.ctaLabel})
       } else {
+        logClickstreamEvent({pageName:localStorage?.getItem("gaPageName") || "",eventType:"SignedUp",signupMethod:"Newletter Subscription",CTATitle:jsondata?.ctaLabel,signupFailureReason:isSuccess?.message.toString()})
         console.log("error");
       }
     } else {
@@ -207,7 +213,7 @@ const Subscribe = ({ data, isPreviewTrue }: any) => {
                       <Link
                         target="_blank"
                         href="https://www.whatuni.com/wu-cont/termsAndCondition.htm"
-                        className="text-primary-400 hover:text-primary-500 hover:underline"
+                        className="text-primary-400 hover:text-primary-500 underline"
                         title=""
                       >
                         terms and conditions
@@ -216,7 +222,7 @@ const Subscribe = ({ data, isPreviewTrue }: any) => {
                       <Link
                         target="_blank"
                         href="https://www.whatuni.com/wu-cont/privacy.htm"
-                        className="text-primary-400 hover:text-primary-500 hover:underline"
+                        className="text-primary-400 hover:text-primary-500 underline"
                         title=""
                       >
                         privacy notice

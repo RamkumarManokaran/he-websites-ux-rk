@@ -62,11 +62,14 @@
   .btn-primary {
     @apply bg-primary-400 hover:bg-primary-500;
   }
+  .btn-grey-400 {
+    @apply bg-grey-400 hover:bg-grey-500;
+  }
   .btn-neutral-outline {
     @apply bg-transparent border-primary-400 text-neutral-900 border rounded-[20px] px-[12px] py-[7px] hover:bg-primary-500 hover:text-white font-semibold select-none;
   }
   .btn-primary-outline {
-    @apply bg-transparent border-primary-400 text-primary-400 border rounded-[20px] px-[20px] py-[10px] hover:border-primary-500 hover:bg-primary-500 hover:text-white font-semibold cursor-pointer
+    @apply bg-transparent border-primary-400 text-primary-400 border rounded-[20px] px-[20px] py-[10px] hover:border-primary-500 hover:bg-primary-500 hover:text-white font-semibold cursor-pointer;
   }
   .btn-secondary-outline {
     @apply bg-transparent border-secondary-500 text-secondary-500 border rounded-[24px] px-[16px] py-[7px] hover:bg-secondary-500 hover:text-white font-semibold;
@@ -302,6 +305,15 @@ p,
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
+.backdrop-shadow {
+  @apply backdrop-blur-sm bg-grey-600/80;
+}
+.backdrop-shadow-white {
+  @apply backdrop-blur-sm bg-white/50;
+}
+.backdrop-shadow-black {
+  @apply backdrop-blur-sm bg-black/50;
+}
 /* Backgrop shadow */
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-in;
@@ -393,3 +405,146 @@ p,
 .rightmenu li:not(:last-child) span:hover > svg path {
   stroke: white;
 }
+.decrease svg path {
+  stroke: #4664dc;
+}
+.increment svg path {
+  stroke: #adb2b6;
+}
+
+/* Registeration */
+.form_radio .form-check-input:checked + label,
+.form_radio .form-check-input:hover + label {
+  @apply text-white bg-primary-500 border-primary-500 cursor-pointer;
+}
+.form_check .form-checkbox:checked + label,
+.form_radio .form-radio:checked + label {
+  @apply text-white bg-primary-400 border-primary-400 cursor-pointer;
+}
+.error .form-control {
+  @apply border border-negative-default;
+}
+.err_msg {
+  display: none;
+}
+.error .err_msg {
+  display: block;
+}
+/* Registeration */
+/* Article details  */
+.article-details-aside .reviews-container {
+  @apply bg-white;
+}
+
+.article-details-aside .reviews-card-container {
+  @apply lg:py-[40px];
+}
+.pull-quotes {
+  quotes: '"' "”";
+}
+/* skiplink hamburger menu  */
+
+.skiplinkoption.active ul {
+  height: 100%;
+}
+.skiplinkoption ul {
+  height: 0;
+}
+.skiplinkoption .burger-menu span {
+  transition: all 0.3s linear 0s;
+}
+.skiplinkoption.active .burger-menu span:nth-child(1) {
+  transform: translate(0, 8px) rotate(-45deg);
+}
+.skiplinkoption.active .burger-menu span:nth-child(2) {
+  opacity: 0;
+}
+.skiplinkoption.active .burger-menu span:nth-child(3) {
+  transform: translate(0, -4px) rotate(45deg);
+}
+/* skiplink hamburger menu END */
+@media only screen and (min-width: 992px) and (max-width: 1169px) {
+  .article-details-aside {
+    width: calc(100% - 321px);
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .article-details-aside {
+    width: 804px;
+  }
+}
+/* Article details END  */
+/* Article landing START  */
+.checkbox_card .form-checkbox + label svg{@apply hidden}
+.checkbox_card .form-checkbox:checked + label svg{@apply block}
+/* Article landing END  */
+/* RTF  */
+/* .rtf-innerstyle { } */
+.rtf-innerstyle p {
+  @apply font-inter para font-normal text-grey300;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-grey300;
+}
+.rtf-innerstyle a {
+  @apply text-blue-400 hover:underline;
+}
+.rtf-innerstyle a.rtfcustom-link {
+  color: #fff;
+}
+.rtf-innerstyle a.rtfcustom-link:hover {
+  text-decoration: none;
+}
+.rtf-innerstyle figure {
+  border: 1px solid #d6d9da;
+  padding: 10px;
+  border-radius: 3px;
+  display: inline-block;
+  background-color: #f2f2f2;
+  margin-bottom: 15px;
+}
+.rtf-innerstyle ul,
+.rtf-innerstyle ol {
+  list-style: unset;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rtf-innerstyle table {
+  border: 1px solid #d6d9da !important;
+  border-bottom: 0;
+  border-left: 0;
+  border-collapse: collapse;
+  overflow: auto;
+  max-width: 100%;
+  display: block;
+}
+.rtf-innerstyle table th {
+  background: #f2f2f2;
+}
+.rtf-innerstyle table td,
+.rtf-innerstyle table th {
+  padding: 10px;
+  border-left: 1px solid #d6d9da !important;
+  border-bottom: 1px solid #d6d9da !important;
+  vertical-align: top;
+}
+.rtf-innerstyle table ul li {
+  list-style: inside disc;
+  font-size: 14px;
+}
+.rtf-innerstyle > div:has([id]) > div:not([class]) :where(*),.rtf-innerstyle > div:has([id]) > * {
+  @apply m-[16px_0]
+}
+.rtf-innerstyle p:empty{@apply hidden} 
+/* RTF END */

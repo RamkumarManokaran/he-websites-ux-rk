@@ -1,23 +1,27 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UniversityTab from "@packages/shared-components/home/search-input-pods/universitytab";
 import AdviceTab from "@packages/shared-components/home/search-input-pods/advicetab";
 import CourseTab from "@packages/shared-components/home/search-input-pods/coursetab";
 import Image from "next/image";
 import emitter from "@packages/lib/eventEmitter/eventEmitter";
 import { CourseData, UniData } from "@packages/lib/types/interfaces";
+import { useRouter, usePathname } from "next/navigation";
+import UcasComponent from "@packages/shared-components/common-utilities/popups/ucas-calculator/ucascomponent";
 interface props {
   course_data: CourseData;
   uni_data: UniData;
 }
-export default function Search({ course_data, uni_data }: props) {
+export default function Search({ course_data, uni_data }: any) {
   const searchTabClick = (tabName: string) => {
     setsearchFormHandle((preData) => ({ ...preData, activeTab: tabName }));
   };
   const rightMenuAction = (actionType: string) => {
     emitter.emit("rightMenuActionclose", actionType);
   };
-
+  // const [course_data, setCourseData] = useState({});
+  // const pathname = usePathname();
+  // const [uni_data, setUniData] = useState({});
   const [searchFormHandle, setsearchFormHandle] = useState({
     activeTab: "tab1",
     isCourseType: false,
@@ -31,7 +35,18 @@ export default function Search({ course_data, uni_data }: props) {
     location: {},
     advice: "",
   });
+  const [isUcasPopupOpen, SetIsUcasPopupOpen] = useState(false);
+  const ucasClick = () => {
+    SetIsUcasPopupOpen(true);
+    const body = document.body;
+    body.classList.add("overflow-y-hidden");
+  };
 
+  const ucasClose = () => {
+    const body = document.body;
+    SetIsUcasPopupOpen(false);
+    body.classList.remove("overflow-y-hidden");
+  };
   return (
     <>
       <div className="bg-white absolute top-0 left-0 right-0 z-10 lg:min-h-[222px]">
@@ -116,12 +131,18 @@ export default function Search({ course_data, uni_data }: props) {
                     <div className="ml-[4px] mr-[8px]">
                       Don’t know your UCAS points?
                     </div>
-                    <a
-                      href="#"
+                    <button
+                      onClick={ucasClick}
                       className="text-blue-500 font-semibold hover:underline"
                     >
                       Calculate them
-                    </a>
+                    </button>
+                    {isUcasPopupOpen && (
+                      <UcasComponent
+                        onClose={ucasClose}
+                        isUcasOpen={isUcasPopupOpen}
+                      />
+                    )}
                   </div>
                 </div>
               )}

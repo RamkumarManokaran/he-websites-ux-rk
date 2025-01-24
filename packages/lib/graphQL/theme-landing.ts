@@ -3,12 +3,13 @@ export const ThemeLandingPageQuery = (preview: boolean, slug: string) => {
     contentData: pageTemplateThemedLandingPageCollection(
       limit: 1
       where: {urlSlug: "${slug}", website: {websiteName: "${process.env.PROJECT}"}}
-        ${preview ? `preview : ${preview}` : ""} 
+         ${preview ? `preview : ${preview}` : ""} 
     ) {
       items {
         sys {
           id
         }
+        gaPageName
         bannerImage {
           sys {
             id

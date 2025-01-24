@@ -40,7 +40,7 @@ const Articlesnippetcomponents = async ({
         <div className="max-w-container mx-auto">
           <div className="articlesnippet-card-container flex flex-col lg:flex-row justify-between gap-[20px] px-[16px] md:px-[20px] xl:px-[0] py-[40px] md:py-[64px]">
             {data?.title && (
-              <div className="h5" id="text_snippet_title">
+              <div className="h5 w-full lg:w-[289px]" id="text_snippet_title">
                 {data?.title}
               </div>
             )}

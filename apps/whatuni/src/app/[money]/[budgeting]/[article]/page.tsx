@@ -7,53 +7,11 @@ import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action
 import dynamicComponent from "./dynamicimport";
 import { articleDetailQuery } from "@packages/lib/graphQL/article-detail";
 import ContentfulPreviewProvider from "@packages/lib/contentful-preview/ContentfulLivePreviewProvider";
-import Dontmissout from "@packages/shared-components/article-details/dont-missout/dontmissout";
 import dynamicComponentImports from "@packages/lib/dynamic-imports/imports";
-import dynamic from "next/dynamic";
 import { Suspense } from "react";
-
 import Loading from "./loading";
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
-import { ArticleDetailSeoQuery } from "@packages/lib/graphQL/article-detail";
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const Params = await params;
-  const slugurl = `/${Params?.herohub}/${Params?.money}/${Params?.budgeting}/${Params?.article}`;
-  try {
-    const query = ArticleDetailSeoQuery(slugurl);
-    const metadata = await graphQlFetchFunction(query);
-
-    return {
-      alternates: {
-        canonical:
-          metadata?.data?.contentData?.items[0]?.seoFields?.canonical ||
-          "https://www.Whatuni.com/",
-      },
-      title:
-        metadata?.data?.contentData?.items[0]?.seoFields?.metaTite ||
-        "Default Title",
-      description:
-        metadata?.data?.contentData?.items[0]?.seoFields?.metaDescription ||
-        "Default Description",
-      robots:
-        metadata?.data?.contentData?.items[0]?.robots?.title || "index, follow",
-      keywords:
-        metadata?.data?.contentData?.items[0]?.seoFields?.metaKeywords || [],
-    };
-  } catch (error) {
-    console.error("Error fetching metadata:", error);
-    return {
-      title: "Default Title",
-      description: "Default Description",
-      robots: "noindex, nofollow",
-      keywords: null,
-      alternates: {
-        canonical: "https://www.Whatuni.com/",
-      },
-    };
-  }
-}
 const Page = async ({ params, searchParams }: any) => {
   const searchparams = await searchParams;
   const preview =
@@ -127,11 +85,11 @@ const Page = async ({ params, searchParams }: any) => {
             </section>
 
             <section>
-              <div className="max-w-container mx-auto px-[16px] xl:px-[0]">
+              <div className="max-w-container mx-auto">
                 <div className="flex flex-col lg:flex-row gap-[20px]">
                   <Skiplink propsdata={data} preview={preview} />
                   <div className="w-full article-details-aside">
-                    <section className="pb-[40px]">
+                    <section className="pb-[40px] px-[16px] md:px-[20px] xl:px-[0]">
                       <div className="rtf-innerstyle flex flex-col gap-[16px]">
                         {data?.bodyContentCollection?.items?.map(
                           (dt: any, index: any) => {
