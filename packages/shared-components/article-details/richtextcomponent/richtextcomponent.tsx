@@ -3,8 +3,18 @@ import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
 import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
+import { logClickstreamEvent } from "@packages/lib/utlils/clickstream";
 export default function Richtextcomponent({ propsdata, key, preview }: any) {
   const data = useContentfulLiveUpdates(propsdata);
+  
+  function handleRichTextVideoTracking(){
+    logClickstreamEvent({
+      sectionName: "rich text",
+      pageName: localStorage.getItem("gaPageName"),
+      eventType: "videoPlayed",
+
+    })
+  }
   const customOptions = {
     renderNode: {
       paragraph: (node: any, children: any) => <p>{children}</p>,
@@ -14,6 +24,12 @@ export default function Richtextcomponent({ propsdata, key, preview }: any) {
       "unordered-list": (node: any, children: any) => <ul>{children}</ul>,
       "ordered-list": (node: any, children: any) => <ol>{children}</ol>,
       "list-item": (node: any, children: any) => <li>{children}</li>,
+      video: (node: any) => (
+        <video width="100%" style={{ maxWidth: "600px", display: "block", margin: "0 auto" }}
+        onClick={() => handleRichTextVideoTracking()}
+        >
+        <source src={node.data.uri} type="video/mp4" />Your browser does not support the video tag.    
+        </video>),
       hyperlink: (node: any, children: any) => (
         <a
           onClick={() => console.log("clicking  clicking  clicking clicking")}
@@ -22,6 +38,7 @@ export default function Richtextcomponent({ propsdata, key, preview }: any) {
           {children}
         </a>
       ),
+      
     },
     renderMark: {
       bold: (text: any) => <strong>{text}</strong>,

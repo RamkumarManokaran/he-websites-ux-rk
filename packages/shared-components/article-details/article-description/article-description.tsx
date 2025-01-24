@@ -5,13 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
 import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
-import { formatDate } from "@packages/lib/utlils/helper-function";
+import { formatDate, GA4DataLayerFn, getArticleDetailUrlParamValues } from "@packages/lib/utlils/helper-function";
+import { DataLayerGA4AttrType } from "@packages/lib/types/datalayerGA";
+import { usePathname } from "next/navigation";
 const Articledescription = ({ propsdata, preview }: any) => {
   const data = useContentfulLiveUpdates(propsdata);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const modalPopToggle = () => {
-    console.log("ASssssssssssssssssssssssssssss");
+    !modalOpen && handleShareLinkClickGA("clicked", "");
     setModalOpen(!modalOpen);
   };
 
@@ -41,6 +43,24 @@ const Articledescription = ({ propsdata, preview }: any) => {
     };
   }, []);
   // ================================================================================================================================================
+
+  const{category, subCategory, articleTitle} = getArticleDetailUrlParamValues();
+
+  function handleShareLinkClickGA(interaction: string, socialName: string){
+    let datalog: DataLayerGA4AttrType = {
+      event: "ga_contentful_events",
+      eventName: "social_media_share",
+      data_label: subCategory,
+      data_label2: socialName,
+      data_label3: interaction,
+      page_name: localStorage.getItem("gaPageName")?.toString(),
+      article_category: category,
+      clearing: "in_year",
+    };
+    GA4DataLayerFn(datalog);
+
+  }
+
   return (
     <>
       {preview && (
@@ -96,7 +116,7 @@ const Articledescription = ({ propsdata, preview }: any) => {
           {` Updated:${formatDate(data?.modifiedDate) ?? ""}`}
         </span>
         <button
-          onClick={modalPopToggle}
+          onClick={() => modalPopToggle()}
           className="btn btn-primary-outline px-[16px] py-[8px] flex gap-[6px] svg-hover-white w-fit"
         >
           <Image
@@ -134,6 +154,7 @@ const Articledescription = ({ propsdata, preview }: any) => {
                 <div className="flex flex-wrap gap-[6px] justify-center">
                   <a
                     href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
+                    onClick={() => handleShareLinkClickGA("engaged", "facebook")}
                     className="md:min-w-[111.5px] min-w-[69px] flex flex-col gap-[9px] items-center text-blue-400 hover:text-grey300 hover:underline"
                   >
                     <Image
@@ -146,6 +167,7 @@ const Articledescription = ({ propsdata, preview }: any) => {
                   </a>
                   <a
                     href={`https://twitter.com/intent/tweet?url=${window.location.href}`}
+                    onClick={() => handleShareLinkClickGA("engaged", "twitter")}
                     className="md:min-w-[111.5px] min-w-[69px] flex flex-col gap-[9px] items-center text-blue-400 hover:text-grey300 hover:underline"
                   >
                     <Image
@@ -158,6 +180,7 @@ const Articledescription = ({ propsdata, preview }: any) => {
                   </a>
                   <a
                     href={`https://www.pinterest.com/pin/create/button/?url=${window.location.href}&media=${data?.bannerImageCollection?.items[0]?.imgUpload?.url}&description=${data?.pageTitle}`}
+                    onClick={() => handleShareLinkClickGA("engaged", "pinterest")}
                     className="md:min-w-[111.5px] min-w-[69px] flex flex-col gap-[9px] items-center text-blue-400 hover:text-grey300 hover:underline"
                   >
                     <Image
@@ -169,7 +192,7 @@ const Articledescription = ({ propsdata, preview }: any) => {
                     <span className="small font-inter">Pinterest</span>
                   </a>
                   <button
-                    onClick={() => handleCopyLink()}
+                    onClick={() => {handleCopyLink(); handleShareLinkClickGA("engaged", "link_copied")}}
                     className="md:min-w-[111.5px] min-w-[69px] flex flex-col gap-[9px] items-center text-blue-400 hover:text-grey300 hover:underline"
                   >
                     <Image

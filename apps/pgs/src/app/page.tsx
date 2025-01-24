@@ -19,6 +19,7 @@ const Page = async () => {
   return (
     <>
       <PageViewLogging
+        pageNameLocal="homepage"
         gaData={{
           website_name: `${process.env.PROJECT}`,
           page_name: "homepage",

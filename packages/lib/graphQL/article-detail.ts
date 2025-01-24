@@ -210,6 +210,16 @@ export function articleDetailQuery(
             cardSectionTitle
             shortDescription
             flagComponentStyle
+            callToAction {
+              ... on CallToActionCta {
+                internalName
+                primaryCtaLabel
+                primaryCtaEventName
+                primaryCtaUrl
+                primaryCtaTarget
+                flagStyle
+              }
+            }
             mediaCardsCollection {
               items {
                 ... on MetaTagTopic {

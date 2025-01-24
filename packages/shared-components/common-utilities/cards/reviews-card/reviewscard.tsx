@@ -2,24 +2,29 @@ import React from "react";
 
 import { ReviewDetails } from "@packages/lib/types/interfaces";
 import ClickTrackerWrapper from "@packages/lib/utlils/clicktrackerwrapper";
+import { DataLayerGA4AttrType } from "@packages/lib/types/datalayerGA";
 interface ReviewCardProps {
   reviewData: ReviewDetails;
   index: any;
   ratings: any;
   pageName?: any;
+  article_category?: string;
+  article_subCat?: string;
 }
-const Reviewscard: React.FC<ReviewCardProps> = ({ reviewData, pageName }) => {
+const Reviewscard: React.FC<ReviewCardProps> = ({ reviewData, pageName, article_category, article_subCat}) => {
   return (
     <ClickTrackerWrapper
       gaData={{
         event: "ga_contentful_events",
         eventName: "university_reviews",
+        data_label: article_subCat, 
         cta_name: "NA",
         cta_url: `/university-course-reviews/${reviewData?.collegetextkey}/${reviewData?.collegeId}`,
-        website_name: `${process.env.PROJECT}`,
         page_name: pageName,
+        article_category: article_category,
         college_id: reviewData?.collegeId,
         college_name: reviewData?.collegeName,
+        clearing: "in_year",
       }}
     >
       <a

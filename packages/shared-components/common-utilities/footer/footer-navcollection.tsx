@@ -32,9 +32,9 @@ const FooterNavCollection = ({ data }: PropsInterface) => {
                         eventName: "footer_clicks",
                         cta_name: childItem.navTitle,
                         cta_url: childItem?.navUrl || "",
-                        website_name: `${process.env.PROJECT}`,
                         page_name: "",
                         contentful_1: navItems?.navTitle,
+                        clearing: "in_year",
                       }}
                     >
                       <a
@@ -51,6 +51,7 @@ const FooterNavCollection = ({ data }: PropsInterface) => {
                       </a>
                     </ClickTrackerWrapper>
                   </li>
+                  
                 )
               )}
             </ul>

@@ -3,6 +3,7 @@
 import { fetchAuthSession } from "@aws-amplify/auth";
 import { API_END_POINTS } from "../utlils/API_END_POINTS";
 import { v4 as uuidv4 } from "uuid";
+import { currentAuthenticatedUser } from "../utlils/helper-function";
 
 export async function graphQlFetchFunction(
   payload: string,

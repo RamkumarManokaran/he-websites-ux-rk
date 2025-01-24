@@ -2,8 +2,11 @@ import React from "react";
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
+import { DataLayerGA4AttrType } from '@packages/lib/types/datalayerGA';
+import { currentAuthenticatedUser, GA4DataLayerFn } from '@packages/lib/utlils/helper-function';
+import ClickTrackingWrapper from "@packages/lib/utlils/clicktrackerwrapper";
 
-const Ctabanner = ({ key, propsdata, preview }: any) => {
+const Ctabanner = ({ key, propsdata, preview, urlParams}: any) => {
   console.log(propsdata, "asas");
   console.log(propsdata.longDescription.json, "asdfgasahjk");
 
@@ -42,6 +45,7 @@ const Ctabanner = ({ key, propsdata, preview }: any) => {
           ]}
         />
       )}
+      
       <div
         id="article-backgroundColor"
         className={`${propsdata?.backgroundColor} p-[16px] md:py-[0] gap-[20px] md:gap-[0]  md:px-[20px] rounded-[8px] flex md:flex-row flex-col-reverse justify-between items-end`}
@@ -63,6 +67,15 @@ const Ctabanner = ({ key, propsdata, preview }: any) => {
             </div>
           </div>
           {propsdata?.cta?.primaryCtaUrl && (
+            <ClickTrackingWrapper gaData={{
+              event: "ga_contentful_events",
+              eventName: propsdata.cta.primaryCtaEventName,
+              data_label: urlParams?.budgeting,
+              article_category: urlParams?.money,
+              cta_name: propsdata.cta.primaryCtaLabel || "Find your perfect",
+              cta_url: propsdata.cta.primaryCtaUrl,
+              clearing: "in_year",
+            }}>
             <a
               id="article-primaryCtaLabel-detai"
               href={propsdata.cta.primaryCtaUrl}
@@ -80,6 +93,7 @@ const Ctabanner = ({ key, propsdata, preview }: any) => {
             >
               {propsdata.cta.primaryCtaLabel || "Find your perfect "}
             </a>
+            </ClickTrackingWrapper>
           )}
         </div>
         <span className="md:min-w-[219px] w-full md:w-auto  h-[187px] flex justify-center">

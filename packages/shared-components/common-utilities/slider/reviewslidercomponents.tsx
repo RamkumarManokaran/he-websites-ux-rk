@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Pagination } from "swiper/modules";
 import Reviewscard from "../cards/reviews-card/reviewscard";
 import { ReviewDetailsList } from "@packages/lib/types/interfaces";
+import { getArticleDetailUrlParamValues } from "@packages/lib/utlils/helper-function";
 
 interface ReviewSliderProps {
   reviewData: ReviewDetailsList["reviewDetail"];
@@ -15,6 +16,9 @@ const Reviewslidercomponents: React.FC<ReviewSliderProps> = ({
   reviewData,
   pageName,
 }) => {
+
+  const{category, subCategory, articleTitle} = getArticleDetailUrlParamValues();
+
   return (
     <>
       <div className="slider-container" data-testid="review-slider">
@@ -45,6 +49,8 @@ const Reviewslidercomponents: React.FC<ReviewSliderProps> = ({
                 index={index}
                 ratings={5}
                 pageName={pageName}
+                article_category={category}
+                article_subCat={subCategory}
               />
             </SwiperSlide>
           ))}
