@@ -16,8 +16,7 @@ import PageViewLogging from "@packages/lib/utlils/pageviewlogging";
 const Page = async ({ params, searchParams }: any) => {
   const pageNameforArtcileDetail = "articleDetail";
   const searchparams = await searchParams;
-  const preview =
-    (await searchparams?.preview) === "MY_SECRET_TOKEN" ? true : false;
+  const preview =  (await searchparams?.preview) === "MY_SECRET_TOKEN" ? true : false;
   const Params = await params;
   const slugurl = `/${Params.money}/${Params.budgeting}/${Params.article}`;
   const articledetaildata = await graphQlFetchFunction(
@@ -25,10 +24,8 @@ const Page = async ({ params, searchParams }: any) => {
     preview
   );
 
-  const customDomain =
-    process.env.PROJECT === "Whatuni"
-      ? "https://whatuni.com"
-      : "https://www.postgraduatesearch.com";
+  
+  const customDomain = process.env.PROJECT === "Whatuni" ? "https://whatuni.com" : "https://www.postgraduatesearch.com";
   const url = new URL(customDomain + slugurl);
   if (searchParams) {
     Object.entries(searchParams).forEach(([key, value]) => {
@@ -37,155 +34,164 @@ const Page = async ({ params, searchParams }: any) => {
       }
     });
   }
+  
   console.log("Final URL:", url.toString());
-  console.log(articledetaildata, "as");
+console.log(articledetaildata,"as")
   if (!articledetaildata) {
-    console.log("notfound");
+    console.log("notfound")
     notFound();
   }
+  console.dir(articledetaildata, "Asddddddddddddddddddddd");
   const data = articledetaildata?.data?.contentData?.items[0];
-  console.log(data, "datatataaa");
-  const breadcrumbData = [
-    {
-      url: "#",
+  console.log(data,"datatataaa")
+  const customLabels = [`${data?.articleType?.title}`,`${data?.metaTagThemeCollection?.items[0].title}`,`${data?.pageTitle}`]
+  function generateBreadcrumbData(currentPath:any) {
+
+    const sanitizedPath = currentPath.endsWith("/")
+      ? currentPath.slice(0, -1)
+      : currentPath;
+  
+    console.log(sanitizedPath,"sanitizedPath")
+    const pathSegments = sanitizedPath.split("/").filter((segment:any) => segment);
+   console.log(pathSegments,"pathSegments")
+    // Construct breadcrumb data
+    const breadcrumbData = pathSegments.map((segment:any, index:any) => {
+      const url =
+        index === pathSegments.length - 1
+          ? "" // No URL for the last breadcrumb
+          : "/" + pathSegments.slice(0, index + 1).join("/"); // Build URL for each segment
+  
+      return {
+        url,
+        label: customLabels[index] || segment.replace(/-/g, " ").replace(/\b\w/g, (char:any) => char.toUpperCase()),
+      };
+    });
+  console.log(breadcrumbData,"breadcrumbData");
+    // Add Home as the first breadcrumb
+    breadcrumbData.unshift({
+      url: "/",
       label: "Home",
-    },
-    {
-      url: "#",
-      label: "Payments",
-    },
-    {
-      url: "#",
-      label: "Online payments",
-    },
-    {
-      url: "",
-      label: "Overview",
-    },
-  ];
+    });
+  
+    return breadcrumbData;
+  }
+  
+  const breadcrumbData = generateBreadcrumbData(slugurl);
+  // const breadcrumbData = [
+  //   {
+  //     url: "/",
+  //     label: "Home",
+  //   },
+  //   {
+  //     url: "#",
+  //     label: "Payments",
+  //   },
+  //   {
+  //     url: "#",
+  //     label: "Online payments",
+  //   },
+  //   {
+  //     url: "",
+  //     label: "Overview",
+  //   },
+  // ];
   const jsonLd = {
-    "@context": "http://schema.org",
-    "@type": "Article",
-    headline: data?.seoFields?.metaTite,
-    url: url,
-    thumbnailUrl: data?.bannerImageCollection?.items[0]?.imgUpload?.url,
-    image: data?.bannerImageCollection?.items[0]?.imgUpload?.url,
-    dateCreated: data?.modifiedDate,
-    datePublished: data?.modifiedDate,
-    dateModified: data?.modifiedDate,
-    creator: {
-      "@type": "Person",
-      name:
-        data?.author?.firstName ??
-        "" + data?.author?.middleName ??
-        "" + data?.author?.lastName ??
-        "",
-    },
-    author: {
-      "@type": "Person",
-      name:
-        data?.author?.firstName ??
-        "" + data?.author?.middleName ??
-        "" + data?.author?.lastName ??
-        "",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Whatuni",
-      logo: {
-        "@type": "http://schema.org/ImageObject",
-        url: "https://images-dom.prod.aws.idp-connect.com/wu-cont/images/logo_print.png",
-      },
-    },
-    mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    keywords: [""],
-  };
+    "@context":"http://schema.org",
+    "@type":"Article",
+    "headline":data?.seoFields?.metaTite,
+    "url":url,	
+    "thumbnailUrl":data?.bannerImageCollection?.items[0]?.imgUpload?.url,
+    "image":data?.bannerImageCollection?.items[0]?.imgUpload?.url,	
+    "dateCreated":data?.modifiedDate,
+    "datePublished":data?.modifiedDate,
+    "dateModified":data?.modifiedDate,
+    "creator":{"@type":"Person","name":data?.author?.firstName ?? "" + data?.author?.middleName ?? "" +  data?.author?.lastName ?? ""},
+    "author":{"@type":"Person","name":data?.author?.firstName ?? "" + data?.author?.middleName ?? "" +  data?.author?.lastName ?? ""},
+    "publisher":{"@type":"Organization","name":"Whatuni",
+    "logo":{"@type":"http://schema.org/ImageObject",
+    "url":"https://images-dom.prod.aws.idp-connect.com/wu-cont/images/logo_print.png"}},
+    "mainEntityOfPage":{"@type":"WebPage",
+    "@id":url},
+    "keywords":[""]
+  }
   return (
     <>
+      
       <script
         id="product-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd),
+          __html: JSON.stringify(jsonLd)
         }}
       />
+  
+    <Suspense fallback={<Loading />}>
+      <>
+      <PageViewLogging pageNameLocal={pageNameforArtcileDetail} gaData={{page_name: pageNameforArtcileDetail, article_category: Params.money}} csData={{eventType: "PageViewed", pageName: pageNameforArtcileDetail, articleTopic: Params.article}}/>
+        <ContentfulPreviewProvider
+          locale="en-GB"
+          enableInspectorMode={preview}
+          enableLiveUpdates={preview}
+          debugMode={preview}
+        >
+          <div className="bg-white">
+             
+            <section className="pt-[16px] pb-[40px]">
+            <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
+              <Breadcrumblayoutcomponent
+                propsdata={breadcrumbData}
+                preview={preview}
+              />
+            </div>
 
-      <Suspense fallback={<Loading />}>
-        <>
-          <PageViewLogging
-            pageNameLocal={pageNameforArtcileDetail}
-            gaData={{
-              page_name: pageNameforArtcileDetail,
-              article_category: Params.money,
-            }}
-            csData={{
-              eventType: "PageViewed",
-              pageName: pageNameforArtcileDetail,
-              articleTopic: Params.article,
-            }}
-          />
-          <ContentfulPreviewProvider
-            locale="en-GB"
-            enableInspectorMode={preview}
-            enableLiveUpdates={preview}
-            debugMode={preview}
-          >
-            <div className="bg-white">
-              <section className="pt-[16px] pb-[40px]">
-                <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
-                  <Breadcrumblayoutcomponent
-                    propsdata={breadcrumbData}
-                    preview={preview}
-                  />
-                </div>
-              </section>
+          </section>
 
-              <section className="pb-[40px]">
-                <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
-                  <Articledescription propsdata={data} preview={preview} />
-                </div>
-              </section>
+            <section className="pb-[40px]">
+              <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
+                <Articledescription propsdata={data} preview={preview} url={Params.money} />
+              </div>
+            </section>
 
-              <section className="lg:pb-[40px]">
-                <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
-                  <Authorprofile preview={preview} propsdata={data} />
-                </div>
-              </section>
+            <section className="lg:pb-[40px]">
+              <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
+                <Authorprofile preview={preview} propsdata={data} />
+              </div>
+            </section>
 
-              <section>
-                <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
-                  <div className="flex flex-col lg:flex-row gap-[20px]">
-                    <Skiplink propsdata={data} preview={preview} />
-                    <div className="w-full article-details-aside">
-                      <section className="pb-[40px] px-[16px] md:px-[20px] xl:px-[0]">
-                        <div className="rtf-innerstyle flex flex-col gap-[16px]">
-                          {data?.bodyContentCollection?.items?.map(
-                            (dt: any, index: any) => {
-                              if (
-                                dt?.__typename === "MultipleCardContainer" &&
-                                dt?.flagComponentStyle !== "ArticleCarousal"
-                              ) {
-                                console.log("inside the if");
-                              } else {
-                                const Component: any = dynamicComponent(
-                                  dt?.__typename
-                                );
-                                if (!Component) {
-                                  return null;
-                                }
-                                return (
-                                  <Component
-                                    key={index}
-                                    propsdata={dt}
-                                    urlParams={Params}
-                                    preview={preview}
-                                  />
-                                );
-                              }
-                            }
-                          )}
-                        </div>
+            <section>
+              <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
+                <div className="flex flex-col lg:flex-row gap-[20px]">
+                  <Skiplink propsdata={data} preview={preview} />
+                  <div className="w-full article-details-aside">
+                    <section className="pb-[40px] px-[16px] md:px-[20px] xl:px-[0]">
+                      <div className="rtf-innerstyle flex flex-col gap-[16px]">
                         {data?.bodyContentCollection?.items?.map(
+                          (dt: any, index: any) => {
+                            if (
+                              dt?.__typename === "MultipleCardContainer" &&
+                              dt?.flagComponentStyle !== "ArticleCarousal"
+                            ) {
+                              console.log("inside the if")
+                            } else {
+                              const Component: any = dynamicComponent(
+                                dt?.__typename
+                              );
+                              if (!Component) {
+                                return null;
+                              }
+                              return (
+                                <Component
+                                  key={index}
+                                  propsdata={dt}
+                                  urlParams={Params}
+                                  preview={preview}
+                                />
+                              );
+                            }
+                          }
+                        )}
+                      </div>
+                      {data?.bodyContentCollection?.items?.map(
                           (dt: any, index: any) => {
                             if (
                               dt?.__typename === "MultipleCardContainer" &&
@@ -213,80 +219,81 @@ const Page = async ({ params, searchParams }: any) => {
                                   iscontentPreview={preview}
                                 />
                               );
-                            }
+                            } 
                           }
                         )}
-                        {/* <section className="pt-[40px]">
+                      {/* <section className="pt-[40px]">
                     <Ctabanner />
                   </section> */}
-                      </section>
-                    </div>
+                    </section>
                   </div>
                 </div>
-              </section>
+              </div>
+            </section>
 
-              {/* Slider section  */}
-              <section className="bg-grey-50">
-                <div className="max-w-container mx-auto">
-                  {data?.bodyContentCollection?.items?.map(
-                    (dt: any, index: any) => {
-                      console.log("inside ooooooooooo");
-                      if (
-                        dt?.__typename === "MultipleCardContainer" &&
-                        dt?.flagComponentStyle === "ArticleCarousal"
-                      ) {
-                        console.log("insid ethe", dt);
-                        const Component: any = dynamicComponentImports(
-                          dt?.flagComponentStyle
-                        );
-                        if (!Component) {
-                          return null;
-                        }
-                        return (
-                          <Component
-                            key={index}
-                            heading={dt?.cardSectionTitle}
-                            subheading={dt?.shortDescription}
-                            internalName={dt?.internalName}
-                            callAction={dt?.callToAction}
-                            parentSysId={dt?.sys?.id}
-                            routename={slugurl}
-                            articleKeyArray={dt?.mediaCardsCollection?.items}
-                            contentModelName={"articleCollection"}
-                            iscontentPreview={preview}
-                          />
-                        );
+            {/* Slider section  */}
+            <section className="bg-grey-50">
+              <div className="max-w-container mx-auto">
+                {data?.bodyContentCollection?.items?.map(
+                  (dt: any, index: any) => {
+                    console.log("inside ooooooooooo")
+                    if (
+                      dt?.__typename === "MultipleCardContainer" &&
+                      dt?.flagComponentStyle === "ArticleCarousal"
+                    ) {
+                      console.log("insid ethe",dt)
+                      const Component: any = dynamicComponentImports(
+                        dt?.flagComponentStyle
+                      );
+                      if (!Component) {
+                        return null;
                       }
+                      return (
+                        <Component
+                          key={index}
+                          heading={dt?.cardSectionTitle}
+                          subheading={dt?.shortDescription}
+                          internalName={dt?.internalName}
+                          callAction={dt?.callToAction}
+                          parentSysId={dt?.sys?.id}
+                          routename={slugurl}
+                          articleKeyArray={dt?.mediaCardsCollection?.items}
+                          contentModelName={"articleCollection"}
+                          iscontentPreview={preview}
+                        />
+                      );
                     }
-                  )}
-                </div>
-              </section>
-              {/* Slider section END */}
-              {/* Slider section  */}
-              <section className="bg-white">
-                <div className="max-w-container mx-auto">
-                  {/* <Advicecourseslidercomponents categoryTag={true} adviceBgWhite={true} /> */}
-                </div>
-              </section>
-              {/* Slider section END */}
-              {/* Slider section  */}
-              <section className="bg-grey-50">
-                <div className="max-w-container mx-auto">
-                  {/* <Advicecourseslidercomponents categoryTag={true} adviceBgWhite={false} /> */}
-                </div>
-              </section>
-              {/* Slider section END */}
-              {/* Slider section  */}
-              <section className="bg-white">
-                <div className="max-w-container mx-auto">
-                  {/* <Advicecourseslidercomponents categoryTag={true} adviceBgWhite={true} /> */}
-                </div>
-              </section>
-              {/* Slider section END */}
-            </div>
-          </ContentfulPreviewProvider>
-        </>
-      </Suspense>
+                  }
+                )}
+              </div>
+            </section>
+            {/* Slider section END */}
+            {/* Slider section  */}
+            <section className="bg-white">
+              <div className="max-w-container mx-auto">
+                {/* <Advicecourseslidercomponents categoryTag={true} adviceBgWhite={true} /> */}
+              </div>
+            </section>
+            {/* Slider section END */}
+            {/* Slider section  */}
+            <section className="bg-grey-50">
+              <div className="max-w-container mx-auto">
+                {/* <Advicecourseslidercomponents categoryTag={true} adviceBgWhite={false} /> */}
+              </div>
+            </section>
+            {/* Slider section END */}
+            {/* Slider section  */}
+            <section className="bg-white">
+              <div className="max-w-container mx-auto">
+                {/* <Advicecourseslidercomponents categoryTag={true} adviceBgWhite={true} /> */}
+              </div>
+            </section>
+            {/* Slider section END */}
+          </div>
+        </ContentfulPreviewProvider>
+      </>
+    </Suspense>
+
     </>
   );
 };

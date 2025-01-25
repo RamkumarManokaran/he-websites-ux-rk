@@ -5,9 +5,10 @@ import { signInWithRedirect } from "aws-amplify/auth";
 import { v4 as uuidv4 } from "uuid";
 import { signOut } from "aws-amplify/auth";
 import { useRouter } from "next/navigation";
-
+import { usePathname } from 'next/navigation';
 const GoogleOneTap = () => {
   const router = useRouter();
+  const pathname = usePathname();
 
   const randomid = uuidv4();
   const tracksession_id = uuidv4().replace(/\D/g, "").slice(0, 8);
@@ -106,15 +107,12 @@ const GoogleOneTap = () => {
 
     async function watchForCognitoCookie() {
       setCookie("Signinonetap", "true", 7);
-      const lis = localStorage.getItem("COLCSubmitRes");
-      console.log(lis);
-      if(!lis){
-        console.log("inside the if of lis",lis)
+      // const lis = localStorage.getItem("COLCSubmitRes");
         signInWithRedirect({
           provider: "Google",
-          customState: "home page",
+          customState:pathname,
         });
-      }
+    
     }
     const checkSession = async () => {
       try {

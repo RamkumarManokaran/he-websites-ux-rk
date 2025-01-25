@@ -8,13 +8,16 @@ import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/Con
 import { formatDate, GA4DataLayerFn, getArticleDetailUrlParamValues } from "@packages/lib/utlils/helper-function";
 import { DataLayerGA4AttrType } from "@packages/lib/types/datalayerGA";
 import { usePathname } from "next/navigation";
-const Articledescription = ({ propsdata, preview }: any) => {
+
+const Articledescription = ({ propsdata, preview ,url}: any) => {
   const data = useContentfulLiveUpdates(propsdata);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const modalPopToggle = () => {
-    !modalOpen && handleShareLinkClickGA("clicked", "");
-    setModalOpen(!modalOpen);
+    if (!modalOpen) {
+      handleShareLinkClickGA("clicked", ""); // Trigger GA event when opening
+    }
+    setModalOpen((prevState) => !prevState); // Safely toggle state
   };
 
   const handleCopyLink = () => {
@@ -93,7 +96,7 @@ const Articledescription = ({ propsdata, preview }: any) => {
 
       <div className="flex flex-col gap-[8px]">
         <span className="x-small font-inter uppercase font-semibold tracking-[1px] text-blue-400">
-          <Link id="article_title" className="uppercase hover:underline" href="#">
+        <Link id="article_title" className="uppercase hover:underline" href={`/${url}`}>
             {data?.articleType?.title}
           </Link>
         </span>
