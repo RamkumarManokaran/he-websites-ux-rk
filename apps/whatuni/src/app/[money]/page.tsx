@@ -20,15 +20,13 @@ const page = async ({ searchParams, params }: any) => {
     HeroLandingPageQuery(iscontentPreview, slugurl),
     iscontentPreview
   );
-  console.log(HeroLandingPageQuery(iscontentPreview, slugurl));
   if (jsondata?.data?.contentData?.items.length < 1) {
     notFound();
   }
-  console.log(HeroLandingPageQuery(iscontentPreview, slugurl));
   const componentList =
     jsondata?.data?.contentData?.items[0]?.bodyContentCollection?.items;
   const bannerData = jsondata?.data?.contentData?.items[0]?.bannerImage;
-  const splitParam = slugurl ? slugurl.split('/') : [];
+  const splitParam = slugurl ? slugurl.split("/") : [];
   return (
     <ContentfulPreviewProvider
       locale="en-GB"
@@ -75,14 +73,21 @@ const page = async ({ searchParams, params }: any) => {
         )}
       </div>
       <PageViewLogging
-          pageNameLocal={jsondata?.data?.contentData?.items[0]?.gaPageName}
-          gaData={{
-            website_name: `${process.env.PROJECT}`,
-            page_name: jsondata?.data?.contentData?.items[0]?.gaPageName,
-          }}
-          csData={{pageName:jsondata?.data?.contentData?.items[0]?.gaPageName,eventType:"PageViewed"}}
-        />
-      <Subscribecomponents iscontentPreview={iscontentPreview} category={splitParam?.[1]} subCategory={splitParam?.[2]}/>
+        pageNameLocal={jsondata?.data?.contentData?.items[0]?.gaPageName}
+        gaData={{
+          website_name: `${process.env.PROJECT}`,
+          page_name: jsondata?.data?.contentData?.items[0]?.gaPageName,
+        }}
+        csData={{
+          pageName: jsondata?.data?.contentData?.items[0]?.gaPageName,
+          eventType: "PageViewed",
+        }}
+      />
+      <Subscribecomponents
+        iscontentPreview={iscontentPreview}
+        category={splitParam?.[1]}
+        subCategory={splitParam?.[2]}
+      />
     </ContentfulPreviewProvider>
   );
 };

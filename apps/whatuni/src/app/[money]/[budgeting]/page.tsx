@@ -19,7 +19,8 @@ const page = async ({ searchParams, params }: any) => {
     ThemeLandingPageQuery(iscontentPreview, slugurl),
     iscontentPreview
   );
-  console.log(ThemeLandingPageQuery(iscontentPreview, slugurl));
+  console.log("theme page", jsondata);
+  console.log("query", ThemeLandingPageQuery(iscontentPreview, slugurl));
   const componentList =
     jsondata?.data?.contentData?.items[0]?.bodyContentCollection?.items;
 
@@ -27,9 +28,8 @@ const page = async ({ searchParams, params }: any) => {
     notFound();
   }
   const bannerData = jsondata?.data?.contentData?.items[0]?.bannerImage;
-  const splitParam = slugurl ? slugurl.split('/') : [];
-  console.log("theme page", jsondata);
-  console.log("query", ThemeLandingPageQuery(iscontentPreview, slugurl));
+  const splitParam = slugurl ? slugurl.split("/") : [];
+
   return (
     <ContentfulPreviewProvider
       locale="en-GB"
@@ -75,15 +75,21 @@ const page = async ({ searchParams, params }: any) => {
         )}
       </div>
       <PageViewLogging
-          pageNameLocal={jsondata?.data?.contentData?.items[0]?.gaPageName}
-          gaData={{
-            website_name: `${process.env.PROJECT}`,
-            page_name: jsondata?.data?.contentData?.items[0]?.gaPageName,
-          }}
-          csData={{pageName:jsondata?.data?.contentData?.items[0]?.gaPageName,eventType:"PageViewed"}}
-        />
-      <Subscribecomponents iscontentPreview={iscontentPreview}  category={splitParam?.[1]}
-                subCategory={splitParam?.[2]}/>
+        pageNameLocal={jsondata?.data?.contentData?.items[0]?.gaPageName}
+        gaData={{
+          website_name: `${process.env.PROJECT}`,
+          page_name: jsondata?.data?.contentData?.items[0]?.gaPageName,
+        }}
+        csData={{
+          pageName: jsondata?.data?.contentData?.items[0]?.gaPageName,
+          eventType: "PageViewed",
+        }}
+      />
+      <Subscribecomponents
+        iscontentPreview={iscontentPreview}
+        category={splitParam?.[1]}
+        subCategory={splitParam?.[2]}
+      />
     </ContentfulPreviewProvider>
   );
 };
