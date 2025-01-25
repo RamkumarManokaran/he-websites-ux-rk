@@ -92,7 +92,7 @@ const Articledescription = ({ propsdata, preview }: any) => {
       )}
 
       <div className="flex flex-col gap-[8px]">
-        <span className="x-small font-inter tracking-[1px] text-blue-400">
+        <span className="x-small font-inter uppercase font-semibold tracking-[1px] text-blue-400">
           <Link id="article_title" className="uppercase hover:underline" href="#">
             {data?.articleType?.title}
           </Link>
@@ -105,7 +105,7 @@ const Articledescription = ({ propsdata, preview }: any) => {
         </h1>
         <p
           id="artilce-page-description"
-          className="text-para-lg max-w-[907px] w-full text-grey300 text-inter"
+          className="text-para-lg max-w-[907px] font-medium w-full text-grey300 text-inter"
         >
           {data?.shortDescription}
         </p>

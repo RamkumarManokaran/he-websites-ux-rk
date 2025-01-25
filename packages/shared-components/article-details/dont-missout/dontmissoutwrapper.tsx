@@ -8,8 +8,8 @@ export default async function Dontmissoutwrapper({
   preview,
 }: any) {
   const data = await graphQlFetchFunction(NewsletterQuery(preview), preview);
-  console.log(data, "Aaaaaaaaaaaaaaaaaaa");
+  // console.log(data, "Aaaaaaaaaaaaaaaaaaa");
   const propsdt = data?.data?.newsLetterData?.items[0];
-  console.log(propsdt, "aaaaaaaaaaaaabbbbbb");
+  // console.log(propsdt, "aaaaaaaaaaaaabbbbbb");
   return <Dontmissout key={key} data={propsdt} preview={preview} />;
 }

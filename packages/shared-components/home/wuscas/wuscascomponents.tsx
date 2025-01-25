@@ -105,6 +105,7 @@ const Wuscascomponents: React.FC<WuscascomponentsProps> = async ({
                       page_name: pageName,
                       data_label: subCategory,
                       article_category: category,
+                      clearing: "in_year",
                     }}
                   >
                     <a

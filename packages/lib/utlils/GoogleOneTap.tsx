@@ -106,10 +106,15 @@ const GoogleOneTap = () => {
 
     async function watchForCognitoCookie() {
       setCookie("Signinonetap", "true", 7);
-      signInWithRedirect({
-        provider: "Google",
-        customState: "home page",
-      });
+      const lis = localStorage.getItem("COLCSubmitRes");
+      console.log(lis);
+      if(!lis){
+        console.log("inside the if of lis",lis)
+        signInWithRedirect({
+          provider: "Google",
+          customState: "home page",
+        });
+      }
     }
     const checkSession = async () => {
       try {
