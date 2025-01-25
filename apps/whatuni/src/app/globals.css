@@ -499,7 +499,7 @@ h6 {
   @apply text-grey300;
 }
 .rtf-innerstyle a {
-  @apply text-blue-400 hover:underline;
+  @apply text-blue-400 underline;
 }
 .rtf-innerstyle a.rtfcustom-link {
   color: #fff;

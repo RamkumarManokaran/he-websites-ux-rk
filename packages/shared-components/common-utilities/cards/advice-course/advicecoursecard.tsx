@@ -14,11 +14,14 @@ const AdviceCourseCard = ({ jsondata, iscontentPreview, index ,heading, parentCa
 
   const pathName = usePathname();
   const{category, subCategory, articleTitle} = getArticleDetailUrlParamValues();
-  const currPageName = localStorage.getItem("gaPageName")?.toString() ?? "";
 
+
+  
+  
   function handleGACTABannerCTAclick(urlSlug: string){
+    const currPageName = localStorage.getItem("gaPageName")?.toString() ?? "";
     const GAlog = async() => {
-      let datalog: DataLayerGA4AttrType = {
+      const datalog: DataLayerGA4AttrType = {
         event: "ga_contentful_events",
         eventName: "article_clicks",
         data_label: currPageName == "articleDetail" ? subCategory : data?.pageTitle,

@@ -11,8 +11,8 @@ export function articleDetailQuery(
     ${preview ? `preview : ${preview}` : ""}
   ) {
     items {
-     sys{
-      id
+      sys {
+        id
       }
       pageTitle
       seoFields {
@@ -22,9 +22,9 @@ export function articleDetailQuery(
         metaKeywords
       }
       author {
-       sys{
-      id
-      }
+        sys {
+          id
+        }
         internalName
         firstName
         lastName
@@ -35,9 +35,9 @@ export function articleDetailQuery(
         longBio
         audienceGroup
         image {
-         sys{
-      id
-      }
+          sys {
+            id
+          }
           imgUpload {
             url
             height
@@ -48,9 +48,9 @@ export function articleDetailQuery(
       }
       bannerImageCollection {
         items {
-         sys{
-      id
-      }
+          sys {
+            id
+          }
           imgAltText
           imgUpload {
             url
@@ -68,10 +68,14 @@ export function articleDetailQuery(
           title
         }
       }
-      metaTagSubTopicsCollection {
+        metaTagThemeCollection {
         items {
           title
-          subTopic
+        }
+      }
+      metaTagSubTopicsCollection {
+        items {
+          __typename
         }
       }
       metaTagCitiesCollection {
@@ -112,30 +116,16 @@ export function articleDetailQuery(
           title
         }
       }
-      metaTagSubjectCategoryL1Collection {
-        items {
-          title
+      skipLinks {
+        sys {
           id
         }
-      }
-      metaTagSubjectCategoryL2Collection {
-        items {
-          title
-          parent {
-            title
-          }
-        }
-      }
-      skipLinks {
-       sys{
-      id
-      }
         skipLinkTitle
         anchorLinksCollection {
           items {
-           sys{
-      id
-      }
+            sys {
+              id
+            }
             urlLabel
             moreLinkUrl
             moreLinkTarget
@@ -146,9 +136,9 @@ export function articleDetailQuery(
         items {
           __typename
           ... on PageComponentRichText {
-           sys{
-                  id
-               }
+            sys {
+              id
+            }
             skipLinkId
             paragraphTitle
             media {
@@ -160,9 +150,9 @@ export function articleDetailQuery(
             }
           }
           ... on PagePullQuotes {
-           sys{
-                id
-              }
+            sys {
+              id
+            }
             pullQuote {
               json
             }
@@ -170,15 +160,15 @@ export function articleDetailQuery(
             pullQuoteRole
           }
           ... on PageImage {
-           sys{
-                 id
-                    }
+            sys {
+              id
+            }
             imgAltText
             imgUpload {
               url
             }
           }
-             ... on DynamicMediaComponent {  
+          ... on DynamicMediaComponent {
             title
             internalName
             backgroundColor
@@ -206,7 +196,7 @@ export function articleDetailQuery(
               }
             }
           }
-             ... on MultipleCardContainer {
+          ... on MultipleCardContainer {
             cardSectionTitle
             shortDescription
             flagComponentStyle
@@ -219,18 +209,6 @@ export function articleDetailQuery(
                 primaryCtaTarget
                 flagStyle
               }
-            }
-            mediaCardsCollection {
-              items {
-                ... on MetaTagTopic {
-                  title
-                }
-                ... on MetaTagSubTopic {
-                  title
-                }
-              }
-            }
-              callToAction {
               ... on CallToActionCta {
                 internalName
                 primaryCtaLabel
@@ -240,8 +218,19 @@ export function articleDetailQuery(
                 flagStyle
               }
             }
+             mediaCardsCollection {
+        
+          
+              items {
+                __typename
+                ... on MetaTagTheme {
+                  title
+                }
+             
+              }
+            }
           }
-            ... on PageDataTableStatic {
+          ... on PageDataTableStatic {
             lTname
             lTtitle
             apiUrl
