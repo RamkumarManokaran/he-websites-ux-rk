@@ -16,7 +16,7 @@ export default function MicroFrontend() {
   useEffect(() => {
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = `${domain}whatuni.com/colc/static/css/main.colc.0.1.4.css`;
+    link.href = `${domain}whatuni.com/colc/static/css/main.colc.0.1.5.css`;
     link.type = "text/css";
     document.head.appendChild(link);
     if (ref.current) {
@@ -40,7 +40,7 @@ export default function MicroFrontend() {
     <>
       <div class="min-h-[1000px]">
         <Script
-          src={`${domain}whatuni.com/colc/static/js/main.colc.0.1.4.js`}
+          src={`${domain}whatuni.com/colc/static/js/main.colc.0.1.5.js`}
         ></Script>
         <colc-calculator ref={ref}></colc-calculator>
       </div>
