@@ -14,9 +14,6 @@ interface PageViewLoggingProps {
   gaData?: DataLayerGA4AttrType;
   csData?: ClickstreamInterface;
   pageNameLocal: string; //mandatory to set pageName in localStorage
-  gaData?: DataLayerGA4AttrType;
-  csData?: ClickstreamInterface;
-  pageNameLocal: string; //mandatory to set pageName in localStorage
 }
 const PageViewLogging: React.FC<PageViewLoggingProps> = ({
   gaData,
