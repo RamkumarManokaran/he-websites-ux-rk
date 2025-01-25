@@ -44,8 +44,6 @@ const Wuscascomponents: React.FC<WuscascomponentsProps> = async ({
     query,
     iscontentPreview
   );
-  console.log(query);
-  console.log("resultData", resultData);
   const statsData =
     resultData?.data?.contentData?.items?.[0]?.bodyContentCollection.items?.[0]?.mediaCardsCollection.items?.find(
       (item: any) => item?.__typename === "PageStatPodContainer"
@@ -107,7 +105,6 @@ const Wuscascomponents: React.FC<WuscascomponentsProps> = async ({
                       page_name: pageName,
                       data_label: subCategory,
                       article_category: category,
-                      clearing: "in_year",
                     }}
                   >
                     <a
