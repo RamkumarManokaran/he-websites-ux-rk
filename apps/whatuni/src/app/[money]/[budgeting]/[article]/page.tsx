@@ -159,7 +159,7 @@ console.log(articledetaildata,"as")
             </section>
 
             <section>
-              <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
+              <div className="max-w-container mx-auto ">
                 <div className="flex flex-col lg:flex-row gap-[20px]">
                   <Skiplink propsdata={data} preview={preview} />
                   <div className="w-full article-details-aside">
@@ -191,7 +191,12 @@ console.log(articledetaildata,"as")
                           }
                         )}
                       </div>
-                      {data?.bodyContentCollection?.items?.map(
+                     
+                      {/* <section className="pt-[40px]">
+                    <Ctabanner />
+                  </section> */}
+                    </section>
+                    {data?.bodyContentCollection?.items?.map(
                           (dt: any, index: any) => {
                             if (
                               dt?.__typename === "MultipleCardContainer" &&
@@ -222,10 +227,6 @@ console.log(articledetaildata,"as")
                             } 
                           }
                         )}
-                      {/* <section className="pt-[40px]">
-                    <Ctabanner />
-                  </section> */}
-                    </section>
                   </div>
                 </div>
               </div>
