@@ -129,7 +129,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
     console.log(firstname, lastname, email, year, agreement);
 
     const handleSubscriptionGAlog = async() => {
-      let datalog: DataLayerGA4AttrType = {
+      const datalog: DataLayerGA4AttrType = {
         event: "registration",
         eventName: "registration",
         data_label: "subscription_footer",
@@ -217,7 +217,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
       // console.log(!validemailerror);
       res()
         .then(async(response) => {
-          console.log();
+
           if (response.ok) {
             setSuccessMessage(true);
             const resdata = await response.json();
@@ -234,10 +234,14 @@ const Dontmissout = ({ key, data, preview }: any) => {
           setSuccessMessage(false); // Optionally set success to false on error
           handleSubscriptionCSlog("0", error.toString());
         });
-    } else if (prevemail === email) {
+    } else if (prevemail && prevemail === email) {
       setSuccessMessage(true);
       setAlreadyregisteruser(true);
     }
+    else{
+      setSuccessMessage(false);
+    }
+
   }
 
   return (
