@@ -291,7 +291,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
             />
           )}
           <div className="bg-blue-100 p-[16px] md:p-[24px] flex flex-col gap-[16px] rounded-[8px]">
-            <div className="">
+            <div className="!m-0">
               <div id="article_detail_newsTitle" className="h4">
                 {propsdata?.newsTitle}
               </div>
@@ -420,7 +420,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
                     {yearofentry?.map((item: any, index: any) => (
                       <div
                         key={index}
-                        className="flex gap-[4px] md:gap-[16px] items-center"
+                        className="flex gap-[4px] md:gap-[8px] items-center"
                       >
                         <input
                           checked={year === item?.optionId}

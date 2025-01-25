@@ -163,7 +163,7 @@ console.log(articledetaildata,"as")
                 <div className="flex flex-col lg:flex-row gap-[20px]">
                   <Skiplink propsdata={data} preview={preview} />
                   <div className="w-full article-details-aside">
-                    <section className="pb-[40px] px-[16px] md:px-[20px] xl:px-[0]">
+                    <section className="pb-[40px] px-[16px] md:px-[0]">
                       <div className="rtf-innerstyle flex flex-col gap-[16px]">
                         {data?.bodyContentCollection?.items?.map(
                           (dt: any, index: any) => {
