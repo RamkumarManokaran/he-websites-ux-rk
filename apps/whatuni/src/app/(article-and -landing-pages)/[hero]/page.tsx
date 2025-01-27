@@ -5,14 +5,14 @@ import { HeroLandingPageQuery } from "@packages/lib/graphQL/article-landing";
 import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
 import { MultipleCardContainer } from "@packages/lib/types/interfaces";
 import dynamicComponentImports from "@packages/lib/dynamic-imports/imports";
-import HeroMiniBanner from "@packages/shared-components/common-utilities/mini-banner/mini-banner";
-import Subscribecomponents from "@packages/shared-components/article-landing/subscribe-newsletter/subscribecomponents";
+import HeroMiniBanner from "@packages/shared-components/common-utilities/Banners/mini-banner/mini-banner";
+import Subscribecomponents from "@packages/shared-components/common-utilities/newsletter-and-subscription/subscribe-newsletter/subscribecomponents";
 import { notFound } from "next/navigation";
 import PageViewLogging from "@packages/lib/utlils/pageviewlogging";
 const page = async ({ searchParams, params }: any) => {
   const Params = await params;
 
-  const slugurl = `/${Params.money}`;
+  const slugurl = `/${Params.hero}`;
   const searchparams = await searchParams;
   const iscontentPreview =
     searchparams?.preview === "MY_SECRET_TOKEN" ? true : false;

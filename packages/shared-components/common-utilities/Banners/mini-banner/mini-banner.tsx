@@ -1,7 +1,7 @@
 "use server";
 import React from "react";
 import Image from "next/image";
-import { ContentfulInspectorManager } from "../../../lib/contentful-preview/ContentfulInspector";
+import { ContentfulInspectorManager } from "../../../../lib/contentful-preview/ContentfulInspector";
 const MiniHeroBanner = async ({ data, iscontentPreview }: any) => {
   return (
     <>

@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import Menucategory5card from "@packages/shared-components/common-utilities/megamenu/menucategory5card"; // adjust the import path
+import Menucategory5card from "@packages/shared-components/layout-components/megamenu/menucategory5card"; // adjust the import path
 import * as helperFunctions from "@packages/lib/utlils/helper-function";
 import "@testing-library/jest-dom";
 // Mock the `GADataLayerFn` and `currentAuthenticatedUser` functions
@@ -105,16 +105,21 @@ describe("Menucategory5card", () => {
 
   it("renders the images with correct alt text", () => {
     render(<Menucategory5card data={mockData} parentMenu={mockParentMenu} />);
-  
+
     // Get all images by alt text
     const images = screen.getAllByAltText("University logo");
-    
+
     // Check if the correct number of images is rendered
     expect(images).toHaveLength(2); // 2 images in your mock data
-    
+
     // You can also check the 'src' of the images to make sure they're correct
-    expect(images[0]).toHaveAttribute("src", "/_next/image?url=https%3A%2F%2Fexample.com%2Ficon1.png&w=640&q=75");
-    expect(images[1]).toHaveAttribute("src", "/_next/image?url=https%3A%2F%2Fexample.com%2Ficon2.png&w=640&q=75");
+    expect(images[0]).toHaveAttribute(
+      "src",
+      "/_next/image?url=https%3A%2F%2Fexample.com%2Ficon1.png&w=640&q=75"
+    );
+    expect(images[1]).toHaveAttribute(
+      "src",
+      "/_next/image?url=https%3A%2F%2Fexample.com%2Ficon2.png&w=640&q=75"
+    );
   });
-  
 });

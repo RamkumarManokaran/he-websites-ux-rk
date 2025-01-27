@@ -2,7 +2,7 @@
 
 import { signOut } from "aws-amplify/auth";
 import { Amplify } from "aws-amplify";
-import awsconfig from "../../../../../apps/whatuni/configs/amplifyconfiguration";
+import awsconfig from "../../../../configs/amplifyconfiguration";
 Amplify.configure(awsconfig, { ssr: true });
 export default function User({ topnav_data }: any) {
   async function clearAllCookies() {

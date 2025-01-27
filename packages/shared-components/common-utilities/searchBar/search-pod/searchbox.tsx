@@ -1,14 +1,16 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import CourseTab from "../../search-input-pods/coursetab";
-import UniversityTab from "../../search-input-pods/universitytab";
-import AdviceTab from "../../search-input-pods/advicetab";
+import CourseTab from "../search-input-pods/coursetab";
+import UniversityTab from "../search-input-pods/universitytab";
+import AdviceTab from "../search-input-pods/advicetab";
 
 import PgsSearch from "./pgs-search";
 import dynamic from "next/dynamic";
-import { currentAuthenticatedUser, GADataLayerFn } from "@packages/lib/utlils/helper-function";
+import {
+  currentAuthenticatedUser,
+  GADataLayerFn,
+} from "@packages/lib/utlils/helper-function";
 const UcasComponent = dynamic(
   () =>
     import(
@@ -250,7 +252,6 @@ const SearchBox = ({ pgs_search_data }: any) => {
                           "NA",
                           "NA" // Site name or context
                         );
-
                       }}
                     >
                       Browse unis A-Z
@@ -264,7 +265,7 @@ const SearchBox = ({ pgs_search_data }: any) => {
                   </div>
                 )}
                 {searchFormHandle?.activeTab == "tab3" && (
-                  <div className="flex justify-center md:justify-end my-[24px] md:my-0">                    
+                  <div className="flex justify-center md:justify-end my-[24px] md:my-0">
                     <a
                       href="/advice/"
                       className="flex items-center gap-[6px] text-primary-400 font-semibold small hover:underline"
@@ -298,7 +299,6 @@ const SearchBox = ({ pgs_search_data }: any) => {
                           "NA",
                           "NA" // Site name or context
                         );
-
                       }}
                     >
                       Browse advice

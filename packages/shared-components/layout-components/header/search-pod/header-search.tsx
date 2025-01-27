@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import UniversityTab from "@packages/shared-components/home/search-input-pods/universitytab";
-import AdviceTab from "@packages/shared-components/home/search-input-pods/advicetab";
-import CourseTab from "@packages/shared-components/home/search-input-pods/coursetab";
+import UniversityTab from "@packages/shared-components/common-utilities/searchBar/search-input-pods/universitytab";
+import AdviceTab from "@packages/shared-components/common-utilities/searchBar/search-input-pods/advicetab";
+import CourseTab from "@packages/shared-components/common-utilities/searchBar/search-input-pods/coursetab";
 import Image from "next/image";
 import emitter from "@packages/lib/eventEmitter/eventEmitter";
 import { CourseData, UniData } from "@packages/lib/types/interfaces";

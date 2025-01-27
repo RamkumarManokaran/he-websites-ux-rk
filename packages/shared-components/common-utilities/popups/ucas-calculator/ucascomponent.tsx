@@ -11,7 +11,7 @@ import {
   UserStudyLevelEntryObject,
   Qualification,
 } from "@packages/lib/types/ucas-calc";
-import UcasComponentSkeleton from "../../skeleton/ucascomponentskeleton";
+import UcasComponentSkeleton from "../../../skeleton/ucascomponentskeleton";
 import {
   extractMinMax,
   formatToUpperCase,

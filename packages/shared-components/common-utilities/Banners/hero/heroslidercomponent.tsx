@@ -1,16 +1,19 @@
 "use server";
 import React, { Suspense } from "react";
-import SearchBox from "./search-pod/searchbox";
+import SearchBox from "../../searchBar/search-pod/searchbox";
 import { searchAjaxFecthFunction } from "@packages/lib/server-actions/server-action";
 import HeroSlider from "./slider-pod/heroSlider";
 import { SliderBannerCollection } from "@packages/lib/types/interfaces";
-import HeroSliderComponentSkeleton from "@packages/shared-components/common-utilities/skeleton/heroslidercomponentskeleton";
+import HeroSliderComponentSkeleton from "@packages/shared-components/skeleton/heroslidercomponentskeleton";
 interface PropjectProps {
   data: SliderBannerCollection;
-  pageName?:any
+  pageName?: any;
 }
 
-const HeroSliderComponent: React.FC<PropjectProps> = async ({ data ,pageName}) => {
+const HeroSliderComponent: React.FC<PropjectProps> = async ({
+  data,
+  pageName,
+}) => {
   const body = {
     affiliateId: 220703,
     actionType: "subject",
@@ -58,7 +61,7 @@ const HeroSliderComponent: React.FC<PropjectProps> = async ({ data ,pageName}) =
             className={`${process.env.PROJECT === "Whatuni" ? "bg-blue-200" : "bg-green-200"} px-[16px] md:px-[20px] xl2:px-0`}
           >
             <div className="max-w-container mx-auto">
-              <HeroSlider data={data} pageName={pageName}/>
+              <HeroSlider data={data} pageName={pageName} />
             </div>
           </div>
           <SearchBox

@@ -2,11 +2,11 @@
 import React from "react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import Menucategory1card from "@packages/shared-components/common-utilities/megamenu/menucategory1card";
-import Menucategory2card from "@packages/shared-components/common-utilities/megamenu/menucategory2card";
-import Menucategory3card from "@packages/shared-components/common-utilities/megamenu/menucategory3card";
-import Menucategory4card from "@packages/shared-components/common-utilities/megamenu/menucategory4card";
-import Menucategory5card from "@packages/shared-components/common-utilities/megamenu/menucategory5card";
+import Menucategory1card from "@packages/shared-components/layout-components/megamenu/menucategory1card";
+import Menucategory2card from "@packages/shared-components/layout-components/megamenu/menucategory2card";
+import Menucategory3card from "@packages/shared-components/layout-components/megamenu/menucategory3card";
+import Menucategory4card from "@packages/shared-components/layout-components/megamenu/menucategory4card";
+import Menucategory5card from "@packages/shared-components/layout-components/megamenu/menucategory5card";
 const Megamenucomponents = ({ data }: any) => {
   const [content, setContent] = useState<any>(
     data?.data?.contentData?.items[0]?.headerMainMenuCollection?.items
@@ -74,7 +74,7 @@ const Megamenucomponents = ({ data }: any) => {
           <ul className="flex flex-col lg:flex-row gap-[10px] lg:gap-[0] justify-center">
             {content?.map((menuItem: any, index: number) => (
               <li
-              className="cursor-pointer"
+                className="cursor-pointer"
                 key={index}
                 onMouseEnter={
                   !isMobile ? () => setOpenMenu(`menu${index}`) : undefined

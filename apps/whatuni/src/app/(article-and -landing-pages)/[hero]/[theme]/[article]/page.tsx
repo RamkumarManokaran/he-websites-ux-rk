@@ -18,7 +18,7 @@ const Page = async ({ params, searchParams }: any) => {
   const searchparams = await searchParams;
   const preview =  (await searchparams?.preview) === "MY_SECRET_TOKEN" ? true : false;
   const Params = await params;
-  const slugurl = `/${Params.money}/${Params.budgeting}/${Params.article}`;
+  const slugurl = `/${Params.hero}/${Params.theme}/${Params.article}`;
   const articledetaildata = await graphQlFetchFunction(articleDetailQuery(slugurl, preview),preview);
   const customDomain = process.env.PROJECT === "Whatuni" ? "https://whatuni.com" : "https://www.postgraduatesearch.com";
   const url = new URL(customDomain + slugurl);

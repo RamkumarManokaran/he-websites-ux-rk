@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import HeaderWrapper from "@packages/shared-components/common-utilities/header/headerWrapper";
+import HeaderWrapper from "@packages/shared-components/layout-components/header/headerWrapper";
 
 // Mock the Header component
 jest.mock(

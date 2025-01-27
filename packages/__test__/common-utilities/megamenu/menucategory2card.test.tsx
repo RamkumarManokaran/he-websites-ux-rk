@@ -1,7 +1,10 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import Menucategory2card from "@packages/shared-components/common-utilities/megamenu/menucategory2card";
-import { GADataLayerFn, currentAuthenticatedUser } from "@packages/lib/utlils/helper-function";
+import Menucategory2card from "@packages/shared-components/layout-components/megamenu/menucategory2card";
+import {
+  GADataLayerFn,
+  currentAuthenticatedUser,
+} from "@packages/lib/utlils/helper-function";
 import "@testing-library/jest-dom";
 import Image from "next/image";
 
@@ -10,7 +13,9 @@ jest.mock("@packages/lib/utlils/helper-function", () => ({
   currentAuthenticatedUser: jest.fn(() => Promise.resolve("test-user")),
 }));
 
-jest.mock("next/image", () => (props: any) => <img {...props} alt={props.alt || "Image"} />);
+jest.mock("next/image", () => (props: any) => (
+  <img {...props} alt={props.alt || "Image"} />
+));
 
 describe("Menucategory2card", () => {
   const mockData = [
@@ -72,7 +77,12 @@ describe("Menucategory2card", () => {
       { flagNavItemStyle: "L2 Text", navTitle: "Category Title" },
       { flagNavItemStyle: "Nav Bold", navTitle: "Item 1", navUrl: "/item1" },
     ];
-    render(<Menucategory2card data={mockDataWithoutIcons} parentMenu={mockParentMenu} />);
+    render(
+      <Menucategory2card
+        data={mockDataWithoutIcons}
+        parentMenu={mockParentMenu}
+      />
+    );
     expect(screen.queryByAltText("Megamenu thumb")).not.toBeInTheDocument();
   });
 

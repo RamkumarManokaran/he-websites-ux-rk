@@ -2,13 +2,13 @@
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import Megamenucomponents from "@packages/shared-components/common-utilities/topnav/megamenucomponents";
-import User from "@packages/shared-components/common-utilities/header/user/user";
+import Megamenucomponents from "@packages/shared-components/layout-components/topnav/megamenucomponents";
+import User from "@packages/shared-components/layout-components/header/user/user";
 import emitter from "@packages/lib/eventEmitter/eventEmitter";
 import { fetchAuthSession } from "aws-amplify/auth";
 import { getCookie } from "@packages/lib/utlils/helper-function";
 // ==========================================don't want for the current sprint =======================================================
-import Search from "@packages/shared-components/common-utilities/header/search-pod/header-search";
+import Search from "@packages/shared-components/layout-components/header/search-pod/header-search";
 // import Shortlisted from "@packages/shared-components/common-utilities/header/shortlisted/shortlisted";
 
 interface props {

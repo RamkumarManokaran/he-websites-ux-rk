@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { SliderBannerCollection } from "@packages/lib/types/interfaces";
-import HeroSlider from "@packages/shared-components/home/hero/slider-pod/heroSlider";
+import HeroSlider from "@packages/shared-components/common-utilities/Banners/hero/slider-pod/heroSlider";
 import "@testing-library/jest-dom";
 import "@testing-library/react";
 jest.mock(
