@@ -57,8 +57,12 @@ const UniversityTab: React.FC<UniversityTabProps> = ({
     const results = unidetails?.filter((colleges: any) =>
       colleges.collegeNameDisplay
         ?.toLowerCase()
+        .includes(searchFormHandle?.university?.trim().toLowerCase()) || 
+        colleges.collegeNameAlias
+        ?.toLowerCase()
         .includes(searchFormHandle?.university?.trim().toLowerCase())
     );
+    
     const prioritySearch = (
       list: { description: string; [key: string]: any }[],
       searchText: string

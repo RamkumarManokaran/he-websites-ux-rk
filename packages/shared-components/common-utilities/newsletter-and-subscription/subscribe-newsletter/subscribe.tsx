@@ -153,7 +153,7 @@ const Subscribe = ({ data, isPreviewTrue,category ,subCategory}: any) => {
                   />
                 </svg>
                 <div className="flex flex-grow small font-semibold text-positive-dark">
-                  Thanks, we’ll be in touch soon
+                 {jsondata?.submitSuccessMessage ?? "Thanks"}
                 </div>
               </div>
             )}
