@@ -19,6 +19,7 @@
         "name": "next"
       }
     ],
+    
     "paths": {
       "@/*": ["./src/*"],
       "@packages/*": ["../../packages/*"] // Path alias for common components
@@ -36,6 +37,7 @@
     "../../packages/lib/types/onetrust.d.ts",
     "../../packages/lib/types/global.d.ts",
     "../../packages/lib/contentful-preview/ContentfulInspector.tsx"
-  ],
+, "../../packages/lib/utlils/loadgtm.tsx"  ],
   "exclude": ["node_modules"]
 }
+
