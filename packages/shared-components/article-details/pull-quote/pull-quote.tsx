@@ -32,7 +32,7 @@ const Pullquote = ({ propsdata, key, preview }: any) => {
       <div className="border-x-8 border-blue-200 p-[16px] bg-blue-50 text-grey300 flex flex-col gap-[8px]">
         <q
           id="artilce-page-pullQuote-isrichtext"
-          className="pull-quotes text-heading6 font-farro flex"
+          className="pull-quotes text-heading6 font-farro flex !m-0"
         >
           <div className="*:!text-heading6 *:!font-farro">
           {data?.pullQuote?.json &&
@@ -40,7 +40,7 @@ const Pullquote = ({ propsdata, key, preview }: any) => {
             </div>
         </q>
 
-        <div className="flex flex-col gap-[4px]">
+        <div className="flex flex-col gap-[4px] !m-0">
           <span
             id="article-details-pullQuoteAuthor"
             className="x-small font-semibold font-inter "

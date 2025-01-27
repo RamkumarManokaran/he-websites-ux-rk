@@ -19,12 +19,7 @@ const Page = async ({ params, searchParams }: any) => {
   const preview =  (await searchparams?.preview) === "MY_SECRET_TOKEN" ? true : false;
   const Params = await params;
   const slugurl = `/${Params.money}/${Params.budgeting}/${Params.article}`;
-  const articledetaildata = await graphQlFetchFunction(
-    articleDetailQuery(slugurl, preview),
-    preview
-  );
-
-  
+  const articledetaildata = await graphQlFetchFunction(articleDetailQuery(slugurl, preview),preview);
   const customDomain = process.env.PROJECT === "Whatuni" ? "https://whatuni.com" : "https://www.postgraduatesearch.com";
   const url = new URL(customDomain + slugurl);
   if (searchParams) {
@@ -34,23 +29,21 @@ const Page = async ({ params, searchParams }: any) => {
       }
     });
   }
-  
-  console.log("Final URL:", url.toString());
+console.log("Final URL:", url.toString());
 console.log(articledetaildata,"as")
-  if (!articledetaildata) {
+  if (articledetaildata?.data?.contentData?.items.length < 1) {
     console.log("notfound")
     notFound();
   }
+
   console.dir(articledetaildata, "Asddddddddddddddddddddd");
   const data = articledetaildata?.data?.contentData?.items[0];
   console.log(data,"datatataaa")
-  const customLabels = [`${data?.articleType?.title}`,`${data?.metaTagThemeCollection?.items[0].title}`,`${data?.pageTitle}`]
+  const customLabels = [data?.articleType?.title,data?.metaTagThemeCollection?.items[0]?.title,data?.pageTitle]
   function generateBreadcrumbData(currentPath:any) {
-
     const sanitizedPath = currentPath.endsWith("/")
       ? currentPath.slice(0, -1)
       : currentPath;
-  
     console.log(sanitizedPath,"sanitizedPath")
     const pathSegments = sanitizedPath.split("/").filter((segment:any) => segment);
    console.log(pathSegments,"pathSegments")
@@ -67,7 +60,6 @@ console.log(articledetaildata,"as")
       };
     });
   console.log(breadcrumbData,"breadcrumbData");
-    // Add Home as the first breadcrumb
     breadcrumbData.unshift({
       url: "/",
       label: "Home",
@@ -77,24 +69,7 @@ console.log(articledetaildata,"as")
   }
   
   const breadcrumbData = generateBreadcrumbData(slugurl);
-  // const breadcrumbData = [
-  //   {
-  //     url: "/",
-  //     label: "Home",
-  //   },
-  //   {
-  //     url: "#",
-  //     label: "Payments",
-  //   },
-  //   {
-  //     url: "#",
-  //     label: "Online payments",
-  //   },
-  //   {
-  //     url: "",
-  //     label: "Overview",
-  //   },
-  // ];
+  
   const jsonLd = {
     "@context":"http://schema.org",
     "@type":"Article",
@@ -116,7 +91,6 @@ console.log(articledetaildata,"as")
   }
   return (
     <>
-      
       <script
         id="product-jsonld"
         type="application/ld+json"
@@ -124,7 +98,6 @@ console.log(articledetaildata,"as")
           __html: JSON.stringify(jsonLd)
         }}
       />
-  
     <Suspense fallback={<Loading />}>
       <>
       <PageViewLogging pageNameLocal={pageNameforArtcileDetail} gaData={{page_name: pageNameforArtcileDetail, article_category: Params.money}} csData={{eventType: "PageViewed", pageName: pageNameforArtcileDetail, articleTopic: Params.article}}/>
@@ -135,7 +108,6 @@ console.log(articledetaildata,"as")
           debugMode={preview}
         >
           <div className="bg-white">
-             
             <section className="pt-[16px] pb-[40px]">
             <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
               <Breadcrumblayoutcomponent
@@ -143,27 +115,23 @@ console.log(articledetaildata,"as")
                 preview={preview}
               />
             </div>
-
           </section>
-
             <section className="pb-[40px]">
               <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
-                <Articledescription propsdata={data} preview={preview} url={Params.money} />
+                <Articledescription propsdata={data} preview={preview} url={Params?.money} />
               </div>
             </section>
-
             <section className="lg:pb-[40px]">
               <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
                 <Authorprofile preview={preview} propsdata={data} />
               </div>
             </section>
-
             <section>
               <div className="max-w-container mx-auto ">
                 <div className="flex flex-col lg:flex-row gap-[20px]">
                   <Skiplink propsdata={data} preview={preview} />
                   <div className="w-full article-details-aside">
-                    <section className="pb-[40px] px-[16px] md:px-[0]">
+                    <section className="pb-[40px] px-[16px] md:px-[20] xl:px-[0]">
                       <div className="rtf-innerstyle flex flex-col gap-[16px]">
                         {data?.bodyContentCollection?.items?.map(
                           (dt: any, index: any) => {
@@ -268,28 +236,7 @@ console.log(articledetaildata,"as")
                 )}
               </div>
             </section>
-            {/* Slider section END */}
-            {/* Slider section  */}
-            <section className="bg-white">
-              <div className="max-w-container mx-auto">
-                {/* <Advicecourseslidercomponents categoryTag={true} adviceBgWhite={true} /> */}
-              </div>
-            </section>
-            {/* Slider section END */}
-            {/* Slider section  */}
-            <section className="bg-grey-50">
-              <div className="max-w-container mx-auto">
-                {/* <Advicecourseslidercomponents categoryTag={true} adviceBgWhite={false} /> */}
-              </div>
-            </section>
-            {/* Slider section END */}
-            {/* Slider section  */}
-            <section className="bg-white">
-              <div className="max-w-container mx-auto">
-                {/* <Advicecourseslidercomponents categoryTag={true} adviceBgWhite={true} /> */}
-              </div>
-            </section>
-            {/* Slider section END */}
+
           </div>
         </ContentfulPreviewProvider>
       </>

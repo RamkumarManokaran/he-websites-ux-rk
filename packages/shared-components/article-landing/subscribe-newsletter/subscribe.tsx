@@ -13,6 +13,7 @@ const Subscribe = ({ data, isPreviewTrue,category ,subCategory}: any) => {
   if (!isPreviewTrue) {
     jsondata = data;
   }
+  let  valid=false;
   const [isChecked, setIsChecked] = useState(false);
   const [success, setSuccess] = useState(false);
   const [email, setEmail] = useState("");
@@ -22,16 +23,21 @@ const Subscribe = ({ data, isPreviewTrue,category ,subCategory}: any) => {
   });
   const emailChange = (event: any) => {
     setEmail(event.target.value);
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|co\.uk)$/;
-    const isEmailValid = emailRegex.test(event.target.value.trim());
-    SetErrorState((prev) => ({ ...prev, emailError: !isEmailValid }));
+    
   };
   const handleCheckboxChange = (e: any) => {
     setIsChecked(!isChecked);
     SetErrorState((prev) => ({ ...prev, checkboxError: !!isChecked }));
   };
   const submitNewsletter = async () => {
-    if (!errorstate.emailError && isChecked && email) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|co\.uk)$/;
+    const isEmailValid = emailRegex.test(email.trim());
+    console.log(isEmailValid,"from the email pod")
+    if (isEmailValid) valid=true;
+    SetErrorState((prev) => ({ ...prev, emailError: !isEmailValid }));
+    if (valid && isChecked && email) {
+      console.log(!errorstate.emailError,valid)
+      setSuccess(true);
       const correlation_id = uuidv4();
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BFF_API_DOMAIN}/hewebsites/v1/guest/users/registration`,
@@ -161,7 +167,7 @@ const Subscribe = ({ data, isPreviewTrue,category ,subCategory}: any) => {
                     id="newsletter_email_placeholder"
                     placeholder={jsondata?.newsEmail}
                     value={email}
-                    onChange={(event) => emailChange(event)}
+                    onChange={(event) => { emailChange(event); SetErrorState((prev) => ({ ...prev, emailError: false }));}}
                   />
                   {errorstate.emailError && (
                     <div className="error mt-[8px]">

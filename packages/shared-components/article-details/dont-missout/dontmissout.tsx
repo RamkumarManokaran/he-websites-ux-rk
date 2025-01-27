@@ -33,13 +33,9 @@ const Dontmissout = ({ key, data, preview }: any) => {
   const [agreementerror, setAgreementerror] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
   const validateEmail = (email: any) => {
-    // Simple email regex validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    // console.log(emailRegex.test(email), "weewewewewewewewew");
     return emailRegex.test(email);
   };
-
   const{category, subCategory, articleTitle} = getArticleDetailUrlParamValues();
 
   useEffect(() => {
@@ -98,7 +94,6 @@ const Dontmissout = ({ key, data, preview }: any) => {
     if (!firstname) {
       setFristnameerror(true);
     }
-
     if (!lastname) {
       isFormValid = false;
       setLastnameerror(true);
@@ -109,10 +104,8 @@ const Dontmissout = ({ key, data, preview }: any) => {
     }
     if (email) {
       if (!validateEmail(email)) {
-        // console.log("aaaaaaaaaaaaaaaaaaaaaaainside the validate email");
         setValidemailerror(true);
         isFormValid = false;
-        // console.log(validemailerror);
       }
     }
     if (!year) {
@@ -123,8 +116,6 @@ const Dontmissout = ({ key, data, preview }: any) => {
       setAgreementerror(true);
       isFormValid = false;
     }
-
-    // If all fields are valid, show success message
 
     console.log(firstname, lastname, email, year, agreement);
 
@@ -200,41 +191,32 @@ const Dontmissout = ({ key, data, preview }: any) => {
       agreement &&
       prevemail !== email
     ) {
-      // console.log(
-      //   !firstnameerror,
-      //   !lastnameerror,
-      //   !emailerror,
-      //   !yearerror,
-      //   !agreementerror,
-      //   !validemailerror,
-      //   firstname,
-      //   lastname,
-      //   email,
-      //   year,
-      //   agreement,
-      //   prevemail
-      // );
-      // console.log(!validemailerror);
+      setSuccessMessage(true);
       res()
         .then(async(response) => {
-
           if (response.ok) {
             setSuccessMessage(true);
             const resdata = await response.json();
-            //console.log("resdata: ", resdata);
             handleSubscriptionGAlog();
             handleSubscriptionCSlog(resdata?.user_uuid ?? "0", "");
-          } else {
-            throw new Error("Response not OK"); // Handle non-OK responses
-          }
+          } 
         })
-        .then((data) => console.log(data)) // Log data if response is OK
         .catch((error) => {
           console.error("Error:", error); // Handle any errors
-          setSuccessMessage(false); // Optionally set success to false on error
           handleSubscriptionCSlog("0", error.toString());
         });
-    } else if (prevemail && prevemail === email) {
+    } else if (prevemail && prevemail === email && isFormValid &&
+      !firstnameerror &&
+      !lastnameerror &&
+      !emailerror &&
+      !yearerror &&
+      !agreementerror &&
+      !validemailerror &&
+      firstname &&
+      lastname &&
+      email &&
+      year &&
+      agreement) {
       setSuccessMessage(true);
       setAlreadyregisteruser(true);
     }
@@ -345,7 +327,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
                       id="artilce-page-newsFirstName"
                       value={firstname ?? ""}
                       onChange={(e) => {
-                        setFristname(e.target.value);
+                        setFristname(e.target.value.trim());
                         setFristnameerror(false);
                         setSuccessMessage(false);
                         setAlreadyregisteruser(false);
@@ -365,7 +347,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
                     <input
                       id="artilce-page-newsLastName"
                       onChange={(e) => {
-                        setLastname(e.target.value);
+                        setLastname(e.target.value.trim());
                         setLastnameerror(false);
                         setSuccessMessage(false);
                         setAlreadyregisteruser(false);
@@ -385,13 +367,13 @@ const Dontmissout = ({ key, data, preview }: any) => {
                     <input
                       id="artilce-details-newsEmail"
                       onChange={(e) => {
-                        setEmail(e.target.value);
+                        setEmail(e.target.value.trim());
                         setEmailerror(false);
                         setSuccessMessage(false);
                         setAlreadyregisteruser(false);
                         setValidemailerror(false);
                       }}
-                      value={email ?? ""}
+                      value={email.trim() ?? ""}
                       type="email"
                       placeholder={`${propsdata?.newsEmail ?? "Email address*"}`}
                       className="form-control w-full small font-normal text-grey300 px-[12px] py-[10px] border border-grey-500 rounded-[4px] outline-none shadow-custom-2"
