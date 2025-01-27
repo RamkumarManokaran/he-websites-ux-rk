@@ -297,7 +297,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
                       src="/static/assets/icons/green_tick.svg"
                     />
                   </span>
-                  Thanks, we’ll be in touch soon
+                  {propsdata?.submitSuccessMessage}
                 </span>
                 <span
                   onClick={() => setSuccessMessage(false)}
@@ -569,21 +569,21 @@ const Dontmissout = ({ key, data, preview }: any) => {
                         <p className="select-none small font-normal text-grey-600">
                           I confirm I’m over 13 and agree to the
                           <Link
-                            className="text-primary-500 underline pl-[4px]"
+                            className="!text-primary-500 underline pl-[4px]"
                             href="#"
                           >
                             terms and conditions
                           </Link>
                           &nbsp;and
                           <Link
-                            className="text-primary-500 underline pl-[4px]"
+                            className="!text-primary-500 underline pl-[4px]"
                             href="#"
                           >
                             privacy notice
                           </Link>
                           , and agree to become a member of the
                           <Link
-                            className="text-primary-500 underline pl-[4px]"
+                            className="!text-primary-500 underline pl-[4px]"
                             href="#"
                           >
                             Whatuni community

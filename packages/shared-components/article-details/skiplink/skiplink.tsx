@@ -54,7 +54,7 @@ const Skiplink = ({ propsdata, preview }: any) => {
             );
           }
         )}
-      <div className=" mobile-skip sticky top-0 z-[10] py-[16px] px-[16px] md:px-[20px] border-b border-grey-200 lg:hidden mb-[40px] ">
+      <div className="mobile-skip bg-white sticky top-0 z-[10] py-[16px] px-[16px] md:px-[20px] border-b border-grey-200 lg:hidden mb-[40px] ">
         <div
           className={` bg-blue-400 rounded-[4px] overflow-hidden border-b relative border-grey-200 skiplinkoption ${modelOpen ? "active" : ""}`}
         >
