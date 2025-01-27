@@ -11,7 +11,7 @@ export default function MicroFrontend() {
       : process.env.NEXT_PUBLIC_ENVIRONMENT === "stg"
         ? "https://mtest.test.aws."
         : "https://www."
-       //:"https://mdev.dev.aws."
+    //:"https://mdev.dev.aws."
   }`;
   useEffect(() => {
     const link = document.createElement("link");
@@ -38,7 +38,7 @@ export default function MicroFrontend() {
 
   return (
     <>
-      <div class="min-h-[1000px]">
+      <div className="min-h-[1000px]">
         <Script
           src={`${domain}whatuni.com/colc/static/js/main.colc.0.1.5.js`}
         ></Script>
