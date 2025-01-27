@@ -17,7 +17,7 @@ const Advicecourseslidercomponents = ({
       {articledata && (
         <div className="slider-container">
           <Swiper
-            pagination={true}
+            pagination={{ clickable: true }}
             navigation={true}
             breakpoints={{
               320: {
