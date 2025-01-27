@@ -50,7 +50,7 @@ const Articledescription = ({ propsdata, preview ,url}: any) => {
   const{category, subCategory, articleTitle} = getArticleDetailUrlParamValues();
 
   function handleShareLinkClickGA(interaction: string, socialName: string){
-    let datalog: DataLayerGA4AttrType = {
+    const datalog: DataLayerGA4AttrType = {
       event: "ga_contentful_events",
       eventName: "social_media_share",
       data_label: subCategory,

@@ -42,10 +42,10 @@ const Page = () => {
           className="mb-6"
         />
         <p className="font-semibold text-gray-900 text-lg">
-          "Working on it, hold on!"
+          &quot;Working on it, hold on!&quot;
         </p>
         <p className="text-gray-500 text-base mt-2">
-          "You're making good progress, by the way"
+          &quot;You&apos;re making good progress, by the way&quot;
         </p>
       </div>
     </Suspense>

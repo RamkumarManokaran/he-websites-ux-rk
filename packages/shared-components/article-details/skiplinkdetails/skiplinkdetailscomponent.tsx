@@ -7,9 +7,9 @@ import Ctabanner from "../cta-banner/cta-banner";
 import Articleimage from "../article-image/article-image";
 // import Reviewscomponents from "@/app/home/reviews/reviewscomponents";
 import Articletables from "../article-tables/article-tables";
-import Dontmissout from "../dont-missout/dontmissout";
+import Dontmissout from "../../common-utilities/newsletter-and-subscription/dont-missout/dontmissout";
 import Findoutmore from "../findoutmore/findout-more";
-import Reviewscomponents from "@packages/shared-components/home/reviews/reviewscomponents";
+import Reviewscomponents from "@packages/shared-components/common-utilities/slider/reviews/reviewscomponents";
 
 const Skiplinkdetails = () => {
   // Toggle function

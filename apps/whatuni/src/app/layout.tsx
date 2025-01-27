@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Suspense } from "react";
-import Subscribecomponents from "@packages/shared-components/article-landing/subscribe-newsletter/subscribecomponents";
+import Subscribecomponents from "@packages/shared-components/common-utilities/newsletter-and-subscription/subscribe-newsletter/subscribecomponents";
 import Script from "next/script";
 import { Seoquery } from "@packages/lib/graphQL/graphql-query";
 import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
 import TrackSessionId from "@packages/lib/utlils/tracksessionid";
 import GoogleOneTap from "@packages/lib/utlils/GoogleOneTap";
-import HeaderWrapper from "../../../../packages/shared-components/common-utilities/header/headerWrapper";
-import Footer from "@packages/shared-components/common-utilities/footer/footercomponents";
+import HeaderWrapper from "../../../../packages/shared-components/layout-components/header/headerWrapper";
+import Footer from "@packages/shared-components/layout-components/footer/footercomponents";
 import OneTrustCookieScript from "@packages/lib/oneTrust/OneTrustCookieScript";
 import SetCookiewuIdToken from "@packages/lib/utlils/setcookie";
 const farroBold = localFont({

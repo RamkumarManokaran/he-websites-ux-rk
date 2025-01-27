@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import Discovercomponents from "@packages/shared-components/home/discover/discovercomponents";
+import Discovercomponents from "@packages/shared-components/common-utilities/slider/discover/discovercomponents";
 import Discoverslidercomponents1 from "@packages/shared-components/common-utilities/slider/discoverslidercomponents";
 import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
 import { discoverContentfulInterface } from "@packages/shared-components/common-utilities/slider/discoverslidercomponents";

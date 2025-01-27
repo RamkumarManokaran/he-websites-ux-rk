@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Megamenucomponents from "@packages/shared-components/common-utilities/topnav/megamenucomponents";
+import Megamenucomponents from "@packages/shared-components/layout-components/topnav/megamenucomponents";
 
 // Mock the child components
 jest.mock(
@@ -60,7 +60,6 @@ describe("Megamenucomponents", () => {
   it("renders the component with initial data", () => {
     render(<Megamenucomponents data={mockData} />);
     expect(screen.getByText("Menu 1")).toBeInTheDocument();
-    
   });
 
   it("toggles menu on mobile view", () => {

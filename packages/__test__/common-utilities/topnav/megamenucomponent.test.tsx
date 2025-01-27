@@ -1,5 +1,11 @@
-import { render, screen, fireEvent, renderHook, act } from "@testing-library/react";
-import Megamenucomponents from "@packages/shared-components/common-utilities/topnav/megamenucomponents";
+import {
+  render,
+  screen,
+  fireEvent,
+  renderHook,
+  act,
+} from "@testing-library/react";
+import Megamenucomponents from "@packages/shared-components/layout-components/topnav/megamenucomponents";
 import "@testing-library/jest-dom";
 
 // Mock child components
@@ -148,7 +154,7 @@ describe("Megamenucomponents Functions", () => {
     it("should toggle menu and add overflow class when opening", () => {
       const setOpenMenu = jest.fn();
       const { result } = renderHook(() => {
-        const handleMenuToggle = (menuId:any) => {
+        const handleMenuToggle = (menuId: any) => {
           setOpenMenu(menuId);
           if (menuId) {
             document.body.classList.add("overflow-y-hidden");
@@ -164,13 +170,15 @@ describe("Megamenucomponents Functions", () => {
       });
 
       expect(setOpenMenu).toHaveBeenCalledWith("menu1");
-      expect(document.body.classList.contains("overflow-y-hidden")).toBeTruthy();
+      expect(
+        document.body.classList.contains("overflow-y-hidden")
+      ).toBeTruthy();
     });
 
     it("should toggle menu and remove overflow class when closing", () => {
       const setOpenMenu = jest.fn();
       const { result } = renderHook(() => {
-        const handleMenuToggle = (menuId:any) => {
+        const handleMenuToggle = (menuId: any) => {
           setOpenMenu(false);
           document.body.classList.remove("overflow-y-hidden");
         };
@@ -228,11 +236,6 @@ describe("Megamenucomponents Functions", () => {
     document.body.classList.remove("overflow-y-hidden");
     jest.clearAllMocks();
   });
-
-
-
-
-  
 });
 describe("handleMenuToggle function", () => {
   // Setup before each test
@@ -355,10 +358,7 @@ describe("Megamenuoptions function", () => {
 
   it("should render Menucategory1card when navIcon is null", () => {
     const child = {
-      items: [
-        { navTitle: "Item 1" },
-        { navTitle: "Item 2", navIcon: null }
-      ]
+      items: [{ navTitle: "Item 1" }, { navTitle: "Item 2", navIcon: null }],
     };
 
     render(Megamenuoptions(child, parentMenu));
@@ -369,12 +369,12 @@ describe("Megamenuoptions function", () => {
     const child = {
       items: [
         { navTitle: "Item 1" },
-        { 
-          navTitle: "Item 2", 
+        {
+          navTitle: "Item 2",
           navIcon: { url: "test.jpg" },
-          flagNavItemStyle: "Nav Icon"
-        }
-      ]
+          flagNavItemStyle: "Nav Icon",
+        },
+      ],
     };
 
     render(Megamenuoptions(child, parentMenu));
@@ -385,12 +385,12 @@ describe("Megamenuoptions function", () => {
     const child = {
       items: [
         { navTitle: "Item 1" },
-        { 
-          navTitle: "Item 2", 
+        {
+          navTitle: "Item 2",
           navIcon: { url: "test.jpg" },
-          flagNavItemStyle: "Nav Image"
-        }
-      ]
+          flagNavItemStyle: "Nav Image",
+        },
+      ],
     };
 
     render(Megamenuoptions(child, parentMenu));
@@ -401,12 +401,12 @@ describe("Megamenuoptions function", () => {
     const child = {
       items: [
         { navTitle: "Item 1" },
-        { 
-          navTitle: "Item 2", 
+        {
+          navTitle: "Item 2",
           navIcon: { url: "test.jpg" },
-          flagNavItemStyle: "Nav Hero Image"
-        }
-      ]
+          flagNavItemStyle: "Nav Hero Image",
+        },
+      ],
     };
 
     render(Megamenuoptions(child, parentMenu));
@@ -417,13 +417,13 @@ describe("Megamenuoptions function", () => {
     const child = {
       items: [
         { navTitle: "Item 1" },
-        { 
-          navTitle: "Item 2", 
+        {
+          navTitle: "Item 2",
           navIcon: { url: "test.jpg" },
-          flagNavItemStyle: "Nav Hero Image"
+          flagNavItemStyle: "Nav Hero Image",
         },
-        { navTitle: "Item 3" }
-      ]
+        { navTitle: "Item 3" },
+      ],
     };
 
     render(Megamenuoptions(child, parentMenu));
@@ -432,9 +432,7 @@ describe("Megamenuoptions function", () => {
 
   it("should render No data message when required data is missing", () => {
     const child = {
-      items: [
-        { navTitle: "Item 1" }
-      ]
+      items: [{ navTitle: "Item 1" }],
     };
 
     render(Megamenuoptions(child, parentMenu));
@@ -448,7 +446,7 @@ describe("Megamenuoptions function", () => {
 
   it("should render No data message when items array is empty", () => {
     const child = {
-      items: []
+      items: [],
     };
 
     render(Megamenuoptions(child, parentMenu));
@@ -460,8 +458,8 @@ describe("Megamenuoptions function", () => {
     const child = {
       items: [
         { navTitle: "Item 1" },
-        { navTitle: "Item 2", navIcon: undefined }
-      ]
+        { navTitle: "Item 2", navIcon: undefined },
+      ],
     };
 
     render(Megamenuoptions(child, parentMenu));
@@ -470,10 +468,7 @@ describe("Megamenuoptions function", () => {
 
   it("should handle missing navTitle", () => {
     const child = {
-      items: [
-        { navTitle: "Item 1" },
-        { navIcon: { url: "test.jpg" } }
-      ]
+      items: [{ navTitle: "Item 1" }, { navIcon: { url: "test.jpg" } }],
     };
 
     render(Megamenuoptions(child, parentMenu));
@@ -484,12 +479,12 @@ describe("Megamenuoptions function", () => {
     const child = {
       items: [
         { navTitle: "Item 1" },
-        { 
-          navTitle: "Item 2", 
+        {
+          navTitle: "Item 2",
           navIcon: { url: "test.jpg" },
-          flagNavItemStyle: "Invalid Style"
-        }
-      ]
+          flagNavItemStyle: "Invalid Style",
+        },
+      ],
     };
 
     render(Megamenuoptions(child, parentMenu));

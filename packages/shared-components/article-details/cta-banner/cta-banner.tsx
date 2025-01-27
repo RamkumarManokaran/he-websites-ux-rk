@@ -11,7 +11,7 @@ const Ctabanner = ({ key, propsdata, preview, urlParams}: any) => {
   console.log(propsdata.longDescription.json, "asdfgasahjk");
 
   return (
-    <>
+    <div className="pb-[20]" >
       {preview && (
         <ContentfulInspectorManager
           fields={[
@@ -48,9 +48,9 @@ const Ctabanner = ({ key, propsdata, preview, urlParams}: any) => {
       
       <div
         id="article-backgroundColor"
-        className={`${propsdata?.backgroundColor} p-[16px] md:py-[0] gap-[20px] md:gap-[0]  md:px-[20px] rounded-[8px] flex md:flex-row flex-col-reverse justify-between items-end`}
+        className={`${propsdata?.backgroundColor} p-[16px] md:py-[0] gap-[20px] md:gap-[0]  md:px-[20px] rounded-[8px] flex md:flex-row flex-col-reverse justify-between items-end !m-0`}
       >
-        <div className="flex flex-col gap-[16px] py-[0] md:py-[24px]">
+        <div className="flex flex-col gap-[16px] py-[0] md:py-[24px] !m-0">
           <div className="text-grey300 flex flex-col gap-[4px]">
             <div
               id="backgroundColor"
@@ -84,7 +84,7 @@ const Ctabanner = ({ key, propsdata, preview, urlParams}: any) => {
                   ? "_blank"
                   : "_self"
               }
-              className="btn btn-primary rtfcustom-link hover:no-underline px-[20px] py-[10px] w-fit"
+              className="btn btn-primary rtfcustom-link hover:no-underline px-[20px] py-[10px] w-fit !no-underline"
               rel={
                 propsdata.cta.primaryCtaTarget === "Open in new tab"
                   ? "noopener noreferrer"
@@ -96,7 +96,7 @@ const Ctabanner = ({ key, propsdata, preview, urlParams}: any) => {
             </ClickTrackingWrapper>
           )}
         </div>
-        <span className="md:min-w-[219px] w-full md:w-auto  h-[187px] flex justify-center">
+        <span className="md:min-w-[219px] w-full md:w-auto  h-[187px] flex justify-center !m-0">
           {propsdata?.image?.imgUpload?.url && (
             <Image
               id="article-details-imgUpload"
@@ -109,7 +109,7 @@ const Ctabanner = ({ key, propsdata, preview, urlParams}: any) => {
           )}
         </span>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,12 +1,12 @@
 import "@testing-library/jest-dom";
 import { FooterNavCollectionItem } from "@packages/lib/types/interfaces";
 import { render, screen } from "@testing-library/react";
-import Footer from "@packages/shared-components/common-utilities/footer/footercomponents";
+import Footer from "@packages/shared-components/layout-components/footer/footercomponents";
 import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
-import FooterIcons from "@packages/shared-components/common-utilities/footer/footericons";
-import FooterAppLinks from "@packages/shared-components/common-utilities/footer/footer-applink";
-import FooterNavCollection from "@packages/shared-components/common-utilities/footer/footer-navcollection";
-import FooterCopyRights from "@packages/shared-components/common-utilities/footer/footer-copyrights";
+import FooterIcons from "@packages/shared-components/layout-components/footer/footericons";
+import FooterAppLinks from "@packages/shared-components/layout-components/footer/footer-applink";
+import FooterNavCollection from "@packages/shared-components/layout-components/footer/footer-navcollection";
+import FooterCopyRights from "@packages/shared-components/layout-components/footer/footer-copyrights";
 jest.mock("@packages/lib/server-actions/server-action", () => ({
   graphQlFetchFunction: jest.fn(),
 }));

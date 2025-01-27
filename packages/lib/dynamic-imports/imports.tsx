@@ -17,14 +17,16 @@ const dynamicComponentImports = (input: string | null | undefined) => {
     case "PageStatPodContainer":
       return dynamic(
         () =>
-          import("@packages/shared-components/home/wuscas/wuscascomponents"),
+          import(
+            "@packages/shared-components/common-utilities/wuscas/wuscascomponents"
+          ),
         { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
     case "DynamicMediaComponent":
       return dynamic(
         () =>
           import(
-            "@packages/shared-components/home/discover/discovercomponents"
+            "@packages/shared-components/common-utilities/slider/discover/discovercomponents"
           ),
         { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
@@ -32,7 +34,7 @@ const dynamicComponentImports = (input: string | null | undefined) => {
       return dynamic(
         () =>
           import(
-            "@packages/shared-components/home/tag-cloud/tagcloudcomponents"
+            "@packages/shared-components/common-utilities/tag-cloud/tagcloudcomponents"
           ),
         { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
@@ -40,14 +42,16 @@ const dynamicComponentImports = (input: string | null | undefined) => {
       return dynamic(
         () =>
           import(
-            "@packages/shared-components/home/testimonials/testimonialcomponents"
+            "@packages/shared-components/common-utilities/testimonials/testimonialcomponents"
           ),
         { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
     case "Reviews":
       return dynamic(
         () =>
-          import("@packages/shared-components/home/reviews/reviewscomponents"),
+          import(
+            "@packages/shared-components/common-utilities/slider/reviews/reviewscomponents"
+          ),
         { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
 
@@ -55,7 +59,7 @@ const dynamicComponentImports = (input: string | null | undefined) => {
       return dynamic(
         () =>
           import(
-            "@packages/shared-components/article-landing/eligibility-criteria/eligibilitycriteriacomponents"
+            "@packages/shared-components/common-utilities/eligibility-criteria/eligibilitycriteriacomponents"
           )
       );
     case "TextSnippet":
@@ -78,7 +82,10 @@ const dynamicComponentImports = (input: string | null | undefined) => {
       return dynamic(() => import("@packages/lib/utlils/pageviewlogging"));
     case "ArticleCarousal":
       return dynamic(
-        () => import("@packages/shared-components/home/advice/advicecomponents")
+        () =>
+          import(
+            "@packages/shared-components/common-utilities/slider/advice/advicecomponents"
+          )
       );
     default:
       return null;

@@ -480,6 +480,9 @@ p,
     width: 804px;
   }
 }
+:has(.sticky) {
+  @apply !p-0;
+}
 /* Article details END  */
 /* Article landing START  */
 .checkbox_card .form-checkbox + label svg{@apply hidden}

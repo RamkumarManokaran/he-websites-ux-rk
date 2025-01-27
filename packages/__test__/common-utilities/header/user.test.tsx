@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import User from "@packages/shared-components/common-utilities/header/user/user";
+import User from "@packages/shared-components/layout-components/header/user/user";
 
 // Mocking `signOut` and `window.location`
 jest.mock("aws-amplify/auth", () => ({
