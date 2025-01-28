@@ -19,8 +19,7 @@ const page = async ({ searchParams, params }: any) => {
     ThemeLandingPageQuery(iscontentPreview, slugurl),
     iscontentPreview
   );
-  console.log("theme page", jsondata);
-  console.log("query", ThemeLandingPageQuery(iscontentPreview, slugurl));
+
   const componentList =
     jsondata?.data?.contentData?.items[0]?.bodyContentCollection?.items;
 
@@ -29,7 +28,6 @@ const page = async ({ searchParams, params }: any) => {
   }
   const bannerData = jsondata?.data?.contentData?.items[0]?.bannerImage;
   const splitParam = slugurl ? slugurl.split("/") : [];
-
   return (
     <ContentfulPreviewProvider
       locale="en-GB"

@@ -36,6 +36,8 @@ export const ThemeLandingPageQuery = (preview: boolean, slug: string) => {
             internalName
             cardSectionTitle
             flagComponentStyle
+            shortDescription
+            longDescription
             mediaCardsCollection {
             items {
               ... on MetaTagTheme {
