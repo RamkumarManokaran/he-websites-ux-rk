@@ -3,17 +3,21 @@ import React, { useState } from "react";
 import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
 import Subscribebtn from "@packages/shared-components/common-utilities/cards/interaction-button/subscribebtn";
 import { v4 as uuidv4 } from "uuid";
-import { currentAuthenticatedUser, GA4DataLayerFn, getCookie } from "@packages/lib/utlils/helper-function";
+import {
+  currentAuthenticatedUser,
+  GA4DataLayerFn,
+  getCookie,
+} from "@packages/lib/utlils/helper-function";
 //import { getCookieValue } from "@packages/lib/utlils/commonFunction";
 import Link from "next/link";
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
 import { logClickstreamEvent } from "@packages/lib/utlils/clickstream";
-const Subscribe = ({ data, isPreviewTrue,category ,subCategory}: any) => {
+const Subscribe = ({ data, isPreviewTrue, category, subCategory }: any) => {
   let jsondata = useContentfulLiveUpdates(data);
   if (!isPreviewTrue) {
     jsondata = data;
   }
-  let  valid=false;
+  let valid = false;
   const [isChecked, setIsChecked] = useState(false);
   const [success, setSuccess] = useState(false);
   const [email, setEmail] = useState("");
@@ -23,20 +27,21 @@ const Subscribe = ({ data, isPreviewTrue,category ,subCategory}: any) => {
   });
   const emailChange = (event: any) => {
     setEmail(event.target.value);
-    
   };
   const handleCheckboxChange = (e: any) => {
     setIsChecked(!isChecked);
     SetErrorState((prev) => ({ ...prev, checkboxError: !!isChecked }));
   };
   const submitNewsletter = async () => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|co\.uk)$/;
+    const emailRegex =
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|co\.uk|ac\.uk)$/;
+
     const isEmailValid = emailRegex.test(email.trim());
-    console.log(isEmailValid,"from the email pod")
-    if (isEmailValid) valid=true;
+    console.log(isEmailValid, "from the email pod");
+    if (isEmailValid) valid = true;
     SetErrorState((prev) => ({ ...prev, emailError: !isEmailValid }));
     if (valid && isChecked && email) {
-      console.log(!errorstate.emailError,valid)
+      console.log(!errorstate.emailError, valid);
       setSuccess(true);
       const correlation_id = uuidv4();
       const res = await fetch(
@@ -65,14 +70,46 @@ const Subscribe = ({ data, isPreviewTrue,category ,subCategory}: any) => {
       const isSuccess = await res.json();
       if (isSuccess?.message === "User Added") {
         setSuccess(true);
-        GA4DataLayerFn({event:"registration", eventName: "registration",data_label:"subscription_footer",data_label2:subCategory,page_name : localStorage?.getItem("gaPageName") || "",user_id:await currentAuthenticatedUser(),article_category:category})
-        logClickstreamEvent({pageName:localStorage?.getItem("gaPageName") || "",eventType:"SignedUp",signupMethod:"Newletter Subscription",CTATitle:jsondata?.ctaLabel})
+        GA4DataLayerFn({
+          event: "registration",
+          eventName: "registration",
+          data_label: "subscription_footer",
+          data_label2: subCategory,
+          page_name: localStorage?.getItem("gaPageName") || "",
+          user_id: await currentAuthenticatedUser(),
+          article_category: category,
+        });
+        logClickstreamEvent({
+          pageName: localStorage?.getItem("gaPageName") || "",
+          eventType: "SignedUp",
+          signupMethod: "Newletter Subscription",
+          CTATitle: jsondata?.ctaLabel,
+        });
       } else if (isSuccess?.message === "User Updated") {
         setSuccess(true);
-        GA4DataLayerFn({event:"registration", eventName: "registration",data_label:"subscription_footer",data_label2:subCategory,page_name : localStorage?.getItem("gaPageName") || "",user_id:await currentAuthenticatedUser(),article_category:category})
-        logClickstreamEvent({pageName:localStorage?.getItem("gaPageName") || "",eventType:"SignedUp",signupMethod:"Newletter Subscription",CTATitle:jsondata?.ctaLabel})
+        GA4DataLayerFn({
+          event: "registration",
+          eventName: "registration",
+          data_label: "subscription_footer",
+          data_label2: subCategory,
+          page_name: localStorage?.getItem("gaPageName") || "",
+          user_id: await currentAuthenticatedUser(),
+          article_category: category,
+        });
+        logClickstreamEvent({
+          pageName: localStorage?.getItem("gaPageName") || "",
+          eventType: "SignedUp",
+          signupMethod: "Newletter Subscription",
+          CTATitle: jsondata?.ctaLabel,
+        });
       } else {
-        logClickstreamEvent({pageName:localStorage?.getItem("gaPageName") || "",eventType:"SignedUp",signupMethod:"Newletter Subscription",CTATitle:jsondata?.ctaLabel,signupFailureReason:isSuccess?.message.toString()})
+        logClickstreamEvent({
+          pageName: localStorage?.getItem("gaPageName") || "",
+          eventType: "SignedUp",
+          signupMethod: "Newletter Subscription",
+          CTATitle: jsondata?.ctaLabel,
+          signupFailureReason: isSuccess?.message.toString(),
+        });
         console.log("error");
       }
     } else {
@@ -167,7 +204,10 @@ const Subscribe = ({ data, isPreviewTrue,category ,subCategory}: any) => {
                     id="newsletter_email_placeholder"
                     placeholder={jsondata?.newsEmail}
                     value={email}
-                    onChange={(event) => { emailChange(event); SetErrorState((prev) => ({ ...prev, emailError: false }));}}
+                    onChange={(event) => {
+                      emailChange(event);
+                      SetErrorState((prev) => ({ ...prev, emailError: false }));
+                    }}
                   />
                   {errorstate.emailError && (
                     <div className="error mt-[8px]">

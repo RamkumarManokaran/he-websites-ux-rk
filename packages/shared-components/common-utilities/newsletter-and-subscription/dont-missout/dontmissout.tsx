@@ -10,7 +10,11 @@ import { fetchAuthSession } from "aws-amplify/auth";
 
 import { v4 as uuidv4 } from "uuid";
 import { DataLayerGA4AttrType } from "@packages/lib/types/datalayerGA";
-import { currentAuthenticatedUser, GA4DataLayerFn, getArticleDetailUrlParamValues } from "@packages/lib/utlils/helper-function";
+import {
+  currentAuthenticatedUser,
+  GA4DataLayerFn,
+  getArticleDetailUrlParamValues,
+} from "@packages/lib/utlils/helper-function";
 import { logClickstreamEvent } from "@packages/lib/utlils/clickstream";
 import { usePathname } from "next/navigation";
 
@@ -33,10 +37,12 @@ const Dontmissout = ({ key, data, preview }: any) => {
   const [agreementerror, setAgreementerror] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
   const validateEmail = (email: any) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex =
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|co\.uk|ac\.uk)$/;
     return emailRegex.test(email);
   };
-  const{category, subCategory, articleTitle} = getArticleDetailUrlParamValues();
+  const { category, subCategory, articleTitle } =
+    getArticleDetailUrlParamValues();
 
   useEffect(() => {
     // -------check the user authentication----------------------------
@@ -119,34 +125,36 @@ const Dontmissout = ({ key, data, preview }: any) => {
 
     console.log(firstname, lastname, email, year, agreement);
 
-    const handleSubscriptionGAlog = async() => {
+    const handleSubscriptionGAlog = async () => {
       const datalog: DataLayerGA4AttrType = {
         event: "registration",
         eventName: "registration",
         data_label: "subscription_footer",
-        page_name: localStorage?.getItem('gaPageName')?.toString(),
+        page_name: localStorage?.getItem("gaPageName")?.toString(),
         target_year: year,
         user_id: await currentAuthenticatedUser(),
         article_category: category,
         data_label2: subCategory,
         clearing: "in_year",
-  
       };
       GA4DataLayerFn(datalog);
-    }
+    };
 
-    const handleSubscriptionCSlog = async(userId: any, signupFailureReason: any) => {
+    const handleSubscriptionCSlog = async (
+      userId: any,
+      signupFailureReason: any
+    ) => {
       logClickstreamEvent({
-        pageName: "", 
-        sectionName: propsdata?.newsTitle ?? "",  
-        eventType: "SignedUp", 
-        CTATitle: `${propsdata?.ctaLabel ?? "Get free newsletters"}`, 
-        signupMethod: "Newsletter Subcription", 
+        pageName: "",
+        sectionName: propsdata?.newsTitle ?? "",
+        eventType: "SignedUp",
+        CTATitle: `${propsdata?.ctaLabel ?? "Get free newsletters"}`,
+        signupMethod: "Newsletter Subcription",
         signupFailureReason: signupFailureReason ?? "",
         interestedIntakeYear: year,
         userId: userId,
-      })
-    }
+      });
+    };
 
     const res = async () =>
       await fetch(
@@ -193,19 +201,22 @@ const Dontmissout = ({ key, data, preview }: any) => {
     ) {
       setSuccessMessage(true);
       res()
-        .then(async(response) => {
+        .then(async (response) => {
           if (response.ok) {
             setSuccessMessage(true);
             const resdata = await response.json();
             handleSubscriptionGAlog();
             handleSubscriptionCSlog(resdata?.user_uuid ?? "0", "");
-          } 
+          }
         })
         .catch((error) => {
           console.error("Error:", error); // Handle any errors
           handleSubscriptionCSlog("0", error.toString());
         });
-    } else if (prevemail && prevemail === email && isFormValid &&
+    } else if (
+      prevemail &&
+      prevemail === email &&
+      isFormValid &&
       !firstnameerror &&
       !lastnameerror &&
       !emailerror &&
@@ -216,14 +227,13 @@ const Dontmissout = ({ key, data, preview }: any) => {
       lastname &&
       email &&
       year &&
-      agreement) {
+      agreement
+    ) {
       setSuccessMessage(true);
       setAlreadyregisteruser(true);
-    }
-    else{
+    } else {
       setSuccessMessage(false);
     }
-
   }
 
   return (

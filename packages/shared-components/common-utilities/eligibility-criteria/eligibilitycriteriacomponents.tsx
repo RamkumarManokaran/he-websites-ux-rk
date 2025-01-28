@@ -13,8 +13,8 @@ interface PropsInterface {
   contentModelName: string;
   iscontentPreview: boolean;
   parentSysId: string;
-  category?:any;
-  subCategory?:any;
+  category?: any;
+  subCategory?: any;
 }
 const Eligibilitycriteriacomponents = async ({
   heading,
