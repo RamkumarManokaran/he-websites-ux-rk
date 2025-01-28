@@ -12,13 +12,7 @@ import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
 import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
 import { DataLayerGA4AttrType } from "@packages/lib/types/datalayerGA";
 import { usePathname } from "next/navigation";
-const AdviceCourseCard = ({
-  jsondata,
-  iscontentPreview,
-  index,
-  heading,
-  parentCategory,
-}: any) => {
+const AdviceCourseCard = ({ jsondata, iscontentPreview, index ,heading, parentCategory,sub_Category}: any) => {
   let data = useContentfulLiveUpdates(jsondata);
   if (!iscontentPreview) {
     data = jsondata;
@@ -34,8 +28,7 @@ const AdviceCourseCard = ({
       const datalog: DataLayerGA4AttrType = {
         event: "ga_contentful_events",
         eventName: "article_clicks",
-        data_label:
-          currPageName == "articleDetail" ? subCategory : data?.pageTitle,
+        data_label: subCategory ? subCategory : sub_Category,
         data_label3: index + 1,
         clearing: "in_year",
         page_name: localStorage.getItem("gaPageName")?.toString(),

@@ -11,7 +11,6 @@ export default function MicroFrontend() {
       : process.env.NEXT_PUBLIC_ENVIRONMENT === "stg"
         ? "https://mtest.test.aws."
         : "https://www."
-    //:"https://mdev.dev.aws."
   }`;
   useEffect(() => {
     const link = document.createElement("link");
@@ -30,10 +29,10 @@ export default function MicroFrontend() {
       document.head.removeChild(link);
     };
   }, []);
-  // console.log(count);
+  console.log(count);
   useEffect(() => {
     emitter.emit("courseCount", count);
-    document.cookie = `USER_FAV_BASKET_COUNT=${count?.userData?.favouriteCount ? count?.userData?.favouriteCount : 0}`;
+    document.cookie = `USER_FAV_BASKET_COUNT=${count?.userData?.favouriteCount || 0}; Path=/`;
   }, [count]);
 
   return (
