@@ -58,7 +58,7 @@ const Skiplink = ({ propsdata, preview }: any) => {
                 id="article-skip-link-title"
                 className="text-white small font-inter font-semibold"
               >
-                {data?.skipLinks?.skiplinkkTitle}
+                {data?.skipLinks?.skipLinkTitle}
               </span>
               <div className="burger-menu flex flex-col justify-center gap-[4px]">
                 <span className="bg-white w-[18px] h-[2px] rounded-[4px] flex"></span>
@@ -102,7 +102,7 @@ const Skiplink = ({ propsdata, preview }: any) => {
             id="article-skip-link-title"
             className="text-black para font-semibold font-inter"
           >
-            {data?.skipLinks?.skiplinkkTitle}
+            {data?.skipLinks?.skipLinkTitle }
           </h2>
           <ul>
             {data?.skipLinks?.anchorLinksCollection?.items?.map(
