@@ -39,6 +39,7 @@ const Page = () => {
           src="/static/assets/images/illustration-sand-clock-animation.gif"
           alt="loader"
           width="280"
+          height="300"
           className="mb-6"
         />
         <p className="font-semibold text-gray-900 text-lg">

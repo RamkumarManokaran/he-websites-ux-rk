@@ -13,7 +13,10 @@ const Articledescription = ({ propsdata, preview ,url}: any) => {
   const data = useContentfulLiveUpdates(propsdata);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [copylink, setCopylink] = useState(false);
+
   const modalPopToggle = () => {
+    setCopylink(false)
     if (!modalOpen) {
       handleShareLinkClickGA("clicked", ""); // Trigger GA event when opening
     }
@@ -24,10 +27,7 @@ const Articledescription = ({ propsdata, preview ,url}: any) => {
     const link = window.location.href; // Get the current page's URL
     navigator.clipboard
       .writeText(link)
-
-      .catch((err) => {
-        console.error("Failed to copy: ", err);
-      });
+      setCopylink(true)
   };
   // ==========================use effect for the handle click outside========================================================================
   useEffect(() => {
@@ -112,12 +112,14 @@ const Articledescription = ({ propsdata, preview ,url}: any) => {
         >
           {data?.shortDescription}
         </p>
+        {data?.modifiedDate && 
         <span
-          id="artilce-page-modified-date"
-          className="x-small text-grey300 text-inter"
+        id="artilce-page-modified-date"
+        className="x-small text-grey300 text-inter"
         >
-          {` Updated:${formatDate(data?.modifiedDate) ?? ""}`}
+          {` Updated: ${formatDate(data?.modifiedDate) ?? ""}`}
         </span>
+        }
         <button
           onClick={() => modalPopToggle()}
           className="btn btn-primary-outline px-[16px] py-[8px] flex gap-[6px] svg-hover-white w-fit"
@@ -204,7 +206,8 @@ const Articledescription = ({ propsdata, preview ,url}: any) => {
                       src="/static/assets/icons/copy-link.svg"
                       alt="Copy link"
                     />
-                    <span className="small font-inter">Copy link</span>
+                    {copylink ?
+                  <span className="small font-inter text-green-500 underline">Link copied</span>: <span className="small font-inter">Copy link</span>}
                   </button>
                 </div>
               </div>
