@@ -10,11 +10,15 @@ import { getArticleDetailUrlParamValues } from "@packages/lib/utlils/helper-func
 interface ReviewSliderProps {
   reviewData: ReviewDetailsList["reviewDetail"];
   pageName?: any;
+  parent_category?:any;
+  sub_Category?:any;
 }
 
 const Reviewslidercomponents: React.FC<ReviewSliderProps> = ({
   reviewData,
   pageName,
+  parent_category,
+  sub_Category,
 }) => {
 
   const{category, subCategory, articleTitle} = getArticleDetailUrlParamValues();
@@ -49,8 +53,8 @@ const Reviewslidercomponents: React.FC<ReviewSliderProps> = ({
                 index={index}
                 ratings={5}
                 pageName={pageName}
-                article_category={category}
-                article_subCat={subCategory}
+                article_category={category ? category : parent_category}
+                article_subCat={subCategory ? subCategory: sub_Category}
               />
             </SwiperSlide>
           ))}

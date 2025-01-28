@@ -10,6 +10,7 @@ const Advicecomponents = async ({
   subheading,
   parentSysId,
   category,
+  subCategory
 }: any) => {
 
   console.log(heading,subheading,articleKeyArray,"aaaaaaaaaaaaaaaaaaaaaaa")
@@ -85,7 +86,8 @@ const Advicecomponents = async ({
                     articledata={data?.data?.contentData?.items}
                     iscontentPreview={iscontentPreview}
                     heading={heading}
-                    category={category}
+                    parentCategory={category}
+                    sub_Category={subCategory}
                   />
                   {/* view more section commented */}
                   {/* <div className="flex justify-center mt-[16px] lg:mt-[28px]">

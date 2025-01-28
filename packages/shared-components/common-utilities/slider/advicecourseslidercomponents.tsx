@@ -10,7 +10,8 @@ const Advicecourseslidercomponents = ({
   articledata,
   iscontentPreview,
   heading,
-  category,
+  parentCategory,
+  sub_Category,
 }: any) => {
   return (
     <>
@@ -43,7 +44,8 @@ const Advicecourseslidercomponents = ({
                   index={index}
                   iscontentPreview={iscontentPreview}
                   heading={heading}
-                  category={category}
+                  parentCategory={parentCategory}
+                  sub_Category={sub_Category}
                 />
               </SwiperSlide>
             ))}

@@ -14,12 +14,16 @@ interface ReviewProps {
   subheading?: string | undefined;
   callAction?: CallToAction;
   pageName?: any;
+  category?:any;
+  subCategory?:any;
 }
 const Reviewscomponents: React.FC<ReviewProps> = async ({
   heading,
   subheading,
   callAction,
   pageName,
+  category,
+  subCategory,
 }) => {
   const jsonResponse: ReviewDetailsList =
     await getReviewDetailsFunction(reviewPayload);
@@ -41,6 +45,8 @@ const Reviewscomponents: React.FC<ReviewProps> = async ({
                 pageName={pageName}
                 data-testid="review-slider"
                 data-review-count={jsonResponse.reviewDetail.length}
+                parent_category={category}
+                sub_Category={subCategory}
               />
               <div className="flex justify-center mt-[16px] lg:mt-[28px]">
                 <ClickTrackerWrapper
