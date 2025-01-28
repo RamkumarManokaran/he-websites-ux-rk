@@ -91,6 +91,11 @@ export default function Richtextcomponent({ propsdata, key, preview }: any) {
               fieldId: "paragraphBodyRichText",
               targetSelector: `#${data?.skipLinkId}`,
             },
+            {
+              entryId: data?.sys?.id,
+              fieldId: "paragraphBodyRichText",
+              targetSelector: `#richtextjson${key}`,
+            },
           ]}
         />
       )}
@@ -109,7 +114,7 @@ export default function Richtextcomponent({ propsdata, key, preview }: any) {
             className="mb-4 w-full"
           />
         )}
-        <div>
+        <div id={`richtextjson${key}`}>
           {data?.paragraphBodyRichText?.json &&
             documentToReactComponents(
               data?.paragraphBodyRichText.json,

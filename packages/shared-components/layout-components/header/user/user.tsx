@@ -4,7 +4,9 @@ import { signOut } from "aws-amplify/auth";
 import { Amplify } from "aws-amplify";
 import awsconfig from "../../../../configs/amplifyconfiguration";
 Amplify.configure(awsconfig, { ssr: true });
+import { useRouter } from 'next/navigation';
 export default function User({ topnav_data }: any) {
+  const router = useRouter();
   async function clearAllCookies() {
     if (process.env.PROJECT === "Whatuni") {
       try {
@@ -13,7 +15,8 @@ export default function User({ topnav_data }: any) {
           "wcache=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
         document.cookie = `Signinonetap=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=strict`;
         await signOut({ global: true }); // Wait for the signOut process to complete
-        // window.location.href = "/"; // Force a full reload to the home page
+        router.refresh();
+        
       } catch (error) {
         console.error("Error signing out:", error); // Handle errors if signOut fails
       }

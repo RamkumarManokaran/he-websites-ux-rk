@@ -17,9 +17,7 @@ const awsconfig: any = {
           redirectSignIn: [
             `${process.env.NEXT_PUBLIC_ENVIRONMENT === "dev" ? "https://mdev.dev.aws.whatuni.com/authverification" : process.env.NEXT_PUBLIC_ENVIRONMENT === "stg" ? "https://mtest.test.aws.whatuni.com/authverification" : process.env.NEXT_PUBLIC_ENVIRONMENT === "prd" ? "https://www.whatuni.com/authverification" : ""}`,
           ],
-          redirectSignOut: [
-            `${process.env.NEXT_PUBLIC_ENVIRONMENT === "dev" ? "https://mdev.dev.aws.whatuni.com" : process.env.NEXT_PUBLIC_ENVIRONMENT === "stg" ? "https://mtest.test.aws.whatuni.com/" : process.env.NEXT_PUBLIC_ENVIRONMENT === "prd" ? "https://www.whatuni.com" : ""}`,
-          ],
+          redirectSignOut: [],
 
           responseType: "code", // or 'token', note that REFRESH token will only be generated when the responseType is code
         },

@@ -3,7 +3,7 @@ import { ArticleDetailSeoQuery } from "@packages/lib/graphQL/article-detail";
 import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const Params = await params;
-  const slugurl = `/${Params?.hero}/${Params?.theme}/${Params?.article}`;
+  const slugurl = `/${Params?.hero}/${Params?.theme}/${Params?.article}/`;
   try {
     const query = ArticleDetailSeoQuery(slugurl);
     const metadata = await graphQlFetchFunction(query);

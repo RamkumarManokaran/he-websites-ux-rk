@@ -11,7 +11,7 @@ import { notFound } from "next/navigation";
 import PageViewLogging from "@packages/lib/utlils/pageviewlogging";
 const page = async ({ searchParams, params }: any) => {
   const Params = await params;
-  const slugurl = `/${Params.hero}/${Params.theme}`;
+  const slugurl = `/${Params.hero}/${Params.theme}/`;
   const searchparams = await searchParams;
   const iscontentPreview =
     searchparams?.preview === "MY_SECRET_TOKEN" ? true : false;
