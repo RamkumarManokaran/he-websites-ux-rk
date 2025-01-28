@@ -12,7 +12,7 @@ import PageViewLogging from "@packages/lib/utlils/pageviewlogging";
 const page = async ({ searchParams, params }: any) => {
   const Params = await params;
 
-  const slugurl = `/${Params.hero}`;
+  const slugurl = `/${Params.hero}/`;
   const searchparams = await searchParams;
   const iscontentPreview =
     searchparams?.preview === "MY_SECRET_TOKEN" ? true : false;

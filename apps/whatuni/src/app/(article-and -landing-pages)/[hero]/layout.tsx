@@ -3,7 +3,7 @@ import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action
 import { HeroLandingSeoQuery } from "@packages/lib/graphQL/article-landing";
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const Params = await params;
-  const slugurl = `/${Params?.hero}`;
+  const slugurl = `/${Params?.hero}/`;
   try {
     const query = HeroLandingSeoQuery(slugurl);
     const metadata = await graphQlFetchFunction(query);
