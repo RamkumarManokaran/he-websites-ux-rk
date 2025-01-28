@@ -19,7 +19,7 @@ const TextToggleComponent = ({ text, iscontentPreview, sysId }: any) => {
           fields={[
             {
               entryId: sysId,
-              fieldId: "longDescription",
+              fieldId: "description",
               targetSelector: "#text_snippet_description",
             },
           ]}
