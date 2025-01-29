@@ -372,7 +372,7 @@ const Header = ({ topnav_data }: props) => {
           <div className="order-3 basis-[100%] md:grow lg:grow-0 lg:basis-0">
             <ul className="flex items-center justify-end gap-[10px] rightmenu py-[4px] lg:py-[8px]">
               {/* // commented beacuse the scope out sprint */}
-              {pathname !== "/" && (
+              {pathname !== "/" && process.env.PROJECT === "Whatuni" && (
                 <li>
                   <span
                     aria-label="Search"
