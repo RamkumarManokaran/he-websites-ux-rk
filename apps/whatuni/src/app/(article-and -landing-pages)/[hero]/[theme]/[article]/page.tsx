@@ -139,7 +139,7 @@ const Page = async ({ params, searchParams }: any) => {
             pageNameLocal={pageNameforArtcileDetail}
             gaData={{
               page_name: pageNameforArtcileDetail,
-              article_category: Params.money,
+              article_category: Params.hero,
             }}
             csData={{
               eventType: "PageViewed",
@@ -167,7 +167,7 @@ const Page = async ({ params, searchParams }: any) => {
                   <Articledescription
                     propsdata={data}
                     preview={preview}
-                    url={Params?.money}
+                    url={Params?.hero}
                   />
                 </div>
               </section>

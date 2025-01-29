@@ -129,18 +129,12 @@ export default function OneTrustCookieScript({
       window.OptanonWrapper = handleConsentChange;
       // Remove event listeners after loading the script
 
-      window.removeEventListener("load", handleUserInteraction);
+     
     };
+    handleUserInteraction()
+   
 
-    if (document.readyState === "complete") {
-      handleUserInteraction();
-    } else {
-      window.addEventListener("load", handleUserInteraction);
-    }
-
-    return () => {
-      window.removeEventListener("load", handleUserInteraction);
-    };
+   
   }, []);
 
   return (
