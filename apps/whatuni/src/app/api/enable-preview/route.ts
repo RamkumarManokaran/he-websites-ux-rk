@@ -46,7 +46,5 @@ export async function GET(request: Request) {
     sameSite: "none",
   });
 
-  console.log(query, "query54");
-
   redirect(`${query}`);
 }

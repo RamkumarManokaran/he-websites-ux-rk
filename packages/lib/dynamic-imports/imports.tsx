@@ -60,14 +60,16 @@ const dynamicComponentImports = (input: string | null | undefined) => {
         () =>
           import(
             "@packages/shared-components/common-utilities/eligibility-criteria/eligibilitycriteriacomponents"
-          )
+          ),
+        { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
     case "TextSnippet":
       return dynamic(
         () =>
           import(
             "@packages/shared-components/common-utilities/article-snippet/articlesnippetcomponents"
-          )
+          ),
+        { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
     case "Links":
       return null;
@@ -76,7 +78,8 @@ const dynamicComponentImports = (input: string | null | undefined) => {
         () =>
           import(
             "@packages/shared-components/common-utilities/faq/faqcomponents"
-          )
+          ),
+        { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
     case "pageviewlog":
       return dynamic(() => import("@packages/lib/utlils/pageviewlogging"));
@@ -85,7 +88,8 @@ const dynamicComponentImports = (input: string | null | undefined) => {
         () =>
           import(
             "@packages/shared-components/common-utilities/slider/advice/advicecomponents"
-          )
+          ),
+        { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
     default:
       return null;

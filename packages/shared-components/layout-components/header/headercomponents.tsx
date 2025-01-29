@@ -150,7 +150,6 @@ const Header = ({ topnav_data }: props) => {
     };
     const courseCountFunc = (customEventDetail: any) => {
       fetchUser();
-      // console.log(customEventDetail);
     };
     emitter.addListener("courseCount", courseCountFunc);
     // --------------close all popups on clicking outside-----------------------------
@@ -375,7 +374,6 @@ const Header = ({ topnav_data }: props) => {
               {pathname !== "/" && (
                 <li>
                   <span
-                    aria-label="Search"
                     onClick={() => rightMenuAction("SEARCH")}
                     className="border border-gray-500 rounded-[34px] flex items-center justify-center w-[48px] h-[48px] cursor-pointer hover:border-primary-500 hover:bg-primary-500"
                   >

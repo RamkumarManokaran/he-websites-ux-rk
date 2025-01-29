@@ -48,7 +48,6 @@ const Wuscascomponents: React.FC<WuscascomponentsProps> = async ({
     resultData?.data?.contentData?.items?.[0]?.bodyContentCollection.items?.[0]?.mediaCardsCollection.items?.find(
       (item: any) => item?.__typename === "PageStatPodContainer"
     );
-  console.log(resultData);
   return (
     <>
       {iscontentPreview && (

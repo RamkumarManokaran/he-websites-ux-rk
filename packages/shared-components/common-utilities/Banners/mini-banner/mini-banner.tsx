@@ -1,5 +1,6 @@
 "use server";
-import React from "react";
+import MiniBannerSkeleton from "@packages/shared-components/skeleton/minibannerskeleton";
+import React, { Suspense } from "react";
 import Image from "next/image";
 import { ContentfulInspectorManager } from "../../../../lib/contentful-preview/ContentfulInspector";
 const MiniHeroBanner = async ({ data, iscontentPreview }: any) => {
@@ -27,23 +28,24 @@ const MiniHeroBanner = async ({ data, iscontentPreview }: any) => {
         />
       )}
       {data && (
-        <section className="bg-blue-100">
-          <div className="max-w-container mx-auto">
-            <div className="flex flex-col-reverse md:flex-row justify-between gap-[16px] p-[16px]  md:p-[24px_20px] lg:py-0 xl:px-0 min-h-[194px]">
-              <div className="flex flex-col flex-grow gap-[16px] self-center md:self-end lg:p-[16px_0_38px]">
-                <div className="flex flex-col gap-[4px]">
-                  <h1
-                    className="text-heading1 md:text-heading-xl"
-                    id="mini_banner_title"
-                  >
-                    {data?.title}
-                  </h1>
-                  <p className="small" id="mini_banner_description">
-                    {data?.subTitle}
-                  </p>
-                </div>
-                {/* Seacrh box */}
-                {/* <div className="bg-white rounded-[32px] p-[16px] border border-neutral300 hover:border-primary-500 shadow-custom-1 md:pl-[24px] md:p-[10px]">
+        <Suspense fallback={<MiniBannerSkeleton />}>
+          <section className="bg-blue-100">
+            <div className="max-w-container mx-auto">
+              <div className="flex flex-col-reverse md:flex-row justify-between gap-[16px] p-[16px]  md:p-[24px_20px] lg:py-0 xl:px-0 min-h-[194px]">
+                <div className="flex flex-col flex-grow gap-[16px] self-center md:self-end lg:p-[16px_0_38px]">
+                  <div className="flex flex-col gap-[4px]">
+                    <h1
+                      className="text-heading1 md:text-heading-xl"
+                      id="mini_banner_title"
+                    >
+                      {data?.title}
+                    </h1>
+                    <p className="small" id="mini_banner_description">
+                      {data?.subTitle}
+                    </p>
+                  </div>
+                  {/* Seacrh box */}
+                  {/* <div className="bg-white rounded-[32px] p-[16px] border border-neutral300 hover:border-primary-500 shadow-custom-1 md:pl-[24px] md:p-[10px]">
                     <div className="flex flex-col gap-x-[10px] justify-between md:flex-row">
                       <div className="relative grow">
                         <input
@@ -69,22 +71,23 @@ const MiniHeroBanner = async ({ data, iscontentPreview }: any) => {
                       </div>
                     </div>
                   </div> */}
-              </div>
-              <div className="flex self-end justify-center w-full shrink-0 md:w-[219px] lg:w-[392px] pt-[12px]">
-                {data?.image?.imgUpload?.url && (
-                  <Image
-                    id="mini_banner_image"
-                    src={data?.image?.imgUpload?.url}
-                    width={205}
-                    height={260}
-                    priority
-                    alt={data?.image?.imgAltText}
-                  />
-                )}
+                </div>
+                <div className="flex self-end justify-center w-full shrink-0 md:w-[219px] lg:w-[392px] pt-[12px]">
+                  {data?.image?.imgUpload?.url && (
+                    <Image
+                      id="mini_banner_image"
+                      src={data?.image?.imgUpload?.url}
+                      width={205}
+                      height={260}
+                      priority={true}
+                      alt={data?.image?.imgAltText}
+                    />
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </Suspense>
       )}
     </>
   );

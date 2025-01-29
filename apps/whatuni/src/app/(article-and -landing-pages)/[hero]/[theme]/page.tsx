@@ -28,6 +28,8 @@ const page = async ({ searchParams, params }: any) => {
   }
   const bannerData = jsondata?.data?.contentData?.items[0]?.bannerImage;
   const splitParam = slugurl ? slugurl.split("/") : [];
+  console.log("json-data", jsondata);
+  console.log("component list", componentList);
   return (
     <ContentfulPreviewProvider
       locale="en-GB"

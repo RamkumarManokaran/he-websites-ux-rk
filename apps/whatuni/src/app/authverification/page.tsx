@@ -20,7 +20,6 @@ const Page = () => {
         case "signInWithRedirect_failure":
           break;
         case "customOAuthState":
-          console.log(payload, "payload");
           if (payload?.data) {
             router.push(payload?.data);
           }
