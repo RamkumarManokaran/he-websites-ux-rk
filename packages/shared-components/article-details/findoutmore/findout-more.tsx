@@ -4,8 +4,8 @@ import ClickTrackerWrapper from "@packages/lib/utlils/clicktrackerwrapper";
 
 const Findoutmore = ({ propsdata, key, preview, urlParams }: any) => {
 
-  const category = urlParams.money;
-  const subCategory = urlParams.budgeting;
+  const category = urlParams.hero;
+  const subCategory = urlParams.theme;
   const articleTitle = urlParams.article;
 
   let linkText = ""; //need to be removed once dynamic data added in contentful
