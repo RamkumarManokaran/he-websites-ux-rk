@@ -9,7 +9,9 @@ import Reviewscardskeleton from "@packages/shared-components/skeleton/reviewscar
 import Tagcloudcardskeleton from "@packages/shared-components/skeleton/tagcloudcardskeleton";
 import Testimonialcardskeleton from "@packages/shared-components/skeleton/testimonialcardskeleton";
 import Wuscacomponentskeleton from "@packages/shared-components/skeleton/wuscacomponentskeleton";
-
+import Articlesnippetskeleton from "@packages/shared-components/skeleton/articlesnippetskeleton";
+import Faqskeleton from "@packages/shared-components/skeleton/faqskeleton";
+import Eligibilitycriteriacardskeleton from "@packages/shared-components/skeleton/eligibilitycriteriacardskeleton";
 const DynamicSkeleton: React.FC<SkeletonNameInterface> = ({ skeletonName }) => {
   const Skeleton = () => {
     switch (skeletonName) {
@@ -27,6 +29,12 @@ const DynamicSkeleton: React.FC<SkeletonNameInterface> = ({ skeletonName }) => {
         return <Testimonialcardskeleton />;
       case "PageLogo":
         return <PartnerSliderComponentSkeleton />;
+      case "EligibilityCriteria":
+        return <Eligibilitycriteriacardskeleton />;
+      case "TextSnippet":
+        return <Articlesnippetskeleton />;
+      case "Faqs":
+        return <Faqskeleton />;
       default:
         return <p>Loading</p>;
     }

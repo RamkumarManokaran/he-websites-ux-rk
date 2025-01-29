@@ -36,16 +36,12 @@ const Page = async ({ params, searchParams }: any) => {
       }
     });
   }
-  console.log("Final URL:", url.toString());
-  console.log(articledetaildata, "as");
+
   if (articledetaildata?.data?.contentData?.items.length < 1) {
-    console.log("notfound");
     notFound();
   }
 
-  console.dir(articledetaildata, "Asddddddddddddddddddddd");
   const data = articledetaildata?.data?.contentData?.items[0];
-  console.log(data, "datatataaa");
   const customLabels = [
     data?.articleType?.title,
     data?.metaTagThemeCollection?.items[0]?.title,
@@ -55,11 +51,9 @@ const Page = async ({ params, searchParams }: any) => {
     const sanitizedPath = currentPath.endsWith("/")
       ? currentPath.slice(0, -1)
       : currentPath;
-    console.log(sanitizedPath, "sanitizedPath");
     const pathSegments = sanitizedPath
       .split("/")
       .filter((segment: any) => segment);
-    console.log(pathSegments, "pathSegments");
     // Construct breadcrumb data
     const breadcrumbData = pathSegments.map((segment: any, index: any) => {
       const url =
@@ -76,7 +70,6 @@ const Page = async ({ params, searchParams }: any) => {
             .replace(/\b\w/g, (char: any) => char.toUpperCase()),
       };
     });
-    console.log(breadcrumbData, "breadcrumbData");
     breadcrumbData.unshift({
       url: "/",
       label: "Home",
@@ -255,12 +248,10 @@ const Page = async ({ params, searchParams }: any) => {
                 <div className="max-w-container mx-auto">
                   {data?.bodyContentCollection?.items?.map(
                     (dt: any, index: any) => {
-                      console.log("inside ooooooooooo");
                       if (
                         dt?.__typename === "MultipleCardContainer" &&
                         dt?.flagComponentStyle === "ArticleCarousal"
                       ) {
-                        console.log("insid ethe", dt);
                         const Component: any = dynamicComponentImports(
                           dt?.flagComponentStyle
                         );

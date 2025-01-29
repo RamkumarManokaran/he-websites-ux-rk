@@ -2,16 +2,16 @@ import React from "react";
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
-import { DataLayerGA4AttrType } from '@packages/lib/types/datalayerGA';
-import { currentAuthenticatedUser, GA4DataLayerFn } from '@packages/lib/utlils/helper-function';
+import { DataLayerGA4AttrType } from "@packages/lib/types/datalayerGA";
+import {
+  currentAuthenticatedUser,
+  GA4DataLayerFn,
+} from "@packages/lib/utlils/helper-function";
 import ClickTrackingWrapper from "@packages/lib/utlils/clicktrackerwrapper";
 
-const Ctabanner = ({ key, propsdata, preview, urlParams}: any) => {
-  console.log(propsdata, "asas");
-  console.log(propsdata.longDescription.json, "asdfgasahjk");
-
+const Ctabanner = ({ key, propsdata, preview, urlParams }: any) => {
   return (
-    <div className="pb-[20]" >
+    <div className="pb-[20]">
       {preview && (
         <ContentfulInspectorManager
           fields={[
@@ -45,7 +45,7 @@ const Ctabanner = ({ key, propsdata, preview, urlParams}: any) => {
           ]}
         />
       )}
-      
+
       <div
         id="article-backgroundColor"
         className={`${propsdata?.backgroundColor} p-[16px] md:py-[0] gap-[20px] md:gap-[0]  md:px-[20px] rounded-[8px] flex md:flex-row flex-col-reverse justify-between items-end !m-0`}
@@ -67,32 +67,34 @@ const Ctabanner = ({ key, propsdata, preview, urlParams}: any) => {
             </div>
           </div>
           {propsdata?.cta?.primaryCtaUrl && (
-            <ClickTrackingWrapper gaData={{
-              event: "ga_contentful_events",
-              eventName: propsdata.cta.primaryCtaEventName,
-              data_label: urlParams?.theme,
-              article_category: urlParams?.hero,
-              cta_name: propsdata.cta.primaryCtaLabel || "Find your perfect",
-              cta_url: propsdata.cta.primaryCtaUrl,
-              clearing: "in_year",
-            }}>
-            <a
-              id="article-primaryCtaLabel-detai"
-              href={propsdata.cta.primaryCtaUrl}
-              target={
-                propsdata.cta.primaryCtaTarget === "Open in new tab"
-                  ? "_blank"
-                  : "_self"
-              }
-              className="btn btn-primary rtfcustom-link hover:no-underline px-[20px] py-[10px] w-fit !no-underline"
-              rel={
-                propsdata.cta.primaryCtaTarget === "Open in new tab"
-                  ? "noopener noreferrer"
-                  : undefined
-              }
+            <ClickTrackingWrapper
+              gaData={{
+                event: "ga_contentful_events",
+                eventName: propsdata.cta.primaryCtaEventName,
+                data_label: urlParams?.theme,
+                article_category: urlParams?.hero,
+                cta_name: propsdata.cta.primaryCtaLabel || "Find your perfect",
+                cta_url: propsdata.cta.primaryCtaUrl,
+                clearing: "in_year",
+              }}
             >
-              {propsdata.cta.primaryCtaLabel || "Find your perfect "}
-            </a>
+              <a
+                id="article-primaryCtaLabel-detai"
+                href={propsdata.cta.primaryCtaUrl}
+                target={
+                  propsdata.cta.primaryCtaTarget === "Open in new tab"
+                    ? "_blank"
+                    : "_self"
+                }
+                className="btn btn-primary rtfcustom-link hover:no-underline px-[20px] py-[10px] w-fit !no-underline"
+                rel={
+                  propsdata.cta.primaryCtaTarget === "Open in new tab"
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+              >
+                {propsdata.cta.primaryCtaLabel || "Find your perfect "}
+              </a>
             </ClickTrackingWrapper>
           )}
         </div>
