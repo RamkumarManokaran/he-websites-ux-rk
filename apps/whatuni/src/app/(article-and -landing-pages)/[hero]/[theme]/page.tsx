@@ -9,6 +9,7 @@ import Subscribecomponents from "@packages/shared-components/common-utilities/ne
 import { ThemeLandingPageQuery } from "@packages/lib/graphQL/theme-landing";
 import { notFound } from "next/navigation";
 import PageViewLogging from "@packages/lib/utlils/pageviewlogging";
+import Breadcrumblayoutcomponent from "@packages/shared-components/article-details/breadcrumb-layout/breadcrumblayoutcomponent";
 const page = async ({ searchParams, params }: any) => {
   const Params = await params;
   const slugurl = `/${Params.hero}/${Params.theme}/`;
@@ -19,17 +20,49 @@ const page = async ({ searchParams, params }: any) => {
     ThemeLandingPageQuery(iscontentPreview, slugurl),
     iscontentPreview
   );
-
+  console.log(jsondata);
   const componentList =
     jsondata?.data?.contentData?.items[0]?.bodyContentCollection?.items;
 
   if (jsondata?.data?.contentData?.items.length < 1) {
     notFound();
   }
+  const customLabels: any = [
+    "Money",
+    jsondata?.data?.contentData?.items[0]?.pageTitle,
+  ];
   const bannerData = jsondata?.data?.contentData?.items[0]?.bannerImage;
   const splitParam = slugurl ? slugurl.split("/") : [];
-  console.log("json-data", jsondata);
-  console.log("component list", componentList);
+  function generateBreadcrumbData(currentPath: any) {
+    const sanitizedPath = currentPath.endsWith("/")
+      ? currentPath.slice(0, -1)
+      : currentPath;
+    const pathSegments = sanitizedPath
+      .split("/")
+      .filter((segment: any) => segment);
+    const breadcrumbData = pathSegments.map((segment: any, index: any) => {
+      const url =
+        index === pathSegments.length - 1
+          ? ""
+          : "/" + pathSegments.slice(0, index + 1).join("/");
+
+      return {
+        url,
+        label:
+          customLabels[index] ||
+          segment
+            .replace(/-/g, " ")
+            .replace(/\b\w/g, (char: any) => char.toUpperCase()),
+      };
+    });
+    breadcrumbData.unshift({
+      url: "/",
+      label: "Home",
+    });
+
+    return breadcrumbData;
+  }
+  const breadcrumbData = generateBreadcrumbData(slugurl);
   return (
     <ContentfulPreviewProvider
       locale="en-GB"
@@ -38,6 +71,11 @@ const page = async ({ searchParams, params }: any) => {
       debugMode={iscontentPreview}
     >
       <div className="article_landing">
+        <section className="px-[16px] md:px-[20px] lg:px-[0] py-[24px]">
+          <div className="max-w-container mx-auto">
+            <Breadcrumblayoutcomponent propsdata={breadcrumbData} />
+          </div>
+        </section>
         {bannerData && (
           <HeroMiniBanner
             data={bannerData}

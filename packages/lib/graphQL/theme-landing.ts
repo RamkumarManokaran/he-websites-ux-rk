@@ -6,9 +6,8 @@ export const ThemeLandingPageQuery = (preview: boolean, slug: string) => {
          ${preview ? `preview : ${preview}` : ""} 
     ) {
       items {
-        sys {
-          id
-        }
+        pageTitle
+        sys {id}
         gaPageName
         bannerImage {
           sys {
