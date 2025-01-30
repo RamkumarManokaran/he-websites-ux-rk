@@ -147,11 +147,12 @@ const Dontmissout = ({ key, data, preview }: any) => {
       signupFailureReason: any
     ) => {
       logClickstreamEvent({
-        pageName: "",
-        sectionName: propsdata?.newsTitle ?? "",
-        eventType: "SignedUp",
-        CTATitle: `${propsdata?.ctaLabel ?? "Get free newsletters"}`,
-        signupMethod: "Newsletter Subcription",
+
+        pageName: localStorage?.getItem('gaPageName')?.toString(), 
+        sectionName: propsdata?.newsTitle ?? "",  
+        eventType: "SignedUp", 
+        CTATitle: `${propsdata?.ctaLabel ?? "Get free newsletters"}`, 
+        signupMethod: "Newsletter Subcription", 
         signupFailureReason: signupFailureReason ?? "",
         interestedIntakeYear: year,
         userId: userId,
