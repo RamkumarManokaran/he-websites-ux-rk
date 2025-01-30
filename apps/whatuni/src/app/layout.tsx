@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
       alternates: {
         canonical:
           metadata?.data?.contentData?.items[0]?.seoFields?.canonical ||
-          "https://www.Whatuni.com/",
+          process.env.PROJECT==="Whatuni" ? "https://www.Whatuni.com/" :"https://www.postgraduatesearch.com",
       },
       title:
         metadata?.data?.contentData?.items[0]?.seoFields?.metaTite ||
@@ -46,18 +46,18 @@ export async function generateMetadata(): Promise<Metadata> {
       keywords:
         metadata?.data?.contentData?.items[0]?.seoFields?.metaKeywords || [],
 
-      other: {
-        "og:title":
-          metadata?.data?.contentData?.items[0]?.seoFields?.metaTite ||
-          "The best UK University & degree guides | rankings & reviews",
-        "og:type": "website",
-        "og:description":
-          metadata?.data?.contentData?.items[0]?.seoFields?.metaDescription ||
-          "Compare the best University & degree courses for free - Degree course rankings, university reviews, degree course details, university profiles to help you decide which University to attend",
-        "og:image": `${process.env.PROJECT === "Whatuni" ? "https://images.ctfassets.net/szez98lehkfm/UEsONfx1Q29FkoafrRlPT/e89b566373b65e6a6cfa1f575986566c/whatuni_logo.svg" : "https://images.ctfassets.net/szez98lehkfm/6Z2XBvZNThCE23P5umA60L/b24e7dbf371dadfedc8a124ade7d77e9/POSTGRADUATE_SEARCH_RGB.svg"}`,
-        "og:url":
-          metadata?.data?.contentData?.items[0]?.seoFields?.canonical ||
-          `https://www.whatuni.com/`,
+        other: {
+          
+          "og:title":
+            metadata?.data?.contentData?.items[0]?.seoFields?.metaTite || "The best UK University & degree guides | rankings & reviews",
+          "og:type": "website",
+          "og:description":
+            metadata?.data?.contentData?.items[0]?.seoFields?.metaDescription ||
+            "Compare the best University & degree courses for free - Degree course rankings, university reviews, degree course details, university profiles to help you decide which University to attend",
+          "og:image":`${process.env.PROJECT ==="Whatuni" ? "https://images.ctfassets.net/szez98lehkfm/UEsONfx1Q29FkoafrRlPT/e89b566373b65e6a6cfa1f575986566c/whatuni_logo.svg": "https://images.ctfassets.net/szez98lehkfm/6Z2XBvZNThCE23P5umA60L/b24e7dbf371dadfedc8a124ade7d77e9/POSTGRADUATE_SEARCH_RGB.svg"}`,
+          "og:url":
+            metadata?.data?.contentData?.items[0]?.seoFields?.canonical ||
+            process.env.PROJECT==="Whatuni" ? "https://www.Whatuni.com/" :"https://www.postgraduatesearch.com",
 
         "meta:description":
           metadata?.data?.contentData?.items[0]?.seoFields?.metaDescription,
@@ -98,11 +98,11 @@ export default async function RootLayout({
       <body
         className={`${farroBold.variable} ${interBold.variable} antialiased`}
       >
-        <Suspense>
+       
           <OneTrustCookieScript
             domianValue={process.env.NEXT_PUBLIC_WU_ONE_TRUST_DOMAIN || ""}
           />
-        </Suspense>
+
         <GoogleOneTap />
         <SetCookiewuIdToken />
         <TrackSessionId />
