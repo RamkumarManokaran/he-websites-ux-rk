@@ -34,7 +34,7 @@ const Subscribe = ({ data, isPreviewTrue, category, subCategory }: any) => {
   };
   const submitNewsletter = async () => {
     const emailRegex =
-      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|co\.uk|ac\.uk)$/;
+      /\S+@\S+\.\S+/;
 
     const isEmailValid = emailRegex.test(email.trim());
     if (isEmailValid) valid = true;

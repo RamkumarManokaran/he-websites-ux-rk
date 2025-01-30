@@ -39,8 +39,8 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
           "twitter:description":metadata?.data?.contentData?.items[0]?.seoFields?.metaDescription,
           "twitter:image":
           "https://images.ctfassets.net/szez98lehkfm/UEsONfx1Q29FkoafrRlPT/e89b566373b65e6a6cfa1f575986566c/whatuni_logo.svg",
-          "apple-itunes-app": "app-id=1267341390",
-          "google-play-app": "app-id=com.hotcourses.group.wuapp", 
+          "apple-itunes-app":  `${slugurl ==="/money/ug-student-cost-of-living-calculator/" ?"" :"app-id=1267341390"}`,
+          "google-play-app":  `${slugurl ==="/money/ug-student-cost-of-living-calculator/" ?"" :"app-id=com.hotcourses.group.wuapp"}`, 
         }, 
     };
   } catch (error) {
