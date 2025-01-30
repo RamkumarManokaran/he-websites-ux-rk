@@ -57,12 +57,8 @@ const Authorprofile = ({ propsdata, preview }: any) => {
               />
             )}
             <div className="flex flex-col">
-              <span className="text-blue-400 small font-medium">
-                <Link
-                  id="Author-Name"
-                  className="hover:underline"
-                  href="#"
-                >{`${propsdata?.author?.firstName ?? ""}${propsdata?.author?.middleName ?? ""}${propsdata?.author?.lastName ?? ""}`}</Link>
+              <span  id="Author-Name"  className="text-blue-400 small font-medium">
+                {`${propsdata?.author?.firstName ?? ""}${propsdata?.author?.middleName ?? ""}${propsdata?.author?.lastName ?? ""}`}
               </span>
               <span
                 id="audienceGroup"
