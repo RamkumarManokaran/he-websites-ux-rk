@@ -29,7 +29,6 @@ export default function MicroFrontend() {
       document.head.removeChild(link);
     };
   }, []);
-  console.log(count);
   useEffect(() => {
     emitter.emit("courseCount", count);
     document.cookie = `USER_FAV_BASKET_COUNT=${count?.userData?.favouriteCount || 0}; Path=/`;

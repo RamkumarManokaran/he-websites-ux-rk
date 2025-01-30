@@ -5,6 +5,7 @@ import { homePageComponentQueryFormation } from "@packages/lib/graphQL/fetch-fun
 import { FaqsQuery } from "@packages/lib/graphQL/article-landing";
 import FaqClient from "./faq-clientwrap";
 import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
+import Faqskeleton from "@packages/shared-components/skeleton/faqskeleton";
 const Faqcomponents = async ({
   heading,
   subheading,
@@ -42,7 +43,7 @@ const Faqcomponents = async ({
           ]}
         />
       )}
-      <Suspense fallback={<p>loading</p>}>
+      <Suspense fallback={<Faqskeleton />}>
         <div className="faq-container bg-white">
           <div className="max-w-container mx-auto">
             <div className="faq-card-container flex flex-col gap-[32px] px-[16px] py-[40px] md:py-[64px] md:px-[20px] xl:px-[0]">

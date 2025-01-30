@@ -37,11 +37,9 @@ const Subscribe = ({ data, isPreviewTrue, category, subCategory }: any) => {
       /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|co\.uk|ac\.uk)$/;
 
     const isEmailValid = emailRegex.test(email.trim());
-    console.log(isEmailValid, "from the email pod");
     if (isEmailValid) valid = true;
     SetErrorState((prev) => ({ ...prev, emailError: !isEmailValid }));
     if (valid && isChecked && email) {
-      console.log(!errorstate.emailError, valid);
       setSuccess(true);
       const correlation_id = uuidv4();
       const res = await fetch(

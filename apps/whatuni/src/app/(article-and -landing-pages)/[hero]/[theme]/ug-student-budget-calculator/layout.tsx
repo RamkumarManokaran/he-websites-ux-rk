@@ -4,7 +4,6 @@ import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const metadata = await graphQlFetchFunction(ColcSeo);
-    console.log(metadata);
     return {
       alternates: {
         canonical:
