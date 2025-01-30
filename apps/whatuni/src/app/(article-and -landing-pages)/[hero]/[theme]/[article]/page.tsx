@@ -79,7 +79,6 @@ const Page = async ({ params, searchParams }: any) => {
   }
 
   const breadcrumbData = generateBreadcrumbData(slugurl);
-
   const jsonLd = {
     "@context": "http://schema.org",
     "@type": "Article",
