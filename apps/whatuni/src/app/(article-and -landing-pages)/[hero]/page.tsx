@@ -71,7 +71,7 @@ const page = async ({ searchParams, params }: any) => {
       debugMode={iscontentPreview}
     >
       <div className="article_landing">
-        <section className="px-[16px] md:px-[20px] lg:px-[0] py-[24px]">
+        <section className="px-[16px] md:px-[20px] lg:px-[0] py-[24px] hidden lg:block">
           <div className="max-w-container mx-auto">
             <Breadcrumblayoutcomponent propsdata={breadcrumbData} />
           </div>
