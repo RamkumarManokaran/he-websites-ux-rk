@@ -55,7 +55,7 @@ const Advicecomponents = async ({
         />
       )}
       {data?.data?.contentData?.items.length > 0 && (
-        <section className="advice-container bg-grey-50">
+        <section className="advice-container">
           <div className="max-w-container mx-auto">
             <div className="advice-card-container px-[0] py-[34px] md:py-[64px]">
               <div className="advice-header px-[20px] lg:px-[0] mb-[26px] md:mb-[32px]">

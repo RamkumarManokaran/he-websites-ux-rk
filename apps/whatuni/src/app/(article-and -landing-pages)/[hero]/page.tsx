@@ -41,6 +41,7 @@ const page = async ({ searchParams, params }: any) => {
           <HeroMiniBanner
             data={bannerData}
             iscontentPreview={iscontentPreview}
+            contentModelName={"pageTemplateThemedLandingPageCollection"}
           />
         )}
         {componentList?.map(
@@ -56,20 +57,24 @@ const page = async ({ searchParams, params }: any) => {
             }
 
             return (
-              <Component
+              <div
+                className={`${index === 0 || index % 2 === 0 ? "bg-grey-50" : "bg-white"}`}
                 key={index}
-                heading={childItems?.cardSectionTitle}
-                subheading={childItems?.shortDescription}
-                internalName={childItems?.internalName}
-                callAction={childItems?.callToAction}
-                parentSysId={childItems?.sys?.id}
-                routename={slugurl}
-                articleKeyArray={childItems?.mediaCardsCollection?.items}
-                contentModelName={"pageTemplateHeroLandingPageCollection"}
-                iscontentPreview={iscontentPreview}
-                pageName={jsondata?.data?.contentData?.items[0]?.gaPageName}
-                category={splitParam?.[1]}
-              />
+              >
+                <Component
+                  heading={childItems?.cardSectionTitle}
+                  subheading={childItems?.shortDescription}
+                  internalName={childItems?.internalName}
+                  callAction={childItems?.callToAction}
+                  parentSysId={childItems?.sys?.id}
+                  routename={slugurl}
+                  articleKeyArray={childItems?.mediaCardsCollection?.items}
+                  contentModelName={"pageTemplateHeroLandingPageCollection"}
+                  iscontentPreview={iscontentPreview}
+                  pageName={jsondata?.data?.contentData?.items[0]?.gaPageName}
+                  category={splitParam?.[1]}
+                />
+              </div>
             );
           }
         )}

@@ -92,6 +92,7 @@ export const ArticleTextSnippetQuery = `
   title
   subTitle
   description
+  shortDescription
   longDescription {
     json
   }

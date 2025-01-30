@@ -59,7 +59,7 @@ const Eligibilitycriteriacomponents = async ({
       )}
       {data && (
         <Suspense fallback={<Eligibilitycriteriacardskeleton />}>
-          <div className="eligibility-container bg-grey-50">
+          <div className="eligibility-container">
             <div className="max-w-container mx-auto">
               <div className="eligibility-card-container flex flex-col gap-[32px] px-[16px] md:px-[20px] xl:px-[0] py-[34px] md:py-[64px]">
                 <div className="eligibility-header flex flex-col gap-[4px]">
