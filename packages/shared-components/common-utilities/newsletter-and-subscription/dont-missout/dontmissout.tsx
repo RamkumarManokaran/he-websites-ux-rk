@@ -38,7 +38,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
   const [successMessage, setSuccessMessage] = useState(false);
   const validateEmail = (email: any) => {
     const emailRegex =
-      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|co\.uk|ac\.uk)$/;
+      /\S+@\S+\.\S+/;
     return emailRegex.test(email);
   };
   const { category, subCategory, articleTitle } =
