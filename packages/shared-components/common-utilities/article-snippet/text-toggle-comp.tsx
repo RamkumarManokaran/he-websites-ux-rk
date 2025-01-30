@@ -8,7 +8,7 @@ const TextToggleComponent = ({
   sysId,
   longtext,
 }: any) => {
-  const readMore = text?.length > 362 ? true : false;
+  const readMore = text?.length > 460 ? true : false;
   const [screenrender, setScreenrender] = useState(
     readMore ? "text" : "longtext"
   );
@@ -36,7 +36,7 @@ const TextToggleComponent = ({
         <div className="flex flex-col items-start gap-[16px] rtf-innerstyle">
           {screenrender === "text" ? (
             <p
-              className={`${readMore && "line-clamp-3"} para font-normal`}
+              className={`${readMore && "line-clamp-4"} para font-normal`}
               id="text_snippet_description"
             >
               {text}
