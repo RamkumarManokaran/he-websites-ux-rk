@@ -78,7 +78,9 @@ const Dontmissout = ({ key, data, preview }: any) => {
           }
         );
         const yeardata = await entrydata.json();
+        setYear(yeardata[0]?.optionValue)
         setYearofentry(yeardata);
+        
         // console.log(yeardata, "yeardata");
       } catch (error) {
         console.error("Error fetching user:", error);
@@ -412,7 +414,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
                     {yearofentry?.map((item: any, index: any) => (
                       <div
                         key={index}
-                        className="flex gap-[4px] md:gap-[8px] items-center"
+                        className="flex gap-[12px] items-center"
                       >
                         <input
                           checked={year === item?.optionId}
@@ -574,9 +576,9 @@ const Dontmissout = ({ key, data, preview }: any) => {
                       </div>
                       <label
                         htmlFor="newsletters"
-                        className="select-none check-label small font-semibold w-[calc(100%_-_28px)]"
+                        className="select-none check-label !text-small font-semibold w-[calc(100%_-_28px)]"
                       >
-                        <p className="select-none small font-normal text-grey-600">
+                        <p className="select-none !text-small font-normal text-grey-600">
                           I confirm I’m over 13 and agree to the
                           <Link
                             className="!text-primary-500 underline pl-[4px]"

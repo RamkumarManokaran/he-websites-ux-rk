@@ -32,11 +32,11 @@ export default function Richtextcomponent({ propsdata, key, preview }: any) {
         </video>),
       hyperlink: (node: any, children: any) => (
         <a
-          onClick={() => console.log("clicking  clicking  clicking clicking")}
-          href={node.data.uri}
-        >
-          {children}
-        </a>
+        href={node.data.uri}
+        target={node.data.uri.includes("whatuni") ? "_self" : "_blank"}
+      >
+        {children}
+      </a>
       ),
       
     },
