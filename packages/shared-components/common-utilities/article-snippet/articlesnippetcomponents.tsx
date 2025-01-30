@@ -23,6 +23,7 @@ const Articlesnippetcomponents = async ({
   const data = (await graphQlFetchFunction(query, iscontentPreview))?.data
     ?.contentData?.items[0]?.bodyContentCollection?.items[0]
     ?.mediaCardsCollection?.items[0];
+  console.log(data);
   return (
     <>
       {iscontentPreview && (
@@ -37,7 +38,7 @@ const Articlesnippetcomponents = async ({
         />
       )}
       <Suspense fallback={<Articlesnippetskeleton />}>
-        <div className="articlesnippet-container bg-white">
+        <div className="articlesnippet-container">
           <div className="max-w-container mx-auto">
             <div className="articlesnippet-card-container flex flex-col lg:flex-row justify-between gap-[20px] px-[16px] md:px-[20px] xl:px-[0] py-[40px] md:py-[64px]">
               {data?.title && (
@@ -49,6 +50,7 @@ const Articlesnippetcomponents = async ({
                 iscontentPreview={iscontentPreview}
                 sysId={data?.sys?.id}
                 text={data?.description}
+                longtext={data?.longDescription?.json}
               />
             </div>
           </div>

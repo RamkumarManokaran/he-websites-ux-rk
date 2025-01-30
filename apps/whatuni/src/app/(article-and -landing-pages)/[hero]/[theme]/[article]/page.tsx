@@ -156,7 +156,7 @@ const Page = async ({ params, searchParams }: any) => {
                 </div>
               </section>
               <section className="pb-[40px]">
-                <div className="max-w-container mx-auto px-[16px] md:px-[20px] xl:px-[0]">
+                <div className="max-w-container mx-auto pt-[16px] lg:pt-[0] px-[16px] md:px-[20px] xl:px-[0]">
                   <Articledescription
                     propsdata={data}
                     preview={preview}

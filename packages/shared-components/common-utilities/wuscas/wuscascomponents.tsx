@@ -167,7 +167,7 @@ const Wuscascomponents: React.FC<WuscascomponentsProps> = async ({
                   >
                     <Image
                       priority={true}
-                      src={`${statsData?.image.url || ""}`}
+                      src={statsData?.image.url || ""}
                       width={402}
                       height={401}
                       alt={statsData?.image.title || ""}

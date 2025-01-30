@@ -92,7 +92,7 @@ const CourseTab: React.FC<CourseTabProps> = ({
       (subjects: any) =>
         subjects?.description
           ?.toLowerCase()
-          .includes(description?.trim().toLowerCase()) &&
+          .includes(description?.trim()?.toLowerCase()) &&
         subjects?.qualCode === qualCode
     );
     const prioritySearch = (
@@ -100,14 +100,14 @@ const CourseTab: React.FC<CourseTabProps> = ({
       searchText: string
     ): { description: string; [key: string]: any }[] => {
       if (!searchText) return list;
-      const searchLower = searchText.toLowerCase();
+      const searchLower = searchText?.toLowerCase();
       return list
         ?.map((item) => ({
           ...item,
           position: item?.description?.toLowerCase().indexOf(searchLower),
           startsWithSearch: item?.description
-            .toLowerCase()
-            .startsWith(searchLower),
+            ?.toLowerCase()
+            ?.startsWith(searchLower),
           exactMatch: item?.description?.toLowerCase() === searchLower,
         }))
 
@@ -196,7 +196,7 @@ const CourseTab: React.FC<CourseTabProps> = ({
         .replace(/\s+/g, "-") // Replace spaces with hyphens
         .replace(/-+/g, "-") // Replace multiple consecutive hyphens with a single hyphen
         .replace(/^-|-$/g, "") // Remove hyphens from the start and end
-        .toLowerCase(); // Convert the entire string to lowercase
+        ?.toLowerCase(); // Convert the entire string to lowercase
 
       //   `${searchFormHandle.subject.url}&location=${sanitizedRegionName}${ucasval ? `&score=0,${ucasval}` : ""}`,
       //   "==+++++++++++++++++++++++++++++++++++++++++++++++++++"
@@ -317,7 +317,8 @@ const CourseTab: React.FC<CourseTabProps> = ({
       .replace(/\s+/g, "-")
       .replace(/-+/g, "-")
       .replace(/^-|-$/g, "")
-      .toLowerCase();
+      
+      ?.toLowerCase();
     const searchUrlMap: Record<string, string> = {
       M: "/degree-courses/search",
       N: "/hnd-hnc-courses/search",
@@ -328,7 +329,7 @@ const CourseTab: React.FC<CourseTabProps> = ({
     const matchedSubject = filteredsubject?.find(
       (item: any) =>
         item?.description?.toLowerCase() ===
-        searchFormHandle?.subject?.description?.trim().toLowerCase()
+        searchFormHandle?.subject?.description?.trim()?.toLowerCase()
     );
 
     if (searchFormHandle.location?.regionName && matchedSubject && canmatch) {
@@ -338,7 +339,7 @@ const CourseTab: React.FC<CourseTabProps> = ({
         .replace(/\s+/g, "-") // Replace spaces with hyphens
         .replace(/-+/g, "-") // Replace multiple consecutive hyphens with a single hyphen
         .replace(/^-|-$/g, "") // Remove hyphens from the start and end
-        .toLowerCase(); // Convert the entire string to lowercase
+        ?.toLowerCase(); // Convert the entire string to lowercase
       GADataLayerFn(
         "ga_events",
         "homepage_search",

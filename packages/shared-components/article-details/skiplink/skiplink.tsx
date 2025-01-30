@@ -46,8 +46,9 @@ const Skiplink = ({ propsdata, preview }: any) => {
       )}
    
       <div className="mobile-skip bg-white sticky top-0 z-[10] py-[16px] px-[16px] md:px-[20px] border-b border-grey-200 lg:hidden mb-[40px] ">
+      {data?.skipLinks?.anchorLinksCollection?.items?.length > 0 && 
         <div
-          className={` bg-blue-400 rounded-[4px] overflow-hidden border-b relative border-grey-200 skiplinkoption ${modelOpen ? "active" : ""}`}
+        className={` bg-blue-400 rounded-[4px] overflow-hidden border-b relative border-grey-200 skiplinkoption ${modelOpen ? "active" : ""}`}
         >
           <div className="">
             <div
@@ -82,9 +83,9 @@ const Skiplink = ({ propsdata, preview }: any) => {
                           items?.moreLinkTarget?.toLowerCase() === "same tab"
                             ? "_self"
                             : "_blank"
-                        }
-                        href={items?.moreLinkUrl}
-                      >
+                          }
+                          href={items?.moreLinkUrl}
+                          >
                         {items?.urlLabel}
                       </Link>
                     </li>
@@ -94,6 +95,7 @@ const Skiplink = ({ propsdata, preview }: any) => {
             )}
           </div>
         </div>
+    }
       </div>
 
       <div className="min-w-[289px] hidden lg:flex flex-col relative max-w-[100%]">

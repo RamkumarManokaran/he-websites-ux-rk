@@ -63,7 +63,16 @@ const Articledescription = ({ propsdata, preview ,url}: any) => {
     GA4DataLayerFn(datalog);
 
   }
-
+  useEffect(() => {
+    if (modalOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [modalOpen]);
   return (
     <>
       {preview && (
@@ -135,7 +144,7 @@ const Articledescription = ({ propsdata, preview ,url}: any) => {
       </div>
       {modalOpen && (
         <>
-          <div className="modal modal-container flex  justify-center md:px-[0] px-[16px] items-center backdrop-shadow-black fixed top-0 right-0 left-0 bottom-0 bg-white">
+          <div className="modal modal-container z-[99] flex  justify-center md:px-[0] px-[16px] items-center backdrop-shadow-black fixed top-0 right-0 left-0 bottom-0 bg-white">
             <div
               ref={containerRef}
               className="modal-box shadow-custom-6 w-full md:w-[512px] p-[24px] bg-white rounded-[8px] overflow-hidden relative"
@@ -207,7 +216,7 @@ const Articledescription = ({ propsdata, preview ,url}: any) => {
                       alt="Copy link"
                     />
                     {copylink ?
-                  <span className="small font-inter text-green-500 underline">Link copied</span>: <span className="small font-inter">Copy link</span>}
+                  <span className="small font-inter text-positive-default underline">Link copied</span>: <span className="small font-inter">Copy link</span>}
                   </button>
                 </div>
               </div>

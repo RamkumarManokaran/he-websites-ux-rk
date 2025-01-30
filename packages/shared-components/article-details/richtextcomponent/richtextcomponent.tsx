@@ -32,11 +32,11 @@ export default function Richtextcomponent({ propsdata, key, preview }: any) {
         </video>),
       hyperlink: (node: any, children: any) => (
         <a
-          onClick={() => console.log("clicking  clicking  clicking clicking")}
-          href={node.data.uri}
-        >
-          {children}
-        </a>
+        href={node.data.uri}
+        target={node.data.uri.includes("whatuni") ? "_self" : "_blank"}
+      >
+        {children}
+      </a>
       ),
       
     },
@@ -101,7 +101,7 @@ export default function Richtextcomponent({ propsdata, key, preview }: any) {
       )}
       <div id={data?.skipLinkId}>
         {data?.paragraphTitle && (
-          <h2 id="artilce-page-paragraph-title">{data?.paragraphTitle}</h2>
+          <h5 id="artilce-page-paragraph-title">{data?.paragraphTitle}</h5>
         )}
         {data?.media?.url && (
           <Image
@@ -120,6 +120,9 @@ export default function Richtextcomponent({ propsdata, key, preview }: any) {
               data?.paragraphBodyRichText.json,
               customOptions
             )}
+        </div>
+        <div>
+
         </div>
       </div>
     </>

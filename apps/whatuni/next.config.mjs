@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  compiler: {
-    removeConsole: {
-      exclude: ["error"],
-    },
-  },
+  // compiler: {
+  //   removeConsole: {
+  //     exclude: ["error"],
+  //   },
+  // },
   skipTrailingSlashRedirect: true,
   // productionBrowserSourceMaps: true,
   async headers() {

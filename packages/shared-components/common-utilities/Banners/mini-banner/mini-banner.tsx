@@ -3,7 +3,11 @@ import MiniBannerSkeleton from "@packages/shared-components/skeleton/minibanners
 import React, { Suspense } from "react";
 import Image from "next/image";
 import { ContentfulInspectorManager } from "../../../../lib/contentful-preview/ContentfulInspector";
-const MiniHeroBanner = async ({ data, iscontentPreview }: any) => {
+const MiniHeroBanner = async ({
+  data,
+  iscontentPreview,
+  contentModelName,
+}: any) => {
   return (
     <>
       {iscontentPreview && (
@@ -72,7 +76,9 @@ const MiniHeroBanner = async ({ data, iscontentPreview }: any) => {
                     </div>
                   </div> */}
                 </div>
-                <div className="flex self-end justify-center w-full shrink-0 md:w-[219px] lg:w-[392px] pt-[12px]">
+                <div
+                  className={` ${contentModelName === "pageTemplateThemedLandingPageCollection" ? "hidden md:flex" : "flex"} self-end justify-center w-full shrink-0 md:w-[219px] lg:w-[392px] pt-[12px]`}
+                >
                   {data?.image?.imgUpload?.url && (
                     <Image
                       id="mini_banner_image"
