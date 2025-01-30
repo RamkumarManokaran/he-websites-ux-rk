@@ -564,7 +564,7 @@ h6 {
 } */
 .rtf-innerstyle > div:has([id]) > div:not([class]) > ul, .rtf-innerstyle > div:has([id]) > div:not([class]) > ol,
 .rtf-innerstyle > div:has([id]) > div:not([class]) > p, .rtf-innerstyle > div:has([id]) > div:not([class]) > table,
-.rtf-innerstyle > div:has([id]) > div:not([class]) :where(h1,h2,h3,h4,h5,h6) {
+.rtf-innerstyle > div:has([id]) > div:not([class]) :where(h1,h2,h3,h4,h5,h6), .rtf-innerstyle > div:has([id]) > :where(h1,h2,h3,h4,h5,h6) {
   @apply m-[16px_0]
 }
 .rtf-innerstyle p:empty{@apply hidden} 
