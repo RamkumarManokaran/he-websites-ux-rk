@@ -73,7 +73,9 @@ export default function OneTrustCookieScript({
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window?.location?.search);
-     ispreviewtrue = searchParams.get("preview") === "MY_SECRET_TOKEN";
+ 
+    ispreviewtrue = searchParams.get('preview') ? true :false;
+    
     const handleConsentChange =()  => {
       const returnVal =  loadAnalyticsScripts();
       setUserConsentGiven(() => returnVal);
