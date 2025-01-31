@@ -37,8 +37,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
   const [agreementerror, setAgreementerror] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
   const validateEmail = (email: any) => {
-    const emailRegex =
-      /\S+@\S+\.\S+/;
+    const emailRegex = /\S+@\S+\.\S+/;
     return emailRegex.test(email);
   };
   const { category, subCategory, articleTitle } =
@@ -78,9 +77,9 @@ const Dontmissout = ({ key, data, preview }: any) => {
           }
         );
         const yeardata = await entrydata.json();
-        setYear(yeardata[0]?.optionValue)
+        setYear(yeardata[0]?.optionValue);
         setYearofentry(yeardata);
-        
+
         // console.log(yeardata, "yeardata");
       } catch (error) {
         console.error("Error fetching user:", error);
@@ -147,12 +146,11 @@ const Dontmissout = ({ key, data, preview }: any) => {
       signupFailureReason: any
     ) => {
       logClickstreamEvent({
-
-        pageName: localStorage?.getItem('gaPageName')?.toString(), 
-        sectionName: propsdata?.newsTitle ?? "",  
-        eventType: "SignedUp", 
-        CTATitle: `${propsdata?.ctaLabel ?? "Get free newsletters"}`, 
-        signupMethod: "Newsletter Subcription", 
+        pageName: localStorage?.getItem("gaPageName")?.toString(),
+        sectionName: propsdata?.newsTitle ?? "",
+        eventType: "SignedUp",
+        CTATitle: `${propsdata?.ctaLabel ?? "Get free newsletters"}`,
+        signupMethod: "Newsletter Subcription",
         signupFailureReason: signupFailureReason ?? "",
         interestedIntakeYear: year,
         userId: userId,
@@ -413,10 +411,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
                   </label>
                   <div className="flex gap-[16px] md:gap-[24px]">
                     {yearofentry?.map((item: any, index: any) => (
-                      <div
-                        key={index}
-                        className="flex gap-[12px] items-center"
-                      >
+                      <div key={index} className="flex gap-[12px] items-center">
                         <input
                           checked={year === item?.optionId}
                           onChange={(e) => {
