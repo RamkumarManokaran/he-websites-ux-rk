@@ -129,6 +129,21 @@ export const ArtcileSliderQuery = (preview: boolean, articleArray: string) => {
     sys{id}
       pageTitle
       urlSlug
+      metaTagTopicsCollection {
+        items {
+          title
+        }
+      }
+      metaTagSubTopicsCollection {
+        items {
+          ... on MetaTagTopic {
+            title
+          }
+          ... on MetaTagSubTopic {
+            title
+          }
+        }
+      }
       bannerImageCollection {
         items {
         sys{

@@ -23,22 +23,19 @@ const AdviceCourseCard = ({
   if (!iscontentPreview) {
     data = jsondata;
   }
-
-  const { category, subCategory, articleTitle } =
-    getArticleDetailUrlParamValues();
-
+  //const { category, subCategory, articleTitle } = getArticleDetailUrlParamValues();
   function handleGACTABannerCTAclick(urlSlug: string) {
     const currPageName = localStorage.getItem("gaPageName")?.toString() ?? "";
+   
     const GAlog = async () => {
       const datalog: DataLayerGA4AttrType = {
         event: "ga_contentful_events",
         eventName: "article_clicks",
-        data_label: subCategory ? subCategory : sub_Category,
+        data_label: data?.metaTagSubTopicsCollection?.items?.[0]?.title,
         data_label3: index + 1,
         clearing: "in_year",
         page_name: localStorage.getItem("gaPageName")?.toString(),
-        article_category:
-          currPageName == "articleDetail" ? category : parentCategory,
+        article_category:data?.metaTagTopicsCollection?.items?.[0]?.title,
         cta_url: window.location.origin + urlSlug,
         contentful_1: heading,
       };
