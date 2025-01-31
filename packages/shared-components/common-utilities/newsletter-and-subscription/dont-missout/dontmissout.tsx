@@ -66,18 +66,6 @@ const Dontmissout = ({ key, data, preview }: any) => {
 
     const fetchYearofentry = async () => {
       try {
-        const entrydata = await fetch(
-          `${process.env.NEXT_PUBLIC_BFF_API_DOMAIN}/hewebsites/v1/users/options?affiliateId=220703&actionType=YOE`,
-          {
-            method: "GET",
-            headers: {
-              "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const yeardata = await entrydata.json();
-        setYear(yeardata[0]?.optionValue);
         const yeardata = await makeApiCall(
           getApiUrl?.newsletterYearOfEntry,
           "GET",
