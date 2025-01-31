@@ -4,10 +4,12 @@ import UniversityTab from "@packages/shared-components/common-utilities/searchBa
 import AdviceTab from "@packages/shared-components/common-utilities/searchBar/search-input-pods/advicetab";
 import CourseTab from "@packages/shared-components/common-utilities/searchBar/search-input-pods/coursetab";
 import Image from "next/image";
+import Link from "next/link";
 import emitter from "@packages/lib/eventEmitter/eventEmitter";
 import { CourseData, UniData } from "@packages/lib/types/interfaces";
 import { useRouter, usePathname } from "next/navigation";
 import UcasComponent from "@packages/shared-components/common-utilities/popups/ucas-calculator/ucascomponent";
+import { getCookieValue } from "@packages/lib/utlils/commonFunction";
 interface props {
   course_data: CourseData;
   uni_data: UniData;
@@ -22,6 +24,10 @@ export default function Search({ course_data, uni_data }: any) {
   // const [course_data, setCourseData] = useState({});
   // const pathname = usePathname();
   // const [uni_data, setUniData] = useState({});
+  const ucaspoint = Number.isInteger(Number(getCookieValue("ucaspoint")))
+    ? getCookieValue("ucaspoint")
+    : null;
+  console.log(ucaspoint);
   const [searchFormHandle, setsearchFormHandle] = useState({
     activeTab: "tab1",
     isCourseType: false,
@@ -112,38 +118,61 @@ export default function Search({ course_data, uni_data }: any) {
                     searchFormHandle={searchFormHandle}
                     setsearchFormHandle={setsearchFormHandle}
                   />
-                  <div className="flex items-center justify-center small">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M7.66678..."
-                        stroke="#0F172A"
-                        strokeWidth="1.67"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <div className="ml-[4px] mr-[8px]">
-                      Don’t know your UCAS points?
+                  {ucaspoint ? (
+                    <div className="flex items-center justify-center small">
+                      <p className="small text-grey300 small">
+                        Your UCAS points
+                      </p>
+                      <div className="flex items-center min-w-[36px] py-[6px] px-[14px] ml-[8px] mr-[16px] rounded-[4px] font-semibold cursor-pointer bg-positive-default text-white">
+                        {ucaspoint}
+                      </div>
+                      <button
+                        className="text-blue-500 font-semibold hover:underline"
+                        onClick={ucasClick}
+                      >
+                        Recalculate
+                      </button>
+                      {isUcasPopupOpen && (
+                        <UcasComponent
+                          onClose={ucasClose}
+                          isUcasOpen={isUcasPopupOpen}
+                        />
+                      )}
                     </div>
-                    <button
-                      onClick={ucasClick}
-                      className="text-blue-500 font-semibold hover:underline"
-                    >
-                      Calculate them
-                    </button>
-                    {isUcasPopupOpen && (
-                      <UcasComponent
-                        onClose={ucasClose}
-                        isUcasOpen={isUcasPopupOpen}
-                      />
-                    )}
-                  </div>
+                  ) : (
+                    <div className="flex items-center justify-center small">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M7.66678..."
+                          stroke="#0F172A"
+                          strokeWidth="1.67"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <div className="ml-[4px] mr-[8px]">
+                        Don’t know your UCAS points?
+                      </div>
+                      <button
+                        onClick={ucasClick}
+                        className="text-blue-500 font-semibold hover:underline"
+                      >
+                        Calculate them
+                      </button>
+                      {isUcasPopupOpen && (
+                        <UcasComponent
+                          onClose={ucasClose}
+                          isUcasOpen={isUcasPopupOpen}
+                        />
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
               {searchFormHandle?.activeTab === "tab2" && (

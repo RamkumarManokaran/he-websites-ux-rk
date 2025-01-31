@@ -61,8 +61,6 @@ const page = async ({ searchParams, params }: any) => {
     return breadcrumbData;
   }
   const breadcrumbData = generateBreadcrumbData(slugurl);
-  console.log("json-data", jsondata);
-  console.log("component list", componentList);
   return (
     <ContentfulPreviewProvider
       locale="en-GB"
