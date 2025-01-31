@@ -10,6 +10,7 @@ import { getCookie } from "@packages/lib/utlils/helper-function";
 // ==========================================don't want for the current sprint =======================================================
 import Search from "@packages/shared-components/layout-components/header/search-pod/header-search";
 // import Shortlisted from "@packages/shared-components/common-utilities/header/shortlisted/shortlisted";
+import { signOut } from "aws-amplify/auth";
 
 interface props {
   topnav_data: any;
@@ -19,6 +20,7 @@ const Header = ({ topnav_data }: props) => {
   const [initial, setInitial] = useState<any>("");
 
   const [basketCount, setBasketCount] = useState<any>(0);
+  const  [startfetch,setStartfetch]=useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState("false");
   const [isMobileView, setIsMobile] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +29,7 @@ const Header = ({ topnav_data }: props) => {
     isUserClicked: false,
     isShortlistClicked: false,
   });
+  
   const mobileViewRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const userref = useRef<HTMLSpanElement | null>(null);
@@ -97,6 +100,7 @@ const Header = ({ topnav_data }: props) => {
           }),
         ]);
 
+
         // Parse JSON responses
         const bodyData = await bodyResponse.json();
         const unibodyData = await unibodyResponse.json();
@@ -114,19 +118,37 @@ const Header = ({ topnav_data }: props) => {
       !(Object.keys(uni_data).length > 0) &&
       !(Object.keys(course_data).length > 0) &&
       process.env.PROJECT == "Whatuni" &&
-      pathname !== "/"
+      pathname !== "/" &&
+      startfetch
     ) {
       fetchData();
     }
-  }, []);
+  }, [startfetch]);
   // =======================use effect for the adding eventlisterner and  fetching cookies and checking authentication=====================================================
   useEffect(() => {
     // -------check the user authentication----------------------------
     const fetchUser = async () => {
       try {
-        const session = await fetchAuthSession();
-        if (session?.tokens) {
-          const hasAccessToken = session?.tokens?.accessToken !== undefined;
+        
+       
+        const sessiontimecookie=getCookieValue("LoginSession") || false;
+        const loginviaonetap=getCookieValue("LogedinviaOnetap") || false;
+
+        if(!sessiontimecookie && loginviaonetap){
+          console.log(sessiontimecookie,loginviaonetap,"!@!@!@!@!")
+          setIsAuthenticated("false");
+            sessionStorage.clear();
+            document.cookie =
+            "wcache=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+            document.cookie = `Signinonetap=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=strict`;
+            await signOut({ global: true });
+            router.push("/degrees/userLogin.html?e=logout");
+        }
+        else{
+          const session = await fetchAuthSession();
+          if (session?.tokens ) {
+            
+            const hasAccessToken = session?.tokens?.accessToken !== undefined;
           const hasIdToken = session?.tokens?.idToken !== undefined;
           if (hasAccessToken && hasIdToken) {
             setIsAuthenticated("true");
@@ -143,7 +165,9 @@ const Header = ({ topnav_data }: props) => {
             const basket = getCookieValue("USER_FAV_BASKET_COUNT") || 0;
             setBasketCount(basket);
           }
+          
         }
+      }
       } catch (error) {
         console.error("Error fetching user:", error);
       }
@@ -244,6 +268,7 @@ const Header = ({ topnav_data }: props) => {
     }
   }, [isOpen]);
   const rightMenuAction = (actionName: string) => {
+    setStartfetch(true)
     setClickStates((prevStates) => {
       const newState = {
         isSearchClicked: false,

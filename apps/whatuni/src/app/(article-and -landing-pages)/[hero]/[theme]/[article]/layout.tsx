@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       alternates: {
         canonical:
           metadata?.data?.contentData?.items[0]?.seoFields?.canonical ||
-          "https://www.Whatuni.com/",
+         `https://www.whatuni.com/${slugurl}`,
       },
       title:
         metadata?.data?.contentData?.items[0]?.seoFields?.metaTite ||
