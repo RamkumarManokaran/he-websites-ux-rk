@@ -420,22 +420,18 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
     if (!validation) {
       if (idToken) {
         if (JSON.stringify(qual) !== JSON.stringify(qualCopy)) {
-          const response = await fetch(
-            `${process.env.NEXT_PUBLIC_BFF_API_DOMAIN}/hewebsites/v1/homepage/update-ucas`,
+          const jsonData = await makeApiCall(
+            getApiUrl?.updateUcas,
+            "POST",
             {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
-                Authorization:
-                  typeof idToken === "string"
-                    ? idToken
-                    : idToken?.toString() || "",
-              },
-              body: JSON.stringify(saveUcas),
-            }
+              Authorization:
+                typeof idToken === "string"
+                  ? idToken
+                  : idToken?.toString() || "",
+            },
+            null,
+            saveUcas
           );
-          const jsonData = await response.json();
           if (jsonData == "updated") {
             document.cookie = `min=${qual[0]?.min}; path=/; max-age= 2592000; secure; samesite=lax`;
             document.cookie = `ucaspoint=${ucasPoint}; path=/; max-age= 2592000; secure; samesite=lax`;

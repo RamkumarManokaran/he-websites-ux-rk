@@ -11,6 +11,8 @@ import {
   currentAuthenticatedUser,
   GADataLayerFn,
 } from "@packages/lib/utlils/helper-function";
+import makeApiCall from "@packages/REST-API/rest-api";
+import getApiUrl from "@packages/REST-API/api-urls";
 const UcasComponent = dynamic(
   () =>
     import(
@@ -82,30 +84,24 @@ const SearchBox = ({ pgs_search_data }: any) => {
 
       try {
         // Fetch data in parallel
-        const [bodyResponse, unibodyResponse] = await Promise.all([
-          fetch(urlBody, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
-            },
-            cache: "force-cache",
-          }),
-          fetch(urlUnibody, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
-            },
-            cache: "force-cache",
-          }),
+        const [bodyData, unibodyData] = await Promise.all([
+          makeApiCall(
+            getApiUrl?.subjectAjax,
+            "GET",
+            null,
+            queryParamsBody,
+            null
+          ),
+          makeApiCall(
+            getApiUrl?.subjectAjax,
+            "GET",
+            null,
+            queryParamsUnibody,
+            null
+          ),
         ]);
 
-        // Parse JSON responses
-        const bodyData = await bodyResponse.json();
-        const unibodyData = await unibodyResponse.json();
         setCourseData(bodyData);
-
         setUniData(unibodyData);
 
         // Log results

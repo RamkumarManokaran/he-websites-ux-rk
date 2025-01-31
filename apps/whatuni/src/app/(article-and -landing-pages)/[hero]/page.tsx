@@ -37,12 +37,11 @@ const page = async ({ searchParams, params }: any) => {
     const pathSegments = sanitizedPath
       .split("/")
       .filter((segment: any) => segment);
-    // Construct breadcrumb data
     const breadcrumbData = pathSegments.map((segment: any, index: any) => {
       const url =
         index === pathSegments.length - 1
-          ? "" // No URL for the last breadcrumb
-          : "/" + pathSegments.slice(0, index + 1).join("/"); // Build URL for each segment
+          ? ""
+          : "/" + pathSegments.slice(0, index + 1).join("/");
 
       return {
         url,

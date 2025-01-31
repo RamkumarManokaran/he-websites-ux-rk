@@ -1,10 +1,7 @@
 "use server";
 
 import Header from "./headercomponents";
-import {
-  graphQlFetchFunction,
-  searchAjaxFecthFunction,
-} from "@packages/lib/server-actions/server-action";
+import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
 import { Headerquery } from "@packages/lib/graphQL/graphql-query";
 export default async function HeaderWrapper() {
   //header search fetching data is here not required for the current sprint

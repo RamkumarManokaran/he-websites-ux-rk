@@ -1,14 +1,13 @@
 "use client";
+import makeApiCall from "@packages/REST-API/rest-api";
+import getApiUrl from "@packages/REST-API/api-urls";
 import React, { useState } from "react";
 import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
 import Subscribebtn from "@packages/shared-components/common-utilities/cards/interaction-button/subscribebtn";
-import { v4 as uuidv4 } from "uuid";
 import {
   currentAuthenticatedUser,
   GA4DataLayerFn,
-  getCookie,
 } from "@packages/lib/utlils/helper-function";
-//import { getCookieValue } from "@packages/lib/utlils/commonFunction";
 import Link from "next/link";
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
 import { logClickstreamEvent } from "@packages/lib/utlils/clickstream";
@@ -41,31 +40,25 @@ const Subscribe = ({ data, isPreviewTrue, category, subCategory }: any) => {
     SetErrorState((prev) => ({ ...prev, emailError: !isEmailValid }));
     if (valid && isChecked && email) {
       setSuccess(true);
-      const correlation_id = uuidv4();
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BFF_API_DOMAIN}/hewebsites/v1/guest/users/registration`,
+      const isSuccess = await makeApiCall(
+        getApiUrl?.newsletterSubscription,
+        "POST",
         {
-          method: "POST",
-          headers: {
-            "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
-            "x-correlation-id": correlation_id,
-            "Content-Type": "application/json",
-            sitecode: `${process.env.PROJECT === "Whatuni" ? "WU_WEB" : "PGS_WEB"}`,
-          },
-          body: JSON.stringify({
-            userDetails: {
-              personalDetails: {
-                email: email,
-                marketingSolusFlag: "Y",
-              },
+          sitecode: `${process.env.PROJECT === "Whatuni" ? "WU_WEB" : "PGS_WEB"}`,
+        },
+        null,
+        {
+          userDetails: {
+            personalDetails: {
+              email: email,
+              marketingSolusFlag: "Y",
             },
-            userSourceType: "SPAMBOXREGISTERED",
-            affiliateId: `${process.env.AFFILATE_ID}`,
-            cognitoFlag: "N",
-          }),
+          },
+          userSourceType: "SPAMBOXREGISTERED",
+          affiliateId: `${process.env.AFFILATE_ID}`,
+          cognitoFlag: "N",
         }
       );
-      const isSuccess = await res.json();
       if (isSuccess?.message === "User Added") {
         setSuccess(true);
         GA4DataLayerFn({
@@ -188,7 +181,7 @@ const Subscribe = ({ data, isPreviewTrue, category, subCategory }: any) => {
                   />
                 </svg>
                 <div className="flex flex-grow small font-semibold text-positive-dark">
-                 {jsondata?.submitSuccessMessage ?? "Thanks"}
+                  {jsondata?.submitSuccessMessage ?? "Thanks"}
                 </div>
               </div>
             )}

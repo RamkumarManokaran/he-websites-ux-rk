@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 const makeApiCall = async (
   url: string,
   method: string,
-  headers: Record<string, string> = {},
+  headers: Record<string, string> | null,
   queryParams: string | null,
   bodyjson: any
 ): Promise<any> => {

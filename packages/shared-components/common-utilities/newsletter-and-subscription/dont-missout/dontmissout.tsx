@@ -17,6 +17,8 @@ import {
 } from "@packages/lib/utlils/helper-function";
 import { logClickstreamEvent } from "@packages/lib/utlils/clickstream";
 import { usePathname } from "next/navigation";
+import makeApiCall from "@packages/REST-API/rest-api";
+import getApiUrl from "@packages/REST-API/api-urls";
 
 const Dontmissout = ({ key, data, preview }: any) => {
   const propsdata = useContentfulLiveUpdates(data);
@@ -44,11 +46,9 @@ const Dontmissout = ({ key, data, preview }: any) => {
     getArticleDetailUrlParamValues();
 
   useEffect(() => {
-    // -------check the user authentication----------------------------
     const fetchUser = async () => {
       try {
         const session = await fetchAuthSession();
-        // console.log("assssssdccccccccccccccccccccccccc");
         if (session?.tokens) {
           const hasAccessToken = session?.tokens?.accessToken !== undefined;
           const hasIdToken = session?.tokens?.idToken !== undefined;
@@ -77,6 +77,14 @@ const Dontmissout = ({ key, data, preview }: any) => {
           }
         );
         const yeardata = await entrydata.json();
+        setYear(yeardata[0]?.optionValue);
+        const yeardata = await makeApiCall(
+          getApiUrl?.newsletterYearOfEntry,
+          "GET",
+          null,
+          "affiliateId=220703&actionType=YOE",
+          null
+        );
         setYear(yeardata[0]?.optionValue);
         setYearofentry(yeardata);
 
@@ -234,7 +242,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
       setAlreadyregisteruser(true);
     } else {
       setSuccessMessage(false);
-      setEmailprev("")
+      setEmailprev("");
     }
   }
 
