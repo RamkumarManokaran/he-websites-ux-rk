@@ -12,6 +12,10 @@ export default function User({ topnav_data }: any) {
       try {
         sessionStorage.clear();
         document.cookie =
+        "LogedinviaOnetap=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+        document.cookie =
+        "LoginSession=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+        document.cookie =
           "wcache=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
         document.cookie = `Signinonetap=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=strict`;
         await signOut({ global: true }); // Wait for the signOut process to complete

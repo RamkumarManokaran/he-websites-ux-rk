@@ -53,9 +53,8 @@ const Articledescription = ({ propsdata, preview ,url}: any) => {
     const datalog: DataLayerGA4AttrType = {
       event: "ga_contentful_events",
       eventName: "social_media_share",
-      data_label: subCategory,
-      data_label2: socialName,
-      data_label3: interaction,
+      data_label: socialName,
+      data_label2: interaction,
       page_name: localStorage.getItem("gaPageName")?.toString(),
       article_category: category,
       clearing: "in_year",

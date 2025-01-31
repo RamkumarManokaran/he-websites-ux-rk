@@ -20,7 +20,6 @@ const page = async ({ searchParams, params }: any) => {
     ThemeLandingPageQuery(iscontentPreview, slugurl),
     iscontentPreview
   );
-  console.log(jsondata);
   const componentList =
     jsondata?.data?.contentData?.items[0]?.bodyContentCollection?.items;
 

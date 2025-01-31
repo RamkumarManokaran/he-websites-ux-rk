@@ -24,6 +24,7 @@ const CourseTab: React.FC<CourseTabProps> = ({
   setsearchFormHandle,
   data,
 }) => {
+  console.log(data,"dataaaaa")
   let ucasval: any = 0;
   let min: any = 0;
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -36,9 +37,17 @@ const CourseTab: React.FC<CourseTabProps> = ({
   const [filteredsubject, setFilteredsubject] = useState<
     { [key: string]: any; description: string }[] | any
   >(undefined);
+
   const [subjecterror, setSubjecterror] = useState(false);
   const [dropdown, setDropdown] = useState<boolean>(false);
   const router = useRouter();
+
+  useEffect(()=>{
+    setSubjectlist(data?.courseDetails);
+    setLocationlist(data?.locationList);
+    setStudymodelist(data?.studyLevelList)
+
+  },[data])
   // ==============================use effect to check the use authentication======================================================================
 
   useEffect(() => {

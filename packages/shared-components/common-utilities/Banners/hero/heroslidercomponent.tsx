@@ -5,6 +5,8 @@ import { searchAjaxFecthFunction } from "@packages/lib/server-actions/server-act
 import HeroSlider from "./slider-pod/heroSlider";
 import { SliderBannerCollection } from "@packages/lib/types/interfaces";
 import HeroSliderComponentSkeleton from "@packages/shared-components/skeleton/heroslidercomponentskeleton";
+import makeApiCall from "@packages/REST-API/rest-api";
+import getApiUrl from "@packages/REST-API/api-urls";
 interface PropjectProps {
   data: SliderBannerCollection;
   pageName?: any;
@@ -28,7 +30,7 @@ const HeroSliderComponent: React.FC<PropjectProps> = async ({
     qualCode: "",
     networkId: 2,
   };
-  const pgsbody = {
+  const pgsbody: any = {
     affiliateId: 607022,
     actionType: "subject",
     keyword: "",
@@ -47,7 +49,14 @@ const HeroSliderComponent: React.FC<PropjectProps> = async ({
     // ]);
     pgs_search_data = null;
   } else if (process.env.PROJECT === "PGS") {
-    pgs_search_data = await searchAjaxFecthFunction(pgsbody);
+    const queryParams = new URLSearchParams(pgsbody).toString();
+    pgs_search_data = await makeApiCall(
+      getApiUrl?.subjectAjax,
+      "GET",
+      null,
+      queryParams,
+      null
+    );
     uni_data = null;
     course_data = null;
   }

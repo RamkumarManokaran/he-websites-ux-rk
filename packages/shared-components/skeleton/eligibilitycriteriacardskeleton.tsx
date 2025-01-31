@@ -30,8 +30,8 @@ const Eligibilitycriteriacardskeleton = () => {
                           d="M28.0855 28.0855C25.8291 30.3419 22.1709 30.3419 19.9145 28.0855M19.6667 21.1111H19.6811M28.3333 21.1111H28.3478M37 24C37 31.1797 31.1797 37 24 37C16.8203 37 11 31.1797 11 24C11 16.8203 16.8203 11 24 11C31.1797 11 37 16.8203 37 24Z"
                           stroke="#E6E6E6"
                           strokeWidth="2.67"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </div>
@@ -63,8 +63,8 @@ const Eligibilitycriteriacardskeleton = () => {
                           d="M28.0855 28.0855C25.8291 30.3419 22.1709 30.3419 19.9145 28.0855M19.6667 21.1111H19.6811M28.3333 21.1111H28.3478M37 24C37 31.1797 31.1797 37 24 37C16.8203 37 11 31.1797 11 24C11 16.8203 16.8203 11 24 11C31.1797 11 37 16.8203 37 24Z"
                           stroke="#E6E6E6"
                           strokeWidth="2.67"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </div>
@@ -96,8 +96,8 @@ const Eligibilitycriteriacardskeleton = () => {
                           d="M28.0855 28.0855C25.8291 30.3419 22.1709 30.3419 19.9145 28.0855M19.6667 21.1111H19.6811M28.3333 21.1111H28.3478M37 24C37 31.1797 31.1797 37 24 37C16.8203 37 11 31.1797 11 24C11 16.8203 16.8203 11 24 11C31.1797 11 37 16.8203 37 24Z"
                           stroke="#E6E6E6"
                           strokeWidth="2.67"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </div>
@@ -132,7 +132,7 @@ const Eligibilitycriteriacardskeleton = () => {
                             <div className='card-header w-[48px]'>
                               <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0 24C0 10.7452 10.7452 0 24 0H48V24C48 37.2548 37.2548 48 24 48H0V24Z" fill="#E6E6E6"/>
-                                <path d="M28.0855 28.0855C25.8291 30.3419 22.1709 30.3419 19.9145 28.0855M19.6667 21.1111H19.6811M28.3333 21.1111H28.3478M37 24C37 31.1797 31.1797 37 24 37C16.8203 37 11 31.1797 11 24C11 16.8203 16.8203 11 24 11C31.1797 11 37 16.8203 37 24Z" stroke="#E6E6E6" strokeWidth="2.67" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M28.0855 28.0855C25.8291 30.3419 22.1709 30.3419 19.9145 28.0855M19.6667 21.1111H19.6811M28.3333 21.1111H28.3478M37 24C37 31.1797 31.1797 37 24 37C16.8203 37 11 31.1797 11 24C11 16.8203 16.8203 11 24 11C31.1797 11 37 16.8203 37 24Z" stroke="#E6E6E6" strokeWidth="2.67" strokeLinecap="round" strokeLinejoin="round"/>
                               </svg>
                             </div> 
                             <div className='card-title'>
@@ -150,7 +150,7 @@ const Eligibilitycriteriacardskeleton = () => {
                             <div className='card-header w-[48px]'>
                               <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0 24C0 10.7452 10.7452 0 24 0H48V24C48 37.2548 37.2548 48 24 48H0V24Z" fill="#E6E6E6"/>
-                                <path d="M28.0855 28.0855C25.8291 30.3419 22.1709 30.3419 19.9145 28.0855M19.6667 21.1111H19.6811M28.3333 21.1111H28.3478M37 24C37 31.1797 31.1797 37 24 37C16.8203 37 11 31.1797 11 24C11 16.8203 16.8203 11 24 11C31.1797 11 37 16.8203 37 24Z" stroke="#E6E6E6" strokeWidth="2.67" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M28.0855 28.0855C25.8291 30.3419 22.1709 30.3419 19.9145 28.0855M19.6667 21.1111H19.6811M28.3333 21.1111H28.3478M37 24C37 31.1797 31.1797 37 24 37C16.8203 37 11 31.1797 11 24C11 16.8203 16.8203 11 24 11C31.1797 11 37 16.8203 37 24Z" stroke="#E6E6E6" strokeWidth="2.67" strokeLinecap="round" strokeLinejoin="round"/>
                               </svg>
                             </div> 
                             <div className='card-title'>

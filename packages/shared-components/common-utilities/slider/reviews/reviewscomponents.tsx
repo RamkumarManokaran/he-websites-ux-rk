@@ -1,6 +1,5 @@
 "use server";
 import { reviewPayload } from "@packages/lib/api-payloads/payloads";
-import { getReviewDetailsFunction } from "@packages/lib/server-actions/server-action";
 import ClickTrackerWrapper from "@packages/lib/utlils/clicktrackerwrapper";
 import {
   CallToAction,
@@ -8,14 +7,16 @@ import {
 } from "@packages/lib/types/interfaces";
 import Reviewslidercomponents from "@packages/shared-components/common-utilities/slider/reviewslidercomponents";
 import React, { Suspense } from "react";
+import getApiUrl from "@packages/REST-API/api-urls";
+import makeApiCall from "@packages/REST-API/rest-api";
 
 interface ReviewProps {
   heading?: string | undefined;
   subheading?: string | undefined;
   callAction?: CallToAction;
   pageName?: any;
-  category?:any;
-  subCategory?:any;
+  category?: any;
+  subCategory?: any;
 }
 const Reviewscomponents: React.FC<ReviewProps> = async ({
   heading,
@@ -25,8 +26,13 @@ const Reviewscomponents: React.FC<ReviewProps> = async ({
   category,
   subCategory,
 }) => {
-  const jsonResponse: ReviewDetailsList =
-    await getReviewDetailsFunction(reviewPayload);
+  const jsonResponse: ReviewDetailsList = await makeApiCall(
+    getApiUrl?.homePageReviews,
+    "POST",
+    null,
+    null,
+    reviewPayload
+  );
   if (!jsonResponse?.reviewDetail?.length) {
     return <div data-testid="empty-data"></div>;
   }

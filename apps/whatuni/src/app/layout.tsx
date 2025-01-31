@@ -51,13 +51,12 @@ export async function generateMetadata(): Promise<Metadata> {
           "og:type": "website",
           "og:description":metadata?.data?.contentData?.items[0]?.seoFields?.metaDescription || "",
           "og:image":"https://images.ctfassets.net/szez98lehkfm/UEsONfx1Q29FkoafrRlPT/e89b566373b65e6a6cfa1f575986566c/whatuni_logo.svg",
-          "og:url":metadata?.data?.contentData?.items[0]?.seoFields?.canonical || "https://www.Whatuni.com/",
+          "og:url":metadata?.data?.contentData?.items[0]?.seoFields?.canonical || "https://www.whatuni.com/",
           "meta:description":metadata?.data?.contentData?.items[0]?.seoFields?.metaDescription,
-       "fb:app_id": "374120612681083",
-        
+          "fb:app_id": "374120612681083",
           "twitter:card": "summary",
           "twitter:creator": "@whatuni",
-          "twitter:url": `${metadata?.data?.contentData?.items[0]?.seoFields?.canonical}` ||  "https://www.Whatuni.com/" ,
+          "twitter:url": metadata?.data?.contentData?.items[0]?.seoFields?.canonical ||  "https://www.whatuni.com/" ,
           "twitter:title": metadata?.data?.contentData?.items[0]?.seoFields?.metaTite, 
           "twitter:description":metadata?.data?.contentData?.items[0]?.seoFields?.metaDescription,
           "twitter:image":
