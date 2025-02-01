@@ -95,6 +95,9 @@ export default function PgsSearch({ pgs_search_data }: any) {
       (subjects: any) =>
         subjects?.collegeNameDisplay
           ?.toLowerCase()
+          ?.includes(description?.toLowerCase()) ||
+          subjects?.collegeNameAlias
+          ?.toLowerCase()
           ?.includes(description?.toLowerCase())
     );
     const prioritySearchcollge = (list: any, searchText: any) => {
