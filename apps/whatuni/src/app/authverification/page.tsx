@@ -16,7 +16,9 @@ const Page = () => {
     });
   }
   useEffect(() => {
-    document.cookie = `LogedinviaOnetap=true; path=/; SameSite=Lax`;
+    const expiryDate = new Date();
+    expiryDate.setFullYear(expiryDate.getFullYear() + 1); // Add 1 year
+    document.cookie = `LogedinviaOnetap=true; path=/; SameSite=Lax; expires=${expiryDate.toUTCString()}`;
     const unsubscribe = Hub.listen("auth", ({ payload }) => {
       switch (payload.event) {
         case "signInWithRedirect":

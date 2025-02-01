@@ -9,6 +9,8 @@ import {
   GADataLayerFn,
 } from "@packages/lib/utlils/helper-function";
 export default function PgsSearch({ pgs_search_data }: any) {
+
+  console.log(pgs_search_data,"pgs_search_datapgs_search_datapgs_search_datapgs_search_data")
   const [isPgsUniversityClicked, setIsPgsUniversityClicked] = useState(false);
   const [qualification, setQualification] = useState({
     qualUrl: "",
@@ -55,73 +57,74 @@ export default function PgsSearch({ pgs_search_data }: any) {
     // Filter subjects first
     const filteredSubjects = pgs_search_data?.courseDetails?.filter(
       (subjects: any) =>
-        subjects?.description?.toLowerCase().includes(description.toLowerCase())
+        subjects?.description?.toLowerCase()?.includes(description.toLowerCase())
     );
     // Priority search function to sort filtered results based on search text position
     const prioritySearch = (list: any, searchText: any) => {
       if (!searchText) return list;
 
-      const searchLower = searchText.toLowerCase();
+      const searchLower = searchText?.toLowerCase();
 
       return list
         ?.map((item: any) => ({
           ...item,
-          position: item.description.toLowerCase().indexOf(searchLower),
-          startsWithSearch: item.description
-            .toLowerCase()
-            .startsWith(searchLower),
-          exactMatch: item.description.toLowerCase() === searchLower,
+          position: item?.description?.toLowerCase()?.indexOf(searchLower),
+          startsWithSearch: item?.description
+            ?.toLowerCase()
+            ?.startsWith(searchLower),
+          exactMatch: item?.description?.toLowerCase() === searchLower,
         }))
-        .filter((item: any) => item.position !== -1) // Only include items with searchText
+        .filter((item: any) => item?.position !== -1) // Only include items with searchText
         .sort((a: any, b: any) => {
-          if (a.exactMatch !== b.exactMatch) return a.exactMatch ? -1 : 1;
-          if (a.startsWithSearch !== b.startsWithSearch)
-            return a.startsWithSearch ? -1 : 1;
-          if (a.position !== b.position) return a.position - b.position;
-          return a.description.localeCompare(b.description);
+          if (a?.exactMatch !== b?.exactMatch) return a?.exactMatch ? -1 : 1;
+          if (a?.startsWithSearch !== b?.startsWithSearch)
+            return a?.startsWithSearch ? -1 : 1;
+          if (a?.position !== b?.position) return a?.position - b?.position;
+          return a?.description?.localeCompare(b.description);
         })
         ?.map((item: any) => ({
-          description: item.description,
-          url: item.url,
-          category_code: item.category_code,
-          browse_cat_id: item.browse_cat_id,
-          parent_subject: item.parent_subject,
-          qual_Code: item.qual_Code,
+          description: item?.description,
+          url: item?.url,
+          category_code: item?.category_code,
+          browse_cat_id: item?.browse_cat_id,
+          parent_subject: item?.parent_subject,
+          qual_Code: item?.qual_Code,
         }));
     };
     const filteredUniversity = pgs_search_data?.collegeDetails?.filter(
       (subjects: any) =>
         subjects?.collegeNameDisplay
           ?.toLowerCase()
-          .includes(description.toLowerCase())
+          ?.includes(description?.toLowerCase())
     );
     const prioritySearchcollge = (list: any, searchText: any) => {
       if (!searchText) return list;
 
-      const searchLower = searchText.toLowerCase();
+      const searchLower = searchText?.toLowerCase();
 
       return list
         ?.map((item: any) => ({
           ...item,
-          position: item.collegeNameDisplay.toLowerCase().indexOf(searchLower),
-          startsWithSearch: item.collegeNameDisplay
-            .toLowerCase()
-            .startsWith(searchLower),
-          exactMatch: item.collegeNameDisplay.toLowerCase() === searchLower,
+          position: item?.collegeNameDisplay?.toLowerCase()?.indexOf(searchLower),
+          startsWithSearch: item?.collegeNameDisplay
+          ?.toLowerCase()
+          ?.startsWith(searchLower),
+          exactMatch: item?.collegeNameDisplay?.toLowerCase() === searchLower,
         }))
-        .filter((item: any) => item.position !== -1) // Only include items with searchText
+        .filter((item: any) => item?.position !== -1) // Only include items with searchText
         .sort((a: any, b: any) => {
-          if (a.exactMatch !== b.exactMatch) return a.exactMatch ? -1 : 1;
-          if (a.startsWithSearch !== b.startsWithSearch)
-            return a.startsWithSearch ? -1 : 1;
-          if (a.position !== b.position) return a.position - b.position;
-          return a.collegeNameDisplay.localeCompare(b.collegeNameDisplay);
+          if (a?.exactMatch !== b?.exactMatch) return a?.exactMatch ? -1 : 1;
+          if (a?.startsWithSearch !== b?.startsWithSearch)
+            return a?.startsWithSearch ? -1 : 1;
+          if (a?.position !== b?.position) return a?.position - b?.position;
+          return a?.collegeNameDisplay?.localeCompare(b?.collegeNameDisplay);
         })
         ?.map((item: any) => ({
-          collegeId: item.collegeId,
-          collegeNameDisplay: item.collegeNameDisplay,
-          collegeNameAlias: item.collegeNameAlias,
-          collegeName: item.collegeName,
+          collegeId: item?.collegeId,
+          collegeNameDisplay: item?.collegeNameDisplay,
+          collegeNameAlias: item?.collegeNameAlias,
+          collegeName: item?.collegeName,
+          college_text_key:item?.college_text_key,
         }));
     };
     setFilteredUniversity(
@@ -149,16 +152,16 @@ export default function PgsSearch({ pgs_search_data }: any) {
   }, []);
   const keywordSearch = async () => {
     const sanitizedDescription = searchValue?.description
-      .trim() // Remove spaces from the front and back
-      .replace(/[^a-zA-Z0-9\s]+/g, "-") // Replace one or more special characters with a hyphen
-      .replace(/\s+/g, "-") // Replace spaces with hyphens
-      .replace(/-+/g, "-") // Replace multiple consecutive hyphens with a single hyphen
-      .replace(/^-|-$/g, "") // Remove hyphens from the start and end
-      .toLowerCase(); // Convert the entire string to lowercase
-    if (!searchValue?.description?.trim() && !qualification.qualDesc) {
+    ?.trim() // Remove spaces from the front and back
+    ?.replace(/[^a-zA-Z0-9\s]+/g, "-") // Replace one or more special characters with a hyphen
+    ?.replace(/\s+/g, "-") // Replace spaces with hyphens
+    ?.replace(/-+/g, "-") // Replace multiple consecutive hyphens with a single hyphen
+    ?.replace(/^-|-$/g, "") // Remove hyphens from the start and end
+    ?.toLowerCase(); // Convert the entire string to lowercase
+    if (!searchValue?.description?.trim() && !qualification?.qualDesc) {
       return setError(true);
     } else {
-      if (qualification.qualDesc && !searchValue?.description?.trim()) {
+      if (qualification?.qualDesc && !searchValue?.description?.trim()) {
         GADataLayerFn(
           "ga_events",
           "homepage_search",
@@ -190,7 +193,7 @@ export default function PgsSearch({ pgs_search_data }: any) {
         );
         return router.push(`${qualification.qualUrl}`);
       }
-      if (searchValue?.description?.trim() && !qualification.qualDesc) {
+      if (searchValue?.description?.trim() && !qualification?.qualDesc) {
         GADataLayerFn(
           "ga_events",
           "homepage_search",
@@ -222,7 +225,7 @@ export default function PgsSearch({ pgs_search_data }: any) {
         );
         return router.push(`/pgs/search?keyword=${sanitizedDescription}`);
       }
-      if (searchValue?.description?.trim() && qualification.qualDesc) {
+      if (searchValue?.description?.trim() && qualification?.qualDesc) {
         GADataLayerFn(
           "ga_events",
           "homepage_search",
@@ -260,8 +263,8 @@ export default function PgsSearch({ pgs_search_data }: any) {
   };
 
   const courseLink = (e: any) => {
-    if (qualification.qualCode) {
-      return router.push(`${e?.url}&qualification=${qualification.qualUrl}`);
+    if (qualification?.qualCode) {
+      return router.push(`${e?.url}&qualification=${qualification?.qualUrl}`);
     } else {
       return router.push(`${e?.url}`);
     }
@@ -279,13 +282,13 @@ export default function PgsSearch({ pgs_search_data }: any) {
               <input
                 autoComplete="off"
                 name="keyword"
-                value={searchValue.description}
+                value={searchValue?.description}
                 onChange={(e) => {
                   setSearchValue((prev: any) => ({
                     ...prev,
                     description: e.target.value
-                      .replace(/\s{2,}/g, " ")
-                      .trimStart(),
+                    ?.replace(/\s{2,}/g, " ")
+                    ?.trimStart(),
                     url: "",
                   }));
                   setError(false);
@@ -315,7 +318,7 @@ export default function PgsSearch({ pgs_search_data }: any) {
                           key={index}
                           className="px-[16px] py-[10px] block hover:bg-blue-50 hover:underline cursor-pointer"
                         >
-                          {item.qualDesc}
+                          {item?.qualDesc}
                         </li>
                       )
                     )}
@@ -335,7 +338,7 @@ export default function PgsSearch({ pgs_search_data }: any) {
                           KEYWORD SEARCH FOR
                         </p>
                         <p className="small text-primary-400">
-                          {` '${searchValue.description}'`}
+                          {` '${searchValue?.description}'`}
                         </p>
                       </div>
                     </div>
@@ -388,7 +391,7 @@ export default function PgsSearch({ pgs_search_data }: any) {
                             className="px-[16px] py-[10px] block hover:bg-blue-50  hover:underline cursor-pointer"
                           >
                             <span className="text-grey900 ">
-                              {item.description}
+                              {item?.description}
                             </span>{" "}
                             {/* <span className="text-grey-700">{item.course}</span> */}
                           </div>
@@ -404,10 +407,7 @@ export default function PgsSearch({ pgs_search_data }: any) {
                       <ul>
                         {filteredUniversity?.map((item: any, index) => (
                           <a
-                            href={`/universities/${item.collegeNameDisplay
-                              .trim()
-                              .replace(/\s+/g, "-")
-                              .toLowerCase()}`}
+                            href={`/universities/${item?.college_text_key}`}
                             key={index}
                             onClick={async () => {
                               GADataLayerFn(
@@ -443,7 +443,7 @@ export default function PgsSearch({ pgs_search_data }: any) {
                             className="px-[16px] py-[10px] block hover:bg-blue-50  hover:underline cursor-pointer"
                           >
                             <span className="text-grey900">
-                              {item.collegeNameDisplay}
+                              {item?.collegeNameDisplay}
                             </span>{" "}
                             {/* <span className="text-grey-700">{item.course}</span> */}
                           </a>
@@ -454,7 +454,7 @@ export default function PgsSearch({ pgs_search_data }: any) {
                 </div>
               )}
             </Form>
-            {qualification.qualDesc && (
+            {qualification?.qualDesc && (
               <div className="flex items-center justify-between gap-[4px] bg-gray-100 text-grey-500 font-semibold px-[12px] py-[8px] rounded-[4px]">
                 <span>{qualification?.qualDesc}</span>
 
