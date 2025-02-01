@@ -343,7 +343,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
                       }}
                       type="text"
                       placeholder={`${propsdata?.newsFirstName ?? "First name*"}`}
-                      className="form-control w-full small font-normal text-grey300 px-[12px] py-[10px] border border-negative-default rounded-[4px] outline-none shadow-custom-2"
+                      className="form-control w-full small font-normal text-grey300 px-[12px] py-[10px] border border-grey-500 rounded-[4px] outline-none shadow-custom-2"
                     />
                     {firstnameerror && (
                       <span className="x-small font-normal text-negative-default">
