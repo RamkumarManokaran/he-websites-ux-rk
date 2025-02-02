@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getCookieValue, setNewCookie } from "../utlils/commonFunction";
 let OptanonConsent: string | undefined = undefined;
 let OptanonAlertBoxClosed: string | undefined = undefined;
@@ -10,8 +10,8 @@ export default function OneTrustCookieScript({
 }: {
   domianValue: string;
 }) {
-  let ispreviewtrue=false;
- 
+  let ispreviewtrue = false;
+
   const [userConsentGiven, setUserConsentGiven] = useState<boolean>(false);
   const loadAnalyticsScripts = () => {
     const cookieDate = new Date();
@@ -73,11 +73,9 @@ export default function OneTrustCookieScript({
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window?.location?.search);
- 
-    ispreviewtrue = searchParams.get('preview') ? true :false;
-    
-    const handleConsentChange =()  => {
-      const returnVal =  loadAnalyticsScripts();
+    ispreviewtrue = searchParams.get("preview") === "MY_SECRET_TOKEN";
+    const handleConsentChange = () => {
+      const returnVal = loadAnalyticsScripts();
       setUserConsentGiven(() => returnVal);
     };
     window.OptanonWrapper = handleConsentChange;
