@@ -6,6 +6,8 @@ import Megamenucomponents from "@packages/shared-components/layout-components/to
 import User from "@packages/shared-components/layout-components/header/user/user";
 import emitter from "@packages/lib/eventEmitter/eventEmitter";
 import { fetchAuthSession } from "aws-amplify/auth";
+import makeApiCall from "@packages/REST-API/rest-api";
+import getApiUrl from "@packages/REST-API/api-urls";
 import { getCookie } from "@packages/lib/utlils/helper-function";
 // ==========================================don't want for the current sprint =======================================================
 import Search from "@packages/shared-components/layout-components/header/search-pod/header-search";
