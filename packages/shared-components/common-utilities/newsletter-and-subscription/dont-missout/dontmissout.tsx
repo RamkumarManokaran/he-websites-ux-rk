@@ -120,7 +120,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
       isFormValid = false;
     }
 
-    console.log(firstname, lastname, email, year, agreement);
+    // console.log(firstname, lastname, email, year, agreement);
 
     const handleSubscriptionGAlog = async () => {
       const datalog: DataLayerGA4AttrType = {
