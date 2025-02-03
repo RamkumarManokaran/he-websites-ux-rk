@@ -20,7 +20,7 @@ const Header = ({ topnav_data }: props) => {
   const [initial, setInitial] = useState<any>("");
 
   const [basketCount, setBasketCount] = useState<any>(0);
-  const  [startfetch,setStartfetch]=useState(false);
+  const [startfetch, setStartfetch] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState("false");
   const [isMobileView, setIsMobile] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +29,7 @@ const Header = ({ topnav_data }: props) => {
     isUserClicked: false,
     isShortlistClicked: false,
   });
-  
+
   const mobileViewRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const userref = useRef<HTMLSpanElement | null>(null);
@@ -81,29 +81,22 @@ const Header = ({ topnav_data }: props) => {
 
       try {
         // Fetch data in parallel
-        const [bodyResponse, unibodyResponse] = await Promise.all([
-          fetch(urlBody, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
-            },
-            cache: "force-cache",
-          }),
-          fetch(urlUnibody, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
-            },
-            cache: "force-cache",
-          }),
+        const [bodyData, unibodyData] = await Promise.all([
+          makeApiCall(
+            getApiUrl?.subjectAjax,
+            "GET",
+            null,
+            queryParamsBody,
+            null
+          ),
+          makeApiCall(
+            getApiUrl?.subjectAjax,
+            "GET",
+            null,
+            queryParamsUnibody,
+            null
+          ),
         ]);
-
-
-        // Parse JSON responses
-        const bodyData = await bodyResponse.json();
-        const unibodyData = await unibodyResponse.json();
         setCourseData(bodyData);
 
         setUniData(unibodyData);
@@ -129,47 +122,42 @@ const Header = ({ topnav_data }: props) => {
     // -------check the user authentication----------------------------
     const fetchUser = async () => {
       try {
-        
-       
-        const sessiontimecookie=getCookieValue("LoginSession") || false;
-        const loginviaonetap=getCookieValue("LogedinviaOnetap") || false;
+        const sessiontimecookie = getCookieValue("LoginSession") || false;
+        const loginviaonetap = getCookieValue("LogedinviaOnetap") || false;
 
-        if(!sessiontimecookie && loginviaonetap){
-          console.log(sessiontimecookie,loginviaonetap,"!@!@!@!@!")
+        if (!sessiontimecookie && loginviaonetap) {
+          console.log(sessiontimecookie, loginviaonetap, "!@!@!@!@!");
           setIsAuthenticated("false");
-            sessionStorage.clear();
-            document.cookie =
+          sessionStorage.clear();
+          document.cookie =
             "wcache=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
-            document.cookie = `Signinonetap=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=strict`;
-            document.cookie = `LoginSession=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=strict`;
-            document.cookie = `LogedinviaOnetap=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=strict`;
-            await signOut({ global: true });
-            router.push("/degrees/userLogin.html?e=logout");
-        }
-        else{
+          document.cookie = `Signinonetap=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=strict`;
+          document.cookie = `LoginSession=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=strict`;
+          document.cookie = `LogedinviaOnetap=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=strict`;
+          await signOut({ global: true });
+          router.push("/degrees/userLogin.html?e=logout");
+        } else {
           const session = await fetchAuthSession();
-          if (session?.tokens ) {
-            
+          if (session?.tokens) {
             const hasAccessToken = session?.tokens?.accessToken !== undefined;
-          const hasIdToken = session?.tokens?.idToken !== undefined;
-          if (hasAccessToken && hasIdToken) {
-            setIsAuthenticated("true");
-            const user_initial = getCookieValue("USER_INITIAL");
-            if (!user_initial && session.tokens.idToken) {
-              const user_initial = getUserInitials(
-                session.tokens.idToken?.payload?.given_name,
-                session.tokens.idToken?.payload?.family_name
-              );
-              setInitial(user_initial);
-            } else {
-              setInitial(user_initial);
+            const hasIdToken = session?.tokens?.idToken !== undefined;
+            if (hasAccessToken && hasIdToken) {
+              setIsAuthenticated("true");
+              const user_initial = getCookieValue("USER_INITIAL");
+              if (!user_initial && session.tokens.idToken) {
+                const user_initial = getUserInitials(
+                  session.tokens.idToken?.payload?.given_name,
+                  session.tokens.idToken?.payload?.family_name
+                );
+                setInitial(user_initial);
+              } else {
+                setInitial(user_initial);
+              }
+              const basket = getCookieValue("USER_FAV_BASKET_COUNT") || 0;
+              setBasketCount(basket);
             }
-            const basket = getCookieValue("USER_FAV_BASKET_COUNT") || 0;
-            setBasketCount(basket);
           }
-          
         }
-      }
       } catch (error) {
         console.error("Error fetching user:", error);
       }
@@ -270,7 +258,7 @@ const Header = ({ topnav_data }: props) => {
     }
   }, [isOpen]);
   const rightMenuAction = (actionName: string) => {
-    setStartfetch(true)
+    setStartfetch(true);
     setClickStates((prevStates) => {
       const newState = {
         isSearchClicked: false,
@@ -397,7 +385,6 @@ const Header = ({ topnav_data }: props) => {
 
           <div className="order-3 basis-[100%] md:grow lg:grow-0 lg:basis-0">
             <ul className="flex items-center justify-end gap-[10px] rightmenu py-[4px] lg:py-[8px]">
-              
               {pathname !== "/" && process.env.PROJECT === "Whatuni" && (
                 <li>
                   <span
