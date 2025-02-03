@@ -116,7 +116,9 @@ const UniversityTab: React.FC<UniversityTabProps> = ({
     }));
   };
   function handleUnisearch() {
-    setUnierror(true);
+    if(!searchFormHandle?.university){
+      setUnierror(true);
+    }
   }
   return (
     <div ref={containerRef} className="flex flex-col gap-[16px]">
