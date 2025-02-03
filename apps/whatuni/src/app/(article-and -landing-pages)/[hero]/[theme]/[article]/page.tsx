@@ -181,7 +181,7 @@ const Page = async ({ params, searchParams }: any) => {
                                 dt?.__typename === "MultipleCardContainer" &&
                                 dt?.flagComponentStyle !== "ArticleCarousal"
                               ) {
-                                console.log("inside the if");
+                                // console.log("inside the if");
                               } else {
                                 const Component: any = dynamicComponent(
                                   dt?.__typename

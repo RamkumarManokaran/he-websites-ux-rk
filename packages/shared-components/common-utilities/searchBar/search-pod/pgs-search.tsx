@@ -10,7 +10,7 @@ import {
 } from "@packages/lib/utlils/helper-function";
 export default function PgsSearch({ pgs_search_data }: any) {
 
-  console.log(pgs_search_data,"pgs_search_datapgs_search_datapgs_search_datapgs_search_data")
+  // console.log(pgs_search_data,"pgs_search_datapgs_search_datapgs_search_datapgs_search_data")
   const [isPgsUniversityClicked, setIsPgsUniversityClicked] = useState(false);
   const [qualification, setQualification] = useState({
     qualUrl: "",
