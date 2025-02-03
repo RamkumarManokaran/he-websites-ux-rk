@@ -80,7 +80,7 @@ const UniversityTab: React.FC<UniversityTabProps> = ({
             ?.startsWith(searchLower),
           exactMatch: item?.collegeNameDisplay?.toLowerCase() === searchLower,
         }))
-        ?.filter((item) => item.position !== -1) // Only include items with searchText
+        
         ?.sort((a: any, b: any) => {
           if (a?.exactMatch !== b?.exactMatch) return a?.exactMatch ? -1 : 1;
           if (a?.startsWithSearch !== b?.startsWithSearch)

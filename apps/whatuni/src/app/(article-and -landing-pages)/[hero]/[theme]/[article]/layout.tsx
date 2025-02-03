@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       alternates: {
         canonical:
           metadata?.data?.contentData?.items[0]?.seoFields?.canonical ||
-         `https://www.whatuni.com/${slugurl}`,
+          `https://www.whatuni.com${slugurl}`,
       },
       title:
         metadata?.data?.contentData?.items[0]?.seoFields?.metaTite ||
@@ -26,22 +26,33 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       other: {
         "fb:app_id": "374120612681083",
         "fb:admins": "27327779286",
-        "og:title": metadata?.data?.contentData?.items[0]?.seoFields?.metaTite || "",
+        "og:title":
+          metadata?.data?.contentData?.items[0]?.seoFields?.metaTite || "",
         "og:type": "article",
-        "og:description": metadata?.data?.contentData?.items[0]?.seoFields?.metaDescription || "",
-        "og:image":"https://images-dom.prod.aws.idp-connect.com/commimg/myhotcourses/blog/post/myhc_69542.jpg",
-        "og:url": metadata?.data?.contentData?.items[0]?.seoFields?.canonical ||`https://www.whatuni.com/${slugurl}`,
+        "og:description":
+          metadata?.data?.contentData?.items[0]?.seoFields?.metaDescription ||
+          "",
+        "og:image":
+          "https://images-dom.prod.aws.idp-connect.com/commimg/myhotcourses/blog/post/myhc_69542.jpg",
+        "og:url":
+          metadata?.data?.contentData?.items[0]?.seoFields?.canonical ||
+          `https://www.whatuni.com${slugurl}`,
         "twitter:card": "summary",
         "twitter:creator": "@whatuni",
-        "twitter:url": metadata?.data?.contentData?.items[0]?.seoFields?.canonical ||`https://www.whatuni.com/${slugurl}`,
-        "twitter:title": metadata?.data?.contentData?.items[0]?.seoFields?.metaTite || "",
-       "twitter:description":metadata?.data?.contentData?.items[0]?.seoFields?.metaDescription || "",
-        "twitter:image": "https://images-dom.prod.aws.idp-connect.com/wu-cont/images/logo_print.png",
+        "twitter:url":
+          metadata?.data?.contentData?.items[0]?.seoFields?.canonical ||
+          `https://www.whatuni.com${slugurl}`,
+        "twitter:title":
+          metadata?.data?.contentData?.items[0]?.seoFields?.metaTite || "",
+        "twitter:description":
+          metadata?.data?.contentData?.items[0]?.seoFields?.metaDescription ||
+          "",
+        "twitter:image":
+          "https://images-dom.prod.aws.idp-connect.com/wu-cont/images/logo_print.png",
         "apple-itunes-app": "app-id=1267341390",
         "google-play-app": "app-id=com.hotcourses.group.wuapp",
       },
     };
-    
   } catch (error) {
     console.error("Error fetching metadata:", error);
     return {
