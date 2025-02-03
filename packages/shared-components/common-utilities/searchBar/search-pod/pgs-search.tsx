@@ -114,8 +114,8 @@ export default function PgsSearch({ pgs_search_data }: any) {
           ?.startsWith(searchLower),
           exactMatch: item?.collegeNameDisplay?.toLowerCase() === searchLower,
         }))
-        .filter((item: any) => item?.position !== -1) // Only include items with searchText
-        .sort((a: any, b: any) => {
+    
+        ?.sort((a: any, b: any) => {
           if (a?.exactMatch !== b?.exactMatch) return a?.exactMatch ? -1 : 1;
           if (a?.startsWithSearch !== b?.startsWithSearch)
             return a?.startsWithSearch ? -1 : 1;
@@ -130,6 +130,8 @@ export default function PgsSearch({ pgs_search_data }: any) {
           college_text_key:item?.college_text_key,
         }));
     };
+       
+
     setFilteredUniversity(
       prioritySearchcollge(filteredUniversity, description)
     );
