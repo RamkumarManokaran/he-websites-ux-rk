@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import Discovercomponents from "@packages/shared-components/home/discover/discovercomponents";
+import Discovercomponents from "@packages/shared-components/common-utilities/slider/discover/discovercomponents";
 import Discoverslidercomponents1 from "@packages/shared-components/common-utilities/slider/discoverslidercomponents";
 import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
 import { discoverContentfulInterface } from "@packages/shared-components/common-utilities/slider/discoverslidercomponents";
@@ -177,7 +177,7 @@ describe("Test the Discoverslidercomponents1", () => {
                 mediaCardsCollectionItems.mediaCardsCollection.items[index] !=
                   null
               ) {
-                return mediaCardsCollectionItems?.mediaCardsCollection?.items.map(
+                return mediaCardsCollectionItems?.mediaCardsCollection?.items?.map(
                   async (discoverItems, index) => {
                     if (
                       discoverItems?.title != null &&
@@ -219,7 +219,7 @@ describe("Test the Discoverslidercomponents1", () => {
     );
     let cardCount: number = 0;
     {
-      discoverPodList.map(async (discoverItems: any, index: number) => {
+      discoverPodList?.map(async (discoverItems: any, index: number) => {
         const discoverImageElement =
           await screen.findAllByTestId("discoverImageId");
         const cardTitleElement = await screen.findAllByTestId("cardTitle");
@@ -246,7 +246,7 @@ describe("Test the Discoverslidercomponents1", () => {
     );
 
 
-        {discoverPodList.map(async (discoverItems: any, index: number) => {
+        {discoverPodList?.map(async (discoverItems: any, index: number) => {
                         cardCount = cardCount + 1;
                         const discoverImageElement = await screen.findAllByTestId("discoverImageId");
                         const cardTitleElement = await screen.findAllByTestId("cardTitle");

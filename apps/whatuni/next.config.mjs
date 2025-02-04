@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  compiler: {
+    removeConsole: {
+      exclude: ["error"],
+    },
+  },
   skipTrailingSlashRedirect: true,
-  productionBrowserSourceMaps: true,
+  // productionBrowserSourceMaps: true,
   async headers() {
     return [
       {
@@ -15,27 +20,29 @@ const nextConfig = {
       },
     ];
   },
-  async redirects() {
-    return [
-      {
-        source: "/:path*/",
-        has: [
-          {
-            type: "query",
-            key: "someQueryParam",
-          },
-        ],
-        destination: "/:path*",
-        permanent: true,
-      },
-    ];
-  },
+  //trailingSlash: true,
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: "/:path*/",
+  //       has: [
+  //         {
+  //           type: "query",
+  //           key: "someQueryParam",
+  //         },
+  //       ],
+  //       destination: "/:path*",
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
   reactStrictMode: false,
 
   env: {
     PROJECT: "Whatuni",
     DOMAIN: "whatuni.com",
     SUBDOMAIN: "https://mdev.dev.aws.whatuni.com",
+    AFFILATE_ID: "220703",
   },
   eslint: {
     ignoreDuringBuilds: true,

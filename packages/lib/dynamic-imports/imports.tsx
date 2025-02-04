@@ -17,14 +17,16 @@ const dynamicComponentImports = (input: string | null | undefined) => {
     case "PageStatPodContainer":
       return dynamic(
         () =>
-          import("@packages/shared-components/home/wuscas/wuscascomponents"),
+          import(
+            "@packages/shared-components/common-utilities/wuscas/wuscascomponents"
+          ),
         { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
     case "DynamicMediaComponent":
       return dynamic(
         () =>
           import(
-            "@packages/shared-components/home/discover/discovercomponents"
+            "@packages/shared-components/common-utilities/slider/discover/discovercomponents"
           ),
         { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
@@ -32,23 +34,24 @@ const dynamicComponentImports = (input: string | null | undefined) => {
       return dynamic(
         () =>
           import(
-            "@packages/shared-components/home/tag-cloud/tagcloudcomponents"
+            "@packages/shared-components/common-utilities/tag-cloud/tagcloudcomponents"
           ),
         { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
     case "PageMultimediaTestimonials":
-      // {/* @ts-ignore Server Component */}
       return dynamic(
         () =>
           import(
-            "@packages/shared-components/home/testimonials/testimonialcomponents"
+            "@packages/shared-components/common-utilities/testimonials/testimonialcomponents"
           ),
         { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
     case "Reviews":
       return dynamic(
         () =>
-          import("@packages/shared-components/home/reviews/reviewscomponents"),
+          import(
+            "@packages/shared-components/common-utilities/slider/reviews/reviewscomponents"
+          ),
         { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
 
@@ -56,39 +59,38 @@ const dynamicComponentImports = (input: string | null | undefined) => {
       return dynamic(
         () =>
           import(
-            "@packages/shared-components/article-landing/eligibility-criteria/eligibilitycriteriacomponents"
-          )
-      );
-    case "HeroBanner":
-      return dynamic(
-        () =>
-          import(
-            "@packages/shared-components/common-utilities/colc-banner/colc-banner"
-          )
+            "@packages/shared-components/common-utilities/eligibility-criteria/eligibilitycriteriacomponents"
+          ),
+        { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
     case "TextSnippet":
       return dynamic(
         () =>
           import(
             "@packages/shared-components/common-utilities/article-snippet/articlesnippetcomponents"
-          )
+          ),
+        { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
     case "Links":
-      return dynamic(
-        () =>
-          import(
-            "@packages/shared-components/common-utilities/article-link/articlelinkcomponents"
-          )
-      );
+      return null;
     case "Faqs":
       return dynamic(
         () =>
           import(
             "@packages/shared-components/common-utilities/faq/faqcomponents"
-          )
+          ),
+        { loading: () => <DynamicSkeleton skeletonName={input} /> }
       );
     case "pageviewlog":
       return dynamic(() => import("@packages/lib/utlils/pageviewlogging"));
+    case "ArticleCarousal":
+      return dynamic(
+        () =>
+          import(
+            "@packages/shared-components/common-utilities/slider/advice/advicecomponents"
+          ),
+        { loading: () => <DynamicSkeleton skeletonName={input} /> }
+      );
     default:
       return null;
   }

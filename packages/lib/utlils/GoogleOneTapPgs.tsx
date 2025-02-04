@@ -29,9 +29,7 @@ const GoogleOneTapPgs = () => {
       if (sessionId) {
         setCookie("pgs_x", sessionId, 7);
       }
-      const sessionIdtolog = sessionId
-        ? sessionId.trim()
-        : getCookieValue("pgs_x").trim();
+      const sessionIdtolog = sessionId ? sessionId : getCookieValue("pgs_x");
       // console.log(sessionIdtolog, "session id for logging");
       if (sessionIdtolog) {
         // console.log(sessionIdtolog, "inside the if ");
@@ -51,13 +49,13 @@ const GoogleOneTapPgs = () => {
                 userloggedIn: "Y",
                 functionalityName: "Sign Up",
                 signupMethod: "Google",
-                siteName: "PGS",
+                siteName: "Pgs",
                 eventType: "UserRegistered",
                 refererURL: window.location.href,
                 pageName: "home",
                 actionType: "Interaction",
                 siteLanguage: "English",
-                sessionTrackId: `${sessionIdtolog}`,
+                sessionTrackId: sessionIdtolog,
                 isMobileUser: `${window.innerWidth < 1024 ? "Y" : "N"}`,
                 screenResolution:
                   window.innerWidth ||
@@ -70,7 +68,7 @@ const GoogleOneTapPgs = () => {
           if (!response.ok) {
             throw new Error("Clickstream logging failed");
           }
-          // console.log("Clickstream logged successfully");
+          console.log("Clickstream logged successfully");
         } catch (error) {
           console.error("Error during clickstream logging:", error);
         }

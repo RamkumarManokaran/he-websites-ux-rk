@@ -1,6 +1,6 @@
 const parseGradeString = (gradeString: string | null) => {
   if (gradeString) {
-    return gradeString.split(",").map((item) => {
+    return gradeString.split(",")?.map((item) => {
       const [key, value] = item.split("~");
       return { key, value: parseInt(value, 10) };
     });
@@ -24,7 +24,7 @@ export { parseGradeString };
 //   });
 //   counts[key] = (counts[key] || 0) + 1;
 //   return Object.entries(counts)
-//     .map(([entry, count]) => `${count > 1 ? count : "1"}${entry}`)
+//     ?.map(([entry, count]) => `${count > 1 ? count : "1"}${entry}`)
 //     .join("-");
 // };
 
@@ -49,7 +49,7 @@ const updateUserEntryPointForIncrement = (
   if (btnName in counts) {
     counts[btnName] += 1;
   }
-  return validKeys.map((key) => `${counts[key]}${key}`).join("-");
+  return validKeys?.map((key) => `${counts[key]}${key}`).join("-");
 };
 export { updateUserEntryPointForIncrement };
 
@@ -73,7 +73,7 @@ export { updateUserEntryPointForIncrement };
 //     }
 //   }
 //   return Object.entries(counts)
-//     .map(([entry, count]) => `${count > 1 ? count : "1"}${entry}`)
+//     ?.map(([entry, count]) => `${count > 1 ? count : "1"}${entry}`)
 //     .join("-");
 // };
 const updateUserEntryPointForDecrement = (
@@ -98,7 +98,7 @@ const updateUserEntryPointForDecrement = (
   if (btnName in counts && counts[btnName] > 0) {
     counts[btnName] -= 1;
   }
-  return validKeys.map((key) => `${counts[key]}${key}`).join("-");
+  return validKeys?.map((key) => `${counts[key]}${key}`).join("-");
 };
 
 export { updateUserEntryPointForDecrement };
@@ -167,7 +167,7 @@ export const formatQualificationLabel = (input: string): string => {
   return input
     .toLowerCase()
     .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    ?.map((word) => word.charAt(0).toUpperCase() + word?.slice(1))
     .join(" ");
 };
 
@@ -184,7 +184,7 @@ export function extractValue(input: any, key: any) {
 
   for (const part of parts) {
     if (part.endsWith(key)) {
-      return parseInt(part.slice(0, -1)) || 0;
+      return parseInt(part?.slice(0, -1)) || 0;
     }
   }
 
@@ -193,7 +193,7 @@ export function extractValue(input: any, key: any) {
 
 export function extractMinMax(input: any, key: any) {
   if (input.includes("-")) {
-    const [min, max] = input.split("-").map(Number);
+    const [min, max] = input.split("-")?.map(Number);
     if (key === "min") return Number(min);
     if (key === "max") return Number(max);
   } else {

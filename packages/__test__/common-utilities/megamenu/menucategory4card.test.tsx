@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import Menucategory4card from "@packages/shared-components/common-utilities/megamenu/menucategory4card";
+import Menucategory4card from "@packages/shared-components/layout-components/megamenu/menucategory4card";
 import {
   GADataLayerFn,
   currentAuthenticatedUser,
@@ -118,7 +118,7 @@ describe("Menucategory4card", () => {
       "Category Title"
     );
   });
-  it('renders the correct link target when not open in a new tab', () => {
+  it("renders the correct link target when not open in a new tab", () => {
     render(<Menucategory4card data={mockData} parentMenu={mockParentMenu} />);
 
     const firstLink = screen.getByText("Item 1");
@@ -126,7 +126,7 @@ describe("Menucategory4card", () => {
     expect(firstLink).not.toHaveAttribute("target");
   });
 
-  it('renders the correct link rel attribute when not open in a new tab', () => {
+  it("renders the correct link rel attribute when not open in a new tab", () => {
     render(<Menucategory4card data={mockData} parentMenu={mockParentMenu} />);
 
     const firstLink = screen.getByText("Item 1");

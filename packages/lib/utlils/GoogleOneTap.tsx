@@ -5,9 +5,10 @@ import { signInWithRedirect } from "aws-amplify/auth";
 import { v4 as uuidv4 } from "uuid";
 import { signOut } from "aws-amplify/auth";
 import { useRouter } from "next/navigation";
-
+import { usePathname } from 'next/navigation';
 const GoogleOneTap = () => {
   const router = useRouter();
+  const pathname = usePathname();
 
   const randomid = uuidv4();
   const tracksession_id = uuidv4().replace(/\D/g, "").slice(0, 8);
@@ -18,6 +19,7 @@ const GoogleOneTap = () => {
     const cookie = cookieArray.find((c) => c.startsWith(`${name}=`));
     return cookie ? cookie.split("=")[1] : "";
   }
+
   function setCookie(name: string, value: string, days: number) {
     const d = new Date();
     d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
@@ -42,7 +44,9 @@ const GoogleOneTap = () => {
                 "x-correlation-id": randomid,
                 authorization: session?.tokens?.idToken?.toString(), // Ensure it's a string
               },
-              body: JSON.stringify({}),
+              body: JSON.stringify({
+                loginFlag: "Y",
+              }),
             }
           );
 
@@ -52,7 +56,7 @@ const GoogleOneTap = () => {
           } else {
             const res = await response.json();
             if (res.message.toLowerCase() === "user updated") {
-              console.log(res, "User updated successfully");
+              // console.log(res, "User updated successfully");
             } else {
               try {
                 const session: any = await fetchAuthSession();
@@ -103,10 +107,12 @@ const GoogleOneTap = () => {
 
     async function watchForCognitoCookie() {
       setCookie("Signinonetap", "true", 7);
-      signInWithRedirect({
-        provider: "Google",
-        customState: "home page",
-      });
+      // const lis = localStorage.getItem("COLCSubmitRes");
+        signInWithRedirect({
+          provider: "Google",
+          customState:pathname,
+        });
+    
     }
     const checkSession = async () => {
       try {

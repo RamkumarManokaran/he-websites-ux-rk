@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import Menucategory1card from "@packages/shared-components/common-utilities/megamenu/menucategory1card";
+import Menucategory1card from "@packages/shared-components/layout-components/megamenu/menucategory1card";
 import {
   GADataLayerFn,
   currentAuthenticatedUser,

@@ -7,7 +7,7 @@ const Scholarshipunicard = () => {
   return (
     <Link
       href=""
-      className="card flex flex-col bg-white border border-grey-200 hover:border-primary-400 rounded-[8px] shadow-custom-2 overflow-hidden"
+      className="card flex flex-col bg-white border border-grey-200 lg:hover:border-primary-400 rounded-[8px] shadow-custom-2 overflow-hidden"
     >
       <div className="card-header relative min-h-[190px] bg-grey-200">
         <Image
@@ -28,7 +28,7 @@ const Scholarshipunicard = () => {
       </div>
       <div className="card-body flex flex-col justify-between gap-[30px] p-[16px] min-h-[106px]">
         <div className="flex flex-col gap-[8px] w-full">
-          <div className="h6 card-title font-bold text-para-lg text-grey300 line-clamp-1">
+          <div className="card-title font-farro para-lg font-bold text-grey300 line-clamp-1">
             Uni name
           </div>
           <div className="rating-pod flex items-center gap-[8px]">

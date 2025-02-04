@@ -23,14 +23,14 @@ const MaxMinInputBox = ({
         const value = Number(event?.target.value);
         setMinimumValue(Number(event.target.value));
         setQual((prev: any) =>
-          prev.map((item: any, index: number) =>
+          prev?.map((item: any, index: number) =>
             index === indexPosition ? { ...item, min: value } : item
           )
         );
       } else if (event.target.value === "") {
         setMinimumValue("");
         setQual((prev: any) =>
-          prev.map((item: any, index: number) =>
+          prev?.map((item: any, index: number) =>
             index === indexPosition ? { ...item, min: "" } : item
           )
         );
@@ -40,7 +40,7 @@ const MaxMinInputBox = ({
         const value = Number(event?.target.value);
         setMaximumValue(value);
         setQual((prev: any) =>
-          prev.map((item: any, index: number) =>
+          prev?.map((item: any, index: number) =>
             index === indexPosition
               ? { ...item, max: value, podSpecificPoints: value }
               : item
@@ -50,7 +50,7 @@ const MaxMinInputBox = ({
       } else if (event.target.value === "") {
         setMaximumValue("");
         setQual((prev: any) =>
-          prev.map((item: any, index: number) =>
+          prev?.map((item: any, index: number) =>
             index === indexPosition
               ? { ...item, max: "", podSpecificPoints: 0 }
               : item

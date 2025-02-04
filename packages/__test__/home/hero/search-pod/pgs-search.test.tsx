@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import PgsSearch from "@packages/shared-components/home/hero/search-pod/pgs-search";
+import PgsSearch from "@packages/shared-components/common-utilities/Banners/hero/search-pod/pgs-search";
 import { useRouter, usePathname } from "next/navigation";
 import React from "react";
 import "@testing-library/jest-dom";

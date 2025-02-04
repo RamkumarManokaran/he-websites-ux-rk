@@ -3,15 +3,16 @@ import { v4 as uuidv4 } from "uuid";
 import { fetchAuthSession } from "aws-amplify/auth";
 import React, { useEffect, useState, useRef } from "react";
 import AddQualification from "./additional-qual";
-
+import makeApiCall from "@packages/REST-API/rest-api";
 import TopLevelMenu from "./toplevel-menu";
+import getApiUrl from "@packages/REST-API/api-urls";
 import {
   GradeFilterArrayInterface,
   Initialvalue,
   UserStudyLevelEntryObject,
   Qualification,
 } from "@packages/lib/types/ucas-calc";
-import UcasComponentSkeleton from "../../skeleton/ucascomponentskeleton";
+import UcasComponentSkeleton from "../../../skeleton/ucascomponentskeleton";
 import {
   extractMinMax,
   formatToUpperCase,
@@ -77,29 +78,24 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
       }
       try {
         if (idToken) {
-          const res = await fetch(
-            `${process.env.NEXT_PUBLIC_BFF_API_DOMAIN}/hewebsites/v1/homepage/ucas-ajax`,
+          const jsonData = await makeApiCall(
+            getApiUrl.ucas,
+            "POST",
             {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
-                Authorization:
-                  typeof idToken === "string"
-                    ? idToken
-                    : idToken?.toString() || "",
-              },
-              cache: "no-cache",
-              body: JSON.stringify(ucasAjax),
-            }
+              Authorization:
+                typeof idToken === "string"
+                  ? idToken
+                  : idToken?.toString() || "",
+            },
+            null,
+            ucasAjax
           );
-          const jsonData = await res.json();
           setUcasGradeData(jsonData?.gradeFilterList);
           setUcasPoint(Math.floor(jsonData?.userGradeDetails?.ucasPoint));
           setLoading(false);
           if (jsonData?.userGradeDetails?.userStudyLevelEntry?.length > 0) {
             const mappedQuals =
-              jsonData?.userGradeDetails?.userStudyLevelEntry.map(
+              jsonData?.userGradeDetails?.userStudyLevelEntry?.map(
                 (entry: UserStudyLevelEntryObject) => ({
                   ...initialvalue,
                   SelectedLevel: jsonData?.gradeFilterList?.filter(
@@ -180,20 +176,13 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
             setLoading(false);
           }
         } else if (tracksessionId) {
-          const response = await fetch(
-            `${process.env.NEXT_PUBLIC_BFF_API_DOMAIN}/hewebsites/v1/guest/homepage/ucas-ajax`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
-                tracksessionid: tracksessionId?.toString() || "",
-              },
-              cache: "no-cache",
-              body: JSON.stringify(ucasAjax),
-            }
+          const jsonData = await makeApiCall(
+            getApiUrl.ucasGuest,
+            "POST",
+            { tracksessionid: tracksessionId?.toString() || "" },
+            null,
+            ucasAjax
           );
-          const jsonData = await response.json();
           setUcasGradeData(jsonData?.gradeFilterList);
           const decodedCookie = decodeURIComponent(getCookie("UCAS") || "{}");
           const jsonCookies = JSON.parse(decodedCookie);
@@ -310,7 +299,7 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
       const updatedQualifications = prevQualifications?.filter(
         (item: QualInterface) => item?.id !== idToRemove
       );
-      return updatedQualifications.map(
+      return updatedQualifications?.map(
         (qual: QualInterface, index: number) => ({
           ...qual,
           name: getOrdinalName(index),
@@ -361,7 +350,6 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
       return false;
     }
   };
-  // console.log(qual);
   const updateUcas = async () => {
     setApplybtn("Applying...");
     const validation = validateTotalCredit();
@@ -383,7 +371,7 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
     } else {
       // qual
       //   .filter((item: any) => item.userEntryPoint !== "")
-      //   .map((items: any) => {
+      //   ?.map((items: any) => {
       //     const obj = {
       //       qualId: Number(items.qualId),
       //       SelectedLevel: ucasGradeData?.filter(
@@ -406,7 +394,7 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
             });
           return !allGradesZero;
         })
-        .map((items: Initialvalue) => {
+        ?.map((items: Initialvalue) => {
           const obj = {
             qualId: Number(items?.qualId),
             SelectedLevel: ucasGradeData?.filter(
@@ -432,22 +420,18 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
     if (!validation) {
       if (idToken) {
         if (JSON.stringify(qual) !== JSON.stringify(qualCopy)) {
-          const response = await fetch(
-            `${process.env.NEXT_PUBLIC_BFF_API_DOMAIN}/hewebsites/v1/homepage/update-ucas`,
+          const jsonData = await makeApiCall(
+            getApiUrl?.updateUcas,
+            "POST",
             {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
-                Authorization:
-                  typeof idToken === "string"
-                    ? idToken
-                    : idToken?.toString() || "",
-              },
-              body: JSON.stringify(saveUcas),
-            }
+              Authorization:
+                typeof idToken === "string"
+                  ? idToken
+                  : idToken?.toString() || "",
+            },
+            null,
+            saveUcas
           );
-          const jsonData = await response.json();
           if (jsonData == "updated") {
             document.cookie = `min=${qual[0]?.min}; path=/; max-age= 2592000; secure; samesite=lax`;
             document.cookie = `ucaspoint=${ucasPoint}; path=/; max-age= 2592000; secure; samesite=lax`;
@@ -462,7 +446,6 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
           }
         } else {
           setApplybtn("Apply");
-          // console.log(qual[0]);
           document.cookie = `ucaspoint=${ucasPoint}; path=/; max-age= 2592000; secure; samesite=lax`;
           document.cookie = `min=${qual[0]?.min}; path=/; max-age= 2592000; secure; samesite=lax`;
           setFirstTimeUser(false);
@@ -472,6 +455,7 @@ const UcasComponent = ({ onClose, isUcasOpen }: PropsInterface) => {
         if (saveUcas) {
           const stringConvert = JSON.stringify(saveUcas);
           const encodeURI = encodeURIComponent(stringConvert);
+          document.cookie = `ucaspoint=${ucasPoint}; path=/; max-age= 2592000; secure; samesite=lax`;
           document.cookie = `UCAS=${encodeURI}; path=/; max-age= 2592000; SameSite=Strict`;
           document.cookie = `min=${qual[0]?.min}; path=/; max-age= 2592000; secure; samesite=lax`;
           if (getCookie("UCAS")) {

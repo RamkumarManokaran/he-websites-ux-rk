@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { useRouter } from "next/navigation";
 import "@testing-library/react";
-import AdviceTab from "@packages/shared-components/home/search-input-pods/advicetab";
+import AdviceTab from "@packages/shared-components/common-utilities/searchBar/search-input-pods/advicetab";
 // import { Navigation } from 'swiper/modules';
 
 // jest.mock("next/navigation", () => ({

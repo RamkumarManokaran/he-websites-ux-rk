@@ -1,11 +1,21 @@
-export const ArticleLandingPageQuery = `
+export const HeroLandingPageQuery = (preview: boolean, slug: string) => {
+  return `
 {
   contentData: pageTemplateHeroLandingPageCollection(
     limit: 1
-    where: {urlSlug: "/advice", website: {websiteName: "${process.env.PROJECT}"}}
+    where: {urlSlug: "${slug}", website: {websiteName: "${process.env.PROJECT}"}
+    }
+     ${preview ? `preview : ${preview}` : ""}
   ) {
     items {
+    sys {
+         id
+        }
+    gaPageName
      bannerImage {
+        sys {
+         id
+        }
         internalName
         title
         subTitle
@@ -21,9 +31,20 @@ export const ArticleLandingPageQuery = `
       }
       bodyContentCollection(limit: 10) {
         items {
+             sys {
+         id
+        }
           internalName
           cardSectionTitle
+          shortDescription
           flagComponentStyle
+          mediaCardsCollection {
+            items {
+              ... on MetaTagTheme {
+                title
+              }
+            }
+          }
           callToAction {
               ... on CallToActionCta {
                 primaryCtaUrl
@@ -32,16 +53,20 @@ export const ArticleLandingPageQuery = `
                 primaryCtaEventName
               }
             }
+              
         }
       }
     }
   }
 }
 `;
-export const ArticleLandingSeoQuery = `{
+};
+
+export const HeroLandingSeoQuery = (slug: string) => {
+  return `{
   contentData: pageTemplateHeroLandingPageCollection(
     limit: 1
-     where: {urlSlug: "/advice", website: {websiteName: "${process.env.PROJECT}"}}
+     where: {urlSlug: "${slug}", website: {websiteName: "${process.env.PROJECT}"}}
   ) {
     items {
       seoFields {
@@ -56,12 +81,18 @@ export const ArticleLandingSeoQuery = `{
     }
   }
 }`;
+};
 
-export const ArticleTextSnippet = `
+export const ArticleTextSnippetQuery = `
    ... on DynamicMediaComponent {
+   sys{
+   id
+   }
   internalName
   title
   subTitle
+  description
+  shortDescription
   longDescription {
     json
   }
@@ -98,22 +129,29 @@ export const LinksQuery = `
 `;
 
 export const FaqsQuery = `
-   ... on PageComponentFaq {
+ ... on PageComponentFaq {
+  sys{id}
   faqComponentTitle
-  faqCategoriesCollection {
+  faqEntriesCollection {
+    
     items {
-      ... on PageComponentQa {
-        question
-        answer
-      }
+        sys{id}
+      question
+      answer
     }
   }
 }
 `;
 
-export const NewsletterQuery = `{
-  newsLetterData: pageNewsletterSubscriptionCollection(limit: 1) {
+export const NewsletterQuery = (preview: boolean) => {
+  return `{
+  newsLetterData: pageNewsletterSubscriptionCollection(limit: 1    
+    ${preview ? `preview : ${preview}` : ""}) {
     items {
+    sys{
+    id
+    }
+    __typename
       newsTitle
       newsDesc {
         json
@@ -128,3 +166,4 @@ export const NewsletterQuery = `{
     }
   }
 }`;
+};

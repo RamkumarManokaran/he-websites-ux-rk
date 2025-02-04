@@ -1,24 +1,60 @@
 "use client";
 import React, { useState } from "react";
-
-const TextToggleComponent = ({ text }: any) => {
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+const TextToggleComponent = ({
+  text,
+  iscontentPreview,
+  sysId,
+  longtext,
+}: any) => {
+  const readMore = text?.length > 460 ? true : false;
+  const [screenrender, setScreenrender] = useState(
+    readMore ? "text" : "longtext"
+  );
   const toggleReadMore = () => {
-    setIsExpanded(!isExpanded);
+    if (screenrender === "text") {
+      setScreenrender("longtext");
+    } else {
+      setScreenrender("text");
+    }
   };
-  const truncatedText = text.slice(0, 550);
   return (
-    <div className="flex flex-col gap-[8px] w-full lg:w-[calc(100%_-_289px)]">
-      <div className="flex flex-col gap-[24px]">
-        <p className="para font-normal">{isExpanded ? text : truncatedText}</p>
+    <>
+      {iscontentPreview && (
+        <ContentfulInspectorManager
+          fields={[
+            {
+              entryId: sysId,
+              fieldId: "description",
+              targetSelector: "#text_snippet_description",
+            },
+          ]}
+        />
+      )}
+      <div className="flex flex-col gap-[8px] w-full lg:w-[calc(100%_-_309px)]">
+        <div className="flex flex-col items-start gap-[16px] rtf-innerstyle">
+          {screenrender === "text" ? (
+            <p
+              className={`${readMore && "line-clamp-4"} para font-normal`}
+              id="text_snippet_description"
+            >
+              {text}
+            </p>
+          ) : (
+            <>{documentToReactComponents(longtext)}</>
+          )}
+        </div>
+        {readMore && (
+          <div
+            className="small font-semibold text-primary-400 hover:underline cursor-pointer"
+            onClick={toggleReadMore}
+          >
+            {screenrender === "text" ? "+ Read More" : "- Read less"}
+          </div>
+        )}
       </div>
-      <div
-        className="small font-semibold text-primary-400 hover:underline cursor-pointer"
-        onClick={toggleReadMore}
-      >
-        {isExpanded ? "- Read Less" : "+ Read More"}
-      </div>
-    </div>
+    </>
   );
 };
 

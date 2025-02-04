@@ -1,9 +1,9 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"; // For additional matchers like toBeInTheDocument
-import HeadersearchWrapper from "@packages/shared-components/common-utilities/header/headerWrapper";
+import HeadersearchWrapper from "@packages/shared-components/layout-components/header/headerWrapper";
 import { searchAjaxFecthFunction } from "@packages/lib/server-actions/server-action";
-import Search from "@packages/shared-components/common-utilities/header/search-pod/header-search";
+import Search from "@packages/shared-components/layout-components/header/search-pod/header-search";
 
 // Mock the `searchAjaxFecthFunction`
 jest.mock("@packages/lib/server-actions/server-action", () => ({
@@ -11,7 +11,9 @@ jest.mock("@packages/lib/server-actions/server-action", () => ({
 }));
 
 // Mock the `Search` component
-jest.mock("./header-search", () => jest.fn(() => <div data-testid="search-component"></div>));
+jest.mock("./header-search", () =>
+  jest.fn(() => <div data-testid="search-component"></div>)
+);
 
 const mockCourseData = { courses: ["Course1", "Course2"] };
 const mockUniData = { universities: ["University1", "University2"] };
@@ -20,7 +22,7 @@ describe("HeadersearchWrapper", () => {
   test("should render the Search component with data from both API calls", async () => {
     (searchAjaxFecthFunction as jest.Mock)
       .mockResolvedValueOnce(mockCourseData) // Mock response for `body`
-      .mockResolvedValueOnce(mockUniData);  // Mock response for `unibody`
+      .mockResolvedValueOnce(mockUniData); // Mock response for `unibody`
 
     render(await HeadersearchWrapper());
 

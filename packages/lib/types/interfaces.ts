@@ -245,14 +245,26 @@ export interface TextNode {
 
 export interface MultipleCardContainer {
   __typename: "MultipleCardContainer";
+  sys: {
+    id: string;
+  };
   internalName: string;
   cardSectionTitle: string;
   shortDescription: string;
   longDescription: string | null;
   flagComponentStyle: string;
   callToAction: CallToAction | null;
+  mediaCardsCollection?: MediaCardsCollection;
 }
 
+export interface MediaCardsCollection {
+  items: MetaTag[];
+}
+
+export interface MetaTag {
+  title: string;
+  id: string;
+}
 export interface CallToAction {
   __typename: "CallToActionCta";
   internalName: string;
@@ -298,6 +310,9 @@ export interface Icon {
   title: string;
 }
 export interface Image {
+  sys: {
+    id: string;
+  };
   url: string;
   width: number;
   height: number;
@@ -318,6 +333,7 @@ export interface StatInfo {
 
 export interface PageStatPodContainerInterface {
   bgColor: string;
+  sys: { id: string };
   marginPadding: string;
   statPodContainerName: string;
   statinfoCollection: {

@@ -1,9 +1,19 @@
-export const articleDetailQuery = `{
+export function articleDetailQuery(
+  // category: any,
+  urlSlug: any,
+  // id: any,
+  preview: any
+) {
+  const query = `{
   contentData: articleCollection(
     limit: 1
-    where: {urlSlug: "article-the-best-resources-for-saving-money-at-university-whatuni", website: {websiteName: "Whatuni"}}
+    where: {urlSlug: "${urlSlug}", website: {websiteName: "${process.env.PROJECT}"}}
+    ${preview ? `preview : ${preview}` : ""}
   ) {
     items {
+      sys {
+        id
+      }
       pageTitle
       seoFields {
         metaTite
@@ -12,6 +22,9 @@ export const articleDetailQuery = `{
         metaKeywords
       }
       author {
+        sys {
+          id
+        }
         internalName
         firstName
         lastName
@@ -22,6 +35,9 @@ export const articleDetailQuery = `{
         longBio
         audienceGroup
         image {
+          sys {
+            id
+          }
           imgUpload {
             url
             height
@@ -32,6 +48,9 @@ export const articleDetailQuery = `{
       }
       bannerImageCollection {
         items {
+          sys {
+            id
+          }
           imgAltText
           imgUpload {
             url
@@ -49,10 +68,14 @@ export const articleDetailQuery = `{
           title
         }
       }
-      metaTagSubTopicsCollection {
+        metaTagThemeCollection {
         items {
           title
-          subTopic
+        }
+      }
+      metaTagSubTopicsCollection {
+        items {
+          __typename
         }
       }
       metaTagCitiesCollection {
@@ -93,17 +116,19 @@ export const articleDetailQuery = `{
           title
         }
       }
-      metaTagSubjectCategoryL1Collection {
-        items {
-          title
+      skipLinks {
+        sys {
           id
         }
-      }
-      metaTagSubjectCategoryL2Collection {
-        items {
-          title
-          parent {
-            title
+        skipLinkTitle
+        anchorLinksCollection {
+          items {
+            sys {
+              id
+            }
+            urlLabel
+            moreLinkUrl
+            moreLinkTarget
           }
         }
       }
@@ -111,6 +136,10 @@ export const articleDetailQuery = `{
         items {
           __typename
           ... on PageComponentRichText {
+            sys {
+              id
+            }
+            skipLinkId
             paragraphTitle
             media {
               url
@@ -121,6 +150,9 @@ export const articleDetailQuery = `{
             }
           }
           ... on PagePullQuotes {
+            sys {
+              id
+            }
             pullQuote {
               json
             }
@@ -128,9 +160,74 @@ export const articleDetailQuery = `{
             pullQuoteRole
           }
           ... on PageImage {
+            sys {
+              id
+            }
             imgAltText
             imgUpload {
               url
+            }
+          }
+          ... on DynamicMediaComponent {
+            title
+            internalName
+            backgroundColor
+            longDescription {
+              json
+            }
+            cta {
+              internalName
+              primaryCtaUrl
+              primaryCtaLabel
+              primaryCtaEventName
+              secondaryCtaUrl
+              secondaryCtaLabel
+              primaryCtaTarget
+              secondaryCtaTarget
+              flagStyle
+            }
+            image {
+              imageTitle
+              imgAltText
+              imgUpload {
+                url
+                height
+                width
+              }
+            }
+          }
+          ... on MultipleCardContainer {
+            cardSectionTitle
+            shortDescription
+            flagComponentStyle
+            callToAction {
+              ... on CallToActionCta {
+                internalName
+                primaryCtaLabel
+                primaryCtaEventName
+                primaryCtaUrl
+                primaryCtaTarget
+                flagStyle
+              }
+              ... on CallToActionCta {
+                internalName
+                primaryCtaLabel
+                primaryCtaEventName
+                primaryCtaUrl
+                primaryCtaTarget
+                flagStyle
+              }
+            }
+             mediaCardsCollection {
+        
+          
+              items {
+                __typename
+                ... on MetaTagTheme {
+                  title
+                }
+             
+              }
             }
           }
           ... on PageDataTableStatic {
@@ -143,3 +240,33 @@ export const articleDetailQuery = `{
     }
   }
 }`;
+
+  return query;
+}
+
+export const ArticleDetailSeoQuery = (slug: string) => {
+  return `{
+  contentData: articleCollection(
+    limit: 1
+    where: {urlSlug: "${slug}", website: {websiteName: "${process.env.PROJECT}"}}
+    
+  ) {
+    items {
+     sys{
+      id
+      }
+      pageTitle
+      seoFields {
+        metaTite
+        metaDescription
+        canonical
+        metaKeywords
+      }
+      
+          
+      
+      
+}
+  }
+}`;
+};

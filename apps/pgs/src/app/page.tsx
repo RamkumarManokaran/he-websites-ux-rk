@@ -1,6 +1,6 @@
 "use server";
 import dynamicComponentImports from "@packages/lib/dynamic-imports/imports";
-import Heroslidercomponent from "@packages/shared-components/home/hero/heroslidercomponent";
+import Heroslidercomponent from "@packages/shared-components/common-utilities/Banners/hero/heroslidercomponent";
 import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
 import { homePageQuery } from "@packages/lib/graphQL/graphql-query";
 
@@ -19,9 +19,10 @@ const Page = async () => {
   return (
     <>
       <PageViewLogging
+        pageNameLocal="homepage"
         gaData={{
-          website: `${process.env.PROJECT}`,
-          pageName: "homepage",
+          website_name: `${process.env.PROJECT}`,
+          page_name: "homepage",
         }}
       />
       <Heroslidercomponent data={heroSliderData} />
@@ -29,7 +30,7 @@ const Page = async () => {
         {componentList?.map(
           (childItems: MultipleCardContainer, index: number) => {
             const Component: any = dynamicComponentImports(
-              childItems.flagComponentStyle
+              childItems?.flagComponentStyle
             );
             return (
               <div

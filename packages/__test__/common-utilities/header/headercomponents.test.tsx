@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { usePathname, useRouter } from "next/navigation";
 // Import NextRouter
-import Header from "@packages/shared-components/common-utilities/header/headercomponents"; // Adjust the path as needed
+import Header from "@packages/shared-components/layout-components/header/headercomponents"; // Adjust the path as needed
 // import uni_data from "@packages/lib/mockdata/uni_data.json";
 // import course_data from "@packages/lib/mockdata/course_data.json";
 // import topnav_data from "@packages/lib/mockdata/topnav_data.json";
