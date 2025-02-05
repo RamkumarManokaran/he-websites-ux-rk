@@ -64,7 +64,7 @@ const Page = async ({ searchParams }: any) => {
             }
           )}
         </div>
-        <Subscribecomponents iscontentPreview={false} />
+        {/* <Subscribecomponents iscontentPreview={false} /> */}
       </ContentfulPreviewProvider>
     </>
   );
