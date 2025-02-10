@@ -160,7 +160,7 @@ const Dontmissout = ({ key, data, preview }: any) => {
           method: "POST",
           headers: {
             "x-api-key": `${process.env.NEXT_PUBLIC_X_API_KEY}`,
-            sitecode: "WU_WEB",
+            sitecode: `${process.env.PROJECT === "Whatuni" ? "WU_WEB" : "PGS_WEB"}`,
             "Content-Type": "application/json",
             "x-correlation-id": uuidv4(),
           },
