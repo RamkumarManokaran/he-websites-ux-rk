@@ -1,14 +1,14 @@
-stages:
-  - build
-  - deploy
-  - invalidate
+# stages:
+#   - build
+#   - deploy
+#   - invalidate
 
-include:
-  # - project: idp-education/shared/artifacts/devsecops/idp-connect/pipeline-resources/gitlab-pipelines
-  #   ref: main
-    # file:
-    #   - /nextjs/he-websites/jobs/pgs.yml
-    #   - /nextjs/he-websites/jobs/whatuni.yml
+# include:
+#   # - project: idp-education/shared/artifacts/devsecops/idp-connect/pipeline-resources/gitlab-pipelines
+#   #   ref: main
+#     # file:
+#     #   - /nextjs/he-websites/jobs/pgs.yml
+#     #   - /nextjs/he-websites/jobs/whatuni.yml
 
-  - local: /jobs/pgs.yml
-  - local: /jobs/whatuni.yml
+#   - local: /jobs/pgs.yml
+#   - local: /jobs/whatuni.yml
