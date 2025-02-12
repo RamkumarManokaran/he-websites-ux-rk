@@ -233,7 +233,13 @@ const Dontmissout = ({ key, data, preview }: any) => {
       setEmailprev("");
     }
   }
-
+  const domain = `${
+    process.env.NEXT_PUBLIC_ENVIRONMENT === "dev"
+      ? "https://mdev.dev.aws."
+      : process.env.NEXT_PUBLIC_ENVIRONMENT === "stg"
+        ? "https://mtest.test.aws."
+        : "https://www."
+  }`;
   return (
     <>
       {authenticated && (
@@ -575,21 +581,24 @@ const Dontmissout = ({ key, data, preview }: any) => {
                           I confirm I’m over 13 and agree to the
                           <Link
                             className="!text-primary-500 underline pl-[4px]"
-                            href="#"
+                            target="_blank"
+                            href={`${domain}whatuni.com/wu-cont/termsAndCondition.htm`}
                           >
                             terms and conditions
                           </Link>
                           &nbsp;and
                           <Link
                             className="!text-primary-500 underline pl-[4px]"
-                            href="#"
+                            target="_blank"
+                            href={`${domain}whatuni.com/degrees/help/privacy.htm`}
                           >
                             privacy notice
                           </Link>
                           , and agree to become a member of the
                           <Link
                             className="!text-primary-500 underline pl-[4px]"
-                            href="#"
+                            target="_blank"
+                            href={`${domain}whatuni.com/wu-cont/termsAndCondition.htm`}
                           >
                             Whatuni community
                           </Link>
