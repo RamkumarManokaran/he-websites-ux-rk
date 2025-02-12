@@ -8,7 +8,7 @@ export default async function Dontmissoutwrapper({
   preview,
 }: any) {
   const data = await graphQlFetchFunction(
-    NewsletterQuery(preview, "Article - Newsletter - Whatuni newsInternal"),
+    NewsletterQuery(preview, "Article - Newsletter - Whatuni"),
     preview
   );
   const propsdt = data?.data?.newsLetterData?.items[0];
