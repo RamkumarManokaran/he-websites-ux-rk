@@ -15,14 +15,14 @@ interface UniversityTabProps {
   searchFormHandle: any;
   setsearchFormHandle: any;
   data: any;
+  placeholder: any;
 }
 const UniversityTab: React.FC<UniversityTabProps> = ({
   searchFormHandle,
   setsearchFormHandle,
   data,
+  placeholder,
 }) => {
-
-  // console.log(data,"props of th euniversi")
   const router = useRouter();
   const [dropdownIndex, setdropdownIndex] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -56,15 +56,16 @@ const UniversityTab: React.FC<UniversityTabProps> = ({
       return;
     }
 
-    const results = unidetails?.filter((colleges: any) =>
-      colleges?.collegeNameDisplay
-        ?.toLowerCase()
-        ?.includes(searchFormHandle?.university?.trim()?.toLowerCase()) || 
+    const results = unidetails?.filter(
+      (colleges: any) =>
+        colleges?.collegeNameDisplay
+          ?.toLowerCase()
+          ?.includes(searchFormHandle?.university?.trim()?.toLowerCase()) ||
         colleges.collegeNameAlias
-        ?.toLowerCase()
-        ?.includes(searchFormHandle?.university?.trim()?.toLowerCase())
+          ?.toLowerCase()
+          ?.includes(searchFormHandle?.university?.trim()?.toLowerCase())
     );
-    
+
     const prioritySearch = (
       list: { description: string; [key: string]: any }[],
       searchText: string
@@ -80,7 +81,7 @@ const UniversityTab: React.FC<UniversityTabProps> = ({
             ?.startsWith(searchLower),
           exactMatch: item?.collegeNameDisplay?.toLowerCase() === searchLower,
         }))
-        
+        ?.filter((item) => item.position !== -1) // Only include items with searchText
         ?.sort((a: any, b: any) => {
           if (a?.exactMatch !== b?.exactMatch) return a?.exactMatch ? -1 : 1;
           if (a?.startsWithSearch !== b?.startsWithSearch)
@@ -93,7 +94,7 @@ const UniversityTab: React.FC<UniversityTabProps> = ({
           collegeNameDisplay: item?.collegeNameDisplay,
           collegeNameAlias: item?.collegeNameAlias,
           collegeName: item?.collegeName,
-          college_text_key:item?.college_text_key,
+          college_text_key: item?.college_text_key,
         }));
     };
 
@@ -116,9 +117,7 @@ const UniversityTab: React.FC<UniversityTabProps> = ({
     }));
   };
   function handleUnisearch() {
-    if(!searchFormHandle?.university){
-      setUnierror(true);
-    }
+    setUnierror(true);
   }
   return (
     <div ref={containerRef} className="flex flex-col gap-[16px]">
@@ -137,7 +136,7 @@ const UniversityTab: React.FC<UniversityTabProps> = ({
               type="text"
               className="w-full focus:outline-none pt-0 pb-[16px] text-black placeholder:text-gray-500 border-b border-grey-200 md:py-[10px] md:border-none"
               aria-label=""
-              placeholder="University name"
+              placeholder={placeholder || "University name"}
               onChange={(event) => {
                 setsearchFormHandle((preData: any) => ({
                   ...preData,
@@ -211,9 +210,9 @@ const UniversityTab: React.FC<UniversityTabProps> = ({
                       }));
 
                       router.push(
-                        `/university-profile/${universityList[
-                          selectedIndex - 1
-                        ]?.college_text_key}/${universityList[selectedIndex - 1]?.collegeId}/`
+                        `/university-profile/${
+                          universityList[selectedIndex - 1]?.college_text_key
+                        }/${universityList[selectedIndex - 1]?.collegeId}/`
                       );
                     }
                     break;
@@ -226,7 +225,7 @@ const UniversityTab: React.FC<UniversityTabProps> = ({
                   <ul>
                     {universityList?.map((item: any, index: any) => (
                       <a
-                      href={`/university-profile/${item?.college_text_key?.trim() ?? ''}/${item?.collegeId ?? ''}/`}
+                        href={`/university-profile/${item?.college_text_key?.trim() ?? ""}/${item?.collegeId ?? ""}/`}
                         onClick={async () => {
                           // Update state
                           setsearchFormHandle((prevData: any) => ({

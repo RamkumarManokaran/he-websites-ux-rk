@@ -415,7 +415,15 @@ const Header = ({ topnav_data }: props) => {
                         className={`backdrop-shadow fixed top-0 left-0 right-0 bottom-0 z-[5]`}
                       ></div>
                       <div ref={containerRef}>
-                        <Search course_data={course_data} uni_data={uni_data} />
+                        <Search
+                          course_data={course_data}
+                          uni_data={uni_data}
+                          universalSearchPanel={
+                            topnav_data?.data?.contentData?.items[0]
+                              ?.universalSearchPanel
+                              ?.navigationElementsCollection?.items
+                          }
+                        />
                       </div>
                     </>
                   )}

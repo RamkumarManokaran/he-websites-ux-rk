@@ -4,7 +4,6 @@ import Image from "next/image";
 import CourseTab from "../search-input-pods/coursetab";
 import UniversityTab from "../search-input-pods/universitytab";
 import AdviceTab from "../search-input-pods/advicetab";
-
 import PgsSearch from "./pgs-search";
 import dynamic from "next/dynamic";
 import {
@@ -20,7 +19,7 @@ const UcasComponent = dynamic(
     ),
   { ssr: false }
 );
-const SearchBox = ({ pgs_search_data }: any) => {
+const SearchBox = ({ pgs_search_data, universalSearchPanel }: any) => {
   // const [startfetch, setStartFetch] = useState(false);
   const [course_data, setCourseData] = useState({});
   const [uni_data, setUniData] = useState({});
@@ -148,38 +147,19 @@ const SearchBox = ({ pgs_search_data }: any) => {
             <div className="bg-white w-full rounded-none max-w-container mx-auto p-[16px] mt-0 min-h-[160px] relative z-3 md:shadow-custom-5 md:rounded-[32px] md:p-[24px] md:mt-[-82px]">
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <ul className="flex gap-[8px] justify-center md:justify-start">
-                  <li
-                    className={`rounded-[20px] px-[12px] py-[8px] small font-semibold inline-block border border-neutral-900 hover:bg-neutral-900 hover:text-white cursor-pointer ${
-                      searchFormHandle?.activeTab === "tab1"
-                        ? "bg-neutral-900 text-white"
-                        : "bg-white text-neutral-900"
-                    }`}
-                    onClick={() => {
-                      searchTabClick("tab1");
-                    }}
-                  >
-                    Courses
-                  </li>
-                  <li
-                    className={`rounded-[20px] px-[12px] py-[8px] small font-semibold inline-block border border-neutral-900 hover:bg-neutral-900 hover:text-white cursor-pointer ${
-                      searchFormHandle?.activeTab === "tab2"
-                        ? "bg-neutral-900 text-white"
-                        : "bg-white text-neutral-900"
-                    }`}
-                    onClick={() => searchTabClick("tab2")}
-                  >
-                    Universities
-                  </li>
-                  {/* <li
-                    className={`rounded-[20px] px-[12px] py-[8px] small font-semibold inline-block border border-neutral-900 hover:bg-neutral-900 hover:text-white cursor-pointer ${
-                      searchFormHandle?.activeTab === "tab3"
-                        ? "bg-neutral-900 text-white"
-                        : "bg-white text-neutral-900"
-                    }`}
-                    onClick={() => searchTabClick("tab3")}
-                  >
-                    Advice
-                  </li> */}
+                  {universalSearchPanel?.map((items: any, index: number) => (
+                    <li
+                      key={index + 1}
+                      className={`rounded-[20px] px-[12px] py-[8px] small font-semibold inline-block border border-neutral-900 hover:bg-neutral-900 hover:text-white cursor-pointer ${
+                        searchFormHandle?.activeTab === `tab${index + 1}`
+                          ? "bg-neutral-900 text-white"
+                          : "bg-white text-neutral-900"
+                      }`}
+                      onClick={() => searchTabClick(`tab${index + 1}`)}
+                    >
+                      {items?.navTitle}
+                    </li>
+                  ))}
                 </ul>
 
                 {searchFormHandle?.activeTab == "tab1" && (
@@ -313,6 +293,7 @@ const SearchBox = ({ pgs_search_data }: any) => {
                   Object.keys(course_data).length > 0 ? (
                     <>
                       <CourseTab
+                        placeholder={universalSearchPanel[0]?.navCtAlabel}
                         searchFormHandle={searchFormHandle}
                         setsearchFormHandle={setsearchFormHandle}
                         data={course_data}
@@ -321,6 +302,7 @@ const SearchBox = ({ pgs_search_data }: any) => {
                   ) : (
                     searchFormHandle?.activeTab === "tab1" && (
                       <CourseTab
+                        placeholder={universalSearchPanel[0]?.navCtAlabel}
                         searchFormHandle={searchFormHandle}
                         setsearchFormHandle={setsearchFormHandle}
                         data={course_data}
@@ -331,6 +313,7 @@ const SearchBox = ({ pgs_search_data }: any) => {
                   Object.keys(uni_data).length > 0 ? (
                     <>
                       <UniversityTab
+                        placeholder={universalSearchPanel[1]?.navCtAlabel}
                         searchFormHandle={searchFormHandle}
                         setsearchFormHandle={setsearchFormHandle}
                         data={uni_data}
@@ -339,6 +322,7 @@ const SearchBox = ({ pgs_search_data }: any) => {
                   ) : (
                     searchFormHandle?.activeTab === "tab2" && (
                       <UniversityTab
+                        placeholder={universalSearchPanel[1]?.navCtAlabel}
                         searchFormHandle={searchFormHandle}
                         setsearchFormHandle={setsearchFormHandle}
                         data={uni_data}
@@ -347,6 +331,7 @@ const SearchBox = ({ pgs_search_data }: any) => {
                   )}
                   {searchFormHandle?.activeTab === "tab3" && (
                     <AdviceTab
+                      placeholder={""}
                       searchFormHandle={searchFormHandle}
                       setsearchFormHandle={setsearchFormHandle}
                     />
