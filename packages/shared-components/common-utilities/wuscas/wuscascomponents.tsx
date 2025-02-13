@@ -100,35 +100,37 @@ const Wuscascomponents: React.FC<WuscascomponentsProps> = async ({
                       event: "ga_contentful_events",
                       eventName: statsData?.cta?.primaryCtaEventName || "",
                       cta_name: statsData?.cta?.primaryCtaLabel || "",
-                      cta_url: statsData?.cta.primaryCtaUrl || "",
+                      cta_url: statsData?.cta?.primaryCtaUrl || "",
                       page_name: pageName,
                       data_label: subCategory,
                       article_category: category,
                       clearing: "in_year",
                     }}
                   >
-                    <a
-                      href={`${statsData?.cta.primaryCtaUrl}`}
-                      id="primaryCtaLabel"
-                      className="flex items-center gap-[6px] w-fit bg-primary-400 hover:bg-primary-500 text-white rounded-[20px] font-inter font-semibold text-small px-[20px] py-[10px]"
-                    >
-                      {statsData?.cta?.primaryCtaLabel}
-                      <svg
-                        width="16"
-                        height="14"
-                        viewBox="0 0 16 14"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
+                    {statsData?.cta?.primaryCtaUrl && (
+                      <a
+                        href={`${statsData?.cta?.primaryCtaUrl}`}
+                        id="primaryCtaLabel"
+                        className="flex items-center gap-[6px] w-fit bg-primary-400 hover:bg-primary-500 text-white rounded-[20px] font-inter font-semibold text-small px-[20px] py-[10px]"
                       >
-                        <path
-                          d="M9.55556 1.55554L15 6.99999M15 6.99999L9.55555 12.4444M15 6.99999L1 6.99999"
-                          stroke="#fff"
-                          strokeWidth="1.67"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </a>
+                        {statsData?.cta?.primaryCtaLabel}
+                        <svg
+                          width="16"
+                          height="14"
+                          viewBox="0 0 16 14"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9.55556 1.55554L15 6.99999M15 6.99999L9.55555 12.4444M15 6.99999L1 6.99999"
+                            stroke="#fff"
+                            strokeWidth="1.67"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </a>
+                    )}
                   </ClickTrackerWrapper>
                 </div>
                 {routename == "/" && (
