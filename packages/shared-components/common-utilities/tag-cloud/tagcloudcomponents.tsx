@@ -27,6 +27,7 @@ const Tagcloudcomponents: React.FC<headingProps> = async ({
     routename,
     contentModelName
   );
+
   const tagCloudData: HomePageInterface = await graphQlFetchFunction(query);
   const tagCloudArray =
     tagCloudData?.data?.contentData.items?.[0]?.bodyContentCollection.items[0]

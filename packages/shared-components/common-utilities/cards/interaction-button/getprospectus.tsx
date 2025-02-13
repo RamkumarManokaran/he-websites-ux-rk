@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
 
-const Getprospectus = () => {
+const Getprospectus = ({ pageName }: any) => {
   return (
-    <button type='button' className='btn btn-warning min-w-[148px]'>Get Prospectus</button>
-  )
-}
+    <>
+      {pageName == "courseDetails" ? (
+        <button type="button" className={"btn btn-negative-default w-full"}>
+          Get Prospectus
+        </button>
+      ) : (
+        <button type="button" className="btn btn-orange w-full">
+          Get Prospectus {pageName}
+        </button>
+      )}
+    </>
+  );
+};
 
-export default Getprospectus
+export default Getprospectus;
