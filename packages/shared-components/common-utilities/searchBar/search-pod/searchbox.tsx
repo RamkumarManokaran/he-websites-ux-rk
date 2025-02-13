@@ -331,7 +331,7 @@ const SearchBox = ({ pgs_search_data, universalSearchPanel }: any) => {
                   )}
                   {searchFormHandle?.activeTab === "tab3" && (
                     <AdviceTab
-                      placeholder={""}
+                      placeholder={universalSearchPanel[2]?.navCtAlabel}
                       searchFormHandle={searchFormHandle}
                       setsearchFormHandle={setsearchFormHandle}
                     />
