@@ -21,6 +21,13 @@ const FooterAppLinks = ({ data }: PropsInterface) => {
       window.removeEventListener("resize", checkMobile);
     };
   }, []);
+  const domain = `${
+    process.env.NEXT_PUBLIC_ENVIRONMENT === "dev"
+      ? "https://mdev.dev.aws."
+      : process.env.NEXT_PUBLIC_ENVIRONMENT === "stg"
+        ? "https://mtest.test.aws."
+        : "https://www."
+  }`;
   return (
     <ul
       className="flex flex-row md:flex-col gap-[16px]"
@@ -34,7 +41,7 @@ const FooterAppLinks = ({ data }: PropsInterface) => {
             href={
               isMobile
                 ? data[0]?.primaryCtaUrl
-                : "https://mdev.dev.aws.whatuni.com/whatuni-mobile-app"
+                : `${domain}whatuni.com/whatuni-mobile-app`
             }
             onClick={async () => {
               GADataLayerFn(
@@ -193,7 +200,7 @@ const FooterAppLinks = ({ data }: PropsInterface) => {
             href={
               isMobile
                 ? data[1]?.primaryCtaUrl
-                : "https://mdev.dev.aws.whatuni.com/whatuni-mobile-app"
+                : `${domain}whatuni.com/whatuni-mobile-app`
             }
             onClick={async () => {
               GADataLayerFn(

@@ -170,7 +170,7 @@ const SearchBox = ({ pgs_search_data }: any) => {
                   >
                     Universities
                   </li>
-                  <li
+                  {/* <li
                     className={`rounded-[20px] px-[12px] py-[8px] small font-semibold inline-block border border-neutral-900 hover:bg-neutral-900 hover:text-white cursor-pointer ${
                       searchFormHandle?.activeTab === "tab3"
                         ? "bg-neutral-900 text-white"
@@ -179,7 +179,7 @@ const SearchBox = ({ pgs_search_data }: any) => {
                     onClick={() => searchTabClick("tab3")}
                   >
                     Advice
-                  </li>
+                  </li> */}
                 </ul>
 
                 {searchFormHandle?.activeTab == "tab1" && (

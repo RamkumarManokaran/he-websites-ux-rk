@@ -97,7 +97,7 @@ export default function Search({ course_data, uni_data }: any) {
               >
                 Universities
               </li>
-              <li
+              {/* <li
                 className={`rounded-[20px] px-[12px] py-[8px] small font-semibold inline-block hover:bg-black hover:text-white border border-grey-500 ${
                   searchFormHandle.activeTab === "tab3"
                     ? "bg-black text-white"
@@ -106,7 +106,7 @@ export default function Search({ course_data, uni_data }: any) {
                 onClick={() => searchTabClick("tab3")}
               >
                 Advice
-              </li>
+              </li> */}
             </ul>
             <div className="w-full lg:max-w-[800px]">
               {searchFormHandle?.activeTab === "tab1" && (
