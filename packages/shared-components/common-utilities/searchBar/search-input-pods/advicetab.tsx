@@ -8,10 +8,12 @@ import Form from "next/form";
 interface AdviceTabProps {
   searchFormHandle: any;
   setsearchFormHandle: any;
+  placeholder: any;
 }
 const AdviceTab: React.FC<AdviceTabProps> = ({
   searchFormHandle,
   setsearchFormHandle,
+  placeholder,
 }) => {
   const [adviceerror, setAdviceerror] = useState(false);
   const router = useRouter();
@@ -81,7 +83,7 @@ const AdviceTab: React.FC<AdviceTabProps> = ({
               type="text"
               className="w-full focus:outline-none pt-0 pb-[16px] text-black placeholder:text-gray-500 border-b border-grey-200 md:py-[10px] md:border-none"
               aria-label=""
-              placeholder="Enter keyword"
+              placeholder={placeholder || "Enter keyword"}
               value={searchFormHandle?.advice}
             />
           </div>
