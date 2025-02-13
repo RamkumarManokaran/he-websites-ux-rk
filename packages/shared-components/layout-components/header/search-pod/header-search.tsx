@@ -13,7 +13,12 @@ interface props {
   course_data: CourseData;
   uni_data: UniData;
 }
-export default function Search({ course_data, uni_data }: any) {
+export default function Search({
+  course_data,
+  uni_data,
+  universalSearchPanel,
+}: any) {
+  console.log(universalSearchPanel);
   const searchTabClick = (tabName: string) => {
     setsearchFormHandle((preData) => ({ ...preData, activeTab: tabName }));
   };
@@ -77,7 +82,7 @@ export default function Search({ course_data, uni_data }: any) {
           </div>
           <div className="flex flex-col items-center justify-center gap-y-[16px] mt-[16px] md:mt-[-16px]">
             <ul className="flex items-center gap-[4px] cursor-pointer">
-              <li
+              {/* <li
                 className={`rounded-[20px] px-[12px] py-[8px] small font-semibold inline-block hover:bg-black hover:text-white border border-grey-500 ${
                   searchFormHandle.activeTab === "tab1"
                     ? "bg-black text-white"
@@ -97,7 +102,7 @@ export default function Search({ course_data, uni_data }: any) {
               >
                 Universities
               </li>
-              {/* <li
+              <li
                 className={`rounded-[20px] px-[12px] py-[8px] small font-semibold inline-block hover:bg-black hover:text-white border border-grey-500 ${
                   searchFormHandle.activeTab === "tab3"
                     ? "bg-black text-white"
@@ -106,12 +111,26 @@ export default function Search({ course_data, uni_data }: any) {
                 onClick={() => searchTabClick("tab3")}
               >
                 Advice
-              </li> */}
+              </li>  */}
+              {universalSearchPanel?.map((items: any, index: number) => (
+                <li
+                  key={index + 1}
+                  className={`rounded-[20px] px-[12px] py-[8px] small font-semibold inline-block hover:bg-black hover:text-white border border-grey-500 ${
+                    searchFormHandle.activeTab === `tab${index + 1}`
+                      ? "bg-black text-white"
+                      : "bg-white text-black"
+                  }`}
+                  onClick={() => searchTabClick(`tab${index + 1}`)}
+                >
+                  {items?.navTitle}
+                </li>
+              ))}
             </ul>
             <div className="w-full lg:max-w-[800px]">
               {searchFormHandle?.activeTab === "tab1" && (
                 <div className="flex flex-col gap-[24px] min-h-[60px]">
                   <CourseTab
+                    placeholder={universalSearchPanel[0]?.navCtAlabel}
                     data={course_data}
                     searchFormHandle={searchFormHandle}
                     setsearchFormHandle={setsearchFormHandle}
@@ -176,6 +195,7 @@ export default function Search({ course_data, uni_data }: any) {
               {searchFormHandle?.activeTab === "tab2" && (
                 <div className="flex flex-col gap-[24px] min-h-[60px]">
                   <UniversityTab
+                    placeholder={universalSearchPanel[1]?.navCtAlabel}
                     searchFormHandle={searchFormHandle}
                     setsearchFormHandle={setsearchFormHandle}
                     data={uni_data}
@@ -199,6 +219,7 @@ export default function Search({ course_data, uni_data }: any) {
               {searchFormHandle?.activeTab === "tab3" && (
                 <div className="flex flex-col gap-[24px] min-h-[60px]">
                   <AdviceTab
+                    placeholder={universalSearchPanel[2]?.navCtAlabel}
                     searchFormHandle={searchFormHandle}
                     setsearchFormHandle={setsearchFormHandle}
                   />

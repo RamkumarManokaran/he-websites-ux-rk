@@ -7,6 +7,9 @@ import { SliderBannerCollection } from "@packages/lib/types/interfaces";
 import HeroSliderComponentSkeleton from "@packages/shared-components/skeleton/heroslidercomponentskeleton";
 import makeApiCall from "@packages/REST-API/rest-api";
 import getApiUrl from "@packages/REST-API/api-urls";
+import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
+import { searchPanelQuery } from "@packages/lib/graphQL/graphql-query";
+
 interface PropjectProps {
   data: SliderBannerCollection;
   pageName?: any;
@@ -16,6 +19,10 @@ const HeroSliderComponent: React.FC<PropjectProps> = async ({
   data,
   pageName,
 }) => {
+  const universalSearchPanel = (
+    await graphQlFetchFunction(searchPanelQuery, false)
+  )?.data?.contentData?.items[0]?.universalSearchPanel
+    ?.navigationElementsCollection?.items;
   const body = {
     affiliateId: 220703,
     actionType: "subject",
@@ -77,6 +84,7 @@ const HeroSliderComponent: React.FC<PropjectProps> = async ({
             // course_data={course_data}
             // uni_data={uni_data}
             pgs_search_data={pgs_search_data}
+            universalSearchPanel={universalSearchPanel}
           />
         </Suspense>
       </section>

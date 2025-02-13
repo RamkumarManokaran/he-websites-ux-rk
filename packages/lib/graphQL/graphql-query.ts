@@ -519,3 +519,36 @@ export const testimonial = `
   }
 }
   `;
+
+export const searchPanelQuery = `{
+  contentData: headerCollection(
+    limit: 1
+    where: {internalName: "${process.env.PROJECT} Header", website: {websiteName: "${process.env.PROJECT}"}}
+  ) {
+    items {
+
+ 
+      universalSearchPanel {
+        internalName
+        navigationElementsCollection(limit: 5) {
+          items {
+            ... on Navigation {
+              navName
+              navTitle
+              navUrl
+              navCtAlabel
+              navIcon {
+                url
+                width
+                height
+              }
+              navCtaTarget
+              flagNavItemStyle
+            }
+          }
+        }
+      }
+
+    }
+  }
+}`;

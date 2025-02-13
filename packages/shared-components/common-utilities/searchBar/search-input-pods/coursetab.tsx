@@ -17,12 +17,14 @@ interface CourseTabProps {
   searchFormHandle: any;
   setsearchFormHandle: any;
   data: any;
+  placeholder: any;
 }
 
 const CourseTab: React.FC<CourseTabProps> = ({
   searchFormHandle,
   setsearchFormHandle,
   data,
+  placeholder,
 }) => {
   let ucasval: any = 0;
   let min: any = 0;
@@ -587,7 +589,7 @@ const CourseTab: React.FC<CourseTabProps> = ({
               type="text"
               className="w-full focus:outline-none text-black placeholder:text-gray-500 px-[0] py-[24px] md:px-[16px] md:py-[10px]"
               aria-label="submenu"
-              placeholder="Enter subject"
+              placeholder={placeholder || "Enter Subject"}
               onChange={(event) => {
                 const trimmedValue = event.target.value.replace(/\s{2,}/g, " ");
                 setsearchFormHandle((prevData: any) => ({
