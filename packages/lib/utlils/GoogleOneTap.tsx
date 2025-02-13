@@ -5,7 +5,7 @@ import { signInWithRedirect } from "aws-amplify/auth";
 import { v4 as uuidv4 } from "uuid";
 import { signOut } from "aws-amplify/auth";
 import { useRouter } from "next/navigation";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 const GoogleOneTap = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -108,11 +108,10 @@ const GoogleOneTap = () => {
     async function watchForCognitoCookie() {
       setCookie("Signinonetap", "true", 7);
       // const lis = localStorage.getItem("COLCSubmitRes");
-        signInWithRedirect({
-          provider: "Google",
-          customState:pathname,
-        });
-    
+      signInWithRedirect({
+        provider: "Google",
+        customState: pathname,
+      });
     }
     const checkSession = async () => {
       try {
