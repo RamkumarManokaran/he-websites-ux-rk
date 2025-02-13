@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { graphQlFetchFunction } from "@packages/lib/server-actions/server-action";
 import { HeroLandingSeoQuery } from "@packages/lib/graphQL/article-landing";
-import { headers } from "next/headers";
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const Params = await params;
-  const headerss = await headers();
-  console.log(headerss);
   const slugurl = `/${Params?.hero}/`;
   try {
     const query = HeroLandingSeoQuery(slugurl);

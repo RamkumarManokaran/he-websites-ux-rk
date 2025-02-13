@@ -1,11 +1,29 @@
-import React from 'react'
-
-const Subscribebtn = () => {
+import React from "react";
+import { ContentfulInspectorManager } from "@packages/lib/contentful-preview/ContentfulInspector";
+const Subscribebtn = ({ btnAction, btnName, sysId, isContentPreview }: any) => {
   return (
-<>
-    <button type='button' className='btn btn-primary flex items-center justify-center w-full min-w-[180px]  md:w-fit gap-[8px] p-[10px_20px] hover:bg-primary-500 disabled:bg-grey-400 disabled:cursor-not-allowed '>Subscribe</button>
+    <>
+      {isContentPreview && (
+        <ContentfulInspectorManager
+          fields={[
+            {
+              entryId: sysId,
+              fieldId: "ctaLabel",
+              targetSelector: "#newsletter_btn",
+            },
+          ]}
+        />
+      )}
+      <button
+        type="button"
+        className="btn btn-primary flex items-center justify-center w-full min-w-[180px]  md:w-fit gap-[8px] p-[10px_20px] group-hover:bg-primary-500"
+        id="newsletter_btn"
+        onClick={btnAction}
+      >
+        {btnName}
+      </button>
     </>
-  )
-}
+  );
+};
 
-export default Subscribebtn
+export default Subscribebtn;

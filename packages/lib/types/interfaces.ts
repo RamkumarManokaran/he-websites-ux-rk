@@ -645,24 +645,3 @@ export interface NavIcon4 {
   width: number;
   height: number;
 }
-
-
-export interface URLSearchParams {
-  subject?:any;
-  course?:any;
-  studyLevel?:any;
-  qualification?:any;
-  region?:any;
-  city?:any;
-  studyMethod?:any;
-  'study-mode'?:any;
-  study_mode?:any;
-  intakeYear?:any;
-  university?:any;
-  intakeMonth?:any;
-  distance?:any;
-  universityGroup?:any;
-  grades?:any;
-  locationType?:any;
-  pageno?:any;
-}

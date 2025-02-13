@@ -39,7 +39,6 @@ const config: Config = {
     "bg-orange-50",
     "bg-orange-100",
     "bg-orange-200",
-    "bg-positive-light",
   ],
   theme: {
     maxWidth: {

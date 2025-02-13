@@ -1,9 +1,9 @@
 import React from 'react'
 
-const BookOpenDay = () => {
+const bookopenday = () => {
   return (
-    <button type='button' className='btn btn-green w-full'>Book open day</button>
+    <div>bookopenday</div>
   )
 }
 
-export default BookOpenDay
+export default bookopenday
