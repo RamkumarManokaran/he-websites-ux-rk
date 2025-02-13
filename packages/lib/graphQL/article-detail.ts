@@ -230,11 +230,7 @@ export function articleDetailQuery(
               }
             }
           }
-          ... on PageDataTableStatic {
-            lTname
-            lTtitle
-            apiUrl
-          }
+          
         }
       }
     }
