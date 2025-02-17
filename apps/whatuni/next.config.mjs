@@ -20,6 +20,16 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/money/ug-student-cost-of-living-calculator',
+        destination: '/money/ug-student-budget-calculator/',
+        permanent: true, // Use true for 301 permanent redirect, false for 302 temporary redirect
+      }
+    ];
+  },
+ 
   //trailingSlash: true,
   // async redirects() {
   //   return [

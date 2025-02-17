@@ -40,7 +40,7 @@ async function log(data: ClickstreamInterface) {
     userId: userId,
     siteName: "Whatuni",
     refererURL: document?.referrer,
-    requestURL: window.location.href,
+    requestURL: encodeURIComponent(window.location.href),
     siteLanguage: "English",
     isMobileUser: `${window.innerWidth < 1024 ? "Y" : "N"}`,
     screenResolution:
