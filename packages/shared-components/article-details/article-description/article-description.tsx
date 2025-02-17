@@ -166,7 +166,9 @@ const Articledescription = ({ propsdata, preview ,url}: any) => {
                 </span>
                 <div className="flex flex-wrap gap-[6px] justify-center">
                   <a
-                    href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
                     onClick={() => handleShareLinkClickGA("engaged", "facebook")}
                     className="md:min-w-[111.5px] min-w-[69px] flex flex-col gap-[9px] items-center text-blue-400 hover:text-grey300 hover:underline"
                   >
@@ -179,7 +181,9 @@ const Articledescription = ({ propsdata, preview ,url}: any) => {
                     <span className="small font-inter">Facebook</span>
                   </a>
                   <a
-                    href={`https://twitter.com/intent/tweet?url=${window.location.href}`}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}`}
                     onClick={() => handleShareLinkClickGA("engaged", "twitter")}
                     className="md:min-w-[111.5px] min-w-[69px] flex flex-col gap-[9px] items-center text-blue-400 hover:text-grey300 hover:underline"
                   >
@@ -192,7 +196,9 @@ const Articledescription = ({ propsdata, preview ,url}: any) => {
                     <span className="small font-inter">Twitter</span>
                   </a>
                   <a
-                    href={`https://www.pinterest.com/pin/create/button/?url=${window.location.href}&media=${data?.bannerImageCollection?.items[0]?.imgUpload?.url}&description=${data?.pageTitle}`}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                    href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(window.location.href)}&media=${data?.bannerImageCollection?.items[0]?.imgUpload?.url}&description=${data?.pageTitle}`}
                     onClick={() => handleShareLinkClickGA("engaged", "pinterest")}
                     className="md:min-w-[111.5px] min-w-[69px] flex flex-col gap-[9px] items-center text-blue-400 hover:text-grey300 hover:underline"
                   >
