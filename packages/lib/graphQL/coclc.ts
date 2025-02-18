@@ -10,7 +10,7 @@ export const ColcSeo = `{
           canonical
           metaDescription
         }
-        metaTagRobots {
+        robots {
           title
         }
       }
