@@ -17,7 +17,8 @@ export async function generateMetadata(): Promise<Metadata> {
         metadata?.data?.contentData?.items[0]?.seoFields?.metaDescription ||
         "Default Description",
       robots:
-        metadata?.data?.contentData?.items[0]?.robots?.title || "index, follow",
+        metadata?.data?.contentData?.items[0]?.metaTagRobots?.title ||
+        "index, follow",
       keywords:
         metadata?.data?.contentData?.items[0]?.seoFields?.metaKeywords || [],
       other: {
