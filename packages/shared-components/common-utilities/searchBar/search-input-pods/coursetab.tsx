@@ -41,7 +41,7 @@ const CourseTab: React.FC<CourseTabProps> = ({
   const [subjecterror, setSubjecterror] = useState(false);
   const [dropdown, setDropdown] = useState<boolean>(false);
 
-  console.log("test")
+
   useEffect(() => {
     setSubjectlist(data?.courseDetails);
     setLocationlist(data?.locationList);
