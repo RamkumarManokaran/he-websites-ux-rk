@@ -155,7 +155,7 @@ export default function PgsSearch({ pgs_search_data }: any) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  const keywordSearch = async () => {
+  const keywordSearch: any = async () => {
     const sanitizedDescription = searchValue?.description
     ?.trim() // Remove spaces from the front and back
     ?.replace(/[^a-zA-Z0-9\s]+/g, "-") // Replace one or more special characters with a hyphen
