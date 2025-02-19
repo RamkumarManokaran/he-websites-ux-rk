@@ -196,7 +196,7 @@ export default function PgsSearch({ pgs_search_data }: any) {
           "NA",
           "NA"
         );
-        return router.push(`${qualification.qualUrl}`);
+        return window.location.href=(`${process.env.NEXT_PUBLIC_ENVIRONMENT === "prd" ? "https://www.postgraduatesearch.com" :""}${qualification.qualUrl}`);
       }
       if (searchValue?.description?.trim() && !qualification?.qualDesc) {
         GADataLayerFn(
@@ -228,7 +228,7 @@ export default function PgsSearch({ pgs_search_data }: any) {
           "NA",
           "NA"
         );
-        return router.push(`/pgs/search?keyword=${sanitizedDescription}`);
+        return  window.location.href=(`${process.env.NEXT_PUBLIC_ENVIRONMENT === "prd" ? "https://www.postgraduatesearch.com" :""}/pgs/search?keyword=${sanitizedDescription}`);
       }
       if (searchValue?.description?.trim() && qualification?.qualDesc) {
         GADataLayerFn(
@@ -260,8 +260,8 @@ export default function PgsSearch({ pgs_search_data }: any) {
           "NA",
           "NA"
         );
-        return router.push(
-          `/pgs/search?keyword=${sanitizedDescription}&qualification=${qualification.qualUrl}`
+        return  window.location.href=(
+          `${process.env.NEXT_PUBLIC_ENVIRONMENT === "prd" ? "https://www.postgraduatesearch.com" :""}/pgs/search?keyword=${sanitizedDescription}&qualification=${qualification.qualUrl}`
         );
       }
     }
@@ -269,9 +269,9 @@ export default function PgsSearch({ pgs_search_data }: any) {
 
   const courseLink = (e: any) => {
     if (qualification?.qualCode) {
-      return router.push(`${e?.url}&qualification=${qualification?.qualUrl}`);
+      return  window.location.href=(`${process.env.NEXT_PUBLIC_ENVIRONMENT === "prd" ? "https://www.postgraduatesearch.com" :""}${e?.url}&qualification=${qualification?.qualUrl}`);
     } else {
-      return router.push(`${e?.url}`);
+      return  window.location.href=(`${process.env.NEXT_PUBLIC_ENVIRONMENT === "prd" ? "https://www.postgraduatesearch.com" :""}${e?.url}`);
     }
   };
 
