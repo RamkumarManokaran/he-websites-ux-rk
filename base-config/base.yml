@@ -1,0 +1,91 @@
+variables:
+  AWS_ACCESS_KEY_ID: ${NEXT_ACCESS_KEY_ID}
+  AWS_SECRET_ACCESS_KEY: ${NEXT_SECRET_ACCESS_KEY}
+  AWS_DEFAULT_REGION: ${NEXT_DEFAULT_REGION}
+
+########################
+
+default:
+  image: registry.gitlab.com/idp-education/shared/artifacts/devsecops/docker-images/dockerhub-images/node:22.3.0
+  tags:
+    - idpc-dev-ap-southeast-1
+    # - gitlab-org
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+      - .next/cache/
+
+########################
+
+.build_job:
+  stage: build
+  before_script:
+    - apt-get update
+    - apt install zip
+    - printenv
+    - echo "$ENV_FILE_VARIABLE" > .env
+  script:
+    # - ls
+
+    # - cd cdk
+    - echo $PWD
+    - cd apps/${PROJECT_NAME}/cdk
+    - echo $PWD
+    - cd ../../..
+    - echo $PWD
+    - npm install --force
+    # - cd ..
+    #- npm install --force
+    - npm run open-next:${PROJECT_NAME}
+  artifacts:
+    paths:
+      - ./
+
+.deploy_job:
+  stage: deploy
+  when: manual
+  before_script:
+    - apt-get update
+    - apt install zip
+    - printenv
+    - echo "$ENV_FILE_VARIABLE" > .env
+
+  script:
+    # - cd cdk
+    - echo $PWD
+    - cd apps/${PROJECT_NAME}/cdk
+    - echo $PWD
+    - npm install --force
+    - echo $PWD
+    - npm run cdk synth --build
+    - npm run cdk diff
+    - npm run cdk deploy -- --all --require-approval never --ci
+
+    # - cd ..
+  # artifacts:
+  #   paths:
+  #     - ./
+  #   when: always
+
+.cf_invalidate_job:
+  stage: invalidate
+  when: manual
+  image: registry.gitlab.com/idp-education/shared/artifacts/devsecops/docker-images/dockerhub-images/aws-cloudfront:invalidate
+  before_script:
+    - echo -e "\e[43m Setting up the AWS environment. \e[0m"
+    - aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
+    - aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
+    - aws configure set default.region ${AWS_DEFAULT_REGION}
+  script:
+    - echo -e "\e[42m Invalidating the website domain. \e[0m"
+    - aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_ID} --paths "/*"
+    - DEPLOY_EXIT_CODE=$?
+    - |
+      if [ $DEPLOY_EXIT_CODE -eq 0 ]; then
+        echo -e "\e[42m Successfully Invalidated CloudFront Cache in $GITLAB_ENV Environment \e[0m"
+      else
+        echo -e "\e[41m Failed to Invalidate CloudFront Cache in $GITLAB_ENV Environment. \e[0m"
+        echo -e "\e[41m Exit Code \e[31m\e[47m\e[1m $DEPLOY_EXIT_CODE \e[0m"
+        exit $DEPLOY_EXIT_CODE
+      fi

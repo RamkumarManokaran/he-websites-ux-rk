@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "types": ["jest", "node"],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+
+    "paths": {
+      "@packages/*": ["./packages/*"],
+      "@psg/*": ["./apps/psg/*"],
+      "@whatuni/*": ["./apps/whatuni/*"],
+      "@public_whatuni": ["./apps/whatuni/public/*"],
+      "@public_pgs": ["./apps/pgs/public/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "packages/__test__/common-utilities/footer/footer.test.tsx",
+    "packages/__test__/hero.test.jsx",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "packages/__test__/footer.test.jsx",
+    "packages/__test__/hero.test.jsx",
+    "src/**/*",
+    "packages/**/*",
+    "apps/whatuni/src/app/new/mf/page.jsx",
+    "apps/whatuni/src/app/new/micro-frontend/micro-frontend.jsx",
+    "apps/whatuni/src/app/new/cost-of-living-calculator/micro-frontend.jsx"
+  ],
+  "exclude": ["node_modules"]
+}

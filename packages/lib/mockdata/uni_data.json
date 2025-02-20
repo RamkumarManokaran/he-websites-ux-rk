@@ -1,0 +1,2288 @@
+[
+    {
+      "collegeId": 368432,
+      "collegeNameDisplay": "123test",
+      "collegeNameAlias": "123test",
+      "collegeName": "123TEST"
+    },
+    {
+      "collegeId": 337954,
+      "collegeNameDisplay": "A3 TEST",
+      "collegeNameAlias": "A3 TEST",
+      "collegeName": "A3 TEST"
+    },
+    {
+      "collegeId": 307942,
+      "collegeNameDisplay": "Acacia Learning",
+      "collegeNameAlias": "Acacia Learning",
+      "collegeName": "ACACIA LEARNING"
+    },
+    {
+      "collegeId": 131385,
+      "collegeNameDisplay": "Academy of Live and Recorded Arts",
+      "collegeNameAlias": "Academy of Live and Recorded Arts",
+      "collegeName": "ACADEMY OF LIVE AND RECORDED ARTS"
+    },
+    {
+      "collegeId": 143355,
+      "collegeNameDisplay": "AccentSoftening",
+      "collegeNameAlias": "AccentSoftening",
+      "collegeName": "ACCENT SOFTENING LIMITED"
+    },
+    {
+      "collegeId": 470804,
+      "collegeNameDisplay": "ACM (The Academy of Contemporary Music)",
+      "collegeNameAlias": "ACM (The Academy of Contemporary Music)",
+      "collegeName": "MY UNIVERSITY_THARANI"
+    },
+    {
+      "collegeId": 12345,
+      "collegeNameDisplay": "Activate Learning",
+      "collegeNameAlias": "Activate Learning",
+      "collegeName": "ACTIVATE LEARNING"
+    },
+    {
+      "collegeId": 135071,
+      "collegeNameDisplay": "AECC University College",
+      "collegeNameAlias": "AECC University College",
+      "collegeName": "AECC UNIVERSITY COLLEGE"
+    },
+    {
+      "collegeId": 435212,
+      "collegeNameDisplay": "Al-Maktoum College of Higher Education",
+      "collegeNameAlias": "Al-Maktoum College of Higher Education",
+      "collegeName": "AL-MAKTOUM COLLEGE OF HIGHER EDUCATION"
+    },
+    {
+      "collegeId": 466338,
+      "collegeNameDisplay": "Alpha Test Provider",
+      "collegeNameAlias": "Alpha Test Provider",
+      "collegeName": "ALPHA TEST PROVIDER"
+    },
+    {
+      "collegeId": 470386,
+      "collegeNameDisplay": "AP3 institute",
+      "collegeNameAlias": "AP3 institute",
+      "collegeName": "AP3 INSTITUTE"
+    },
+    {
+      "collegeId": 469910,
+      "collegeNameDisplay": "AP institute",
+      "collegeNameAlias": "AP institute",
+      "collegeName": "AP INSTITUTE"
+    },
+    {
+      "collegeId": 70179,
+      "collegeNameDisplay": "Arts University Plymouth",
+      "collegeNameAlias": "Arts University Plymouth",
+      "collegeName": "PLYMOUTH COLLEGE OF ART"
+    },
+    {
+      "collegeId": 472584,
+      "collegeNameDisplay": "ARU COLLEGE - CAMBRIDGE CAMPUS",
+      "collegeNameAlias": "ARU COLLEGE - CAMBRIDGE CAMPUS",
+      "collegeName": "ARU COLLEGE - CAMBRIDGE CAMPUS"
+    },
+    {
+      "collegeId": 32263,
+      "collegeNameDisplay": "ARU London",
+      "collegeNameAlias": "ARU London",
+      "collegeName": "LCA BUSINESS SCHOOL, LONDON"
+    },
+    {
+      "collegeId": 472746,
+      "collegeNameDisplay": "Arunn Test provider",
+      "collegeNameAlias": "Arunn Test provider",
+      "collegeName": "SAI EU UK"
+    },
+    {
+      "collegeId": 70186,
+      "collegeNameDisplay": "ARU Writtle (formerly Writtle University College)",
+      "collegeNameAlias": "ARU Writtle (formerly Writtle University College)",
+      "collegeName": "WRITTLE UNIVERSITY COLLEGE"
+    },
+    {
+      "collegeId": 130750,
+      "collegeNameDisplay": "AVADO",
+      "collegeNameAlias": "AVADO",
+      "collegeName": "HOME LEARNING COLLEGE"
+    },
+    {
+      "collegeId": 475424,
+      "collegeNameDisplay": "AWS Karthick University",
+      "collegeNameAlias": "AWS Karthick University",
+      "collegeName": "AWS KARTHICK UNIVERSITY"
+    },
+    {
+      "collegeId": 475504,
+      "collegeNameDisplay": "AWS TEST CUG provider",
+      "collegeNameAlias": "AWS TEST CUG provider",
+      "collegeName": "AWS TEST CUG PROVIDER"
+    },
+    {
+      "collegeId": 475788,
+      "collegeNameDisplay": "AWS test rehosting_UK",
+      "collegeNameAlias": "AWS test rehosting_UK",
+      "collegeName": "AWS TEST REHOSTING_UK"
+    },
+    {
+      "collegeId": 473104,
+      "collegeNameDisplay": "balaji 20 UK University",
+      "collegeNameAlias": "balaji 20 UK University",
+      "collegeName": "BALAJI 20 UK UNIVERSITY"
+    },
+    {
+      "collegeId": 473012,
+      "collegeNameDisplay": "balaji uk university",
+      "collegeNameAlias": "balaji uk university",
+      "collegeName": "BALAJI UK UNIVERSITY"
+    },
+    {
+      "collegeId": 11590,
+      "collegeNameDisplay": "Barnet and Southgate College",
+      "collegeNameAlias": "Barnet and Southgate College",
+      "collegeName": "BARNET COLLEGE"
+    },
+    {
+      "collegeId": 7065,
+      "collegeNameDisplay": "Barnfield College, Luton",
+      "collegeNameAlias": "Barnfield College, Luton",
+      "collegeName": "BARNFIELD COLLEGE, LUTON"
+    },
+    {
+      "collegeId": 432136,
+      "collegeNameDisplay": "Basingstoke College of Technology",
+      "collegeNameAlias": "Basingstoke College of Technology",
+      "collegeName": "BASINGSTOKE COLLEGE OF TECHNOLOGY (ONLINE & ON CAMPUS)"
+    },
+    {
+      "collegeId": 472384,
+      "collegeNameDisplay": "BC_testing_PR1",
+      "collegeNameAlias": "BC_testing_PR1",
+      "collegeName": "BC_TESTING_PR1"
+    },
+    {
+      "collegeId": 71920,
+      "collegeNameDisplay": "Belfast Metropolitan College",
+      "collegeNameAlias": "Belfast Metropolitan College",
+      "collegeName": "BELFAST METROPOLITAN COLLEGE"
+    },
+    {
+      "collegeId": 131588,
+      "collegeNameDisplay": "BIMM University",
+      "collegeNameAlias": "BIMM University",
+      "collegeName": "BRITISH AND IRISH MODERN MUSIC INSTITUTE"
+    },
+    {
+      "collegeId": 8587,
+      "collegeNameDisplay": "Birmingham Newman University",
+      "collegeNameAlias": "Birmingham Newman University",
+      "collegeName": "NEWMAN UNIVERSITY"
+    },
+    {
+      "collegeId": 5732,
+      "collegeNameDisplay": "Bishop Grosseteste University",
+      "collegeNameAlias": "Bishop Grosseteste University",
+      "collegeName": "BISHOP GROSSETESTE UNIVERSITY"
+    },
+    {
+      "collegeId": 6177,
+      "collegeNameDisplay": "Blackburn College",
+      "collegeNameAlias": "Blackburn College",
+      "collegeName": "BLACKBURN COLLEGE"
+    },
+    {
+      "collegeId": 6792,
+      "collegeNameDisplay": "Blackpool and the Fylde College",
+      "collegeNameAlias": "Blackpool and the Fylde College",
+      "collegeName": "BLACKPOOL AND THE FYLDE COLLEGE"
+    },
+    {
+      "collegeId": 31951,
+      "collegeNameDisplay": "Bloomsbury Institute London",
+      "collegeNameAlias": "Bloomsbury Institute London",
+      "collegeName": "LONDON SCHOOL OF BUSINESS AND MANAGEMENT"
+    },
+    {
+      "collegeId": 6996,
+      "collegeNameDisplay": "BMet (Birmingham Metropolitan College)",
+      "collegeNameAlias": "BMet (Birmingham Metropolitan College)",
+      "collegeName": "BIRMINGHAM METROPOLITAN COLLEGE"
+    },
+    {
+      "collegeId": 427822,
+      "collegeNameDisplay": "BOCK Consultancy",
+      "collegeNameAlias": "BOCK Consultancy",
+      "collegeName": "BOCK CONSULTANCY"
+    },
+    {
+      "collegeId": 6898,
+      "collegeNameDisplay": "Bournemouth and Poole College",
+      "collegeNameAlias": "Bournemouth and Poole College",
+      "collegeName": "BOURNEMOUTH AND POOLE COLLEGE OF FURTHER EDUCATION"
+    },
+    {
+      "collegeId": 5664,
+      "collegeNameDisplay": "Bradford College",
+      "collegeNameAlias": "Bradford College",
+      "collegeName": "BRADFORD COLLEGE"
+    },
+    {
+      "collegeId": 129233,
+      "collegeNameDisplay": "Bridgend College",
+      "collegeNameAlias": "Bridgend College",
+      "collegeName": "BRIDGEND COLLEGE"
+    },
+    {
+      "collegeId": 11571,
+      "collegeNameDisplay": "Brighton and Sussex Medical School",
+      "collegeNameAlias": "Brighton and Sussex Medical School",
+      "collegeName": "BRIGHTON AND SUSSEX MEDICAL SCHOOL"
+    },
+    {
+      "collegeId": 138246,
+      "collegeNameDisplay": "Brit College",
+      "collegeNameAlias": "Brit College",
+      "collegeName": "BRIT COLLEGE"
+    },
+    {
+      "collegeId": 119311,
+      "collegeNameDisplay": "British College of Osteopathic Medicine",
+      "collegeNameAlias": "British College of Osteopathic Medicine",
+      "collegeName": "BRITISH COLLEGE OF OSTEOPATHIC MEDICINE"
+    },
+    {
+      "collegeId": 7364,
+      "collegeNameDisplay": "Burnley College",
+      "collegeNameAlias": "Burnley College",
+      "collegeName": "BURNLEY COLLEGE"
+    },
+    {
+      "collegeId": 75585,
+      "collegeNameDisplay": "Bury College",
+      "collegeNameAlias": "Bury College",
+      "collegeName": "BURY COLLEGE"
+    },
+    {
+      "collegeId": 467264,
+      "collegeNameDisplay": "Business Administration-Ramya",
+      "collegeNameAlias": "Business Administration-Ramya",
+      "collegeName": "BUSINESS ADMINISTRATION-RAMYA"
+    },
+    {
+      "collegeId": 7609,
+      "collegeNameDisplay": "Cambridge Regional College",
+      "collegeNameAlias": "Cambridge Regional College",
+      "collegeName": "CAMBRIDGE REGIONAL COLLEGE"
+    },
+    {
+      "collegeId": 5651,
+      "collegeNameDisplay": "Capital City College Group",
+      "collegeNameAlias": "Capital City College Group",
+      "collegeName": "CAPITAL CITY COLLEGE GROUP"
+    },
+    {
+      "collegeId": 135729,
+      "collegeNameDisplay": "Central Film School London",
+      "collegeNameAlias": "Central Film School London",
+      "collegeName": "CENTRAL FILM SCHOOL LONDON LTD"
+    },
+    {
+      "collegeId": 4048,
+      "collegeNameDisplay": "Chesterfield College",
+      "collegeNameAlias": "Chesterfield College",
+      "collegeName": "CHESTERFIELD COLLEGE"
+    },
+    {
+      "collegeId": 5488,
+      "collegeNameDisplay": "Chichester College Group (inc Brinsbury, Chichester, Crawley, Northbrook & Worthing Colleges)",
+      "collegeNameAlias": "Chichester College Group (inc Brinsbury, Chichester, Crawley, Northbrook & Worthing Colleges)",
+      "collegeName": "CHICHESTER COLLEGE GROUP"
+    },
+    {
+      "collegeId": 12791,
+      "collegeNameDisplay": "City College Plymouth",
+      "collegeNameAlias": "City College Plymouth",
+      "collegeName": "CITY COLLEGE PLYMOUTH"
+    },
+    {
+      "collegeId": 8049,
+      "collegeNameDisplay": "City of Bristol College",
+      "collegeNameAlias": "City of Bristol College",
+      "collegeName": "CITY OF BRISTOL COLLEGE"
+    },
+    {
+      "collegeId": 5881,
+      "collegeNameDisplay": "City of Liverpool College University Centre",
+      "collegeNameAlias": "City of Liverpool College University Centre",
+      "collegeName": "LIVERPOOL COMMUNITY COLLEGE"
+    },
+    {
+      "collegeId": 5845,
+      "collegeNameDisplay": "City of Sunderland College",
+      "collegeNameAlias": "City of Sunderland College",
+      "collegeName": "CITY OF SUNDERLAND COLLEGE"
+    },
+    {
+      "collegeId": 130360,
+      "collegeNameDisplay": "Cliff College",
+      "collegeNameAlias": "Cliff College",
+      "collegeName": "CLIFF COLLEGE"
+    },
+    {
+      "collegeId": 132665,
+      "collegeNameDisplay": "Coleg Cambria",
+      "collegeNameAlias": "Coleg Cambria",
+      "collegeName": "DEESIDE COLLEGE"
+    },
+    {
+      "collegeId": 126725,
+      "collegeNameDisplay": "Coleg Ceredigion",
+      "collegeNameAlias": "Coleg Ceredigion",
+      "collegeName": "COLEG CEREDIGION"
+    },
+    {
+      "collegeId": 127586,
+      "collegeNameDisplay": "Coleg Sir Gar",
+      "collegeNameAlias": "Coleg Sir Gar",
+      "collegeName": "COLEG SIR GAR"
+    },
+    {
+      "collegeId": 49010,
+      "collegeNameDisplay": "Coleg y Cymoedd",
+      "collegeNameAlias": "Coleg y Cymoedd",
+      "collegeName": "YSTRAD MYNACH COLLEGE"
+    },
+    {
+      "collegeId": 26612,
+      "collegeNameDisplay": "College of Agriculture, Food and Rural Enterprise",
+      "collegeNameAlias": "College of Agriculture, Food and Rural Enterprise",
+      "collegeName": "COLLEGE OF AGRICULTURE, FOOD AND RURAL ENTERPRISE"
+    },
+    {
+      "collegeId": 820,
+      "collegeNameDisplay": "College Of Central London",
+      "collegeNameAlias": "College Of Central London",
+      "collegeName": "COLLEGE OF CENTRAL LONDON"
+    },
+    {
+      "collegeId": 133269,
+      "collegeNameDisplay": "Community Music",
+      "collegeNameAlias": "Community Music",
+      "collegeName": "CM LTD"
+    },
+    {
+      "collegeId": 379374,
+      "collegeNameDisplay": "Condé Nast College of Fashion & Design",
+      "collegeNameAlias": "Condé Nast College of Fashion & Design",
+      "collegeName": "CONDE NAST COLLEGE OF FASHION & DESIGN"
+    },
+    {
+      "collegeId": 125595,
+      "collegeNameDisplay": "Conservatoire For Dance And Drama",
+      "collegeNameAlias": "Conservatoire For Dance And Drama",
+      "collegeName": "CONSERVATOIRE FOR DANCE AND DRAMA"
+    },
+    {
+      "collegeId": 13046,
+      "collegeNameDisplay": "Cornwall College",
+      "collegeNameAlias": "Cornwall College",
+      "collegeName": "CORNWALL COLLEGE"
+    },
+    {
+      "collegeId": 5608,
+      "collegeNameDisplay": "Courtauld Institute of Art, University of London",
+      "collegeNameAlias": "Courtauld Institute of Art, University of London",
+      "collegeName": "COURTAULD INSTITUTE OF ART, UNIVERSITY OF LONDON"
+    },
+    {
+      "collegeId": 322006,
+      "collegeNameDisplay": "Coventry University London",
+      "collegeNameAlias": "Coventry University London",
+      "collegeName": "COVENTRY UNIVERSITY LONDON CAMPUS"
+    },
+    {
+      "collegeId": 6515,
+      "collegeNameDisplay": "Craven College",
+      "collegeNameAlias": "Craven College",
+      "collegeName": "CRAVEN COLLEGE"
+    },
+    {
+      "collegeId": 832,
+      "collegeNameDisplay": "Croydon University Centre",
+      "collegeNameAlias": "Croydon University Centre",
+      "collegeName": "CROYDON UNIVERSITY CENTRE"
+    },
+    {
+      "collegeId": 321444,
+      "collegeNameDisplay": "CU Coventry",
+      "collegeNameAlias": "CU Coventry",
+      "collegeName": "CU COVENTRY"
+    },
+    {
+      "collegeId": 835,
+      "collegeNameDisplay": "David Game College- Higher Education Centre",
+      "collegeNameAlias": "David Game College- Higher Education Centre",
+      "collegeName": "DAVID GAME COLLEGE- HIGHER EDUCATION CENTRE"
+    },
+    {
+      "collegeId": 123105,
+      "collegeNameDisplay": "dBs Music",
+      "collegeNameAlias": "dBs Music",
+      "collegeName": "DEEP BLUE SOUND"
+    },
+    {
+      "collegeId": 476344,
+      "collegeNameDisplay": "Deepak_Test_UK",
+      "collegeNameAlias": "Deepak_Test_UK",
+      "collegeName": "DEEPAK_TEST_UK"
+    },
+    {
+      "collegeId": 434932,
+      "collegeNameDisplay": "De Montfort University International College",
+      "collegeNameAlias": "De Montfort University International College",
+      "collegeName": "DE MONTFORT UNIVERSITY INTERNATIONAL COLLEGE"
+    },
+    {
+      "collegeId": 71177,
+      "collegeNameDisplay": "Derby College",
+      "collegeNameAlias": "Derby College",
+      "collegeName": "DERBY COLLEGE"
+    },
+    {
+      "collegeId": 6895,
+      "collegeNameDisplay": "DN Colleges Group",
+      "collegeNameAlias": "DN Colleges Group",
+      "collegeName": "NORTH LINDSEY COLLEGE"
+    },
+    {
+      "collegeId": 130361,
+      "collegeNameDisplay": "Duchy College",
+      "collegeNameAlias": "Duchy College",
+      "collegeName": "DUCHY COLLEGE"
+    },
+    {
+      "collegeId": 6657,
+      "collegeNameDisplay": "Dudley College",
+      "collegeNameAlias": "Dudley College",
+      "collegeName": "DUDLEY COLLEGE"
+    },
+    {
+      "collegeId": 5857,
+      "collegeNameDisplay": "Eastleigh College",
+      "collegeNameAlias": "Eastleigh College",
+      "collegeName": "EASTLEIGH COLLEGE"
+    },
+    {
+      "collegeId": 118992,
+      "collegeNameDisplay": "East Riding College",
+      "collegeNameAlias": "East Riding College",
+      "collegeName": "EAST RIDING COLLEGE"
+    },
+    {
+      "collegeId": 7535,
+      "collegeNameDisplay": "East Sussex College",
+      "collegeNameAlias": "East Sussex College",
+      "collegeName": "EAST SUSSEX COLLEGE"
+    },
+    {
+      "collegeId": 144078,
+      "collegeNameDisplay": "Edinburgh College",
+      "collegeNameAlias": "Edinburgh College",
+      "collegeName": "EDINBURGH COLLEGE"
+    },
+    {
+      "collegeId": 473584,
+      "collegeNameDisplay": "EFL mahi",
+      "collegeNameAlias": "EFL mahi",
+      "collegeName": "EFL MAHI"
+    },
+    {
+      "collegeId": 7701,
+      "collegeNameDisplay": "EKC Group",
+      "collegeNameAlias": "EKC Group",
+      "collegeName": "CANTERBURY COLLEGE"
+    },
+    {
+      "collegeId": 120757,
+      "collegeNameDisplay": "Escape Studios",
+      "collegeNameAlias": "Escape Studios",
+      "collegeName": "ESCAPE STUDIOS"
+    },
+    {
+      "collegeId": 127979,
+      "collegeNameDisplay": "ESCP Business School",
+      "collegeNameAlias": "ESCP Business School",
+      "collegeName": "ESCP BUSINESS SCHOOL"
+    },
+    {
+      "collegeId": 6777,
+      "collegeNameDisplay": "Exeter College",
+      "collegeNameAlias": "Exeter College",
+      "collegeName": "EXETER COLLEGE"
+    },
+    {
+      "collegeId": 131740,
+      "collegeNameDisplay": "Fashion Retail Academy",
+      "collegeNameAlias": "Fashion Retail Academy",
+      "collegeName": "FASHION RETAIL ACADEMY (THE)"
+    },
+    {
+      "collegeId": 466780,
+      "collegeNameDisplay": "fazz",
+      "collegeNameAlias": "fazz",
+      "collegeName": "TEST JAN20 3"
+    },
+    {
+      "collegeId": 144068,
+      "collegeNameDisplay": "Fife College",
+      "collegeNameAlias": "Fife College",
+      "collegeName": "CARNEGIE COLLEGE"
+    },
+    {
+      "collegeId": 469516,
+      "collegeNameDisplay": "Frontend_test_july",
+      "collegeNameAlias": "Frontend_test_july",
+      "collegeName": "FRONTEND_TEST_JULY"
+    },
+    {
+      "collegeId": 6288,
+      "collegeNameDisplay": "Furness College",
+      "collegeNameAlias": "Furness College",
+      "collegeName": "FURNESS COLLEGE"
+    },
+    {
+      "collegeId": 136591,
+      "collegeNameDisplay": "Futureworks",
+      "collegeNameAlias": "Futureworks",
+      "collegeName": "FUTUREWORKS - MEDIA SCHOOL"
+    },
+    {
+      "collegeId": 6478,
+      "collegeNameDisplay": "Gateshead College",
+      "collegeNameAlias": "Gateshead College",
+      "collegeName": "GATESHEAD COLLEGE"
+    },
+    {
+      "collegeId": 7985,
+      "collegeNameDisplay": "Gloucestershire College",
+      "collegeNameAlias": "Gloucestershire College",
+      "collegeName": "GLOUCESTERSHIRE COLLEGE"
+    },
+    {
+      "collegeId": 469948,
+      "collegeNameDisplay": "Goutham Analytics Test University",
+      "collegeNameAlias": "Goutham Analytics Test University",
+      "collegeName": "GOUTHAM ANALYTICS TEST UNIVERSITY"
+    },
+    {
+      "collegeId": 48849,
+      "collegeNameDisplay": "Gower College Swansea",
+      "collegeNameAlias": "Gower College Swansea",
+      "collegeName": "GOWER COLLEGE SWANSEA"
+    },
+    {
+      "collegeId": 48342,
+      "collegeNameDisplay": "Grwp Llandrillo Menai",
+      "collegeNameAlias": "Grwp Llandrillo Menai",
+      "collegeName": "COLEG MENAI"
+    },
+    {
+      "collegeId": 5867,
+      "collegeNameDisplay": "Halesowen College",
+      "collegeNameAlias": "Halesowen College",
+      "collegeName": "HALESOWEN COLLEGE"
+    },
+    {
+      "collegeId": 5566,
+      "collegeNameDisplay": "Harper Adams University",
+      "collegeNameAlias": "Harper Adams University",
+      "collegeName": "HARPER ADAMS UNIVERSITY"
+    },
+    {
+      "collegeId": 8315,
+      "collegeNameDisplay": "Harrogate College",
+      "collegeNameAlias": "Harrogate College",
+      "collegeName": "HARROGATE COLLEGE"
+    },
+    {
+      "collegeId": 6263,
+      "collegeNameDisplay": "Hartpury University",
+      "collegeNameAlias": "Hartpury University",
+      "collegeName": "HARTPURY UNIVERSITY"
+    },
+    {
+      "collegeId": 5925,
+      "collegeNameDisplay": "Havant and South Downs College",
+      "collegeNameAlias": "Havant and South Downs College",
+      "collegeName": "SOUTH DOWNS COLLEGE"
+    },
+    {
+      "collegeId": 1044,
+      "collegeNameDisplay": "HCUC",
+      "collegeNameAlias": "HCUC",
+      "collegeName": "UXBRIDGE COLLEGE"
+    },
+    {
+      "collegeId": 6308,
+      "collegeNameDisplay": "Heart of Worcestershire College",
+      "collegeNameAlias": "Heart of Worcestershire College",
+      "collegeName": "WORCESTER COLLEGE OF TECHNOLOGY"
+    },
+    {
+      "collegeId": 5172,
+      "collegeNameDisplay": "Hereford College of Arts",
+      "collegeNameAlias": "Hereford College of Arts",
+      "collegeName": "HEREFORD COLLEGE OF ARTS"
+    },
+    {
+      "collegeId": 6253,
+      "collegeNameDisplay": "Hertford Regional College",
+      "collegeNameAlias": "Hertford Regional College",
+      "collegeName": "HERTFORD REGIONAL COLLEGE"
+    },
+    {
+      "collegeId": 118481,
+      "collegeNameDisplay": "Hopwood Hall College",
+      "collegeNameAlias": "Hopwood Hall College",
+      "collegeName": "HOPWOOD HALL COLLEGE"
+    },
+    {
+      "collegeId": 472424,
+      "collegeNameDisplay": "html error test",
+      "collegeNameAlias": "html error test",
+      "collegeName": "HTML ERROR TEST"
+    },
+    {
+      "collegeId": 8047,
+      "collegeNameDisplay": "Hugh Baird College",
+      "collegeNameAlias": "Hugh Baird College",
+      "collegeName": "HUGH BAIRD COLLEGE"
+    },
+    {
+      "collegeId": 6248,
+      "collegeNameDisplay": "Hull College",
+      "collegeNameAlias": "Hull College",
+      "collegeName": "HULL COLLEGE"
+    },
+    {
+      "collegeId": 118516,
+      "collegeNameDisplay": "Hult International Business School",
+      "collegeNameAlias": "Hult International Business School",
+      "collegeName": "HULT INTERNATIONAL BUSINESS SCHOOL EUROPE CAMPUS"
+    },
+    {
+      "collegeId": 466270,
+      "collegeNameDisplay": "Hybrid University",
+      "collegeNameAlias": "Hybrid University",
+      "collegeName": "HYBRID UNIVERSITY"
+    },
+    {
+      "collegeId": 3813,
+      "collegeNameDisplay": "Imperial College London",
+      "collegeNameAlias": "Imperial College London",
+      "collegeName": "IMPERIAL COLLEGE LONDON"
+    },
+    {
+      "collegeId": 117633,
+      "collegeNameDisplay": "Institute of Contemporary Music Performance",
+      "collegeNameAlias": "Institute of Contemporary Music Performance",
+      "collegeName": "INSTITUTE OF CONTEMPORARY MUSIC PERFORMANCE (THE)"
+    },
+    {
+      "collegeId": 434936,
+      "collegeNameDisplay": "International College Dundee",
+      "collegeNameAlias": "International College Dundee",
+      "collegeName": "INTERNATIONAL COLLEGE DUNDEE"
+    },
+    {
+      "collegeId": 117707,
+      "collegeNameDisplay": "INTO Glasgow Caledonian University",
+      "collegeNameAlias": "INTO Glasgow Caledonian University",
+      "collegeName": "INTO SCOTLAND AT GLASGOW CALEDONIAN UNIVERSITY"
+    },
+    {
+      "collegeId": 446468,
+      "collegeNameDisplay": "INTO Newcastle University London",
+      "collegeNameAlias": "INTO Newcastle University London",
+      "collegeName": "INTO NEWCASTLE UNIVERSITY LONDON"
+    },
+    {
+      "collegeId": 466036,
+      "collegeNameDisplay": "Jeevitha UK Test",
+      "collegeNameAlias": "Jeevitha UK Test",
+      "collegeName": "JEEVITHA UK TEST"
+    },
+    {
+      "collegeId": 466056,
+      "collegeNameDisplay": "Jeevitha UK Test 01",
+      "collegeNameAlias": "Jeevitha UK Test 01",
+      "collegeName": "JEEVITHA UK TEST 01"
+    },
+    {
+      "collegeId": 469666,
+      "collegeNameDisplay": "Jeswin_UK_KT_testprovider",
+      "collegeNameAlias": "Jeswin_UK_KT_testprovider",
+      "collegeName": "JESWIN_UK TEST PROVIDER"
+    },
+    {
+      "collegeId": 469704,
+      "collegeNameDisplay": "Jeswin_UK Test Provider",
+      "collegeNameAlias": "Jeswin_UK Test Provider",
+      "collegeName": "JESWIN_UK TEST PROVIDER"
+    },
+    {
+      "collegeId": 316892,
+      "collegeNameDisplay": "Judy Bentinck Millinery",
+      "collegeNameAlias": "Judy Bentinck Millinery",
+      "collegeName": "JUDY BENTINCK MILLINERY"
+    },
+    {
+      "collegeId": 3533,
+      "collegeNameDisplay": "Kaplan UK",
+      "collegeNameAlias": "Kaplan UK",
+      "collegeName": "KAPLAN UK"
+    },
+    {
+      "collegeId": 130318,
+      "collegeNameDisplay": "Kb Kickboxing",
+      "collegeNameAlias": "Kb Kickboxing",
+      "collegeName": "KB KICKBOXING"
+    },
+    {
+      "collegeId": 472550,
+      "collegeNameDisplay": "Keele University International College - Navitas UK",
+      "collegeNameAlias": "Keele University International College - Navitas UK",
+      "collegeName": "KEELE UNIVERSITY INTERNATIONAL COLLEGE - NAVITAS UK"
+    },
+    {
+      "collegeId": 456932,
+      "collegeNameDisplay": "Keighley College",
+      "collegeNameAlias": "Keighley College",
+      "collegeName": "KEIGHLEY COLLEGE"
+    },
+    {
+      "collegeId": 445296,
+      "collegeNameDisplay": "Kent and Medway Medical School",
+      "collegeNameAlias": "Kent and Medway Medical School",
+      "collegeName": "KENT AND MEDWAY MEDICAL SCHOOL"
+    },
+    {
+      "collegeId": 12255,
+      "collegeNameDisplay": "Kingston College",
+      "collegeNameAlias": "Kingston College",
+      "collegeName": "KINGSTON COLLEGE"
+    },
+    {
+      "collegeId": 118659,
+      "collegeNameDisplay": "Kingston Maurward College",
+      "collegeNameAlias": "Kingston Maurward College",
+      "collegeName": "KINGSTON MAURWARD COLLEGE"
+    },
+    {
+      "collegeId": 6050,
+      "collegeNameDisplay": "Kirklees College",
+      "collegeNameAlias": "Kirklees College",
+      "collegeName": "KIRKLEES COLLEGE"
+    },
+    {
+      "collegeId": 911,
+      "collegeNameDisplay": "KLC School of Design",
+      "collegeNameAlias": "KLC School of Design",
+      "collegeName": "KLC SCHOOL OF DESIGN"
+    },
+    {
+      "collegeId": 323770,
+      "collegeNameDisplay": "Knight Learning",
+      "collegeNameAlias": "Knight Learning",
+      "collegeName": "MHS LEARNING LTD"
+    },
+    {
+      "collegeId": 468932,
+      "collegeNameDisplay": "LAMDA",
+      "collegeNameAlias": "LAMDA",
+      "collegeName": "LAMDA"
+    },
+    {
+      "collegeId": 8584,
+      "collegeNameDisplay": "Lancaster & Morecambe College",
+      "collegeNameAlias": "Lancaster & Morecambe College",
+      "collegeName": "LANCASTER AND MORECAMBE COLLEGE"
+    },
+    {
+      "collegeId": 119044,
+      "collegeNameDisplay": "LCCM",
+      "collegeNameAlias": "LCCM",
+      "collegeName": "LONDON COLLEGE OF CREATIVE MEDIA (LCCM)"
+    },
+    {
+      "collegeId": 136581,
+      "collegeNameDisplay": "Leeds Arts University",
+      "collegeNameAlias": "Leeds Arts University",
+      "collegeName": "LEEDS ARTS UNIVERSITY"
+    },
+    {
+      "collegeId": 8074,
+      "collegeNameDisplay": "Leeds Conservatoire",
+      "collegeNameAlias": "Leeds Conservatoire",
+      "collegeName": "LEEDS CONSERVATOIRE"
+    },
+    {
+      "collegeId": 5244,
+      "collegeNameDisplay": "Leeds Trinity University",
+      "collegeNameAlias": "Leeds Trinity University",
+      "collegeName": "LEEDS TRINITY UNIVERSITY"
+    },
+    {
+      "collegeId": 5879,
+      "collegeNameDisplay": "Leicester College",
+      "collegeNameAlias": "Leicester College",
+      "collegeName": "LEICESTER COLLEGE"
+    },
+    {
+      "collegeId": 12745,
+      "collegeNameDisplay": "Lincoln College University Centre",
+      "collegeNameAlias": "Lincoln College University Centre",
+      "collegeName": "LINCOLN COLLEGE"
+    },
+    {
+      "collegeId": 3892,
+      "collegeNameDisplay": "Liverpool Institute for Performing Arts",
+      "collegeNameAlias": "Liverpool Institute for Performing Arts",
+      "collegeName": "LIVERPOOL INSTITUTE FOR PERFORMING ARTS"
+    },
+    {
+      "collegeId": 126883,
+      "collegeNameDisplay": "London College",
+      "collegeNameAlias": "London College",
+      "collegeName": "THE LONDON COLLEGE"
+    },
+    {
+      "collegeId": 323418,
+      "collegeNameDisplay": "London College of Contemporary Arts",
+      "collegeNameAlias": "London College of Contemporary Arts",
+      "collegeName": "LONDON COLLEGE OF CONTEMPORARY ART"
+    },
+    {
+      "collegeId": 118692,
+      "collegeNameDisplay": "London Film Academy",
+      "collegeNameAlias": "London Film Academy",
+      "collegeName": "LONDON FILM ACADEMY"
+    },
+    {
+      "collegeId": 5884,
+      "collegeNameDisplay": "London School of Economics and Political Science, University of London",
+      "collegeNameAlias": "London School of Economics and Political Science, University of London",
+      "collegeName": "LONDON SCHOOL OF ECONOMICS AND POLITICAL SCIENCE, UNIVERSITY OF LONDON"
+    },
+    {
+      "collegeId": 6995,
+      "collegeNameDisplay": "London South East Colleges (Bromley College)",
+      "collegeNameAlias": "London South East Colleges (Bromley College)",
+      "collegeName": "LONDON SOUTH EAST COLLEGE"
+    },
+    {
+      "collegeId": 118765,
+      "collegeNameDisplay": "London Study Centre",
+      "collegeNameAlias": "London Study Centre",
+      "collegeName": "LONDON STUDY CENTRE"
+    },
+    {
+      "collegeId": 7763,
+      "collegeNameDisplay": "Loughborough College",
+      "collegeNameAlias": "Loughborough College",
+      "collegeName": "LOUGHBOROUGH COLLEGE"
+    },
+    {
+      "collegeId": 6280,
+      "collegeNameDisplay": "Macclesfield College",
+      "collegeNameAlias": "Macclesfield College",
+      "collegeName": "MACCLESFIELD COLLEGE"
+    },
+    {
+      "collegeId": 471664,
+      "collegeNameDisplay": "mahalakshmi test provider",
+      "collegeNameAlias": "mahalakshmi test provider",
+      "collegeName": "MAHALAKSHMI TEST PROVIDER"
+    },
+    {
+      "collegeId": 471694,
+      "collegeNameDisplay": "mahatest3",
+      "collegeNameAlias": "mahatest3",
+      "collegeName": "MAHATEST3"
+    },
+    {
+      "collegeId": 471672,
+      "collegeNameDisplay": "MahaTest UK",
+      "collegeNameAlias": "MahaTest UK",
+      "collegeName": "MAHATEST UK"
+    },
+    {
+      "collegeId": 471876,
+      "collegeNameDisplay": "mahatestuk10",
+      "collegeNameAlias": "mahatestuk10",
+      "collegeName": "MAHATESTUK10"
+    },
+    {
+      "collegeId": 471880,
+      "collegeNameDisplay": "mahatestuk11",
+      "collegeNameAlias": "mahatestuk11",
+      "collegeName": "MAHATESTUK11"
+    },
+    {
+      "collegeId": 471882,
+      "collegeNameDisplay": "mahatestuk13",
+      "collegeNameAlias": "mahatestuk13",
+      "collegeName": "MAHATESTUK13"
+    },
+    {
+      "collegeId": 471884,
+      "collegeNameDisplay": "mahatestuk14",
+      "collegeNameAlias": "mahatestuk14",
+      "collegeName": "MAHATESTUK14"
+    },
+    {
+      "collegeId": 471886,
+      "collegeNameDisplay": "mahatestuk15",
+      "collegeNameAlias": "mahatestuk15",
+      "collegeName": "MAHATESTUK15"
+    },
+    {
+      "collegeId": 471874,
+      "collegeNameDisplay": "mahatestuk8",
+      "collegeNameAlias": "mahatestuk8",
+      "collegeName": "MAHATESTUK8"
+    },
+    {
+      "collegeId": 479894,
+      "collegeNameDisplay": "Maheswari_test_uk",
+      "collegeNameAlias": "Maheswari_test_uk",
+      "collegeName": "MAHESWARI_TEST_UK"
+    },
+    {
+      "collegeId": 474074,
+      "collegeNameDisplay": "mahi_Test1",
+      "collegeNameAlias": "mahi_Test1",
+      "collegeName": "MAHI_TEST1"
+    },
+    {
+      "collegeId": 453574,
+      "collegeNameDisplay": "Manchester School of Architecture",
+      "collegeNameAlias": "Manchester School of Architecture",
+      "collegeName": "MANCHESTER SCHOOL OF ARCHITECTURE"
+    },
+    {
+      "collegeId": 125268,
+      "collegeNameDisplay": "Medway School of Pharmacy",
+      "collegeNameAlias": "Medway School of Pharmacy",
+      "collegeName": "MEDWAY SCHOOL OF PHARMACY"
+    },
+    {
+      "collegeId": 124970,
+      "collegeNameDisplay": "MetFilm",
+      "collegeNameAlias": "MetFilm",
+      "collegeName": "METFILM SCHOOL"
+    },
+    {
+      "collegeId": 9946,
+      "collegeNameDisplay": "Middlesbrough College",
+      "collegeNameAlias": "Middlesbrough College",
+      "collegeName": "MIDDLESBROUGH COLLEGE"
+    },
+    {
+      "collegeId": 7512,
+      "collegeNameDisplay": "MidKent College (Inc Medway School of Arts)",
+      "collegeNameAlias": "MidKent College (Inc Medway School of Arts)",
+      "collegeName": "MIDKENT COLLEGE"
+    },
+    {
+      "collegeId": 123648,
+      "collegeNameDisplay": "Morley College",
+      "collegeNameAlias": "Morley College",
+      "collegeName": "MORLEY COLLEGE"
+    },
+    {
+      "collegeId": 119994,
+      "collegeNameDisplay": "Moulton College",
+      "collegeNameAlias": "Moulton College",
+      "collegeName": "MOULTON COLLEGE"
+    },
+    {
+      "collegeId": 472494,
+      "collegeNameDisplay": "My Study BC Provider",
+      "collegeNameAlias": "My Study BC Provider",
+      "collegeName": "MY STUDY BC PROVIDER"
+    },
+    {
+      "collegeId": 465898,
+      "collegeNameDisplay": "naveenuktest",
+      "collegeNameAlias": "naveenuktest",
+      "collegeName": "NAVEENUKTEST"
+    },
+    {
+      "collegeId": 465948,
+      "collegeNameDisplay": "naveenuktest1",
+      "collegeNameAlias": "naveenuktest1",
+      "collegeName": "NAVEENUKTEST1"
+    },
+    {
+      "collegeId": 469914,
+      "collegeNameDisplay": "Naveen_UKtest Provider",
+      "collegeNameAlias": "Naveen_UKtest Provider",
+      "collegeName": "NAVEEN_UKTEST PROVIDER"
+    },
+    {
+      "collegeId": 470184,
+      "collegeNameDisplay": "NAVEEN UNIVERSITY UK",
+      "collegeNameAlias": "NAVEEN UNIVERSITY UK",
+      "collegeName": "NAVEEN UNIVERSITY UK"
+    },
+    {
+      "collegeId": 133441,
+      "collegeNameDisplay": "Nazarene Theological College",
+      "collegeNameAlias": "Nazarene Theological College",
+      "collegeName": "NAZARENE THEOLOGICAL COLLEGE"
+    },
+    {
+      "collegeId": 3868,
+      "collegeNameDisplay": "NESCOT",
+      "collegeNameAlias": "NESCOT",
+      "collegeName": "NESCOT"
+    },
+    {
+      "collegeId": 7934,
+      "collegeNameDisplay": "Newcastle College University Centre",
+      "collegeNameAlias": "Newcastle College University Centre",
+      "collegeName": "NEWCASTLE COLLEGE"
+    },
+    {
+      "collegeId": 7917,
+      "collegeNameDisplay": "New City College (incorporating Havering College)",
+      "collegeNameAlias": "New City College (incorporating Havering College)",
+      "collegeName": "NEW CITY COLLEGE (INCORPORATING HAVERING COLLEGE)"
+    },
+    {
+      "collegeId": 7380,
+      "collegeNameDisplay": "New College Durham",
+      "collegeNameAlias": "New College Durham",
+      "collegeName": "NEW COLLEGE DURHAM"
+    },
+    {
+      "collegeId": 459794,
+      "collegeNameDisplay": "NMITE",
+      "collegeNameAlias": "NMITE",
+      "collegeName": "NMITE"
+    },
+    {
+      "collegeId": 123284,
+      "collegeNameDisplay": "Norland",
+      "collegeNameAlias": "Norland",
+      "collegeName": "NORLAND COLLEGE"
+    },
+    {
+      "collegeId": 316848,
+      "collegeNameDisplay": "Northeastern University London",
+      "collegeNameAlias": "Northeastern University London",
+      "collegeName": "NEW COLLEGE OF THE HUMANITIES"
+    },
+    {
+      "collegeId": 135461,
+      "collegeNameDisplay": "Northern Regional College",
+      "collegeNameAlias": "Northern Regional College",
+      "collegeName": "NORTHERN REGIONAL COLLEGE"
+    },
+    {
+      "collegeId": 446410,
+      "collegeNameDisplay": "Northumbria University London Campus",
+      "collegeNameAlias": "Northumbria University London Campus",
+      "collegeName": "NORTHUMBRIA UNIVERSITY LONDON CAMPUS"
+    },
+    {
+      "collegeId": 433450,
+      "collegeNameDisplay": "North Warwickshire and South Leicestershire College",
+      "collegeNameAlias": "North Warwickshire and South Leicestershire College",
+      "collegeName": "NORTH WARWICKSHIRE AND SOUTH LEICESTERSHIRE COLLEGE"
+    },
+    {
+      "collegeId": 133622,
+      "collegeNameDisplay": "North West Regional College",
+      "collegeNameAlias": "North West Regional College",
+      "collegeName": "NORTH WEST REGIONAL COLLEGE"
+    },
+    {
+      "collegeId": 6962,
+      "collegeNameDisplay": "Nottingham College",
+      "collegeNameAlias": "Nottingham College",
+      "collegeName": "NEW COLLEGE NOTTINGHAM"
+    },
+    {
+      "collegeId": 8586,
+      "collegeNameDisplay": "NPTC Group",
+      "collegeNameAlias": "NPTC Group",
+      "collegeName": "NEATH PORT TALBOT COLLEGE"
+    },
+    {
+      "collegeId": 407304,
+      "collegeNameDisplay": "Online Business School Ltd",
+      "collegeNameAlias": "Online Business School Ltd",
+      "collegeName": "ONLINE BUSINESS SCHOOL LTD"
+    },
+    {
+      "collegeId": 126385,
+      "collegeNameDisplay": "Open College of the Arts",
+      "collegeNameAlias": "Open College of the Arts",
+      "collegeName": "OPEN COLLEGE OF THE ARTS"
+    },
+    {
+      "collegeId": 4520,
+      "collegeNameDisplay": "Open University",
+      "collegeNameAlias": "Open University",
+      "collegeName": "OPEN UNIVERSITY"
+    },
+    {
+      "collegeId": 7953,
+      "collegeNameDisplay": "Orbital South Colleges University Centre",
+      "collegeNameAlias": "Orbital South Colleges University Centre",
+      "collegeName": "EAST SURREY COLLEGE"
+    },
+    {
+      "collegeId": 120418,
+      "collegeNameDisplay": "Peter Symonds' College",
+      "collegeNameAlias": "Peter Symonds' College",
+      "collegeName": "PETER SYMONDS' COLLEGE"
+    },
+    {
+      "collegeId": 7758,
+      "collegeNameDisplay": "Petroc",
+      "collegeNameAlias": "Petroc",
+      "collegeName": "PETROC"
+    },
+    {
+      "collegeId": 122216,
+      "collegeNameDisplay": "Plumpton College",
+      "collegeNameAlias": "Plumpton College",
+      "collegeName": "PLUMPTON COLLEGE"
+    },
+    {
+      "collegeId": 26605,
+      "collegeNameDisplay": "Plymouth Marjon University",
+      "collegeNameAlias": "Plymouth Marjon University",
+      "collegeName": "PLYMOUTH MARJON UNIVERSITY (ST MARK & ST JOHN)"
+    },
+    {
+      "collegeId": 123275,
+      "collegeNameDisplay": "Point Blank Music School",
+      "collegeNameAlias": "Point Blank Music School",
+      "collegeName": "POINT BLANK MUSIC COLLEGE"
+    },
+    {
+      "collegeId": 120264,
+      "collegeNameDisplay": "Ppi Business Nlp",
+      "collegeNameAlias": "Ppi Business Nlp",
+      "collegeName": "PPI BUSINESS NLP LTD"
+    },
+    {
+      "collegeId": 467262,
+      "collegeNameDisplay": "Preethi Test Provider",
+      "collegeNameAlias": "Preethi Test Provider",
+      "collegeName": "PREETHI TEST PROVIDER"
+    },
+    {
+      "collegeId": 471832,
+      "collegeNameDisplay": "QA practice institution - 1",
+      "collegeNameAlias": "QA practice institution - 1",
+      "collegeName": "QA PRACTICE INSTITUTION - 1"
+    },
+    {
+      "collegeId": 471864,
+      "collegeNameDisplay": "QA practice institution - 2",
+      "collegeNameAlias": "QA practice institution - 2",
+      "collegeName": "QA PRACTICE INSTITUTION - 2"
+    },
+    {
+      "collegeId": 135721,
+      "collegeNameDisplay": "Raindance Film School",
+      "collegeNameAlias": "Raindance Film School",
+      "collegeName": "RAINDANCE LTD"
+    },
+    {
+      "collegeId": 464852,
+      "collegeNameDisplay": "Ramesh Test Provider_UK",
+      "collegeNameAlias": "Ramesh Test Provider_UK",
+      "collegeName": "RAMESH TEST UK PROVIDER"
+    },
+    {
+      "collegeId": 469912,
+      "collegeNameDisplay": "RasheedUKPROVIDER",
+      "collegeNameAlias": "RasheedUKPROVIDER",
+      "collegeName": "RASHEED_UK_PROVIDER"
+    },
+    {
+      "collegeId": 406538,
+      "collegeNameDisplay": "Regent College London",
+      "collegeNameAlias": "Regent College London",
+      "collegeName": "REGENT COLLEGE LONDON"
+    },
+    {
+      "collegeId": 472708,
+      "collegeNameDisplay": "regression test feb 3",
+      "collegeNameAlias": "regression test feb 3",
+      "collegeName": "REGRESSION TEST FEB 3"
+    },
+    {
+      "collegeId": 473464,
+      "collegeNameDisplay": "regression test march 13",
+      "collegeNameAlias": "regression test march 13",
+      "collegeName": "REGRESSION TEST MARCH 13"
+    },
+    {
+      "collegeId": 7305,
+      "collegeNameDisplay": "Richmond American University London",
+      "collegeNameAlias": "Richmond American University London",
+      "collegeName": "RICHMOND, THE AMERICAN INTERNATIONAL UNIVERSITY IN LONDON"
+    },
+    {
+      "collegeId": 466282,
+      "collegeNameDisplay": "Rin University of London",
+      "collegeNameAlias": "Rin University of London",
+      "collegeName": "RIN UNIVERSITY OF LONDON"
+    },
+    {
+      "collegeId": 4587,
+      "collegeNameDisplay": "Rose Bruford College",
+      "collegeNameAlias": "Rose Bruford College",
+      "collegeName": "ROSE BRUFORD COLLEGE"
+    },
+    {
+      "collegeId": 467012,
+      "collegeNameDisplay": "Rowan Atkinson University",
+      "collegeNameAlias": "Rowan Atkinson University",
+      "collegeName": "ROWAN ATKINSON UNIVERSITY"
+    },
+    {
+      "collegeId": 5911,
+      "collegeNameDisplay": "Royal Academy of Dance",
+      "collegeNameAlias": "Royal Academy of Dance",
+      "collegeName": "ROYAL ACADEMY OF DANCE"
+    },
+    {
+      "collegeId": 7316,
+      "collegeNameDisplay": "Royal Academy of Music, University of London",
+      "collegeNameAlias": "Royal Academy of Music, University of London",
+      "collegeName": "ROYAL ACADEMY OF MUSIC, UNIVERSITY OF LONDON"
+    },
+    {
+      "collegeId": 3975,
+      "collegeNameDisplay": "Royal Agricultural University",
+      "collegeNameAlias": "Royal Agricultural University",
+      "collegeName": "ROYAL AGRICULTURAL COLLEGE"
+    },
+    {
+      "collegeId": 125330,
+      "collegeNameDisplay": "Royal Birmingham Conservatoire",
+      "collegeNameAlias": "Royal Birmingham Conservatoire",
+      "collegeName": "BIRMINGHAM CONSERVATOIRE"
+    },
+    {
+      "collegeId": 3477,
+      "collegeNameDisplay": "Royal Central School of Speech and Drama, University of London",
+      "collegeNameAlias": "Royal Central School of Speech and Drama, University of London",
+      "collegeName": "CENTRAL SCHOOL OF SPEECH AND DRAMA, UNIVERSITY OF LONDON"
+    },
+    {
+      "collegeId": 50041,
+      "collegeNameDisplay": "Royal Conservatoire of Scotland",
+      "collegeNameAlias": "Royal Conservatoire of Scotland",
+      "collegeName": "ROYAL CONSERVATOIRE OF SCOTLAND"
+    },
+    {
+      "collegeId": 457252,
+      "collegeNameDisplay": "Royal Drawing School",
+      "collegeNameAlias": "Royal Drawing School",
+      "collegeName": "ROYAL DRAWING SCHOOL"
+    },
+    {
+      "collegeId": 5755,
+      "collegeNameDisplay": "Royal Northern College of Music",
+      "collegeNameAlias": "Royal Northern College of Music",
+      "collegeName": "ROYAL NORTHERN COLLEGE OF MUSIC"
+    },
+    {
+      "collegeId": 5606,
+      "collegeNameDisplay": "Royal Veterinary College, University of London",
+      "collegeNameAlias": "Royal Veterinary College, University of London",
+      "collegeName": "ROYAL VETERINARY COLLEGE, UNIVERSITY OF LONDON"
+    },
+    {
+      "collegeId": 9874,
+      "collegeNameDisplay": "Royal Welsh College of Music and Drama",
+      "collegeNameAlias": "Royal Welsh College of Music and Drama",
+      "collegeName": "ROYAL WELSH COLLEGE OF MUSIC AND DRAMA"
+    },
+    {
+      "collegeId": 120568,
+      "collegeNameDisplay": "SAE Institute",
+      "collegeNameAlias": "SAE Institute",
+      "collegeName": "SAE INSTITUTE"
+    },
+    {
+      "collegeId": 472666,
+      "collegeNameDisplay": "Sai Test KT provider",
+      "collegeNameAlias": "Sai Test KT provider",
+      "collegeName": "SAI TEST KT PROVIDER"
+    },
+    {
+      "collegeId": 472704,
+      "collegeNameDisplay": "Sai Test provider",
+      "collegeNameAlias": "Sai Test provider",
+      "collegeName": "SAI TEST PROVIDER"
+    },
+    {
+      "collegeId": 466302,
+      "collegeNameDisplay": "Saravanantest_uk",
+      "collegeNameAlias": "Saravanantest_uk",
+      "collegeName": "TEST ADVERTS"
+    },
+    {
+      "collegeId": 470086,
+      "collegeNameDisplay": "saro uk",
+      "collegeNameAlias": "saro uk",
+      "collegeName": "SARO UK"
+    },
+    {
+      "collegeId": 7961,
+      "collegeNameDisplay": "SGS (South Gloucestershire and Stroud College)",
+      "collegeNameAlias": "SGS (South Gloucestershire and Stroud College)",
+      "collegeName": "SGS (SOUTH GLOUCESTERSHIRE AND STROUD COLLEGE)"
+    },
+    {
+      "collegeId": 7530,
+      "collegeNameDisplay": "Sheffield College",
+      "collegeNameAlias": "Sheffield College",
+      "collegeName": "SHEFFIELD COLLEGE"
+    },
+    {
+      "collegeId": 467656,
+      "collegeNameDisplay": "Shruthi's university -1",
+      "collegeNameAlias": "Shruthi's university -1",
+      "collegeName": "SHRUTHI'S UNIVERSITY -1"
+    },
+    {
+      "collegeId": 467736,
+      "collegeNameDisplay": "ShruthiUK2-TestUniv",
+      "collegeNameAlias": "ShruthiUK2-TestUniv",
+      "collegeName": "SHRUTHIUK2-TESTUNIV"
+    },
+    {
+      "collegeId": 467776,
+      "collegeNameDisplay": "ShruthiUK4-TestUniv",
+      "collegeNameAlias": "ShruthiUK4-TestUniv",
+      "collegeName": "SHRUTHIUK4-TESTUNIV"
+    },
+    {
+      "collegeId": 467814,
+      "collegeNameDisplay": "ShruthiUK5-TestUniv",
+      "collegeNameAlias": "ShruthiUK5-TestUniv",
+      "collegeName": "SHRUTHIUK5-TESTUNIV"
+    },
+    {
+      "collegeId": 132095,
+      "collegeNameDisplay": "Sivatech Ltd",
+      "collegeNameAlias": "Sivatech Ltd",
+      "collegeName": "SIVATECH LTD"
+    },
+    {
+      "collegeId": 466740,
+      "collegeNameDisplay": "smart provider",
+      "collegeNameAlias": "smart provider",
+      "collegeName": "SMART PROVIDER"
+    },
+    {
+      "collegeId": 6839,
+      "collegeNameDisplay": "SMB College Group",
+      "collegeNameAlias": "SMB College Group",
+      "collegeName": "SMB COLLEGE GROUP"
+    },
+    {
+      "collegeId": 446414,
+      "collegeNameDisplay": "Solent University London, Birmingham and Manchester Centres",
+      "collegeNameAlias": "Solent University London, Birmingham and Manchester Centres",
+      "collegeName": "SOLENT UNIVERSITY LONDON, BIRMINGHAM AND MANCHESTER CENTRES"
+    },
+    {
+      "collegeId": 6242,
+      "collegeNameDisplay": "Solihull College & University Centre",
+      "collegeNameAlias": "Solihull College & University Centre",
+      "collegeName": "SOLIHULL COLLEGE & UNIVERSITY CENTRE"
+    },
+    {
+      "collegeId": 4531,
+      "collegeNameDisplay": "South and City College Birmingham",
+      "collegeNameAlias": "South and City College Birmingham",
+      "collegeName": "SOUTH & CITY COLLEGE BIRMINGHAM"
+    },
+    {
+      "collegeId": 130931,
+      "collegeNameDisplay": "South Eastern Regional College",
+      "collegeNameAlias": "South Eastern Regional College",
+      "collegeName": "SOUTH EASTERN REGIONAL COLLEGE"
+    },
+    {
+      "collegeId": 133623,
+      "collegeNameDisplay": "Southern Regional College",
+      "collegeNameAlias": "Southern Regional College",
+      "collegeName": "SOUTHERN REGIONAL COLLEGE"
+    },
+    {
+      "collegeId": 120073,
+      "collegeNameDisplay": "Spurgeon's College",
+      "collegeNameAlias": "Spurgeon's College",
+      "collegeName": "SPURGEON'S COLLEGE"
+    },
+    {
+      "collegeId": 471608,
+      "collegeNameDisplay": "Srmuniversity4",
+      "collegeNameAlias": "Srmuniversity4",
+      "collegeName": "SRMUNIVERSITY4"
+    },
+    {
+      "collegeId": 471610,
+      "collegeNameDisplay": "Srmuniversity5",
+      "collegeNameAlias": "Srmuniversity5",
+      "collegeName": "SRMUNIVERSITY5"
+    },
+    {
+      "collegeId": 471612,
+      "collegeNameDisplay": "Srmuniversity6",
+      "collegeNameAlias": "Srmuniversity6",
+      "collegeName": "SRMUNIVERSITY6"
+    },
+    {
+      "collegeId": 473304,
+      "collegeNameDisplay": "SRM university AP",
+      "collegeNameAlias": "SRM university AP",
+      "collegeName": "SRM UNIVERSITY AP"
+    },
+    {
+      "collegeId": 144133,
+      "collegeNameDisplay": "SRUC Scotland's Rural College",
+      "collegeNameAlias": "SRUC Scotland's Rural College",
+      "collegeName": "SRUC SCOTLAND'S RURAL COLLEGE"
+    },
+    {
+      "collegeId": 465294,
+      "collegeNameDisplay": "sso test provider",
+      "collegeNameAlias": "sso test provider",
+      "collegeName": "SSO TEST PROVIDER"
+    },
+    {
+      "collegeId": 451572,
+      "collegeNameDisplay": "Staffordshire University London",
+      "collegeNameAlias": "Staffordshire University London",
+      "collegeName": "STAFFORDSHIRE UNIVERSITY LONDON"
+    },
+    {
+      "collegeId": 474384,
+      "collegeNameDisplay": "Stel Andre School of Music",
+      "collegeNameAlias": "Stel Andre School of Music",
+      "collegeName": "STEL ANDRE SCHOOL OF MUSIC"
+    },
+    {
+      "collegeId": 5631,
+      "collegeNameDisplay": "St George's, University of London",
+      "collegeNameAlias": "St George's, University of London",
+      "collegeName": "ST GEORGE'S, UNIVERSITY OF LONDON"
+    },
+    {
+      "collegeId": 69268,
+      "collegeNameDisplay": "St Mary's University College, Belfast",
+      "collegeNameAlias": "St Mary's University College, Belfast",
+      "collegeName": "ST MARY'S UNIVERSITY COLLEGE, BELFAST"
+    },
+    {
+      "collegeId": 69270,
+      "collegeNameDisplay": "Stranmillis University College",
+      "collegeNameAlias": "Stranmillis University College",
+      "collegeName": "STRANMILLIS UNIVERSITY COLLEGE"
+    },
+    {
+      "collegeId": 467452,
+      "collegeNameDisplay": "Study British & counc!l",
+      "collegeNameAlias": "Study British & counc!l",
+      "collegeName": "STUDY BRITISH COUNCIL"
+    },
+    {
+      "collegeId": 473594,
+      "collegeNameDisplay": "Surya test provider 6",
+      "collegeNameAlias": "Surya test provider 6",
+      "collegeName": "SURYA TEST PROVIDER 6"
+    },
+    {
+      "collegeId": 473596,
+      "collegeNameDisplay": "Surya test provider 7",
+      "collegeNameAlias": "Surya test provider 7",
+      "collegeName": "SURYA TEST PROVIDER 7"
+    },
+    {
+      "collegeId": 466744,
+      "collegeNameDisplay": "Surya_uk test provider",
+      "collegeNameAlias": "Surya_uk test provider",
+      "collegeName": "TESTING8 PROVIDER"
+    },
+    {
+      "collegeId": 466742,
+      "collegeNameDisplay": "test7",
+      "collegeNameAlias": "test7",
+      "collegeName": "TEST7"
+    },
+    {
+      "collegeId": 466746,
+      "collegeNameDisplay": "test9 provider",
+      "collegeNameAlias": "test9 provider",
+      "collegeName": "TEST9 PROVIDER"
+    },
+    {
+      "collegeId": 467494,
+      "collegeNameDisplay": "Test$ british council",
+      "collegeNameAlias": "Test$ british council",
+      "collegeName": "TEST BRITISH COUNCIL"
+    },
+    {
+      "collegeId": 466212,
+      "collegeNameDisplay": "Test College for KT",
+      "collegeNameAlias": "Test College for KT",
+      "collegeName": "TEST COLLEGE FOR KT"
+    },
+    {
+      "collegeId": 469016,
+      "collegeNameDisplay": "Test For App",
+      "collegeNameAlias": "Test For App",
+      "collegeName": "TEST FOR APP"
+    },
+    {
+      "collegeId": 467654,
+      "collegeNameDisplay": "Test institution - S",
+      "collegeNameAlias": "Test institution - S",
+      "collegeName": "TEST INSTITUTION - S"
+    },
+    {
+      "collegeId": 466762,
+      "collegeNameDisplay": "test jan19",
+      "collegeNameAlias": "test jan19",
+      "collegeName": "TEST JAN19"
+    },
+    {
+      "collegeId": 466776,
+      "collegeNameDisplay": "test jan20 1",
+      "collegeNameAlias": "test jan20 1",
+      "collegeName": "TEST JAN20 1"
+    },
+    {
+      "collegeId": 466778,
+      "collegeNameDisplay": "test jan20 2",
+      "collegeNameAlias": "test jan20 2",
+      "collegeName": "TEST JAN20 2"
+    },
+    {
+      "collegeId": 466694,
+      "collegeNameDisplay": "Test KT Provider",
+      "collegeNameAlias": "Test KT Provider",
+      "collegeName": "TEST KT PROVIDER"
+    },
+    {
+      "collegeId": 471828,
+      "collegeNameDisplay": "Test KT Provider Dec 22",
+      "collegeNameAlias": "Test KT Provider Dec 22",
+      "collegeName": "TEST KT PROVIDER DEC 22"
+    },
+    {
+      "collegeId": 465092,
+      "collegeNameDisplay": "TEST OIP PROVIDER",
+      "collegeNameAlias": "TEST OIP PROVIDER",
+      "collegeName": "TEST OIP PROVIDER"
+    },
+    {
+      "collegeId": 465506,
+      "collegeNameDisplay": "Test Practice",
+      "collegeNameAlias": "Test Practice",
+      "collegeName": "TEST PRACTICE"
+    },
+    {
+      "collegeId": 472468,
+      "collegeNameDisplay": "Test provider 1",
+      "collegeNameAlias": "Test provider 1",
+      "collegeName": "TEST PROVIDER 1"
+    },
+    {
+      "collegeId": 472478,
+      "collegeNameDisplay": "Test provider 11",
+      "collegeNameAlias": "Test provider 11",
+      "collegeName": "TEST PROVIDER 11"
+    },
+    {
+      "collegeId": 472482,
+      "collegeNameDisplay": "Test provider 12",
+      "collegeNameAlias": "Test provider 12",
+      "collegeName": "TEST PROVIDER 12"
+    },
+    {
+      "collegeId": 472492,
+      "collegeNameDisplay": "test provider 13",
+      "collegeNameAlias": "test provider 13",
+      "collegeName": "TEST PROVIDER 13"
+    },
+    {
+      "collegeId": 472498,
+      "collegeNameDisplay": "test provider 14",
+      "collegeNameAlias": "test provider 14",
+      "collegeName": "TEST PROVIDER 14"
+    },
+    {
+      "collegeId": 466494,
+      "collegeNameDisplay": "Test Provider1 - UK",
+      "collegeNameAlias": "Test Provider1 - UK",
+      "collegeName": "TEST PROVIDER1 - UK"
+    },
+    {
+      "collegeId": 472484,
+      "collegeNameDisplay": "Test provider 4",
+      "collegeNameAlias": "Test provider 4",
+      "collegeName": "TEST PROVIDER 4"
+    },
+    {
+      "collegeId": 472488,
+      "collegeNameDisplay": "Test provider 6",
+      "collegeNameAlias": "Test provider 6",
+      "collegeName": "TEST PROVIDER 6"
+    },
+    {
+      "collegeId": 472490,
+      "collegeNameDisplay": "Test provider 7",
+      "collegeNameAlias": "Test provider 7",
+      "collegeName": "TEST PROVIDER 7"
+    },
+    {
+      "collegeId": 472470,
+      "collegeNameDisplay": "Test provider 8",
+      "collegeNameAlias": "Test provider 8",
+      "collegeName": "TEST PROVIDER 8"
+    },
+    {
+      "collegeId": 472472,
+      "collegeNameDisplay": "Test provider 9",
+      "collegeNameAlias": "Test provider 9",
+      "collegeName": "TEST PROVIDER 9"
+    },
+    {
+      "collegeId": 469098,
+      "collegeNameDisplay": "Test Provider June 22",
+      "collegeNameAlias": "Test Provider June 22",
+      "collegeName": "TEST PROVIDER JUNE 22"
+    },
+    {
+      "collegeId": 466692,
+      "collegeNameDisplay": "test provider - sugumar",
+      "collegeNameAlias": "test provider - sugumar",
+      "collegeName": "TEST PROVIDER - SUGUMAR"
+    },
+    {
+      "collegeId": 466972,
+      "collegeNameDisplay": "Test Provider UK - Feb_07",
+      "collegeNameAlias": "Test Provider UK - Feb_07",
+      "collegeName": "TEST PROVIDER UK - FEB_07"
+    },
+    {
+      "collegeId": 466492,
+      "collegeNameDisplay": "Test provider UK - S",
+      "collegeNameAlias": "Test provider UK - S",
+      "collegeName": "TEST PROVIDER UK - S"
+    },
+    {
+      "collegeId": 472392,
+      "collegeNameDisplay": "Test Provider - UK Task-1",
+      "collegeNameAlias": "Test Provider - UK Task-1",
+      "collegeName": "TEST PROVIDER - UK TASK-1"
+    },
+    {
+      "collegeId": 474186,
+      "collegeNameDisplay": "test regression Ape 25",
+      "collegeNameAlias": "test regression Ape 25",
+      "collegeName": "TEST REGRESSION APE 25"
+    },
+    {
+      "collegeId": 465018,
+      "collegeNameDisplay": "Test Regression OIP",
+      "collegeNameAlias": "Test Regression OIP",
+      "collegeName": "465018"
+    },
+    {
+      "collegeId": 370016,
+      "collegeNameDisplay": "TEST REGRESSION UK",
+      "collegeNameAlias": "TEST REGRESSION UK",
+      "collegeName": "TEST REGRESSION UK"
+    },
+    {
+      "collegeId": 467492,
+      "collegeNameDisplay": "Test study BC",
+      "collegeNameAlias": "Test study BC",
+      "collegeName": "TEST STUDY BC"
+    },
+    {
+      "collegeId": 466606,
+      "collegeNameDisplay": "Test UK Institute",
+      "collegeNameAlias": "Test UK Institute",
+      "collegeName": "TEST UK INSTITUTE"
+    },
+    {
+      "collegeId": 466616,
+      "collegeNameDisplay": "Test UK Institute 1",
+      "collegeNameAlias": "Test UK Institute 1",
+      "collegeName": "TEST UK INSTITUTE 1"
+    },
+    {
+      "collegeId": 466618,
+      "collegeNameDisplay": "Test UK Institute 2",
+      "collegeNameAlias": "Test UK Institute 2",
+      "collegeName": "TEST UK INSTITUTE 2"
+    },
+    {
+      "collegeId": 466620,
+      "collegeNameDisplay": "Test UK Institute 3",
+      "collegeNameAlias": "Test UK Institute 3",
+      "collegeName": "TEST UK INSTITUTE 3"
+    },
+    {
+      "collegeId": 465504,
+      "collegeNameDisplay": "Test Uni Domestic",
+      "collegeNameAlias": "Test Uni Domestic",
+      "collegeName": "TEST UNI DOMESTIC"
+    },
+    {
+      "collegeId": 466564,
+      "collegeNameDisplay": "Test University - Far",
+      "collegeNameAlias": "Test University - Far",
+      "collegeName": "TEST UNIVERSITY - FAR"
+    },
+    {
+      "collegeId": 465862,
+      "collegeNameDisplay": "Test University for KT",
+      "collegeNameAlias": "Test University for KT",
+      "collegeName": "TEST UNIVERSITY FOR KT"
+    },
+    {
+      "collegeId": 466574,
+      "collegeNameDisplay": "Test University UK_K",
+      "collegeNameAlias": "Test University UK_K",
+      "collegeName": "TEST UNIVERSITY UK_K"
+    },
+    {
+      "collegeId": 466612,
+      "collegeNameDisplay": "Test University UK - P",
+      "collegeNameAlias": "Test University UK - P",
+      "collegeName": "TEST UNIVERSITY UK - P"
+    },
+    {
+      "collegeId": 469510,
+      "collegeNameDisplay": "Tharani test institution 1",
+      "collegeNameAlias": "Tharani test institution 1",
+      "collegeName": "THARANI TEST INSTITUION"
+    },
+    {
+      "collegeId": 466332,
+      "collegeNameDisplay": "The Best University",
+      "collegeNameAlias": "The Best University",
+      "collegeName": "THE BEST UNIVERSITY"
+    },
+    {
+      "collegeId": 458654,
+      "collegeNameDisplay": "The Dyson Institute of Engineering and Technology",
+      "collegeNameAlias": "The Dyson Institute of Engineering and Technology",
+      "collegeName": "DYSON INSTITUTE"
+    },
+    {
+      "collegeId": 474304,
+      "collegeNameDisplay": "The Legend",
+      "collegeNameAlias": "The Legend",
+      "collegeName": "LEGEND"
+    },
+    {
+      "collegeId": 119212,
+      "collegeNameDisplay": "The Northern School of Art",
+      "collegeNameAlias": "The Northern School of Art",
+      "collegeName": "CLEVELAND COLLEGE OF ART AND DESIGN"
+    },
+    {
+      "collegeId": 308258,
+      "collegeNameDisplay": "The Sherwood Psychotherapy Training Institute",
+      "collegeNameAlias": "The Sherwood Psychotherapy Training Institute",
+      "collegeName": "THE SHERWOOD TRAINING INSTITUTE"
+    },
+    {
+      "collegeId": 6695,
+      "collegeNameDisplay": "Trafford & Stockport College Group",
+      "collegeNameAlias": "Trafford & Stockport College Group",
+      "collegeName": "STOCKPORT COLLEGE"
+    },
+    {
+      "collegeId": 3953,
+      "collegeNameDisplay": "Trinity Laban Conservatoire of Music and Dance",
+      "collegeNameAlias": "Trinity Laban Conservatoire of Music and Dance",
+      "collegeName": "LABAN"
+    },
+    {
+      "collegeId": 475626,
+      "collegeNameDisplay": "TT_TestawsUk1",
+      "collegeNameAlias": "TT_TestawsUk1",
+      "collegeName": "TT_TESTAWSUK1"
+    },
+    {
+      "collegeId": 475664,
+      "collegeNameDisplay": "TT_Testawsuk2",
+      "collegeNameAlias": "TT_Testawsuk2",
+      "collegeName": "TT_TESTAWSUK2"
+    },
+    {
+      "collegeId": 475666,
+      "collegeNameDisplay": "TT_Testawsuk3",
+      "collegeNameAlias": "TT_Testawsuk3",
+      "collegeName": "TT_TESTAWSUK3"
+    },
+    {
+      "collegeId": 50091,
+      "collegeNameDisplay": "Tyne Coast College",
+      "collegeNameAlias": "Tyne Coast College",
+      "collegeName": "TYNE METROPOLITAN COLLEGE"
+    },
+    {
+      "collegeId": 313726,
+      "collegeNameDisplay": "UCFB",
+      "collegeNameAlias": "UCFB",
+      "collegeName": "UCFB"
+    },
+    {
+      "collegeId": 3803,
+      "collegeNameDisplay": "UCL Institute of Education, University of London",
+      "collegeNameAlias": "UCL Institute of Education, University of London",
+      "collegeName": "INSTITUTE OF EDUCATION, UNIVERSITY OF LONDON"
+    },
+    {
+      "collegeId": 4094,
+      "collegeNameDisplay": "UCL (University College London)",
+      "collegeNameAlias": "UCL (University College London)",
+      "collegeName": "UNIVERSITY COLLEGE LONDON, UNIVERSITY OF LONDON"
+    },
+    {
+      "collegeId": 315454,
+      "collegeNameDisplay": "UK Alliance of Wedding Planners",
+      "collegeNameAlias": "UK Alliance of Wedding Planners",
+      "collegeName": "UK ALLIANCE OF WEDDING PLANNERS"
+    },
+    {
+      "collegeId": 339488,
+      "collegeNameDisplay": "UK Courses",
+      "collegeNameAlias": "UK Courses",
+      "collegeName": "UK COURSES"
+    },
+    {
+      "collegeId": 141367,
+      "collegeNameDisplay": "Uk Distance Learning College",
+      "collegeNameAlias": "Uk Distance Learning College",
+      "collegeName": "UK DISTANCE LEARNING COLLEGE"
+    },
+    {
+      "collegeId": 472372,
+      "collegeNameDisplay": "Umatestuk Provider",
+      "collegeNameAlias": "Umatestuk Provider",
+      "collegeName": "UMATESTUK PROVIDER"
+    },
+    {
+      "collegeId": 471630,
+      "collegeNameDisplay": "uma test university",
+      "collegeNameAlias": "uma test university",
+      "collegeName": "UMA TEST UNIVERSITY"
+    },
+    {
+      "collegeId": 144166,
+      "collegeNameDisplay": "University Campus Oldham",
+      "collegeNameAlias": "University Campus Oldham",
+      "collegeName": "UNIVERSITY CAMPUS OLDHAM"
+    },
+    {
+      "collegeId": 5827,
+      "collegeNameDisplay": "University Centre Askham Bryan",
+      "collegeNameAlias": "University Centre Askham Bryan",
+      "collegeName": "ASKHAM BRYAN COLLEGE"
+    },
+    {
+      "collegeId": 138500,
+      "collegeNameDisplay": "University Centre at Salford City College",
+      "collegeNameAlias": "University Centre at Salford City College",
+      "collegeName": "SALFORD CITY COLLEGE"
+    },
+    {
+      "collegeId": 7039,
+      "collegeNameDisplay": "University Centre at the Heart of Yorkshire Education Group (inc Wakefield College & Selby College)",
+      "collegeNameAlias": "University Centre at the Heart of Yorkshire Education Group (inc Wakefield College & Selby College)",
+      "collegeName": "WAKEFIELD COLLEGE"
+    },
+    {
+      "collegeId": 6594,
+      "collegeNameDisplay": "University Centre Bishop Burton",
+      "collegeNameAlias": "University Centre Bishop Burton",
+      "collegeName": "BISHOP BURTON COLLEGE"
+    },
+    {
+      "collegeId": 75579,
+      "collegeNameDisplay": "University Centre Calderdale College",
+      "collegeNameAlias": "University Centre Calderdale College",
+      "collegeName": "CALDERDALE COLLEGE"
+    },
+    {
+      "collegeId": 7879,
+      "collegeNameDisplay": "University Centre Colchester at Colchester Institute",
+      "collegeNameAlias": "University Centre Colchester at Colchester Institute",
+      "collegeName": "COLCHESTER INSTITUTE"
+    },
+    {
+      "collegeId": 382260,
+      "collegeNameDisplay": "University Centre Farnborough",
+      "collegeNameAlias": "University Centre Farnborough",
+      "collegeName": "UNIVERSITY CENTRE FARNBOROUGH"
+    },
+    {
+      "collegeId": 7447,
+      "collegeNameDisplay": "University Centre Grimsby",
+      "collegeNameAlias": "University Centre Grimsby",
+      "collegeName": "UNIVERSITY CENTRE GRIMSBY"
+    },
+    {
+      "collegeId": 138347,
+      "collegeNameDisplay": "University Centre Leeds, Leeds City College",
+      "collegeNameAlias": "University Centre Leeds, Leeds City College",
+      "collegeName": "LEEDS CITY COLLEGE"
+    },
+    {
+      "collegeId": 11624,
+      "collegeNameDisplay": "University Centre Myerscough",
+      "collegeNameAlias": "University Centre Myerscough",
+      "collegeName": "UNIVERSITY CENTRE MYERSCOUGH"
+    },
+    {
+      "collegeId": 144130,
+      "collegeNameDisplay": "University Centre Peterborough",
+      "collegeNameAlias": "University Centre Peterborough",
+      "collegeName": "UNIVERSITY CENTRE PETERBOROUGH"
+    },
+    {
+      "collegeId": 6062,
+      "collegeNameDisplay": "University Centre Reaseheath",
+      "collegeNameAlias": "University Centre Reaseheath",
+      "collegeName": "UNIVERSITY CENTRE REASEHEATH"
+    },
+    {
+      "collegeId": 6474,
+      "collegeNameDisplay": "University Centre Rotherham",
+      "collegeNameAlias": "University Centre Rotherham",
+      "collegeName": "ROTHERHAM COLLEGE OF ARTS AND TECHNOLOGY"
+    },
+    {
+      "collegeId": 114791,
+      "collegeNameDisplay": "University Centre Somerset - Bridgwater & Taunton College",
+      "collegeNameAlias": "University Centre Somerset - Bridgwater & Taunton College",
+      "collegeName": "BRIDGWATER COLLEGE"
+    },
+    {
+      "collegeId": 6813,
+      "collegeNameDisplay": "University Centre South Devon – South Devon College",
+      "collegeNameAlias": "University Centre South Devon – South Devon College",
+      "collegeName": "UNIVERSITY CENTRE SOUTH DEVON – SOUTH DEVON COLLEGE"
+    },
+    {
+      "collegeId": 7600,
+      "collegeNameDisplay": "University Centre South Essex",
+      "collegeNameAlias": "University Centre South Essex",
+      "collegeName": "SOUTH ESSEX COLLEGE OF FURTHER AND HIGHER EDUCATION"
+    },
+    {
+      "collegeId": 137479,
+      "collegeNameDisplay": "University Centre Sparsholt",
+      "collegeNameAlias": "University Centre Sparsholt",
+      "collegeName": "UNIVERSITY CENTRE SPARSHOLT"
+    },
+    {
+      "collegeId": 5928,
+      "collegeNameDisplay": "University Centre St Helens",
+      "collegeNameAlias": "University Centre St Helens",
+      "collegeName": "ST HELENS COLLEGE"
+    },
+    {
+      "collegeId": 306866,
+      "collegeNameDisplay": "University Centre Truro and Penwith",
+      "collegeNameAlias": "University Centre Truro and Penwith",
+      "collegeName": "TRURO AND PENWITH COLLEGE"
+    },
+    {
+      "collegeId": 6479,
+      "collegeNameDisplay": "University Centre West Anglia",
+      "collegeNameAlias": "University Centre West Anglia",
+      "collegeName": "COLLEGE OF WEST ANGLIA"
+    },
+    {
+      "collegeId": 6852,
+      "collegeNameDisplay": "University Centre Weston",
+      "collegeNameAlias": "University Centre Weston",
+      "collegeName": "WESTON COLLEGE"
+    },
+    {
+      "collegeId": 70164,
+      "collegeNameDisplay": "University College Birmingham",
+      "collegeNameAlias": "University College Birmingham",
+      "collegeName": "UNIVERSITY COLLEGE BIRMINGHAM"
+    },
+    {
+      "collegeId": 68279,
+      "collegeNameDisplay": "University College of Estate Management",
+      "collegeNameAlias": "University College of Estate Management",
+      "collegeName": "UNIVERSITY COLLEGE OF ESTATE MANAGEMENT"
+    },
+    {
+      "collegeId": 117920,
+      "collegeNameDisplay": "University College of Osteopathy",
+      "collegeNameAlias": "University College of Osteopathy",
+      "collegeName": "BRITISH SCHOOL OF OSTEOPATHY"
+    },
+    {
+      "collegeId": 466300,
+      "collegeNameDisplay": "University of Adverts",
+      "collegeNameAlias": "University of Adverts",
+      "collegeName": "UNIVERSITY OF ADVERTS"
+    },
+    {
+      "collegeId": 473184,
+      "collegeNameDisplay": "University Of Arsenal",
+      "collegeNameAlias": "University Of Arsenal",
+      "collegeName": "UNIVERSITY OF ARSENAL"
+    },
+    {
+      "collegeId": 466216,
+      "collegeNameDisplay": "University of Business",
+      "collegeNameAlias": "University of Business",
+      "collegeName": "UNIVERSITY OF BUSINESS"
+    },
+    {
+      "collegeId": 5582,
+      "collegeNameDisplay": "University of Cambridge",
+      "collegeNameAlias": "University of Cambridge",
+      "collegeName": "UNIVERSITY OF CAMBRIDGE"
+    },
+    {
+      "collegeId": 341694,
+      "collegeNameDisplay": "University of Essex Online",
+      "collegeNameAlias": "University of Essex Online",
+      "collegeName": "UNIVERSITY OF ESSEX ONLINE"
+    },
+    {
+      "collegeId": 466258,
+      "collegeNameDisplay": "University of Excellence",
+      "collegeNameAlias": "University of Excellence",
+      "collegeName": "UNIVERSITY OF EXCELLENCE"
+    },
+    {
+      "collegeId": 437218,
+      "collegeNameDisplay": "University of Greenwich International College",
+      "collegeNameAlias": "University of Greenwich International College",
+      "collegeName": "UNIVERSITY OF GREENWICH INTERNATIONAL COLLEGE"
+    },
+    {
+      "collegeId": 1040,
+      "collegeNameDisplay": "University of Hertfordshire",
+      "collegeNameAlias": "University of Hertfordshire",
+      "collegeName": "UNIVERSITY OF HERTFORDSHIRE"
+    },
+    {
+      "collegeId": 406890,
+      "collegeNameDisplay": "University of London Institute in Paris",
+      "collegeNameAlias": "University of London Institute in Paris",
+      "collegeName": "UNIVERSITY OF LONDON INSTITUTE IN PARIS"
+    },
+    {
+      "collegeId": 3757,
+      "collegeNameDisplay": "University of Oxford",
+      "collegeNameAlias": "University of Oxford",
+      "collegeName": "UNIVERSITY OF OXFORD"
+    },
+    {
+      "collegeId": 5872,
+      "collegeNameDisplay": "University of the Highlands and Islands (UHI)",
+      "collegeNameAlias": "University of the Highlands and Islands (UHI)",
+      "collegeName": "UNIVERSITY OF THE HIGHLANDS AND ISLANDS"
+    },
+    {
+      "collegeId": 15006,
+      "collegeNameDisplay": "University of the West of Scotland",
+      "collegeNameAlias": "University of the West of Scotland",
+      "collegeName": "UNIVERSITY OF THE WEST OF SCOTLAND"
+    },
+    {
+      "collegeId": 5225,
+      "collegeNameDisplay": "University of Wales Trinity Saint David",
+      "collegeNameAlias": "University of Wales Trinity Saint David",
+      "collegeName": "UNIVERSITY OF WALES, TRINITY SAINT DAVID"
+    },
+    {
+      "collegeId": 50567,
+      "collegeNameDisplay": "University of Winchester",
+      "collegeNameAlias": "University of Winchester",
+      "collegeName": "UNIVERSITY OF WINCHESTER"
+    },
+    {
+      "collegeId": 467134,
+      "collegeNameDisplay": "upendar",
+      "collegeNameAlias": "upendar",
+      "collegeName": "UPENDAR"
+    },
+    {
+      "collegeId": 465906,
+      "collegeNameDisplay": "Vahitest01",
+      "collegeNameAlias": "Vahitest01",
+      "collegeName": "VAHITEST01"
+    },
+    {
+      "collegeId": 472826,
+      "collegeNameDisplay": "vidhya kt provider",
+      "collegeNameAlias": "vidhya kt provider",
+      "collegeName": "VIDHYA KT PROVIDER"
+    },
+    {
+      "collegeId": 473386,
+      "collegeNameDisplay": "vidhya new UK provider",
+      "collegeNameAlias": "vidhya new UK provider",
+      "collegeName": "VIDHYA NEW UK PROVIDER"
+    },
+    {
+      "collegeId": 473066,
+      "collegeNameDisplay": "Vidhya UK Country provider",
+      "collegeNameAlias": "Vidhya UK Country provider",
+      "collegeName": "VIDHYA UK COUNTRY PROVIDER"
+    },
+    {
+      "collegeId": 472832,
+      "collegeNameDisplay": "Vidhya UKProvider",
+      "collegeNameAlias": "Vidhya UKProvider",
+      "collegeName": "VIDHYA UKPROVIDER"
+    },
+    {
+      "collegeId": 119369,
+      "collegeNameDisplay": "Walsall College",
+      "collegeNameAlias": "Walsall College",
+      "collegeName": "WALSALL COLLEGE"
+    },
+    {
+      "collegeId": 74420,
+      "collegeNameDisplay": "Warwickshire College and University Centre",
+      "collegeNameAlias": "Warwickshire College and University Centre",
+      "collegeName": "WARWICKSHIRE COLLEGE AND UNIVERSITY CENTRE"
+    },
+    {
+      "collegeId": 6470,
+      "collegeNameDisplay": "West Herts College",
+      "collegeNameAlias": "West Herts College",
+      "collegeName": "WEST HERTS COLLEGE"
+    },
+    {
+      "collegeId": 119280,
+      "collegeNameDisplay": "West Lancashire College",
+      "collegeNameAlias": "West Lancashire College",
+      "collegeName": "SKELMERSDALE AND ORMSKIRK COLLEGE"
+    },
+    {
+      "collegeId": 451252,
+      "collegeNameDisplay": "West London Institute of Technology",
+      "collegeNameAlias": "West London Institute of Technology",
+      "collegeName": "WEST LONDON INSTITUTE OF TECHNOLOGY"
+    },
+    {
+      "collegeId": 440374,
+      "collegeNameDisplay": "Westminster Theological Centre",
+      "collegeNameAlias": "Westminster Theological Centre",
+      "collegeName": "WESTMINSTER THEOLOGICAL CENTRE"
+    },
+    {
+      "collegeId": 6585,
+      "collegeNameDisplay": "West Suffolk College",
+      "collegeNameAlias": "West Suffolk College",
+      "collegeName": "WEST SUFFOLK COLLEGE"
+    },
+    {
+      "collegeId": 6481,
+      "collegeNameDisplay": "Weymouth College",
+      "collegeNameAlias": "Weymouth College",
+      "collegeName": "WEYMOUTH COLLEGE"
+    },
+    {
+      "collegeId": 5952,
+      "collegeNameDisplay": "Wigan and Leigh College",
+      "collegeNameAlias": "Wigan and Leigh College",
+      "collegeName": "WIGAN AND LEIGH COLLEGE"
+    },
+    {
+      "collegeId": 5916,
+      "collegeNameDisplay": "Wiltshire College and University Centre",
+      "collegeNameAlias": "Wiltshire College and University Centre",
+      "collegeName": "WILTSHIRE COLLEGE"
+    },
+    {
+      "collegeId": 6048,
+      "collegeNameDisplay": "Wirral Metropolitan College",
+      "collegeNameAlias": "Wirral Metropolitan College",
+      "collegeName": "WIRRAL METROPOLITAN COLLEGE"
+    },
+    {
+      "collegeId": 127061,
+      "collegeNameDisplay": "Yacht And Powercraft Design Services Ltd",
+      "collegeNameAlias": "Yacht And Powercraft Design Services Ltd",
+      "collegeName": "YACHT AND POWERCRAFT DESIGN SERVICES LTD"
+    },
+    {
+      "collegeId": 132171,
+      "collegeNameDisplay": "Yarborough School",
+      "collegeNameAlias": "Yarborough School",
+      "collegeName": "YARBOROUGH SCHOOL"
+    },
+    {
+      "collegeId": 144168,
+      "collegeNameDisplay": "Yeovil College University Centre",
+      "collegeNameAlias": "Yeovil College University Centre",
+      "collegeName": "YEOVIL COLLEGE (UNIVERSITY CENTRE YEOVIL)"
+    },
+    {
+      "collegeId": 119601,
+      "collegeNameDisplay": "YMCA George Williams College",
+      "collegeNameAlias": "YMCA George Williams College",
+      "collegeName": "YMCA GEORGE WILLIAMS COLLEGE"
+    },
+    {
+      "collegeId": 7671,
+      "collegeNameDisplay": "York College University Centre",
+      "collegeNameAlias": "York College University Centre",
+      "collegeName": "YORK COLLEGE UNIVERSITY CENTRE"
+    },
+    {
+      "collegeId": 5620,
+      "collegeNameDisplay": "York St John University",
+      "collegeNameAlias": "York St John University",
+      "collegeName": "YORK ST JOHN UNIVERSITY"
+    },
+    {
+      "collegeId": 467268,
+      "collegeNameDisplay": "zabi -test provider",
+      "collegeNameAlias": "zabi -test provider",
+      "collegeName": "ZABI -TEST PROVIDER"
+    },
+    {
+      "collegeId": 129887,
+      "collegeNameDisplay": "Zebra Uno Ltd",
+      "collegeNameAlias": "Zebra Uno Ltd",
+      "collegeName": "ZEBRA UNO LTD"
+    }
+  ]

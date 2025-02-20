@@ -1,0 +1,151 @@
+{
+    "studyLevelList": [
+      {
+        "qualUrl": "degree",
+        "qualCode": "M",
+        "qualDesc": "Undergraduate"
+      },
+      {
+        "qualUrl": "hnd-hnc",
+        "qualCode": "N",
+        "qualDesc": "HND / HNC"
+      },
+      {
+        "qualUrl": "foundation-degree",
+        "qualCode": "A",
+        "qualDesc": "Foundation degree"
+      },
+      {
+        "qualUrl": "access-foundation",
+        "qualCode": "T",
+        "qualDesc": "Access & foundation"
+      },
+      {
+        "qualUrl": "postgraduate",
+        "qualCode": "L",
+        "qualDesc": "Postgraduate"
+      }
+    ],
+    "courseDetails": [
+      {
+        "description": null,
+        "url": null,
+        "categoryCode": null,
+        "browseCatId": "KW",
+        "parentSubject": null,
+        "qualCode": null
+      },
+      
+      {
+        "description": "ACCA Association of Chartered Certified Accountants",
+        "url": "/postgraduate-courses/search?subject=acca-association-of-chartered-certified-accountants",
+        "categoryCode": "AK.65",
+        "browseCatId": "20693",
+        "parentSubject": "Accounting",
+        "qualCode": "L"
+      },
+      {
+        "description": "ACCA Association of Chartered Certified Accountants",
+        "url": "/degree-courses/search?subject=acca-association-of-chartered-certified-accountants",
+        "categoryCode": "AK.65",
+        "browseCatId": "20690",
+        "parentSubject": "Accounting, Business & Finance",
+        "qualCode": "M"
+      },
+      {
+        "description": "CIPD Chartered Institute of Personnel and Development",
+        "url": "/postgraduate-courses/search?subject=cipd-chartered-institute-of-personnel-and-development",
+        "categoryCode": "AJ.21",
+        "browseCatId": "20695",
+        "parentSubject": "Management",
+        "qualCode": "L"
+      }
+    ],
+    "locationList": [
+      {
+        "regionId": 1,
+        "regionUrl": null,
+        "regionName": "All UK"
+      },
+      {
+        "regionId": 2,
+        "regionUrl": "england",
+        "regionName": "All England"
+      },
+      {
+        "regionId": 7,
+        "regionUrl": "central-england",
+        "regionName": "Central England"
+      },
+      {
+        "regionId": 17,
+        "regionUrl": "eastern-england",
+        "regionName": "Eastern England"
+      },
+      {
+        "regionId": 19,
+        "regionUrl": "east-midlands",
+        "regionName": "East Midlands"
+      },
+      {
+        "regionId": 30,
+        "regionUrl": "london",
+        "regionName": "Greater London"
+      },
+      {
+        "regionId": 15,
+        "regionUrl": "north-east-england",
+        "regionName": "North East England"
+      },
+      {
+        "regionId": 6,
+        "regionUrl": "northern-england",
+        "regionName": "Northern England"
+      },
+      {
+        "regionId": 5,
+        "regionUrl": "northern-ireland",
+        "regionName": "Northern Ireland"
+      },
+      {
+        "regionId": 16,
+        "regionUrl": "north-west-england",
+        "regionName": "North West England"
+      },
+      {
+        "regionId": 3,
+        "regionUrl": "scotland",
+        "regionName": "Scotland"
+      },
+      {
+        "regionId": 21,
+        "regionUrl": "south-east-england",
+        "regionName": "South East England"
+      },
+      {
+        "regionId": 8,
+        "regionUrl": "southern-england",
+        "regionName": "Southern England"
+      },
+      {
+        "regionId": 20,
+        "regionUrl": "south-west-england",
+        "regionName": "South West England"
+      },
+      {
+        "regionId": 4,
+        "regionUrl": "wales",
+        "regionName": "Wales"
+      },
+      {
+        "regionId": 18,
+        "regionUrl": "west-midlands",
+        "regionName": "West Midlands"
+      },
+      {
+        "regionId": 23,
+        "regionUrl": "yorkshire-and-humberside",
+        "regionName": "Yorkshire And Humberside"
+      }
+    ]
+  }

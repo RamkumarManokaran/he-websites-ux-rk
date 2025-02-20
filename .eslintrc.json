@@ -1,0 +1,33 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "root": true,
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "globals": "readonly"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]
+    }
+  ],
+  "plugins": ["eslint-plugin-react", "@typescript-eslint"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-unused-vars": "warn"
+  },
+  "ignorePatterns": [
+    "**/tailwind.config.ts",
+    "**/*.config.js",
+    "**/*.config.ts",
+    "**/*cdk/*",
+    "**/*types/*",
+    "**/*__test__/*",
+    "packages/eslint-config/**",
+    "packages/typescript-config/**",
+    "node_modules/",
+    ".next/",
+    "dist/"
+  ]
+}

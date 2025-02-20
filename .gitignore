@@ -38,3 +38,11 @@ yarn-error.log*
 .DS_Store
 *.pem
 package-lock.json
+
+
+
+
+**/.open-next/
+
+/apps/pgs/.open-next
+/apps/whatuni/.open-next

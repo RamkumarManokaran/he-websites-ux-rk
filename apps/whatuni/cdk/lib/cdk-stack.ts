@@ -21,11 +21,10 @@ import {
   Effect,
   AnyPrincipal,
   Role,
-  AccountRootPrincipal,
 } from "aws-cdk-lib/aws-iam";
 import { MyLogGroupArm } from "./logGroupArn";
 
-export class CdkStack extends cdk.Stack {
+export class WhatuniWebsiteHeCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     const [VPC_SUBNET1_VALUE, VPC_SUBNET2_VALUE, VPC_SUBNET3_VALUE] =
       process.env.AWS_VPC_SUBNETS?.split(",") ?? [];
@@ -38,56 +37,54 @@ export class CdkStack extends cdk.Stack {
     //   visibilityTimeout: cdk.Duration.seconds(300)
     // });
     // Create a new S3 bucket to store Next.js build artifacts
-    const myBucket = new s3.Bucket(this, "NewREWebSiteBucket", {
-      bucketName: process.env.AWS_S3_BUCKET_NAME,
+    // const myBucket = new s3.Bucket(this, "NewREWebSiteBucket", {
+    //   bucketName: process.env.AWS_WhatuniWebsite_S3_BUCKET_NAME,
+    //   // Replace with your desired name
+    //   enforceSSL: true,
+    //   versioned: true,
+    //   blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+    //   encryption: s3.BucketEncryption.S3_MANAGED,
+    //   removalPolicy: cdk.RemovalPolicy.DESTROY, // Optional: Set removal policy
+    // });
+    const myBucket = s3.Bucket.fromBucketName(
+      this,
+      "ExistingBucket",
+      process.env.AWS_WHATUNI_S3_BUCKET_NAME || ""
+    );
 
-      // Replace with your desired name
-      enforceSSL: true,
-      versioned: true,
-      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
-      encryption: s3.BucketEncryption.S3_MANAGED,
-      removalPolicy: cdk.RemovalPolicy.DESTROY, // Optional: Set removal policy
-    });
+    // const allowCloudFrontReadOnlyPolicy = new PolicyStatement({
+    //   actions: ["s3:GetObject"],
+    //   principals: [new ServicePrincipal("cloudfront.amazonaws.com")],
+    //   effect: Effect.ALLOW,
+    //   conditions: {
+    //     StringEquals: {
+    //       "AWS:SourceArn": `arn:aws:cloudfront::${
+    //         cdk.Stack.of(this).account
+    //       }:distribution/${process.env.CLOUD_FRONT_DISTRIBUTION_ID}`,
+    //     },
+    //   },
+    //   resources: [`${myBucket.bucketArn}/*`],
+    // });
 
-    const allowCloudFrontReadOnlyPolicy = new PolicyStatement({
-      actions: ["s3:GetObject"],
-      principals: [new ServicePrincipal("cloudfront.amazonaws.com")],
-      effect: Effect.ALLOW,
-      conditions: {
-        StringEquals: {
-          "AWS:SourceArn": `arn:aws:cloudfront::${
-            cdk.Stack.of(this).account
-          }:distribution/${process.env.CLOUD_FRONT_DISTRIBUTION_ID}`,
-        },
-      },
-      resources: [`${myBucket.bucketArn}/*`],
-    });
+    // const secureTransportS3PolicyStatement = new PolicyStatement({
+    //   actions: ["s3:*"],
+    //   principals: [new AnyPrincipal()],
+    //   effect: Effect.DENY,
+    //   conditions: {
+    //     Bool: {
+    //       "aws:SecureTransport": "false",
+    //     },
+    //   },
+    //   resources: [`${myBucket.bucketArn}/*`, `${myBucket.bucketArn}`],
+    // });
 
-    const secureTransportS3PolicyStatement = new PolicyStatement({
-      actions: ["s3:*"],
-      principals: [new AnyPrincipal()],
-      effect: Effect.DENY,
-      conditions: {
-        Bool: {
-          "aws:SecureTransport": "false",
-        },
-      },
-      resources: [`${myBucket.bucketArn}/*`, `${myBucket.bucketArn}`],
-    });
+    // myBucket.addToResourcePolicy(secureTransportS3PolicyStatement);
+    // myBucket.addToResourcePolicy(allowCloudFrontReadOnlyPolicy);
 
-    myBucket.addToResourcePolicy(secureTransportS3PolicyStatement);
-    myBucket.addToResourcePolicy(allowCloudFrontReadOnlyPolicy);
-
-    cdk.Tags.of(myBucket).add("ApplicationService", "CS Channel: HE websites");
-    cdk.Tags.of(myBucket).add("Classification", "unclassified");
-    cdk.Tags.of(myBucket).add("Name", process.env.AWS_S3_BUCKET_NAME || "");
-    cdk.Tags.of(myBucket).add("ProjectName", "HE Websites");
-
-    // Upload files to the S3 bucket
-    new s3deploy.BucketDeployment(this, "DeployNextjsAssets", {
-      sources: [s3deploy.Source.asset("../.open-next/assets")],
-      destinationBucket: myBucket,
-    });
+    // cdk.Tags.of(myBucket).add("ApplicationService", "CS Channel: HE websites");
+    // cdk.Tags.of(myBucket).add("Classification", "unclassified");
+    // cdk.Tags.of(myBucket).add("Name", whatuniBucketName);
+    // cdk.Tags.of(myBucket).add("ProjectName", "HE Websites");
 
     const vpc = Vpc.fromLookup(this, "ExistingVpc", {
       // region: "ap-south-1",
@@ -111,11 +108,25 @@ export class CdkStack extends cdk.Stack {
     const securityGroup = SecurityGroup.fromLookupByName(
       this,
       "SG",
-      "idp-connect-DOM-Instapage-MS",
-      vpc,
+      process.env.AWS_SECURITY_GROUP || "",
+      vpc
     );
+    // Upload files to the S3 bucket
+    new s3deploy.BucketDeployment(this, "DeployNextjsAssets", {
+      sources: [s3deploy.Source.asset("../.open-next/assets")],
+      destinationBucket: myBucket,
+      destinationKeyPrefix: "assets",
+      vpc: vpcConfig,
+    });
+    // Upload files to the S3 bucket
+    new s3deploy.BucketDeployment(this, "DeployNextjsCache", {
+      sources: [s3deploy.Source.asset("../.open-next/cache")],
+      destinationBucket: myBucket,
+      destinationKeyPrefix: "cache",
+      vpc: vpcConfig,
+    });
 
-    const serverFunctionName = "dev-whatuni-website-server-lambda";
+    const serverFunctionName = process.env.WHATUNI_SERVER_FN_LAMBDA_NAME || " ";
     // const logGroupArn = `arn:aws:logs:${this.region}:${this.account}:log-group:/aws/lambda/${serverFunctionName}:*`;
     // const cloudwatchPolicyStatement = new PolicyStatement({
     //   effect: Effect.ALLOW,
@@ -134,8 +145,26 @@ export class CdkStack extends cdk.Stack {
     const cloudwatchPolicyStatement: any = myService.setLogGroup(
       this.region,
       this.account,
-      serverFunctionName,
+      serverFunctionName
     );
+
+    const s3CacheStatement = new PolicyStatement({
+      effect: Effect.ALLOW,
+      actions: ["s3:GetObject", "s3:PutObject", "s3:ListBucket"],
+      resources: [
+        `arn:aws:s3:::${process.env.AWS_WHATUNI_S3_BUCKET_NAME}`,
+        `arn:aws:s3:::${process.env.AWS_WHATUNI_S3_BUCKET_NAME}/*`,
+      ],
+    });
+
+    const s3AssetStatement = new PolicyStatement({
+      effect: Effect.ALLOW,
+      actions: ["s3:GetObject"],
+      resources: [
+        `arn:aws:s3:::${process.env.AWS_WHATUNI_S3_BUCKET_NAME}`,
+        `arn:aws:s3:::${process.env.AWS_WHATUNI_S3_BUCKET_NAME}/*`,
+      ],
+    });
 
     const ec2XrayPolicyStatement = new PolicyStatement({
       effect: Effect.ALLOW,
@@ -158,7 +187,11 @@ export class CdkStack extends cdk.Stack {
     // Create the IAM policy
     const myPolicy = new Policy(this, "MyPolicy", {
       policyName: `${serverFunctionName}-permission`,
-      statements: [cloudwatchPolicyStatement, ec2XrayPolicyStatement],
+      statements: [
+        cloudwatchPolicyStatement,
+        ec2XrayPolicyStatement,
+        s3CacheStatement,
+      ],
     });
 
     cdk.Tags.of(myPolicy).add("ApplicationService", "CS Channel: HE websites");
@@ -189,7 +222,10 @@ export class CdkStack extends cdk.Stack {
       timeout: cdk.Duration.seconds(30), // Adjust as needed
       memorySize: 1024, // Adjust as needed
       environment: {
-        NEXT_PUBLIC_S3_BUCKET: myBucket.bucketName, // Make S3 bucket name accessible in Lambda
+        // NEXT_PUBLIC_S3_BUCKET: myBucket.bucketName, // Make S3 bucket name accessible in Lambda
+        CACHE_BUCKET_NAME: myBucket.bucketName,
+        CACHE_BUCKET_KEY_PREFIX: "cache",
+        CACHE_BUCKET_REGION: `${process.env.AWS_REGION}`,
       },
       architecture: Architecture.ARM_64,
       role: myRole,
@@ -200,57 +236,61 @@ export class CdkStack extends cdk.Stack {
 
     cdk.Tags.of(nextjsLambda).add(
       "ApplicationService",
-      "CS Channel: HE websites",
+      "CS Channel: HE websites"
     );
     cdk.Tags.of(nextjsLambda).add("Classification", "unclassified");
     cdk.Tags.of(nextjsLambda).add("Name", serverFunctionName);
     cdk.Tags.of(nextjsLambda).add("ProjectName", "HE websites");
 
-    const whatuni_website_server_lambda_log = new logs.LogGroup(
+    const WhatuniWebsite_website_server_lambda_log = new logs.LogGroup(
       this,
-      "whatuni_website_server_lambda_1_log",
+      "WhatuniWebsite_website_server_lambda_1_log",
       {
-        logGroupName: "/aws/lambda/dev-whatuni-website-server-lambda",
+        logGroupName: "/aws/lambda/dev-WhatuniWebsite-website-server-lambda",
         retention: logs.RetentionDays.FIVE_DAYS,
         removalPolicy: cdk.RemovalPolicy.DESTROY,
-      },
+      }
     );
 
-    cdk.Tags.of(whatuni_website_server_lambda_log).add(
+    cdk.Tags.of(WhatuniWebsite_website_server_lambda_log).add(
       "ApplicationService",
-      "CS Channel: HE websites",
+      "CS Channel: HE websites"
     );
-    cdk.Tags.of(whatuni_website_server_lambda_log).add(
+    cdk.Tags.of(WhatuniWebsite_website_server_lambda_log).add(
       "Classification",
-      "unclassified",
+      "unclassified"
     );
-    cdk.Tags.of(whatuni_website_server_lambda_log).add(
+    cdk.Tags.of(WhatuniWebsite_website_server_lambda_log).add(
       "Name",
-      "whatuni_website_server_lambda_1_log",
+      "WhatuniWebsite_website_server_lambda_1_log"
     );
-    cdk.Tags.of(whatuni_website_server_lambda_log).add(
+    cdk.Tags.of(WhatuniWebsite_website_server_lambda_log).add(
       "ProjectName",
-      "HE websites",
+      "HE websites"
     );
 
-    const imageFunctionName = "dev-whatuni-website-image-optimizer-lambda";
+    const imageFunctionName = process.env.WHATUNI_IMAGE_FN_LAMBDA_NAME || "";
 
     const myImageService = new MyLogGroupArm();
 
     const cloudwatchImagePolicyStatement: any = myImageService.setLogGroup(
       this.region,
       this.account,
-      imageFunctionName,
+      imageFunctionName
     );
     // Create the IAM policy
     const myImagePolicy = new Policy(this, "MyImagePolicy", {
       policyName: `${imageFunctionName}-permission`,
-      statements: [cloudwatchImagePolicyStatement, ec2XrayPolicyStatement],
+      statements: [
+        cloudwatchImagePolicyStatement,
+        ec2XrayPolicyStatement,
+        s3AssetStatement,
+      ],
     });
 
     cdk.Tags.of(myImagePolicy).add(
       "ApplicationService",
-      "CS Channel: HE websites",
+      "CS Channel: HE websites"
     );
     cdk.Tags.of(myImagePolicy).add("Classification", "unclassified");
     cdk.Tags.of(myImagePolicy).add("Name", `${imageFunctionName}-permission`);
@@ -264,7 +304,7 @@ export class CdkStack extends cdk.Stack {
 
     cdk.Tags.of(myImageRole).add(
       "ApplicationService",
-      "CS Channel: HE websites",
+      "CS Channel: HE websites"
     );
     cdk.Tags.of(myImageRole).add("Classification", "unclassified");
     cdk.Tags.of(myImageRole).add("Name", `${imageFunctionName}-exec-role`);
@@ -283,7 +323,7 @@ export class CdkStack extends cdk.Stack {
       memorySize: 1024, // Adjust as needed
       environment: {
         BUCKET_NAME: myBucket.bucketName, // Make S3 bucket name accessible in Lambda
-        BUCKET_KEY_PREFIX: "_assets",
+        BUCKET_KEY_PREFIX: "assets",
       },
       architecture: Architecture.ARM_64,
       role: myImageRole,
@@ -294,46 +334,59 @@ export class CdkStack extends cdk.Stack {
 
     cdk.Tags.of(nextjsimageLambda).add(
       "ApplicationService",
-      "CS Channel: HE websites",
+      "CS Channel: HE websites"
     );
     cdk.Tags.of(nextjsimageLambda).add("Classification", "unclassified");
     cdk.Tags.of(nextjsimageLambda).add(
       "Name",
-      "dev-whatuni-website-image-optimizer-lambda",
+      "dev-WhatuniWebsite-website-image-optimizer-lambda"
     );
     cdk.Tags.of(nextjsimageLambda).add("ProjectName", "HE websites");
 
-    const whatuni_website_image_lambda_log = new logs.LogGroup(
+    const WhatuniWebsite_website_image_lambda_log = new logs.LogGroup(
       this,
-      "whatuni_website_image_lambda_1_log",
+      "WhatuniWebsite_website_image_lambda_1_log",
       {
-        logGroupName: "/aws/lambda/dev-whatuni-website-image-optimizer-lambda",
+        logGroupName:
+          "/aws/lambda/dev-WhatuniWebsite-website-image-optimizer-lambda",
         retention: logs.RetentionDays.FIVE_DAYS,
         removalPolicy: cdk.RemovalPolicy.DESTROY,
-      },
+      }
     );
     // Add tags to the log group
-    cdk.Tags.of(whatuni_website_image_lambda_log).add(
+    cdk.Tags.of(WhatuniWebsite_website_image_lambda_log).add(
       "ApplicationService",
-      "CS Channel: HE websites",
+      "CS Channel: HE websites"
     );
-    cdk.Tags.of(whatuni_website_image_lambda_log).add(
+    cdk.Tags.of(WhatuniWebsite_website_image_lambda_log).add(
       "Classification",
-      "unclassified",
+      "unclassified"
     );
-    cdk.Tags.of(whatuni_website_image_lambda_log).add(
+    cdk.Tags.of(WhatuniWebsite_website_image_lambda_log).add(
       "Name",
-      "whatuni_website_image_lambda_1_log",
+      "WhatuniWebsite_website_image_lambda_1_log"
     );
-    cdk.Tags.of(whatuni_website_image_lambda_log).add(
+    cdk.Tags.of(WhatuniWebsite_website_image_lambda_log).add(
       "ProjectName",
-      "HE websites",
+      "HE websites"
     );
 
     const nextjsLambdaUrl = nextjsLambda.addFunctionUrl({
       authType: FunctionUrlAuthType.AWS_IAM,
       invokeMode: InvokeMode.BUFFERED,
     });
+    // const nextjsLambdaUrl = nextjsLambda.addFunctionUrl({
+    //     invokeMode: InvokeMode.BUFFERED,
+    //     authType: FunctionUrlAuthType.NONE,
+    //     // cors: {
+    //     //   allowCredentials: false,
+    //     //   allowedHeaders: ["*"],
+    //     //   allowedMethods: ["*"],
+    //     //   allowedOrigins: ["*"],
+    //     //   exposedHeaders: ["*"],
+    //     // },
+    // });
+
     /*Newly added configuration*/
     nextjsLambda.addPermission("AllowCloudFrontPrincipalServerLambda", {
       principal: new ServicePrincipal("cloudfront.amazonaws.com"),

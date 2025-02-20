@@ -1,0 +1,626 @@
+{
+    "data": {
+      "contentData": {
+        "items": [
+          {
+            "headerTrackingScripts": null,
+            "websiteLogo": {
+              "url": "https://images.ctfassets.net/szez98lehkfm/UEsONfx1Q29FkoafrRlPT/d4d275c4b6ed30927b1da92fc1fa3bfb/whatuni_logo.svg",
+              "width": 93,
+              "height": 102
+            },
+            "universalSearchPanel": {
+              "internalName": "Universal Search - Global",
+              "navigationElementsCollection": {
+                "items": [
+                  {
+                    "navName": "Courses - Global",
+                    "navUrl": null,
+                    "navCtAlabel": "Enter subject",
+                    "navIcon": null,
+                    "navCtaTarget": null,
+                    "flagNavItemStyle": "Search panel"
+                  },
+                 
+                ]
+              }
+            },
+            "headerMainMenuCollection": {
+              "items": [
+                {
+                  "navName": "Whatuni - Fina a course",
+                  "navTitle": "Find a course",
+                  "navUrl": null,
+                  "navIcon": null,
+                  "navChildC1Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Nav Category Heading",
+                        "navUrl": null,
+                        "navTitle": "Category Heading",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                     
+                    ]
+                  },
+                  "navChildC3Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Category Heading 3",
+                        "navTitle": " Category Heading 3",
+                        "navUrl": null,
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                      {
+                        "navName": "Whatuni - Icon menu",
+                        "navTitle": "Icon menu",
+                        "navUrl": "https://www.instagram.com/whatuni/?hl=en",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in new tab",
+                        "flagNavItemStyle": "Nav Icon",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1auund2m9IWZeZKBJM5gYo/38772d502a75a2f64a9877563acee94b/Social-Instagram.svg",
+                          "width": 32,
+                          "height": 32
+                        }
+                      },
+                      
+                    ]
+                  },
+                  "navChildC4Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Nav category 4",
+                        "navUrl": null,
+                        "navTitle": "Category Heading",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                      {
+                        "navName": "Whatuni - Hero Image Menu",
+                        "navUrl": "https://mdev.dev.aws.whatuni.com/new/advice/subject-guides/arts",
+                        "navTitle": "Hero Image Menu",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in same tab",
+                        "flagNavItemStyle": "Nav Hero Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1CVeDTobBq8kJ1tj7iKD4t/7aff765e47d59779d69e96170dbd18a3/MyIC_Article139236",
+                          "width": 2190,
+                          "height": 1369
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "navName": "Whatuni - Find a uni",
+                  "navTitle": "Find a uni",
+                  "navUrl": null,
+                  "navIcon": null,
+                  "navChildC2Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Nav category 4",
+                        "navUrl": null,
+                        "navTitle": "Category Heading",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                      {
+                        "navName": "Whatuni - Hero Image Menu",
+                        "navUrl": "https://mdev.dev.aws.whatuni.com/new/advice/subject-guides/arts",
+                        "navTitle": "Hero Image Menu",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in same tab",
+                        "flagNavItemStyle": "Nav Hero Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1CVeDTobBq8kJ1tj7iKD4t/7aff765e47d59779d69e96170dbd18a3/MyIC_Article139236",
+                          "width": 2190,
+                          "height": 1369
+                        }
+                      }
+                    ]
+                  },
+                  "navChildC3Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Category Heading 3",
+                        "navTitle": " Category Heading 3",
+                        "navUrl": null,
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                      {
+                        "navName": "Whatuni - Icon menu",
+                        "navTitle": "Icon menu",
+                        "navUrl": "https://www.instagram.com/whatuni/?hl=en",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in new tab",
+                        "flagNavItemStyle": "Nav Icon",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1auund2m9IWZeZKBJM5gYo/38772d502a75a2f64a9877563acee94b/Social-Instagram.svg",
+                          "width": 32,
+                          "height": 32
+                        }
+                      },
+                      {
+                        "navName": "Whatuni - Icon menu",
+                        "navTitle": "Icon menu",
+                        "navUrl": "https://www.instagram.com/whatuni/?hl=en",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in new tab",
+                        "flagNavItemStyle": "Nav Icon",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1auund2m9IWZeZKBJM5gYo/38772d502a75a2f64a9877563acee94b/Social-Instagram.svg",
+                          "width": 32,
+                          "height": 32
+                        }
+                      },
+                     
+                    ]
+                  },
+                  "navChildC4Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Category Heading 3",
+                        "navTitle": " Category Heading 3",
+                        "navUrl": null,
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                      {
+                        "navName": "Whatuni - Icon menu",
+                        "navTitle": "Icon menu",
+                        "navUrl": "https://www.instagram.com/whatuni/?hl=en",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in new tab",
+                        "flagNavItemStyle": "Nav Icon",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1auund2m9IWZeZKBJM5gYo/38772d502a75a2f64a9877563acee94b/Social-Instagram.svg",
+                          "width": 32,
+                          "height": 32
+                        }
+                      },
+                     
+                    ]
+                  },
+                  "navChildC1Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Nav category 4",
+                        "navUrl": null,
+                        "navTitle": "Category Heading",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                      {
+                        "navName": "Whatuni - Hero Image Menu",
+                        "navUrl": "https://mdev.dev.aws.whatuni.com/new/advice/subject-guides/arts",
+                        "navTitle": "Hero Image Menu",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in same tab",
+                        "flagNavItemStyle": "Nav Hero Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1CVeDTobBq8kJ1tj7iKD4t/7aff765e47d59779d69e96170dbd18a3/MyIC_Article139236",
+                          "width": 2190,
+                          "height": 1369
+                        }
+                      },
+                      {
+                        "navName": "Whatuni - Hero Image Menu",
+                        "navUrl": "https://mdev.dev.aws.whatuni.com/new/advice/subject-guides/arts",
+                        "navTitle": "Hero Image Menu",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in same tab",
+                        "flagNavItemStyle": "Nav Hero Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1CVeDTobBq8kJ1tj7iKD4t/7aff765e47d59779d69e96170dbd18a3/MyIC_Article139236",
+                          "width": 2190,
+                          "height": 1369
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "navName": "Whatuni - Careers",
+                  "navTitle": "Careers",
+                  "navUrl": null,
+                  "navIcon": null,
+                  "navChildC2Collection": {
+                    "items": []
+                  },
+                  "navChildC3Collection": {
+                    "items": []
+                  },
+                  "navChildC4Collection": {
+                    "items": []
+                  },
+                  "navChildC1Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Nav Category Heading",
+                        "navUrl": null,
+                        "navTitle": "Category Heading",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                      {
+                        "navName": "Whatuni - Cat 1 - Menu link 1",
+                        "navUrl": "https://mtest.test.aws.whatuni.com/degrees/courses/",
+                        "navTitle": "Menu link 1",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": null
+                      },
+                      
+                      {
+                        "navName": "Whatuni - Menu link 2",
+                        "navUrl": "https://mtest.test.aws.whatuni.com/university-profile/university-of-warwick/3771/",
+                        "navTitle": "Menu link 4",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": "Open in new tab",
+                        "flagNavItemStyle": null
+                      },
+                      {
+                        "navName": "Whatuni - Menu link 2",
+                        "navUrl": "https://mtest.test.aws.whatuni.com/university-profile/university-of-warwick/3771/",
+                        "navTitle": "Menu link 5",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": "Open in new tab",
+                        "flagNavItemStyle": null
+                      },
+                      {
+                        "navName": "Whatuni - Menu link 2",
+                        "navUrl": "https://mtest.test.aws.whatuni.com/university-profile/university-of-warwick/3771/",
+                        "navTitle": "Menu link 6",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": "Open in new tab",
+                        "flagNavItemStyle": null
+                      }
+                    ]
+                  }
+                },
+                {
+                  "navName": "Whatuni - Prospectuses",
+                  "navTitle": "Prospectuses",
+                  "navUrl": null,
+                  "navIcon": null,
+                  "navChildC2Collection": {
+                    "items": []
+                  },
+                  "navChildC3Collection": {
+                    "items": []
+                  },
+                  "navChildC4Collection": {
+                    "items": []
+                  },
+                  "navChildC1Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Category Heading 3",
+                        "navTitle": " Category Heading 3",
+                        "navUrl": null,
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                      {
+                        "navName": "Whatuni - Icon menu",
+                        "navTitle": "Icon menu",
+                        "navUrl": "https://www.instagram.com/whatuni/?hl=en",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in new tab",
+                        "flagNavItemStyle": "Nav Icon",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1auund2m9IWZeZKBJM5gYo/38772d502a75a2f64a9877563acee94b/Social-Instagram.svg",
+                          "width": 32,
+                          "height": 32
+                        }
+                      },
+  
+                      
+                      {
+                        "navName": "Whatuni - Icon menu",
+                        "navTitle": "Icon menu",
+                        "navUrl": "https://www.instagram.com/whatuni/?hl=en",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in new tab",
+                        "flagNavItemStyle": "Nav Icon",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1auund2m9IWZeZKBJM5gYo/38772d502a75a2f64a9877563acee94b/Social-Instagram.svg",
+                          "width": 32,
+                          "height": 32
+                        }
+                      },
+                      {
+                        "navName": "Whatuni - Icon menu",
+                        "navTitle": "Icon menu",
+                        "navUrl": "https://www.instagram.com/whatuni/?hl=en",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in new tab",
+                        "flagNavItemStyle": "Nav Icon",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1auund2m9IWZeZKBJM5gYo/38772d502a75a2f64a9877563acee94b/Social-Instagram.svg",
+                          "width": 32,
+                          "height": 32
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "navName": "Whatuni - open days",
+                  "navTitle": "Open days",
+                  "navUrl": null,
+                  "navChildC1Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Nav category 4",
+                        "navUrl": null,
+                        "navTitle": "Category Heading",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                      {
+                        "navName": "Whatuni - Hero Image Menu",
+                        "navUrl": "https://mdev.dev.aws.whatuni.com/new/advice/subject-guides/arts",
+                        "navTitle": "Hero Image Menu",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in same tab",
+                        "flagNavItemStyle": "Nav Hero Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1CVeDTobBq8kJ1tj7iKD4t/7aff765e47d59779d69e96170dbd18a3/MyIC_Article139236",
+                          "width": 2190,
+                          "height": 1369
+                        }
+                      },
+                      {
+                        "navName": "Whatuni - Hero Image Menu",
+                        "navUrl": "https://mdev.dev.aws.whatuni.com/new/advice/subject-guides/arts",
+                        "navTitle": "Hero Image Menu",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in same tab",
+                        "flagNavItemStyle": "Nav Hero Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1CVeDTobBq8kJ1tj7iKD4t/7aff765e47d59779d69e96170dbd18a3/MyIC_Article139236",
+                          "width": 2190,
+                          "height": 1369
+                        }
+                      }
+                      
+                    ]
+                  },
+                  "navChildC2Collection": {
+                    "items": []
+                  },
+                  "navChildC3Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Nav Category 2",
+                        "navUrl": null,
+                        "navTitle": "Category Heading 2",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                      {
+                        "navName": "Whatuni - open days",
+                        "navUrl": null,
+                        "navTitle": "Open days",
+                        "navCtAlabel": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "Nav Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/3gBdzHXucWKFh2Tht18q8/9a241336f74a85eb9075f2c23aa195d8/hero-banner.png",
+                          "width": 362,
+                          "height": 460
+                        }
+                      }
+                     
+                    ]
+                  },
+                  "navIcon": {
+                    "url": "https://images.ctfassets.net/szez98lehkfm/3gBdzHXucWKFh2Tht18q8/9a241336f74a85eb9075f2c23aa195d8/hero-banner.png",
+                    "width": 362,
+                    "height": 460
+                  }
+                },
+                {
+                  "navName": "Whatuni - Ranking",
+                  "navTitle": "Ranking",
+                  "navUrl": null,
+                  "navIcon": null,
+                  "navChildC2Collection": {
+                    "items": []
+                  },
+                  "navChildC3Collection": {
+                    "items": []
+                  },
+                  "navChildC4Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Nav category 4",
+                        "navUrl": null,
+                        "navTitle": "Category Heading",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                      {
+                        "navName": "Whatuni - Hero Image Menu",
+                        "navUrl": "https://mdev.dev.aws.whatuni.com/new/advice/subject-guides/arts",
+                        "navTitle": "Hero Image Menu",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in same tab",
+                        "flagNavItemStyle": "Nav Hero Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1CVeDTobBq8kJ1tj7iKD4t/7aff765e47d59779d69e96170dbd18a3/MyIC_Article139236",
+                          "width": 2190,
+                          "height": 1369
+                        }
+                      }
+                    ]
+                  },
+                  "navChildC1Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Nav Category 2",
+                        "navUrl": null,
+                        "navTitle": "Category Heading 2",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                     
+                    ]
+                  }
+                },
+                {
+                  "navName": "Whatuni - Advice",
+                  "navTitle": "Advice",
+                  "navUrl": null,
+                  "navIcon": null,
+                  "navChildC1Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Nav category 4",
+                        "navUrl": null,
+                        "navTitle": "Category Heading",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                      {
+                        "navName": "Whatuni - Hero Image Menu",
+                        "navUrl": "https://mdev.dev.aws.whatuni.com/new/advice/subject-guides/arts",
+                        "navTitle": "Hero Image Menu",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in same tab",
+                        "flagNavItemStyle": "Nav Hero Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1CVeDTobBq8kJ1tj7iKD4t/7aff765e47d59779d69e96170dbd18a3/MyIC_Article139236",
+                          "width": 2190,
+                          "height": 1369
+                        }
+                      },
+                      {
+                        "navName": "Whatuni - Hero Image Menu",
+                        "navUrl": "https://mdev.dev.aws.whatuni.com/new/advice/subject-guides/arts",
+                        "navTitle": "Hero Image Menu",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in same tab",
+                        "flagNavItemStyle": "Nav Hero Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1CVeDTobBq8kJ1tj7iKD4t/7aff765e47d59779d69e96170dbd18a3/MyIC_Article139236",
+                          "width": 2190,
+                          "height": 1369
+                        }
+                      },
+                      {
+                        "navName": "Whatuni - Hero Image Menu",
+                        "navUrl": "https://mdev.dev.aws.whatuni.com/new/advice/subject-guides/arts",
+                        "navTitle": "Hero Image Menu",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in same tab",
+                        "flagNavItemStyle": "Nav Hero Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1CVeDTobBq8kJ1tj7iKD4t/7aff765e47d59779d69e96170dbd18a3/MyIC_Article139236",
+                          "width": 2190,
+                          "height": 1369
+                        }
+                      },
+                      {
+                        "navName": "Whatuni - Hero Image Menu",
+                        "navUrl": "https://mdev.dev.aws.whatuni.com/new/advice/subject-guides/arts",
+                        "navTitle": "Hero Image Menu",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in same tab",
+                        "flagNavItemStyle": "Nav Hero Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1CVeDTobBq8kJ1tj7iKD4t/7aff765e47d59779d69e96170dbd18a3/MyIC_Article139236",
+                          "width": 2190,
+                          "height": 1369
+                        }
+                      },
+                      {
+                        "navName": "Whatuni - Hero Image Menu",
+                        "navUrl": "https://mdev.dev.aws.whatuni.com/new/advice/subject-guides/arts",
+                        "navTitle": "Hero Image Menu",
+                        "navCtAlabel": null,
+                        "navCtaTarget": "Open in same tab",
+                        "flagNavItemStyle": "Nav Hero Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/1CVeDTobBq8kJ1tj7iKD4t/7aff765e47d59779d69e96170dbd18a3/MyIC_Article139236",
+                          "width": 2190,
+                          "height": 1369
+                        }
+                      }
+                   
+                    ]
+                  },
+                  "navChildC2Collection": {
+                    "items": []
+                  },
+                  "navChildC3Collection": {
+                    "items": [
+                      {
+                        "navName": "Whatuni - Nav Category 2",
+                        "navUrl": null,
+                        "navTitle": "Category Heading 2",
+                        "navCtAlabel": null,
+                        "navIcon": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "L2 Text"
+                      },
+                      {
+                        "navName": "Whatuni - open days",
+                        "navUrl": null,
+                        "navTitle": "Open days",
+                        "navCtAlabel": null,
+                        "navCtaTarget": null,
+                        "flagNavItemStyle": "Nav Image",
+                        "navIcon": {
+                          "url": "https://images.ctfassets.net/szez98lehkfm/3gBdzHXucWKFh2Tht18q8/9a241336f74a85eb9075f2c23aa195d8/hero-banner.png",
+                          "width": 362,
+                          "height": 460
+                        }
+                      }
+                      
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+  

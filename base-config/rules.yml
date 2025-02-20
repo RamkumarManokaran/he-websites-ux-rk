@@ -1,0 +1,31 @@
+# .build_env: #Used in Build Job
+#   rules:
+#     - if: $CI_PIPELINE_SOURCE == "pipeline"
+#       when: never
+#     - if: $CI_COMMIT_BRANCH == $BRANCH
+#       # when: always  
+#   environment:
+#     name: $GITLAB_ENV 
+
+# .deploy_env: #Used in Deploy & Invalidate Jobs
+#   rules:
+#     - if: $CI_PIPELINE_SOURCE == "pipeline"
+#       when: never
+#     - if: $CI_COMMIT_BRANCH == $BRANCH
+#       # when: always     
+#   environment:
+#     name: $GITLAB_ENV
+
+.pipeline_rules:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web" && $CI_COMMIT_BRANCH == $BRANCH'
+      when: manual
+    - if: $CI_COMMIT_BRANCH == $BRANCH
+      changes:
+        - "${PROJECT_PATH}/**/*"
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+      changes:
+        - "${PROJECT_PATH}/**/*"
+    - when: never
+  environment:
+    name: $GITLAB_ENV

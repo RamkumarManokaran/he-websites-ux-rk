@@ -1,0 +1,126 @@
+# To replicate for a new project,
+# 1) Replace values for Variables - $PROJECT_NAME, $PROJECT_PATH & $CLOUDFRONT_ID
+# 2) Replace "whatuni" with value of "PROJECT_NAME"
+
+.whatuni/pipeline-vars:
+  variables:
+    PROJECT_NAME: whatuni
+    PROJECT_PATH: apps/whatuni
+    CLOUDFRONT_ID: ${WHATUNI_CLOUDFRONT_ID}
+
+#####################################################
+
+include:
+  # - project: idp-education/shared/artifacts/devsecops/idp-connect/pipeline-resources/gitlab-pipelines
+  #   ref: main
+  #   file:
+  #     - /nextjs/he-websites/base-config/base.yml
+  #     - /nextjs/he-websites/base-config/rules.yml
+  - local: /base-config/base.yml
+  - local: /base-config/rules.yml
+################# Develop Pipeline  ###############
+
+.whatuni/dev-vars:
+  variables:
+    PROJECT_NAME: !reference [.whatuni/pipeline-vars, variables, PROJECT_NAME]
+    PROJECT_PATH: !reference [.whatuni/pipeline-vars, variables, PROJECT_PATH]
+    BRANCH: develop #Gitlab Branch
+    GITLAB_ENV: development #Gitlab Pipeline Environment 
+    BUILD: build:whatuni
+
+whatuni/dev/build:
+  extends: 
+    - .build_job
+    - .pipeline_rules
+  variables: !reference [.whatuni/dev-vars, variables]
+
+whatuni/dev/deploy:
+  extends: 
+    - .deploy_job
+    - .pipeline_rules
+  variables: !reference [.whatuni/dev-vars, variables]
+  needs: 
+    - job: whatuni/dev/build
+      artifacts: true
+  # script:
+  #   - cdk deploy --all --require-approval never --ci
+
+whatuni/dev/invalidate:
+  extends: 
+    - .cf_invalidate_job
+    - .pipeline_rules
+  variables: !reference [.whatuni/dev-vars, variables]
+  needs: 
+    - job: whatuni/dev/build
+    - job: whatuni/dev/deploy
+      artifacts: false
+
+# ################# Staging Pipeline  ###############
+
+.whatuni/stage-vars:
+  variables:
+    PROJECT_NAME: !reference [.whatuni/pipeline-vars, variables, PROJECT_NAME]
+    PROJECT_PATH: !reference [.whatuni/pipeline-vars, variables, PROJECT_PATH]
+    BRANCH: stage #Gitlab Branch
+    GITLAB_ENV: staging #Gitlab Pipeline Environment 
+
+whatuni/stage/build:
+  extends: 
+    - .build_job
+    - .pipeline_rules
+  variables: !reference [.whatuni/stage-vars, variables]
+
+whatuni/stage/deploy:
+  extends: 
+    - .deploy_job
+    - .pipeline_rules
+  variables: !reference [.whatuni/stage-vars, variables]
+  needs: 
+    - job: whatuni/stage/build
+      artifacts: true
+  
+whatuni/stage/invalidate:
+  extends: 
+    - .cf_invalidate_job
+    - .pipeline_rules
+  variables: !reference [.whatuni/stage-vars, variables]
+  needs: 
+    - job: whatuni/stage/build
+    - job: whatuni/stage/deploy
+      artifacts: false
+
+# ################# Prod Pipeline  ###############
+
+.whatuni/prod-vars:
+  variables:
+    PROJECT_NAME: !reference [.whatuni/pipeline-vars, variables, PROJECT_NAME]
+    PROJECT_PATH: !reference [.whatuni/pipeline-vars, variables, PROJECT_PATH]
+    BRANCH: prod #Gitlab Branch
+    GITLAB_ENV: production #Gitlab Pipeline Environment 
+
+whatuni/prod/build:
+  extends: 
+    - .build_job
+    - .pipeline_rules
+  variables: !reference [.whatuni/prod-vars, variables]
+
+whatuni/prod/deploy:
+  extends: 
+    - .deploy_job
+    - .pipeline_rules
+  variables: !reference [.whatuni/prod-vars, variables]
+  needs: 
+    - job: whatuni/prod/build
+      artifacts: true
+
+whatuni/prod/invalidate:
+  extends: 
+    - .cf_invalidate_job
+    - .pipeline_rules
+  variables: !reference [.whatuni/prod-vars, variables]
+  needs: 
+    - job: whatuni/prod/build
+    - job: whatuni/prod/deploy
+      artifacts: false
+
+# #####################################################
